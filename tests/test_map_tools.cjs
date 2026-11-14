@@ -10,3 +10,30 @@ assert.equal(M.shakingLinks({id:'us2000ahv0',mag:5.9}), '');assert(M.shakingLink
 assert(M.shakingLinks({id:'usgs-na~us2000ahv0',source_event_id:'us2000ahv0',mag:8.2}).includes('/us2000ahv0/dyfi/intensity'));
 assert(!M.shakingLinks({id:'ssn-key',mag:7.8,_catalog_id:'ssn-mx-historical'}).includes('href='));assert(!M.shakingLinks({id:'<script>',mag:8}).includes('<script>'));
 console.log('PASS coordinate wrap, polygon holes/dateline, magnitude boundaries and source-safe official intensity links');
+
+// Pan outside and back: a displaced rank badge must travel with its epicentre.
+const rankLayers=new Set(),rankHandlers={},rankLeaders={layers:[],addTo(){rankLayers.add(this);return this;},clearLayers(){this.layers=[];}};
+let rankPan=0;
+const rankMap={
+  getSize:()=>({x:400,y:300}),getContainer:()=>({getBoundingClientRect:()=>({left:0,top:0}),querySelectorAll:()=>[]}),
+  latLngToLayerPoint:p=>({x:p[1]+rankPan,y:p[0]}),latLngToContainerPoint:p=>({x:p[1]+rankPan,y:p[0]}),
+  layerPointToLatLng:p=>[p[1],p[0]-rankPan],hasLayer:layer=>rankLayers.has(layer),removeLayer:layer=>rankLayers.delete(layer),
+  on(events,fn){for(const event of events.split(' '))rankHandlers[event]=fn;},off(events,fn){for(const event of events.split(' '))if(rankHandlers[event]===fn)delete rankHandlers[event];}
+};
+const originalWindow=global.window;
+global.window={L:{layerGroup:()=>rankLeaders,divIcon:options=>options,
+  polyline:points=>({addTo(group){group.layers.push({kind:'leader',points});return this;}}),
+  circleMarker:point=>({addTo(group){group.layers.push({kind:'epicentre',point});return this;}})}};
+try{
+  const point=[100,100],marker={addTo(){rankLayers.add(this);return this;},setIcon(icon){this.icon=icon;return this;}}.addTo(rankMap);
+  const ranks=M.declutterRanks(rankMap,[{marker,point,html:'<b>1</b>'}]);
+  assert(rankLayers.has(marker));assert.equal(rankLeaders.layers.length,2);assert.notDeepEqual(marker.icon.iconAnchor,[17,17]);
+  rankPan=-110;rankHandlers.moveend();
+  assert(!rankLayers.has(marker),'an off-screen epicentre must not leave its displaced badge visible');assert.equal(rankLeaders.layers.length,0);
+  rankPan=0;rankHandlers.moveend();
+  assert(rankLayers.has(marker),'panning back must restore the same rank marker');assert.equal(rankLeaders.layers.length,2);
+  rankPan=350;rankHandlers.zoomend();assert(!rankLayers.has(marker));assert.equal(rankLeaders.layers.length,0);
+  rankPan=0;rankHandlers.resize();assert(rankLayers.has(marker));assert.equal(rankLeaders.layers.length,2);assert.deepEqual(point,[100,100]);
+  ranks.dispose();assert(!rankLayers.has(rankLeaders));assert.equal(Object.keys(rankHandlers).length,0);
+}finally{if(originalWindow===undefined)delete global.window;else global.window=originalWindow;}
+console.log('PASS rank badges leave and re-enter with their epicentres after pan, zoom and resize');

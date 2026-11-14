@@ -843,4 +843,13 @@ body[data-article-figure] .quick-answer, body[data-article-figure] #comparisonWo
 }
 .magnitude-label-explanation{display:block;font-size:15px;line-height:1.45;color:var(--ink)}
 
+/* Leave room for individual epicentres when the enlarged key accompanies a subdivision. */
+@media(min-width:701px){
+.map-card.map-key-large:has(#mapScopeNote:not([hidden])) .magnitude-tone-legend>strong{font-size:28px!important}
+.map-card.map-key-large:has(#mapScopeNote:not([hidden])) .magnitude-tone-legend>span{font-size:32px!important}
+.map-card.map-key-large:has(#mapScopeNote:not([hidden])) .magnitude-tone-legend>span>i{width:32px!important;height:32px!important;flex-basis:32px}
+.map-card.map-key-large:has(#mapScopeNote:not([hidden])) .map-note,.map-card.map-key-large:has(#mapScopeNote:not([hidden])) .base-status,.map-card.map-key-large:has(#mapScopeNote:not([hidden])) #tectonicStatus{font-size:18px!important;line-height:1.35}
+.map-card.map-key-large:has(#mapScopeNote:not([hidden])) #mapScopeNote{font-size:17px;line-height:1.4}
+}
+
 .map-scope-note{font-size:16px;line-height:1.45;padding:10px 14px;background:#fff7e7;color:#603511;border-left:4px solid #b86b16}.map-key-large .map-scope-note{font-size:22px}@media(max-width:700px){.map-key-large .map-scope-note{font-size:12px}}

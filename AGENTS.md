@@ -9,8 +9,11 @@ Bitácora al cerrar. Habla con Gabriel en español y sé breve.
 - Cada commit, incluido amend, push, publicación, release, correo o envío editorial
   requiere autorización expresa y previa de Gabriel para ESA acción. Autorizar ediciones
   no autoriza commits. Ninguna autorización antigua de otro proyecto es válida aquí.
+- Preguntar expresamente antes de cada commit (incluido amend) y antes de cada push,
+  y esperar esa autorización específica. Esta regla también debe darse a Fable.
 - Usar la identidad Git humana de Gabriel Hurtado. Nunca asistentes de IA como autores,
   committers, coautores, trailers, firmas ni créditos automáticos de commits o PR.
+  Autor y committer: Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>.
   Conservar licencias, créditos humanos y la declaración académica veraz de asistencia de IA.
 - Autores decididos: José Manuel Villa Vargas primero; Gabriel Hurtado Avilés segundo
   y de correspondencia. Preguntar antes de cambiar autores. No inventar roles ni aprobaciones.

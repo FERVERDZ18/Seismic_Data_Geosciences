@@ -185,8 +185,8 @@ test('actual Canvas fills use four stable catalogue colours and distinct marker 
   const painted=canvas.painted.slice(-4),expected=['#2563eb','#7c3aed','#c28112','#0d9471'];
   assert.deepEqual(painted.map(p=>p.color),expected);
   assert.deepEqual(painted.map(p=>p.path[0][0]),['arc','rect','moveTo','moveTo']);
-  assert.equal(painted[0].path[0][3],2,'M3.5 retains its 2 CSS-pixel radius');
-  assert.equal(painted[1].path[0][3],4.4,'M4.5 square retains the magnitude-derived 2.5 CSS-pixel radial scale');
+  assert.equal(painted[0].path[0][3],2.5,'Sparse M3.5 symbols remain visible at 2.5 CSS pixels');
+  assert.equal(painted[1].path[0][3],5.28,'Sparse M4.5 square follows the larger magnitude scale');
   const evidence=api.getDisplayEvidence();assert.equal(evidence.color_encoding,'catalogue');assert.equal(evidence.catalogue_palette.length,4);
   assert.deepEqual(Array.from(evidence.catalogue_palette,s=>s.code),['01','02','03','04']);
   evidence.catalogue_palette[0].color='mutated';assert.equal(api.getDisplayEvidence().catalogue_palette[0].color,expected[0]);

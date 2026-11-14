@@ -1012,22 +1012,22 @@ function updateLandScopeNote(){
     landScopeSummary={maximum:mags.reduce((a,b)=>Math.max(a,b),-Infinity),examples};
   }
   const d=landScopeSummary;box.textContent=en?'Land-polygon selection only · maximum reported M '+(Number.isFinite(d.maximum)?d.maximum.toFixed(1):'unavailable')+'. Offshore and other outside-polygon epicentres are excluded.':'Sólo polígono terrestre · M máxima reportada '+(Number.isFinite(d.maximum)?d.maximum.toFixed(1):'no disponible')+'. Se excluyen epicentros marinos y otros fuera del polígono.';
+  if(state.catalog?.id==='ssn-mx-historical'&&f.admin1==='MEX-2729'&&Number(f.yearFrom)===2000&&Number(f.yearTo)===2026){const base=state.events.filter(e=>e.admin1_id===f.admin1&&Number(e.time?.slice(0,4))>=2000&&Number(e.time?.slice(0,4))<=2026&&e.mag>=3.5),large=base.filter(e=>e.mag>=4.5);box.textContent+=(en?' Same land polygon and interval: ':' Mismo polígono terrestre y periodo: ')+fmt(base.length)+' (M ≥ 3.5); '+fmt(large.length)+' (M ≥ 4.5). '+(en?'Raising the magnitude threshold excludes smaller records, not years or locations.':'Elevar el umbral de magnitud excluye los registros menores, no años ni lugares.');}
   if(d.examples.length)box.textContent+=(en?' SSN locality references to Guerrero outside this polygon: ':' Referencias de localidad SSN a Guerrero fuera de este polígono: ')+d.examples.slice(0,3).map(e=>e.time.slice(0,4)+' M '+e.mag.toFixed(1)).join('; ')+(en?'. These records remain in SSN.':'. Estos registros permanecen en el SSN.');
 }
 function updateDisplayEvidence(evidence){
   const heat=(evidence?.mode || state.map?.getDisplayMode?.())==='heat';
   document.body.dataset.mapDisplay=heat?'heat':'points';
   $('mapDisplay').value=heat?'heat':'points';$('heatLegend').hidden=!heat;$('mapPointLegend').hidden=false;
-  const en=I.language==='en',e=evidence||state.map?.getDisplayEvidence?.();
-  const labels=e?.magnitude_labels;
-  $('magnitudeLabelNote').hidden=heat||!labels?.shown;
-  $('magnitudeLabelNote').textContent=en?'M = reported magnitude. Labels: '+(labels?.shown||0)+' visible records with M ≥ 5.5, largest first, at most 24 without overlap. All selected epicentres remain; select a point or table row to inspect its magnitude.':'M = magnitud reportada. Se etiquetan '+(labels?.shown||0)+' registros visibles con M ≥ 5.5, mayores primero, hasta 24 sin superposición. Todos los epicentros seleccionados permanecen; consulta su magnitud en el punto o la tabla.';
+  const en=I.language==='en',e=evidence||state.map?.getDisplayEvidence?.(),pointMode=state.map?.getColorMode?.()||'catalogue';
+  $('magnitudeLabelNote').hidden=heat;
+  $('magnitudeLabelNote').textContent=en?'M = reported magnitude; '+(pointMode==='depth'?'symbol size follows M; colour encodes documented depth or its absence.':'colour shade and symbol size follow M.')+' Automatic M text labels are omitted consistently at every zoom. Inspect a point or table row for its exact value. Dense selections use smaller, translucent symbols; every selected row remains.':'M = magnitud reportada; '+(pointMode==='depth'?'el tamaño sigue M; el color indica profundidad documentada o su ausencia.':'el tono y tamaño siguen M.')+' Se omiten los rótulos automáticos de M en todos los acercamientos. Consulta el valor exacto en el punto o la tabla. Las selecciones densas usan símbolos menores y translúcidos; se conservan todas las filas.';
   $('heatEvidence').textContent=en?'One weight per visible source row · 8 px cells · 32 px radius · scale relative to this viewport. Not energy, physical density or hazard.':'Un peso por fila visible · celdas de 8 px · radio de 32 px · escala relativa a este encuadre. No es energía, densidad física ni amenaza.';
   if(heat && e)$('heatEvidence').textContent+=' '+fmt(e.visible_rows||0)+(en?' visible of ':' visibles de ')+fmt(e.selected_rows||0)+(en?' selected.':' seleccionadas.');
   $('largeMapKey').textContent=en?'Large map key':'Leyenda ampliada';
   updateLandScopeNote();
   if(heat)$('heatEvidence').textContent+=en?' The heat ramp encodes concentration; superimposed symbols retain catalogue shape and magnitude shade; USGS Mexico is warm orange in this view.':' La escala de calor codifica concentración; los símbolos superpuestos conservan forma de catálogo y tono de magnitud; USGS México usa naranja cálido en esta vista.';
-  const pointMode=state.map?.getColorMode?.()||'catalogue',sourceColors=heat||pointMode!=='depth';
+  const sourceColors=heat||pointMode!=='depth';
   const warmOption=$('mapPointColor').querySelector?.('option[value=warm]');if(warmOption)warmOption.textContent=en?'Warm catalogue colours':'Colores cálidos por catálogo';
   $('mapPointColor').value=heat?'catalogue':pointMode;$('mapPointColor').disabled=heat;
   $('magnitudeToneLegend').hidden=!sourceColors;

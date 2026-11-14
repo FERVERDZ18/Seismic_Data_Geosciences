@@ -6,6 +6,101 @@ Lee completos AGENTS.md, MEMORIA_COMPARTIDA.md y NUEVA_PC.md antes de actuar.
 
 ## Estado actual
 
+- AUTORIZACIÓN NUEVA14nov2026: Gabriel pide ejecutar el commit y push pendientes
+  con su identidad humana, sin atribuciones de IA. La regla explícita de preguntar
+  antes de CADA commit/amend y CADA push se refuerza en AGENTS.md y el promptFable.
+  Autor/committer previstos: Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>.
+- Candidata lista para commit:2026.11.14.1, v0Word/PDF idénticos a la copia congelada.
+  Corregidos tres bugs: nota de color en profundidad, etiquetas al panear fuera/dentro
+  del mapa y falsa localidadAlaska. Regresión pan/zoom/resize incluida;80Python y
+ 18suitesJS pasan. Assets versionados porhash; gateLOCAL85archivos/87refs cero fallos.
+- GateHTTP NUEVO:592URLs (253literales+339rutasUSGS muestreadas),585con evidencia
+  exitosa;7incidencias pendientes: tresDOI403, NRCan403, dosScienceDirect403/400 y
+  AZCATLtimeout. TLSGitHub validado concurlWindows normal; Nominatim200 parametrizado.
+  Sin aceptación nueva de excepciones ni cobertura de rutas no visitadas. El push
+  requiere esa aceptación específica según AGENTS.md; no heredar permisos anteriores.
+  Evidencia:outputs/commit_push_2026-11-14/gate_for_push.json.
+- PaqueteFable actualizado localmente; prompts, inventario, evidencia y archivo v0
+  siguen privados/ignorados porGit. Entran sólo los finales públicos y rutas previstas.
+  La declaración académica veraz deIA se conserva en Word/PDF, sin alterar v0.
+
+
+- REPLANTEAMIENTO14nov2026: Gabriel considera insuficiente la contribución del
+  artículo para Computers & Geosciences y pide conservarlo como v0 y preparar el
+  encargo científico para Fable5.2. Prevalece esta dirección sobre la preparación
+  de publicación anterior. El commit/push/Pages solicitado inmediatamente antes
+  quedó PENDIENTE; no se ejecutó ninguna de esas acciones para2026.11.14.1.
+- v0 privada congelada: outputs/frozen_v0_2026-11-14/Seismic_CG_v0.docx y.pdf,
+  sin cambiar bytes; fuente correspondiente, nueve figuras y ocho paneles originales.
+  MANIFEST.json registra31archivos copiados y verificados porSHA. QA51/20p procede
+  de la pareja revisada anterior; congelar no es QA científica nueva ni nuevo render.
+  El Word provisional outputs/release_2026-11-14/stage NO es la v0. Fuente activa
+  restaurada a la correspondiente al par; edición provisional preservada aparte.
+- Encargo listo: outputs/reframing_2026-11-14/PROMPT_FABLE_5_2.txt; dossier,
+  trece antecedentes verificados por metadatos/resúmenes/fragmentos (sin fulltext),
+  prompt de revisión independiente y paquete privado PAQUETE_PARA_FABLE.zip.
+- Censo Crossref completo del recorrido:6811registros/DOI únicos,7páginas,cero
+  duplicados.6765fechas impresas al corte14nov;18noviembre sin día;28posteriores.
+  Sin fechas online ni abstracts: no equivale a todos los artículos realmente
+  publicados ni a6811textos leídos. ÍndiceScienceDirect403; ISSNonlineAPI404.
+  Informes/script/caché privados en outputs/reframing_2026-11-14/research/.
+- No hay garantía de aceptación. Recomendación: comparar propuestas científicas
+  breves independientes, elegir una ruta humana y redactar una versión principal,
+  con revisiones de los otros modelos. No se contactó ni ejecutó Fable/Gemini/Opus.
+- Rutas candidatas no implementadas: consultas bajo historia incompleta,
+  sensibilidad regional a geometría/revisiones y avance computacional en navegador.
+  Deben justificarse novedad, consecuencia geocientífica y experimento antes de
+  implementar. Las4720comparaciones son offline Python/SQLite; pruebas específicas
+  sí cotejan JS/sql.js con Python. Especificación/resultados comunes, código no idéntico.
+- Tres bugs de revisión local pendientes: nota de colorM en modo profundidad,
+  etiqueta huérfana al panear fuera del viewport y fallbackAlaska para lugar ausente.
+  No corregidos/publicados. El sitio previamente verificado sigue2026.11.12.3/2ad.
+  Ningún cambio en otros proyectos, sitios históricos, datos o contenedores.
+
+
+- 14nov2026, aclaración de Figura1: con entradas y criterios equivalentes deben coincidir
+  los resultados probados; la ejecución Python/SQLite y la del navegador son distintas.
+  Propuesta: "Offline Python/SQLite checks verify agreement with browser results for
+  the tested inputs and queries." Las4720proyecciones cotejan SQLite con Python offline,
+  no directamente el navegador; pruebasSQL/históricas sí cotejan APIsJS/sql.js con Python.
+  Sólo aclaración y propuesta de redacción; fuente, Word/PDF y sistema no modificados
+  en esta intervención. Sin commit/push/publicación.
+
+- CIERRE 14nov2026: origin/main verificado por red en 2ad5ddb8abb1587174736d6e8a10dda2a82c71f1;
+  push realizado por Gabriel, sin repetir commit/amend/push. La API confirmó cero runs
+  de ese SHA; se ejecutó UN despliegue ya autorizado: Actions43613925486, validate y
+  deploy SUCCESS. 85/85 assets públicos coinciden byte/SHA con el commit. Pages2026.11.12.3.
+- NUEVA REVISIÓN LOCAL solicitada después: 2026.11.14.1. Figuras5/6 sin rótulos M
+  automáticos en todos los zooms; magnitud por tono/tamaño y ficha. Selecciones densas
+  usan símbolos menores/translúcidos sin muestreo ni desplazar coordenadas. Más espacio
+  de mapa en paneles regionales. Recalculado Guerrero2000–2026:19963(M>=3.5),203(M>=4.5),
+  19760excluidos por umbral; máxima6.5. Comparación visible en UI y pie de figura6.
+- Top10: #4 corresponde a Alaska y ahora está numerado en el localizador continental,
+  con explicación y marco del área mexicana; etiquetas separadas y líneas con penalización
+  de cruces. Nueve registros siguen en detalle de México; datos/ranking intactos.
+- Finales LOCALES outputs/paper/Seismic_CG_manuscript.docx y.pdf:20p/9fig/4tablas/16enlaces,
+  sin comentarios/revisiones;51checks y20páginas cubiertas visualmente. Tras corregir un
+  recorte incompleto de figura8, página13 revisada y19PNGidénticos a los ya inspeccionados.
+  Plantilla/autores/licencias/declaración académicaIA conservados. Seis suitesJS pasan;
+  gateLOCAL85assets/72refs sin fallos. No gateHTTP nuevo para push. Móvil no recertificado.
+- La revisión14nov NO tiene commit/push/despliegue autorizado ni ejecutado. El permiso
+  anterior de Pages está CONSUMIDO. No publicar otro candidato ni reintentar sin permiso
+  específico. Evidencias reales privadas:outputs/readability_2026-11-14/final_receipt.json.
+  La evidencia12nov sí existe en esta PC; sus resultados no se presentan como QA nueva.
+  Consulta de tres exclusiones Pages dio503, sin certificar404 en este cierre. PCencendida.
+
+### Antecedentes conservados; prevalece el cierre del 14nov2026
+
+
+- COMMIT HUMANO 2ad5ddb8abb1587174736d6e8a10dda2a82c71f1 creado12nov2026,18rutas.
+  Autor/committerGabrielHurtado, sinIA/trailers/gpgsig. UNcommit consumido.
+  Push y UNdespliegue YAautorizados; pendientes únicamente de aceptación NUEVA
+  de seisHTTP403 (tresDOI,dosScienceDirect,NRCan) y muestra339/36872USGS.
+  Gate586/592, cero falloslocales; Nominatim parametrizado200/TLSvalidado.
+  80pruebasPython y18suitesJS pasan. No repetircommit/amend. No push ni Pages
+  ejecutados todavía; publicado sigueaddc17d. Plan:outputs/panel_release_2026-11-12/.
+  PCencendida. Esta nota posterior alcommit queda local, sinamend.
+
 - PUBLICACIÓN AUTORIZADA 12nov2026: UN commit humano, UN push y UN despliegue
   manual de candidata2026.11.12.3, después de verificar Word/PDF y sistema.
   Autor/committer Gabriel Hurtado, sin IA ni trailers; declaración académica
@@ -529,6 +624,39 @@ Lee completos AGENTS.md, MEMORIA_COMPARTIDA.md y NUEVA_PC.md antes de actuar.
 
 ## Siguiente paso
 
+- CIERRE DE GIT14nov2026: ejecutar UN commit autorizado con identidad humana;
+  verificar metadatos/mensaje y solicitar excepción NUEVA para ESTE push por las
+  siete incidencias externas y el muestreo339/36872USGS. Sólo tras recibirla hacer
+  el push autorizado y comprobar origin/main. No repetircommit ni haceramend.
+  Los prompts y la v0 privada se entregan por el paquete local, no por Pages.
+
+
+
+- PRIORIDAD14nov2026: Gabriel entrega a Fable el paquete privado y decide con
+  José Manuel una pregunta/ruta tras diagnóstico de novedad y factibilidad. Primero
+  protocolo y evidencia; después manuscrito v1 separado, reutilizando imágenes
+  fielmente. No sobrescribir v0 ni atribuir resultados nuevos a sus capturas.
+- Mantener pendiente el release anterior mientras prevalezca el replanteamiento.
+  Si se retoma, resolver tres bugs, aclarar Figura1, QA final y enlaces NUEVOS
+  antes de cualquier push. No reutilizar excepcionesHTTP ni disparar Pages duplicado.
+
+### Antecedentes de siguientes pasos; prevalece la prioridad14nov2026
+
+
+- Si Gabriel solicita aplicar la precisión del pie de Figura1, actualizar la fuente y
+  regenerar/verificar Word/PDF. No igualar implementaciones ni afirmar equivalencia universal.
+
+- Gabriel revisa los finales locales y el Top10. Si solicita publicar la revisión
+  2026.11.14.1, preparar gateHTTP NUEVO y obtener autorización específica para UNcommit,
+  UNpush y UNdespliegue; ninguna de esas acciones nuevas está autorizada. Sitio actual:
+  https://gabrielhuav.github.io/Seismic_Data_Geosciences/ (2026.11.12.3).
+
+### Antecedentes conservados; prevalece el cierre del 14nov2026
+
+
+- Esperar aceptación del gate NUEVO de2ad5ddb; después completar UNpush y
+  UNdespliegue YAautorizados, verificar85assets y vistas públicas. No otrocommit.
+
 - Candidata2026.11.12.3 lista localmente. Publicación requiere permiso NUEVO por
   acción y gate de enlaces fresco para ese push; no heredar excepciones.
 
@@ -541,6 +669,37 @@ Lee completos AGENTS.md, MEMORIA_COMPARTIDA.md y NUEVA_PC.md antes de actuar.
   Identidad humana de Gabriel, sin atribuciones de IA en Git; declaración académica conservada.
 
 ## Bitácora
+
+- 14nov2026, reanudación Git solicitada: reforzadas reglas paraFable y AGENTS,
+  corregidos tres bugs de UI y aprobadas80pruebasPython/18suitesJS. v0 intacta.
+  GateHTTP fresco con7incidencias; antes de push se requiere excepción específica.
+  Commit/push autorizados porGabriel; ejecución ySHA se registrarán al realizarse.
+
+
+
+- 14nov2026, reformulación solicitada: congelada v0 con hashes, nuevefiguras
+  y ocho paneles; conservada fuente que produjo la pareja. Inventariados6811DOI
+  Crossref sin suponer fulltexts, preparado promptFable, dossier y13antecedentes.
+  La redacción v1 queda supeditada a pregunta/experimentos decididos por humanos;
+  no hay garantía editorial. Commit/push/despliegue previamente solicitados quedaron
+  pendientes por cambio de prioridad, sin ejecutarse para la revisión14nov.
+
+
+
+- 14nov2026: revisados código y pruebas para aclarar equivalencia de resultados frente
+  a separación de ejecución; propuesta inglesa acotada a entradas/consultas probadas.
+  Sin cambios a manuscrito/sistema/publicación.
+
+- 2026-11-14: verificados origin/main y cero ejecuciones de2ad5ddb; UNdispatch autorizado
+  43613925486 SUCCESS,85assets exactos,sincommit/push. Después se atendieron LOCALMENTE
+  figuras5A/6/8: símbolos y filtros aclarados,#4Alaska/localizador/etiquetas separados.
+  Word/PDF20p/9fig/4tablas/16links,51checks,QAvisual y6suitesJS; ningún nuevoGit/Pages.
+
+### Antecedentes conservados; prevalece el cierre del 14nov2026
+
+
+- 2026-11-12: commit2ad5ddb humano autorizado creado; pregunta de excepciones
+  enviada sinrespuesta. Push/despliegue autorizados pendientes; sinapagado.
 
 - 2026-11-12: revisión de pies4A-D, Guerrero, paleta5D y Top10 aplicada al
   sistema antes de capturar. Word/PDF20p finales coincidentes; ocho enlaces

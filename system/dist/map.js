@@ -334,14 +334,15 @@ window.createSeismicMap = function ({element, basemap, onSelect, onHighlight = (
       this.sourceStyles ||= new Map();const marker=window.SeismicSourceWorkbench?.markerPath;
       for (const e of this.paintOrder) {
         const p = this._map.latLngToContainerPoint(eventLatLng(e));
-        const radius = Math.max(2, (e.mag - 2.5) * 1.25);
+        const dense = (this.records||[]).length > 3000;
+        const radius = dense ? Math.max(1, (e.mag - 2.5) * .85) : Math.max(2.5, (e.mag - 2.5) * 1.5);
         if (p.x < -radius || p.x > size.x + radius || p.y < -radius || p.y > size.y + radius) continue;
         this.points.push({x: p.x, y: p.y, radius, event: e});
         const styleKey=colorMode+'|'+(e._catalog_id||'');
         if(colorMode!=='depth'&&!this.sourceStyles.has(styleKey))this.sourceStyles.set(styleKey,window.SeismicMapTools?.pointIdentity(sourceStyle(e),colorMode)||sourceStyle(e));
         const identity=colorMode!=='depth'?this.sourceStyles.get(styleKey):null;
         if(identity?.catalogue_id&&!visibleCatalogues.has(identity.catalogue_id))visibleCatalogues.set(identity.catalogue_id,{...identity});
-        ctx.beginPath();ctx.globalAlpha = identity?.color?.length ? .88 : .7;
+        ctx.beginPath();ctx.globalAlpha = dense ? .65 : .9;
         ctx.fillStyle = (identity ? window.SeismicMapTools?.magnitudeColor(identity.color,e.mag) || identity.color : null) || (e.depth === null ? colors.unknown : e.depth > 70 ? colors.deep : colors.shallow);
         if(identity&&marker)marker(ctx,p.x,p.y,radius,identity.shape);else ctx.arc(p.x,p.y,radius,0,Math.PI*2);
         ctx.fill();
@@ -349,8 +350,7 @@ window.createSeismicMap = function ({element, basemap, onSelect, onHighlight = (
         if (e.id === selectedId) selectedPoint = {x:p.x,y:p.y,radius};
       }
       visible=this.points.length;
-      let labelledRows=0;if(ctx.fillText&&this._map.getZoom()>=6){const placed=[];for(const p of [...this.points].sort((a,b)=>b.event.mag-a.event.mag)){if(p.event.mag<5.5||placed.length>=24)break;const x=p.x+8,y=p.y-8;if(x<2||y<17||x+52>size.x||y>size.y-3||placed.some(q=>Math.abs(q.x-x)<57&&Math.abs(q.y-y)<22))continue;ctx.font='bold 16px Arial';ctx.lineWidth=4;ctx.strokeStyle='#fff';ctx.fillStyle='#172c46';ctx.globalAlpha=1;ctx.strokeText?.('M '+p.event.mag.toFixed(1),x,y);ctx.fillText('M '+p.event.mag.toFixed(1),x,y);placed.push({x,y});labelledRows++;}}
-      displayEvidence={mode:'points',magnitude_labels:{shown:labelledRows,minimum_reported_magnitude:5.5,maximum_labels:24,minimum_zoom:6,rule:'Largest visible records first; skip overlapping labels only. All selected points remain.'},color_encoding:colorMode,magnitude_tones:colorMode!=='depth'?[{range:'M < 3',lightness:78},{range:'3 ≤ M < 5',lightness:59},{range:'5 ≤ M < 7',lightness:42},{range:'M ≥ 7',lightness:27}]:null,catalogue_palette:[...visibleCatalogues.values()],symbol_size:'Radius max(2, (reported M - 2.5) * 1.25) CSS pixels; magnitude types are not converted.',selected_rows:(this.records||[]).length,visible_rows:visible,viewport_css_pixels:[size.x,size.y]};
+      displayEvidence={mode:'points',magnitude_labels:{shown:0,rule:'No automatic text labels. Inspect a point or table row for its reported magnitude.'},color_encoding:colorMode,magnitude_tones:colorMode!=='depth'?[{range:'M < 3',lightness:78},{range:'3 ≤ M < 5',lightness:59},{range:'5 ≤ M < 7',lightness:42},{range:'M ≥ 7',lightness:27}]:null,catalogue_palette:[...visibleCatalogues.values()],symbol_size:'Above 3000 selected rows: radius max(1, (reported M - 2.5) * 0.85), opacity 0.65. Otherwise radius max(2.5, (reported M - 2.5) * 1.5), opacity 0.9. CSS pixels; no sampling or coordinate displacement.',selected_rows:(this.records||[]).length,visible_rows:visible,viewport_css_pixels:[size.x,size.y]};
       }
       if (selectedPoint) {
         ctx.globalAlpha = 1;ctx.beginPath();ctx.arc(selectedPoint.x,selectedPoint.y,Math.max(8,selectedPoint.radius+4),0,Math.PI*2);

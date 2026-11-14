@@ -54,11 +54,18 @@
   // original epicentres; observations, filters and exported coordinates stay intact.
   function declutterRanks(map,entries){
     const L=window.L,leaders=L.layerGroup().addTo(map);
-    function draw(){leaders.clearLayers();const placed=[];
+    function draw(){leaders.clearLayers();const placed=[],segments=[],size=map.getSize();
+      const origin=map.getContainer().getBoundingClientRect(),blocked=[...map.getContainer().querySelectorAll('.leaflet-control')].map(el=>{const b=el.getBoundingClientRect();return {x:b.left-origin.left,y:b.top-origin.top,w:b.width,h:b.height};});
+      const cross=(a,b,c,d)=>{const turn=(p,q,r)=>(q.x-p.x)*(r.y-p.y)-(q.y-p.y)*(r.x-p.x);return turn(a,b,c)*turn(a,b,d)<-1e-6&&turn(c,d,a)*turn(c,d,b)<-1e-6;};
       for(const {marker,point,html} of entries){const p=map.latLngToLayerPoint(point);let offset=[0,0];
-        const screen=map.latLngToContainerPoint(point),size=map.getSize();const free=(dx,dy)=>screen.x+dx>=26&&screen.x+dx<=size.x-26&&screen.y+dy>=26&&screen.y+dy<=size.y-26&&placed.every(q=>Math.hypot(q[0]-p.x-dx,q[1]-p.y-dy)>=42);
-        {outer:for(let r=36;r<=90;r+=18)for(let i=0;i<16;i++){const angle=i*Math.PI/8,dx=Math.cos(angle)*r,dy=Math.sin(angle)*r;if(free(dx,dy)){offset=[dx,dy];break outer;}}}
+        const screen=map.latLngToContainerPoint(point);if(screen.x<0||screen.y<0||screen.x>size.x||screen.y>size.y){if(map.hasLayer(marker))map.removeLayer(marker);continue;}
+        if(!map.hasLayer(marker))marker.addTo(map);
+        const free=(dx,dy)=>screen.x+dx>=26&&screen.x+dx<=size.x-26&&screen.y+dy>=26&&screen.y+dy<=size.y-26&&placed.every(q=>Math.hypot(q[0]-p.x-dx,q[1]-p.y-dy)>=46)&&blocked.every(b=>screen.x+dx+22<b.x||screen.x+dx-22>b.x+b.w||screen.y+dy+22<b.y||screen.y+dy-22>b.y+b.h);
+        let best=null;
+        for(let r=34;r<=178;r+=12)for(let i=0;i<32;i++){const angle=i*Math.PI/16,dx=Math.cos(angle)*r,dy=Math.sin(angle)*r;if(!free(dx,dy))continue;const end={x:p.x+dx,y:p.y+dy};const crossings=segments.filter(s=>cross(p,end,s.a,s.b)).length;const hits=entries.filter(e=>{const v=map.latLngToLayerPoint(e.point);return Math.hypot(v.x-end.x,v.y-end.y)<24;}).length;const score=r+crossings*10000+hits*500;if(!best||score<best.score)best={dx,dy,score};}
+        if(best)offset=[best.dx,best.dy];
         const [dx,dy]=offset;placed.push([p.x+dx,p.y+dy]);marker.setIcon(L.divIcon({className:'history-top-rank-marker',html,iconSize:[34,34],iconAnchor:[17-dx,17-dy]}));
+        segments.push({a:p,b:{x:p.x+dx,y:p.y+dy}});
         if(dx||dy){L.polyline([point,map.layerPointToLatLng([p.x+dx,p.y+dy])],{color:'#486675',weight:1.8,opacity:.95,interactive:false}).addTo(leaders);L.circleMarker(point,{radius:6,color:'#ffffff',weight:2,fillColor:'#a32232',fillOpacity:1,interactive:false}).addTo(leaders);}
       }
     }map.on('zoomend moveend resize',draw);draw();
