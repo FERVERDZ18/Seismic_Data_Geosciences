@@ -2,6 +2,17 @@
 
 ## Estado actual
 
+<!-- native-study-2026-11-16-state start -->
+- 16 nov 2026, revisión local 2026.11.16.2: Gabriel aclaró que las figuras científicas debían integrarse como análisis explorables del sistema. Este bloque prevalece sobre los estados históricos de la galería estática.
+- Se sustituyó la galería visible de Figuras 2–4 por tres vistas nativas: familias 2017/2022 con mapas Leaflet, cronología e inspección de registros; diagnósticos FMD/T–R y diferencias de magnitud; rendimiento con SVG/tablas de las 49 mediciones conservadas. Los resultados no son PNG incrustados. Familias y diagnósticos se calculan desde datos verificados; el rendimiento no se presenta como una nueva medición del navegador. Se preservan datos originales, calibración, título y todas las imágenes v0.
+- QA real en Edge: selección de eventos/testigos, zoom, ventana 200 km/+90 días, controles y restauración de URL, ES/EN, diseño móvil 390px y entrada principal con 287936 filas/cuatro paquetes verificados. Familias completas 2017:292→955 SSN y204→208 ComCat; 2022:21→84 y10→10. Ver recibos privados; son observaciones locales, no disponibilidad pública.
+- Pruebas:122 Python,27 suites JavaScript,36/36 checks PASS; cierre de transporte/privacidad/enlaces locales y41 claves de caché PASS. Revisor estático adicional no encontró P1/P2 demostrado. No se asegura aceptación editorial ni parentesco físico.
+- Nueva entrega local: outputs/native_study_2026-11-16/manuscript/out/Seismic_CG_sequences_manuscript.pdf y .docx. Conserva26 páginas,13 figuras (nueve grupos v0),4 tablas,33 referencias y20 destinos interactivos (16 anteriores+4 nativos). Pasan103 comprobaciones documentales y revisión visual26/26; sin nuevos huecos grandes, manteniendo el remanente natural de figuras. PDF SHA e8f0872c624bb019f53f933184407d0821f1dca1d0f14bcef4c453bd7fb43b73; Word SHA b5a6f51ae1293a1c92a2edc9fc0e457dd3794f719efbfaee53fc003e6505e890. Los1104 archivos anteriores protegidos quedaron intactos.
+- El push ANTERIOR de0b638d1a265832a362f2dfde0bf6515685f981c9 a origin/main quedó confirmado, con Gabriel Hurtado como autor/committer y sin atribuciones de IA. Sus17 excepciones HTTP403 y muestreo USGS fueron autorizados expresamente sólo para ese push. No repetir commit/push ni reutilizar ese permiso/excepciones para esta revisión nativa.
+- Gabriel autorizó expresamente UN commit de la revisión 2026.11.16.2, con Gabriel Hurtado <gabrielhurtadoaviles@gmail.com> como autor/committer y sin atribuciones de IA, coautores ni trailers automáticos. El cierre ejecuta y verifica sólo ese commit; consultar Git y outputs/native_study_2026-11-16/GIT_COMMIT_RESULT.json para su identificador/resultado efectivo. No autorizó su push ni publicación. Las cuatro nuevas rutas se verificaron localmente y todavía requieren despliegue autorizado y verificación pública. Antes de CADA nuevo commit/amend y CADA push preguntar expresamente; Pages necesita su permiso específico. Identidad humana Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin IA/coautores/trailers en Git; declaración académica veraz de asistencia de IA conservada. R1 disponibilidad pública completa y R2 aprobación humana real siguen pendientes.
+- Evidencias locales privadas: outputs/native_study_2026-11-16/UI_FREEZE_RECEIPT.json, checks/round_01 y closure_01, review/REVIEW_NATIVE_RELEASE.md, manuscript/out/FINAL_DELIVERY_RECEIPT.json, REGISTRO_IA.md y PROMPT_CLAUDE_REVISION_2.txt. No servir ni agregar outputs a Git. Si faltan en otra PC no inventar sus resultados; comprobar archivos y Git/origin. La sesión externa de Claude la maneja Gabriel.
+<!-- native-study-2026-11-16-state end -->
+
 <!-- article-figures-git-2026-11-16-state start -->
 - 16 nov 2026, revisión 2026.11.16.1: Gabriel pidió integrar las figuras del artículo de forma atractiva en el sistema y autorizó expresamente UN commit y su push con identidad humana; no autorizó un despliegue adicional de Pages. Esta autorización corresponde sólo a esta revisión y no se reutiliza.
 - El explorador sequences incorpora la Figura 4 completa y las Figuras 2/3 del manuscrito revisado, copiadas byte a byte, con ampliación y accesos a casos 2017/2022. Las rutas históricas?figure= conservan IDs/numeración. Las imágenes fijas se distinguen del cálculo dinámico; no suministran clasificaciones precargadas.
@@ -942,6 +953,11 @@ No se trasladan chats, credenciales, hooks ni .git/config con un clon.
 
 ## Siguiente paso
 
+<!-- native-study-2026-11-16-next start -->
+- El commit de la revisión nativa 2026.11.16.2 está autorizado para este cierre; comprobar su resultado/identidad en Git y el recibo local. Después solicitar autorización específica para su push y completar auditoría fresca de enlaces del artículo/artefacto, sin heredar las excepciones de0b638d1. Pages requiere otra autorización y comprobar primero si ya hay ejecución del commit exacto. Cualquier otro commit o amend requiere permiso nuevo.
+- Tras despliegue autorizado, comprobar públicamente los cuatro enlaces nuevos y las rutas históricas, y pasar el enlace real. Gabriel puede usar el prompt corto privado con Claude para revisar R1–R14; corregir aquí sin prometer aceptación ni fingir disponibilidad/revisión humana.
+<!-- native-study-2026-11-16-next end -->
+
 <!-- article-figures-git-2026-11-16-next start -->
 - Revisar el dictamen externo de Claude sobre el PDF 26p y contrastar cualquier hallazgo nuevo antes de modificar el artículo. Las pruebas/correcciones se hacen aquí; no reinterpretar revisiones de IA como aceptación editorial.
 - El único commit/push autorizado para esta integración usa Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin coautores, firmas o trailers automáticos. Cada commit adicional, amend y push futuro exige autorización nueva. Antes del push de esta revisión deben constar las excepciones actuales del gate; comprobar recibo local/Git, sin asumir que existen en otra PC.
@@ -1093,6 +1109,11 @@ No se trasladan chats, credenciales, hooks ni .git/config con un clon.
   Identidad humana de Gabriel, sin atribuciones de IA en Git; declaración académica conservada.
 
 ## Bitácora
+
+<!-- native-study-2026-11-16-log start -->
+- 16 nov 2026, autorización específica recibida para UN commit 2026.11.16.2 con identidad humana y sin coautores/trailers. Se confirmó que Word y PDF ya integran los cuatro enlaces nativos y conservan las nueve figuras v0; documentos/evidencias nuevas permanecen privados e intactos. No hay autorización de push ni Pages para esta revisión. Resultado efectivo del commit: consultar Git y GIT_COMMIT_RESULT.json local.
+- 16 nov 2026: tras push confirmado de0b638d1 autorizado por Gabriel, aclaró que quería análisis nativos y no una galería de capturas. Se implementaron tres vistas interactivas, cuatro enlaces nuevos en el manuscrito y QA real de navegador/móvil.122 Python+27 Node y103 checks documentales PASS;26 páginas revisadas, nueve grupos v0 intactos. Se preservó todo artefacto anterior. Entrega local nueva sellada; sin nuevo commit/push/Pages ni envío. Solicitar permisos separados para las siguientes acciones.
+<!-- native-study-2026-11-16-log end -->
 
 <!-- article-figures-git-2026-11-16-log start -->
 - 16 nov 2026: por petición de Gabriel se integraron figuras científicas 2–4, botones de casos y referencias visuales dinámicas; se corrigió el arranque por pin de transporte y se validó escritorio/móvil, 122 Python + 23 Node. Commit/push expresamente autorizados para esta revisión; gate nuevo con 17 HTTP403 y cobertura 339/36872 requiere aceptación específica. PDF 26p intacto; prompt corto para Claude preparado; sin permiso adicional de Pages ni envío editorial.

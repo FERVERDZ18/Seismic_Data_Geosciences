@@ -49,18 +49,28 @@ not precalculated classifications. Cross-runtime numerical checks and independen
 Python/author-code comparisons are separate evidence; the exact thresholds,
 primitives, operation order and finite-input scope must remain documented.
 
-The scientific gallery embeds byte-identical PNGs of revised-manuscript
-Figures 2–4: measured search scaling, magnitude/T–R diagnostics and the 2017/2022
-anchor families. These are fixed scientific results with full-resolution links;
-changing explorer filters does not recalculate the images. Their independent
-hashes, sizes and interpretation are in `dist/sequences/figures/manifest.json`.
-The gallery's case buttons open the live M>=4.5 native-catalogue calculation,
-with the complete anchor family selected. The browser then recomputes roles;
-the images never supply classifications. A star retains the reference ComCat
-anchor and a dashed 150-km circle in both local and complete-family maps,
-without relocating either source's observations. Whitelisted URL settings
-restore language, cut, method, weight, membership, case and display extent.
-Historical `?figure=` routes keep their original IDs and numbering.
+Three native research workspaces expose manuscript Figures 2–4 as explorable
+analyses. **Compared families** uses the same browser worker and retained inputs
+to calculate the 2017/2022 anchor families under fixed and apparent-b magnitude
+weights. Two Leaflet maps show the complete family and a local window; a timeline,
+source-record inspector and JSON export retain IDs and original observations.
+Radius and before/after controls crop the display without changing clustering.
+**Magnitudes and T–R** recalculates frequency–magnitude curves, apparent b/GFT
+summaries, T–R coordinates and candidate-pair magnitude differences from verified
+inputs. Points and bins lead to source records, with complete dense plots and
+paginated tables. **Search performance** draws SVG curves and tables from the
+retained timing measurements and recalculates their summaries in the browser;
+it does not claim to rerun the original Python/Numba benchmark in JavaScript.
+Each workspace stores its permitted analytic settings in its URL and supports
+ES/EN labels. Direct manuscript links restore the published selections. Data
+and calibration assets are byte-size/SHA-256 checked before use; original
+catalogue rows, magnitude types and frozen calibration remain unchanged.
+
+The earlier static figure PNGs remain archived reference assets; these native
+workspaces do not use them as results or derive classifications from images.
+A star retains the reference ComCat anchor and the local map shows the selected
+radius without relocating either source's observations. Historical `?figure=`
+routes keep their original IDs and numbering.
 
 Unversioned entry opens Home with all four catalogues and their 287,936 source
 rows on the map, with English as the default and Spanish available. The eight
@@ -114,7 +124,7 @@ No recurrence rate, hazard, risk, earthquake probability or forecast is estimate
 zero pairs do not establish safety. Maps preserve source coordinates and unwrap
 only display copies at the antimeridian. **Fit records** restores their extent.
 
-**Help and about** supplies interface version `2026.11.16.1`, twelve searchable
+**Help and about** supplies interface version `2026.11.16.2`, twelve searchable
 ES/EN questions, human authors, academic correspondence at `ghurtadoa@ipn.mx`,
 repository/issue links and licence information. The repository code is MIT;
 SSN/UNAM, NRCan, USGS and third-party data/component terms remain distinct.

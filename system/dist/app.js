@@ -187,7 +187,7 @@ function ensureQuickPanel(){
 }
 function ensureHelpPanel(){
   if(!helpPanel && window.SeismicQuickStart)helpPanel=window.SeismicQuickStart.mountHelp($('helpWorkspace'),{
-    getLanguage:()=>I.language,version:'2026.11.16.1',onNavigate:name=>setTab(name)
+    getLanguage:()=>I.language,version:'2026.11.16.2',onNavigate:name=>setTab(name)
   });
   return helpPanel;
 }

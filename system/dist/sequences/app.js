@@ -5,6 +5,8 @@
   const colors = {main:'#b93624', associated:'#d28b09', isolated:'#347bad'};
   const initialView=SeismicSequenceView.parse(location.search);
   let lang = initialView.lang;
+  let viewState=initialView;
+  const nativeMounts=new Map();
   let manifest, cached = new Map(), active = {}, results = {}, currentPairs = [], workers = [], request = 0, basemap, diagnostics, latestTiming=null, firstDisplay=true;
   let fitState={unsupported:[],weighted:false};
   const t = (es,en) => lang === 'en' ? en : es;
@@ -30,14 +32,49 @@
     $('visibleJson').setAttribute('aria-label',t('JSON del cálculo','Computation JSON'));
     ['4.5','4.1','3.5'].forEach((c,i) => $('cut').options[i].textContent='≥ '+c+' · '+[t('principal','primary'),t('sensibilidad','sensitivity'),t('diagnóstico de escala','scale diagnostic')][i]);
     $('back').textContent=t('← Observatorio','← Observatory');
-    ArticleFigures.setLanguage(lang); describe(); if(latestTiming){render();calculationStatus();renderFitWarning();}
+    describe(); if(latestTiming){render();calculationStatus();renderFitWarning();}
     rememberView();
   }
-  function viewSettings(){return {lang,region:$('region').value,cut:$('cut').value,method:$('method').value,weight:$('weightPolicy').value,membership:$('membership').value,case:$('case').value,extent:$('familyExtent').checked?'family':'local'};}
-  function rememberView(){history.replaceState(null,'',location.pathname+SeismicSequenceView.query(viewSettings()));}
+  function viewSettings(){return {...viewState,lang,region:$('region').value,cut:$('cut').value,method:$('method').value,weight:$('weightPolicy').value,membership:$('membership').value,case:$('case').value,extent:$('familyExtent').checked?'family':'local'};}
+  function rememberView(){viewState=SeismicSequenceView.normalize(viewSettings());history.replaceState(null,'',location.pathname+SeismicSequenceView.query(viewState));updateStudyNavigation();}
   function applyView(v){
+    viewState=v;
     lang=v.lang;for(const key of ['region','cut','method','membership','case'])$(key).value=v[key];
     $('weightPolicy').value=v.weight;$('familyExtent').checked=v.extent==='family';configureOptions();
+  }
+  function updateStudyNavigation(){
+    document.querySelectorAll('[data-study-view]').forEach(a=>{
+      const view=a.dataset.studyView,settings={...viewState,view};
+      if(view==='cases'&&settings.case==='all')settings.case='2017';
+      a.href=location.pathname+SeismicSequenceView.query(settings);
+      if(view===viewState.view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
+    });
+  }
+  function inspectNative(value){
+    $('nativeRecord').hidden=false;const dl=document.createElement('dl');
+    for(const [key,data] of Object.entries(value||{})){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=key;dd.textContent=typeof data==='object'?JSON.stringify(data):String(data??'');dl.append(dt,dd);}
+    $('nativeRecordDetails').replaceChildren(dl);
+  }
+  function clearNativeRecord(){$('nativeRecord').hidden=true;$('nativeRecordDetails').replaceChildren();}
+  async function activateStudy(){
+    const view=viewState.view,registry={cases:['nativeCases',window.NativeCases],diagnostics:['nativeDiagnostics',window.NativeDiagnostics],benchmark:['nativePerformance',window.NativePerformance]};
+    $('explorerWorkspace').hidden=view!=='explorer';$('articleFigures').hidden=view==='explorer';
+    for(const [name,[id]] of Object.entries(registry))$(id).hidden=view!==name;
+    updateStudyNavigation();if(view==='explorer')return;
+    const [id,api]=registry[view],container=$(id);
+    if(!api){container.textContent=t('La vista todavía no está disponible.','This view is not available yet.');return;}
+    const options={client:SeismicStudyData,state:{...viewState},onStateChange:patch=>navigateStudy(patch),onRecord:value=>{if(viewState.view===view)inspectNative(value);}};
+    try{
+      const existed=nativeMounts.has(view);
+      if(!existed)nativeMounts.set(view,Promise.resolve(api.mount(container,options)));
+      await nativeMounts.get(view);if(existed&&viewState.view===view)await api.setState({...viewState});
+    }catch(error){nativeMounts.delete(view);container.replaceChildren();const p=document.createElement('p');p.className='warning';p.textContent=t('No se pudo abrir el análisis: ','Could not open the analysis: ')+error.message;container.append(p);}
+  }
+  async function navigateStudy(patch,push=false){
+    const next=SeismicSequenceView.normalize({...viewState,...patch,lang:patch.lang||lang});
+    if(push)history.pushState(null,'',location.pathname+SeismicSequenceView.query(next));
+    applyView(next);language();clearNativeRecord();await activateStudy();
+    if(next.view==='explorer'&&manifest)await calculate();
   }
   function calculationStatus(){
     const elapsed=Object.values(results).reduce((s,r)=>s+r.metadata.total_ms,0),n=Object.values(active).reduce((s,r)=>s+r.length,0);
@@ -47,15 +84,7 @@
     $('fitWarning').textContent=fitState.unsupported.length?fitState.unsupported.join(', ')+': '+t('el ajuste tiene un corte numérico, pero no respalda dos modos separados. Estas agrupaciones son una sensibilidad exploratoria; no hay certificación estadística de familias.','the fit returns a numerical cutoff but does not support two separate modes. These groups are an exploratory sensitivity; they are not statistically certified families.'):'';
     if(fitState.weighted)$('fitWarning').textContent+=' '+t('Se usa el b aparente propio de cada fuente, con su corte de desarrollo congelado. Es una sensibilidad numérica, no una calibración física de magnitudes.','Each source uses its own apparent b and frozen development cutoff. This is a numerical sensitivity, not a physical magnitude calibration.');
   }
-  async function checked(path) {
-    if(cached.has(path)) return cached.get(path);
-    const spec=manifest.files[path]; if(!spec) throw new Error('Unlisted scientific input: '+path);
-    const response=await fetch('data/'+path); if(!response.ok) throw new Error(path+': HTTP '+response.status);
-    const bytes=await response.arrayBuffer();
-    const hash=[...new Uint8Array(await crypto.subtle.digest('SHA-256',bytes))].map(v=>v.toString(16).padStart(2,'0')).join('');
-    if(hash!==spec.sha256 || bytes.byteLength!==spec.bytes) throw new Error('Integrity mismatch: '+path);
-    const value=JSON.parse(new TextDecoder().decode(bytes)); cached.set(path,value); return value;
-  }
+  async function checked(path) {return SeismicStudyData.checked(path);}
   function calculateWorker(rows, method, threshold, token, weight=1) {
     return new Promise((resolve,reject)=>{
       const worker=new Worker('worker.js'); workers.push(worker);
@@ -240,17 +269,19 @@
   ['region','cut','method','membership','weightPolicy'].forEach(id=>$(id).addEventListener('change',()=>{configureOptions();invalidate();rememberView();}));
   $('case').addEventListener('change',()=>{configureOptions();if(latestTiming)render();rememberView();});
   $('familyExtent').addEventListener('change',()=>{if(latestTiming)render();rememberView();});
-  $('language').addEventListener('change',()=>{lang=$('language').value;language();});
+  $('language').addEventListener('change',()=>{lang=$('language').value;language();activateStudy();});
+  document.querySelectorAll('[data-study-view]').forEach(a=>a.addEventListener('click',event=>{event.preventDefault();navigateStudy({view:a.dataset.studyView},true);}));
+  window.addEventListener('popstate',()=>{clearNativeRecord();applyView(SeismicSequenceView.parse(location.search));language();activateStudy();if(viewState.view==='explorer'&&manifest)calculate();});
   window.addEventListener('article-case',async event=>{
     if(!['2017','2022'].includes(event.detail?.year))return;
-    invalidate();applyView(SeismicSequenceView.articleCase(event.detail.year,lang));language();
-    if(manifest){await calculate();$('caseSelector').scrollIntoView({behavior:'smooth',block:'start'});}
+    await navigateStudy(SeismicSequenceView.articleCase(event.detail.year,lang),true);
   });
   $('exportCsv').addEventListener('click',()=>{const rows=exportRows(),keys=Object.keys(rows[0]||{}),q=v=>'"'+String(v??'').replaceAll('"','""')+'"';download('sequence-classifications.csv',[keys.map(q).join(','),...rows.map(r=>keys.map(k=>q(r[k])).join(','))].join('\r\n'),'text/csv;charset=utf-8');});
   $('exportJson').addEventListener('click',()=>download('sequence-computation.json',computationJson(),'application/json'));
   $('showJson').addEventListener('click',()=>{$('visibleJson').value=computationJson();$('visibleJson').hidden=false;});
   $('exportSvg').addEventListener('click',()=>{const svgs=[...document.querySelectorAll('svg.plot')],combined=element('svg',{xmlns:NS,width:1200,height:Math.ceil(svgs.length/2)*420,viewBox:`0 0 1200 ${Math.ceil(svgs.length/2)*420}`});combined.append(element('style',{},'text{font:12px system-ui,sans-serif;fill:#435b6f}.gridline{stroke:#dce5ed;stroke-width:.7}.axis{stroke:#7a8fa2;stroke-width:1}'));svgs.forEach((svg,i)=>{const g=element('g',{transform:`translate(${i%2*600} ${Math.floor(i/2)*420})`});const title=svg.parentElement.querySelector('h2').textContent;g.append(element('text',{x:25,y:24,style:'font:18px sans-serif'},title));const copy=svg.cloneNode(true);copy.setAttribute('x','0');copy.setAttribute('y','35');copy.setAttribute('width','600');copy.setAttribute('height','350');copy.querySelectorAll('.dot').forEach(e=>{e.removeAttribute('tabindex');e.removeAttribute('role');});g.append(copy);combined.append(g);});download('sequence-figures.svg',new XMLSerializer().serializeToString(combined),'image/svg+xml');});
-  applyView(initialView);ArticleFigures.mount($('articleFigures'),{language:lang});
+  applyView(initialView);
   language(); status(t('Cargando contrato de datos…','Loading the data contract…'));
-  fetch('data/manifest.json').then(r=>{if(!r.ok)throw new Error('Manifest HTTP '+r.status);return r.json();}).then(async m=>{manifest=m;diagnostics=await checked('diagnostics.json');try{const r=await fetch('../data/basemap.geojson');if(r.ok)basemap=await r.json();}catch(_){}await calculate();}).catch(e=>status(t('No se pudo cargar: ','Loading failed: ')+e.message));
+  activateStudy();
+  SeismicStudyData.manifest().then(async m=>{manifest=m;diagnostics=await checked('diagnostics.json');try{basemap=await SeismicStudyData.basemap();}catch(_){}if(viewState.view==='explorer')await calculate();}).catch(e=>status(t('No se pudo cargar: ','Loading failed: ')+e.message));
 })();

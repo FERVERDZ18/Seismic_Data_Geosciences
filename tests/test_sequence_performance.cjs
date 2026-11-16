@@ -1,0 +1,27 @@
+'use strict';
+const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),crypto=require('node:crypto');
+const math=require('../system/dist/sequences/performance-math.js');
+const file=path.join(__dirname,'../system/dist/sequences/performance-data.json'),raw=fs.readFileSync(file),data=JSON.parse(raw);
+assert.equal(crypto.createHash('sha256').update(raw).digest('hex'),'59fb5070601ec5a5d81b9f57019115a02cbb1a7721a8f16ad133a1f6298bd6a6');
+assert.equal(data.measurements.length,49);assert.deepEqual(data.sizes,[2000,5000,10000,20000,50000,100000,170880]);
+const summary=math.summarize(data);assert.equal(summary.length,21);
+const close=(a,b,tolerance=1e-12)=>assert(Math.abs(a-b)<=tolerance,`${a} != ${b}`);
+for(const row of summary){assert.equal(row.repetitions,row.backend==='cached_reference'?1:3);assert(row.min_total_seconds<=row.median_total_seconds&&row.median_total_seconds<=row.max_total_seconds);}
+const pick=(n,backend)=>summary.find(row=>row.n===n&&row.backend===backend);
+close(pick(170880,'cached_reference').median_total_seconds,139.94289690000005);
+close(pick(170880,'kd').median_total_seconds,6.828792099986458);
+close(pick(170880,'octree').median_total_seconds,6.517411800014088);
+close(pick(170880,'kd').speedup_vs_native,20.49306741967991);
+close(pick(170880,'octree').speedup_vs_native,21.47215815021809);
+close(pick(170880,'kd').evaluated_percent,0.04381328801111234);
+assert.equal(pick(170880,'kd').candidate_pairs,6396697);assert.equal(pick(170880,'octree').candidate_pairs,5190090);
+assert(pick(2000,'kd').speedup_vs_native<1,'Retain the small-N case where exhaustive search is faster');
+assert.equal(math.phases(pick(170880,'kd')).length,3);
+const observedFile=path.join(__dirname,'../system/dist/sequences/data/inputs_3_5.json');
+const observedRaw=fs.readFileSync(observedFile);assert.equal(crypto.createHash('sha256').update(observedRaw).digest('hex'),data.input_sha256);
+const rows=JSON.parse(observedRaw).sources.ssn;
+for(const n of data.sizes)assert.equal(math.eligiblePairs(rows.slice(0,n)),data.eligible_earlier_pairs[String(n)]);
+const bad=structuredClone(data);bad.measurements.push(bad.measurements[0]);assert.throws(()=>math.summarize(bad),/Duplicate/);
+const changed=structuredClone(data);changed.measurements.find(r=>r.backend==='kd').candidate_pairs++;assert.throws(()=>math.summarize(changed),/counter/);
+assert.throws(()=>math.median([]));assert.equal(math.median([3,1,2]),2);
+console.log('PASS: 49 retained runs, 21 browser-derived summaries, 7 strict-time pair counts, original full-size timings and adverse small-N result');

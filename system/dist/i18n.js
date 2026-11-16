@@ -269,7 +269,7 @@
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => el.placeholder = t(el.dataset.i18nPlaceholder));
     const selector = document.getElementById('language'); if (selector) selector.value = language;
     const sequenceLink = document.getElementById('sequenceWorkspace');
-    if (sequenceLink) sequenceLink.href = 'sequences/index.html?lang=' + language;
+    if (sequenceLink) sequenceLink.href = 'sequences/index.html?view=cases&case=2017&lang=' + language;
   }
   window.SeismicI18n = {t, apply, get language() {return language;}, messages};
 })();

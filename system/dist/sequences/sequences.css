@@ -21,3 +21,6 @@ main>h1{font-size:clamp(2rem,3.2vw,2.7rem);letter-spacing:-.035em;line-height:1.
 #cases>h2{margin:30px 0 0}#status{font-size:.93rem;color:#315166}#agreement{border:1px solid #cddfdc;font-variant-numeric:tabular-nums}
 @media(max-width:800px){#controls{padding:16px;gap:14px}#controls label,#controls select{width:100%;max-width:none}#calculate{width:100%}.case-selector{padding:16px}.case-selector .heading>label:not(.family-toggle){flex-basis:100%}.family-toggle{max-width:none}header{gap:14px}}
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+
+main [hidden]{display:none!important}.workspace-nav a[aria-current="page"]{background:#155b78;color:#fff;border-color:#155b78}.workspace-nav a:first-child:not([aria-current]){background:#fff;color:#075b85;border-color:#b8ced8}
+#nativeRecord{margin-top:25px;padding:20px;border:1px solid #bfd1db;border-radius:10px;background:white;overflow-wrap:anywhere}#nativeRecord dl{display:grid;grid-template-columns:minmax(100px,.25fr) 1fr;gap:9px;font-size:.87rem}#nativeRecord dd{white-space:pre-wrap}

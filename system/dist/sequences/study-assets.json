@@ -1,0 +1,16 @@
+{
+  "schema": "native-study-assets/1",
+  "scientific_manifest": {
+    "bytes": 3347,
+    "sha256": "bfa68031c78b1d651cfa1105a0964ffc9e6e21f9e16174f38fd09f52b34a677a"
+  },
+  "basemap": {
+    "bytes": 812607,
+    "sha256": "4eda3c4dcb5ff10e2013843b4efa1ecff08b016ee47929f4e641eb0fe77af35f"
+  },
+  "performance": {
+    "bytes": 40873,
+    "sha256": "59fb5070601ec5a5d81b9f57019115a02cbb1a7721a8f16ad133a1f6298bd6a6"
+  },
+  "scope": "Observed inputs and calibration are unchanged. Performance data are retained measurements; family roles are calculated by browser Workers."
+}
