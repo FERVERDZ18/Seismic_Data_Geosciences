@@ -50,6 +50,32 @@ async function main(){
     assert.equal(P.toCsv(['null','empty','zero'],[[null,'',0]]),'"null","empty","zero"\r\n,"","0"\r\n');
   });
   db.db.close();
+  await test('exact-copy guided answers distinguish representative groups from represented source rows and retain membership',async()=>{
+    const unit='exact_source_record_groups',payload={key:'exact-groups',evidence:{count_unit:unit},catalogs:[{catalogue_id:'A'},{catalogue_id:'B'}],records:[
+      {catalogue_id:'A',record_key:'A~one',event_id:'one',year:2020,time:'2020-01-01',mag:4,mag_type:'mww',depth_km:10,country_id:'MEX',exact_group_key:'g1',source_record_count:2},
+      {catalogue_id:'A',record_key:'A~two',event_id:'two',year:2022,time:'2022-01-01',mag:6,mag_type:'mww',depth_km:null,country_id:'MEX',exact_group_key:'g2',source_record_count:1}
+    ],exact_membership:[
+      {group_key:'g1',representative_key:'A~one',member_key:'A~one',catalogue_id:'A',source_event_id:'one'},
+      {group_key:'g1',representative_key:'A~one',member_key:'B~one',catalogue_id:'B',source_event_id:'one'}
+    ]};
+    const database=await Q.createDatabase(SQL,payload),g=P.guidedGroups(payload)[0];
+    const run=q=>Q.execute(database.db,P.buildGuidedQuery(q,g,'country',unit));
+    const summary=P.summaryFromResult(run('summary'));
+    assert.equal(summary.count,2);assert.equal(summary.represented_source_rows,3);
+    assert.equal(summary.mean_magnitude,5); // one value per group, not copy-weighted
+    const annual=run('annual');assert.deepEqual(annual.rows,[[2020,1,2],[2021,0,0],[2022,1,1]]);
+    for(const [language,label] of [['es','grupos de copias exactas'],['en','exact-copy groups']]){
+      const chart=P.guidedChart('annual',annual,language,'country',unit);
+      assert(chart.includes(label));assert(!chart.includes(language==='es'?'Filas de origen':'Source rows'));
+    }
+    const members=Q.execute(database.db,P.examples.find(e=>e.label==='exMembership').sql);
+    assert.equal(members.rows.length,2);assert(members.rows.every(r=>r[0]==='g1'));
+    const counts=Q.execute(database.db,P.examples.find(e=>e.label==='exYears').sql);
+    assert.deepEqual(counts.columns,['year','selected_rows','represented_source_rows']);
+    assert.deepEqual(counts.rows,[[2020,1,2],[2022,1,1]]);
+    assert(run('records').columns.includes('source_record_count'));
+    database.db.close();
+  });
   await test('real 659-row USGS case agrees with an independent row predicate and arithmetic',async()=>{
     const registry=JSON.parse(fs.readFileSync('system/dist/data/catalogs.json','utf8')),catalog=registry.catalogs.find(c=>c.id==='usgs-na-2020-2025');
     const pack=JSON.parse(fs.readFileSync('system/dist/'+catalog.events_url,'utf8'));

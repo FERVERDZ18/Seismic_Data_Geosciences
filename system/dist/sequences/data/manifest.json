@@ -1,0 +1,102 @@
+{
+  "schema": "browser-sequence-input-manifest/1",
+  "snapshot_utc": "2026-11-16T19:26:32.982947+00:00",
+  "release_status": "local author review; publication not authorized",
+  "files": {
+    "inputs_4_5.json": {
+      "bytes": 1279415,
+      "sha256": "9751f4c6fd79f75dde7c203af3310932e2d4a7ae8a182c382fe96e553e1369b5"
+    },
+    "candidates_4_5.json": {
+      "bytes": 156408,
+      "sha256": "54c5f4254e9d6700ec4de6df000796297e9c27de57e9dba9e7650a36f0cbc2b8"
+    },
+    "inputs_4_1.json": {
+      "bytes": 6841299,
+      "sha256": "562c41864f1cd0b168a7a25c2a6aad9f1acdea5345aabb9dffc9c9d90f64018e"
+    },
+    "candidates_4_1.json": {
+      "bytes": 430350,
+      "sha256": "681777432fd0b569d4f1e22dc31c6c3082cff985f2ecee950cfcb1a03e0604fd"
+    },
+    "inputs_3_5.json": {
+      "bytes": 65132347,
+      "sha256": "9bcac42fe96e6b0980020bae609383d7a5898ddc467e536b4203f437fadceb03"
+    },
+    "candidates_3_5.json": {
+      "bytes": 522766,
+      "sha256": "f0ffc5403cdca9c92cad2ab272a01594c5e9d3a6b1d178a62fc06e50c361277c"
+    },
+    "calibration.json": {
+      "bytes": 15180,
+      "sha256": "bac8ac3d0e142595980c58b9f1d623ca557a95492383602ee291a520e9c4d278"
+    },
+    "diagnostics.json": {
+      "bytes": 11713,
+      "sha256": "cbd5107b1f3a6ff0506560ecd05ae9bbad6bb3d64672a4979c5c52df1fa020da"
+    }
+  },
+  "origins": {
+    "inputs_4_5.json": {
+      "path": "outputs/claude_response_2026-11-16/catalog_design/web_inputs/inputs_4_5.json",
+      "sha256": "d3b64c8e00fb2e59516f3e6ba5ab4deb64a413ca7fd3e2c07cf49752aea0bc76",
+      "projection": [
+        "record_id",
+        "time_utc",
+        "t_year",
+        "latitude",
+        "longitude",
+        "magnitude",
+        "magnitude_type",
+        "sin_lat",
+        "cos_lat",
+        "lon_rad",
+        "xyz"
+      ],
+      "sampling": false
+    },
+    "inputs_4_1.json": {
+      "path": "outputs/claude_response_2026-11-16/catalog_design/web_inputs/inputs_4_1.json",
+      "sha256": "3dc5d9fb3f15e87026b7be9e4bb64cf3581f552b39a3f7ee77ae9702929cde27",
+      "projection": [
+        "record_id",
+        "time_utc",
+        "t_year",
+        "latitude",
+        "longitude",
+        "magnitude",
+        "magnitude_type",
+        "sin_lat",
+        "cos_lat",
+        "lon_rad",
+        "xyz"
+      ],
+      "sampling": false
+    },
+    "inputs_3_5.json": {
+      "path": "outputs/claude_response_2026-11-16/catalog_design/web_inputs/inputs_3_5.json",
+      "sha256": "1b5422b4e60143c19c1824bd36c70762cbbafd7bc8e476ab9aca890d57685973",
+      "projection": [
+        "record_id",
+        "time_utc",
+        "t_year",
+        "latitude",
+        "longitude",
+        "magnitude",
+        "magnitude_type",
+        "sin_lat",
+        "cos_lat",
+        "lon_rad",
+        "xyz"
+      ],
+      "sampling": false
+    },
+    "calibration.json": {
+      "path": "outputs/claude_response_2026-11-16/methods/calibration_v3.json",
+      "sha256": "11f24f6c1afe63e06cb46fc97c274339f1ee13818f1863a5a725a19a9d28297a"
+    }
+  },
+  "observations_rewritten": false,
+  "source_attribution": "SSN, Instituto de Geofísica UNAM; USGS ComCat and contributing networks",
+  "terms": "Provider rights remain applicable; see retained source contracts. Software licensing does not relicense observations."
+}

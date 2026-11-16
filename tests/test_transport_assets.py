@@ -3,6 +3,7 @@ import gzip
 import hashlib
 import importlib.util
 import json
+import re
 from pathlib import Path
 import tempfile
 import unittest
@@ -13,6 +14,14 @@ builder = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(builder)
 
 class TransportAssetsTests(unittest.TestCase):
+    def test_browser_pin_and_script_cache_match_packaged_bytes(self):
+        app = ROOT/'system/dist/app.js'
+        pin = re.search(r"const TRANSPORT_SHA256='([a-f0-9]{64})'", app.read_text(encoding='utf-8'))
+        self.assertIsNotNone(pin)
+        self.assertEqual(pin.group(1), hashlib.sha256((ROOT/'system/dist/data/transport-manifest.json').read_bytes()).hexdigest())
+        self.assertIn('app.js?v='+hashlib.sha256(app.read_bytes()).hexdigest()[:12],
+                      (ROOT/'system/dist/index.html').read_text(encoding='utf-8'))
+
     def test_transport_round_trip_keeps_original_bytes_and_is_deterministic(self):
         with tempfile.TemporaryDirectory() as folder:
             dist = Path(folder); (dist/'data/catalogs/a').mkdir(parents=True)

@@ -299,4 +299,29 @@ test('v5 query documents require matching subdivision evidence and preserve v4 m
  assert.equal(combined.schema,'seismic-local-query/5');assert.deepEqual(combined.geography,geo);assert.equal(combined.inputs.length,1);assert.equal(combined.inputs[0].events_sha256,hashes.events);assert(combined.predicate_rules.admin1.includes('conditional'));
 });
 
+test('exact-copy mode is opt-in, survives URL sharing and searches every retained member key',()=>{
+ const view={catalog:'nrcan-ca-historical',filters:{...V.defaults,exactCopies:true},sort:'recent',lang:'es',tab:'catalog'};
+ const shared=V.serialize(view,'https://example.org/');
+ assert.equal(new URL(shared).searchParams.get('copies'),'1');
+ assert.equal(V.parseURL(shared).view.filters.exactCopies,true);
+ for(const url of ['https://example.org/','https://example.org/?v=1','https://example.org/?copies=0'])assert.equal(V.parseURL(url).view.filters.exactCopies,false);
+ assert(V.parseURL('https://example.org/?copies=yes').invalid.includes('copies'));
+ assert.equal(V.validateFilters({...V.defaults,exactCopies:'true'}).valid,false);
+ const representative={id:'nrcan-ca-historical~row-a',exact_member_keys:['nrcan-ca-historical~row-a','nrcan-ca-historical~row-b'],place:'Canada',year:2000,mag:4,depth:null,time:'2000'};
+ assert.equal(V.filterEvents([representative],{...view.filters,search:'row-b'}).length,1);
+ assert.equal(V.filterEvents([representative],{...view.filters,exactCopies:false,search:'row-b'}).length,0);
+});
+test('grouped query binds source multiplicity and fails on absent or inconsistent membership evidence',()=>{
+ const c={id:'nrcan-ca-historical',provider:'nrcan',years:[1900,2026],identifier_kind:'derived_row_key'};
+ const row={id:c.id+'~row-a',source_event_id:'row-a',_catalog_id:c.id,year:2000,time:'2000',mag:4,depth:null,exact_group_key:'group-a',exact_member_count:2};
+ const group={group_key:'group-a',representative_key:row.id,member_keys:[row.id,c.id+'~row-b'],exact_member_count:2};
+ const grouping={mode:'exact',evidence_sha256:'a'.repeat(64),result_source_records:2,result_groups:1,result_collapsed_copies:1,groups:[group]};
+ const args={catalog:c,view:{catalog:c.id,filters:{...V.defaults,exactCopies:true},sort:'recent'},manifest:{files:[]},assetHashes:{events:'a',manifest:'b'},fields:Object.keys(row),rows:[row],pageURL:'https://example.org/',grouping};
+ const query=V.queryDocument(args);
+ assert.equal(query.count_unit,'exact_source_record_groups');assert.equal(query.result.row_count,1);assert.equal(query.result.source_record_count,2);
+ assert.equal(query.selection.exactCopies,true);assert.deepEqual(query.grouping,grouping);
+ assert(query.predicate_rules.sort_ties.includes('representative-key'));
+ for(const bad of [undefined,{...grouping,evidence_sha256:'bad'},{...grouping,result_groups:2},{...grouping,result_source_records:3},{...grouping,groups:[]},{...grouping,groups:[{...group,member_keys:[row.id,row.id]}]}])assert.throws(()=>V.queryDocument({...args,grouping:bad}),/matching grouping evidence/);
+ assert.equal(V.queryDocument({...args,view:{...args.view,filters:{...V.defaults}}}).count_unit,undefined);
+});
 console.log(JSON.stringify({passed:checks.length,checks},null,2));

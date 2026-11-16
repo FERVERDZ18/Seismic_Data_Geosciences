@@ -4,9 +4,11 @@
   const recordColumns=Object.freeze([
     ['row_no','INTEGER'],['record_key','TEXT'],['catalogue_id','TEXT'],['event_id','TEXT'],['time','TEXT'],['year','INTEGER'],
     ['latitude','REAL'],['longitude','REAL'],['mag','REAL'],['mag_type','TEXT'],['depth_km','REAL'],['country_id','TEXT'],['admin1_id','TEXT'],
-    ['provider','TEXT'],['location_source','TEXT'],['mag_source','TEXT'],['place','TEXT'],['identifier_kind','TEXT'],['original_fields','TEXT']
+    ['provider','TEXT'],['location_source','TEXT'],['mag_source','TEXT'],['place','TEXT'],['identifier_kind','TEXT'],['original_fields','TEXT'],
+    ['exact_group_key','TEXT'],['source_record_count','INTEGER']
   ]);
   const catalogColumns=Object.freeze([['catalogue_id','TEXT'],['label','TEXT'],['provider','TEXT'],['snapshot','TEXT'],['source_hash','TEXT'],['manifest_hash','TEXT'],['identifier_kind','TEXT'],['depth_unit','TEXT']]);
+  const memberColumns=Object.freeze(['group_key','representative_key','member_key','catalogue_id','source_event_id']);
   const error=(message,code)=>Object.assign(new Error(message),{code});
   const copy=value=>JSON.parse(JSON.stringify(value??null));
 
@@ -50,6 +52,8 @@
     source.catalogue_id=row.catalogue_id??row.catalog_id??row._catalog_id;
     source.record_key=row.record_key??row.id;
     source.event_id=row.event_id??row.source_event_id??row.id;
+    source.source_record_count=row.source_record_count??1;
+    if(!Number.isInteger(source.source_record_count)||source.source_record_count<1)throw error('Invalid source-member count.','SQL_DATA');
     if(!source.record_key||!source.catalogue_id)throw error('Records need catalogue and preserved row keys.','SQL_DATA');
     return recordColumns.map(([name,type])=>scalar(source[name],type));
   }
@@ -68,6 +72,7 @@
       db.run('PRAGMA trusted_schema=OFF; PRAGMA foreign_keys=ON;');
       db.run('CREATE TABLE catalogs ('+catalogColumns.map(([name,type])=>name+' '+type+(name==='catalogue_id'?' PRIMARY KEY':'')).join(',')+');');
       db.run('CREATE TABLE records ('+recordColumns.map(([name,type])=>name+' '+type+(name==='row_no'?' PRIMARY KEY':'')).join(',')+', FOREIGN KEY(catalogue_id) REFERENCES catalogs(catalogue_id));');
+      db.run('CREATE TABLE exact_membership ('+memberColumns.map(name=>name+' TEXT NOT NULL'+(name==='member_key'?' PRIMARY KEY':'')).join(',')+', FOREIGN KEY(catalogue_id) REFERENCES catalogs(catalogue_id));');
       db.run('BEGIN');
       const catalog=db.prepare('INSERT INTO catalogs VALUES('+catalogColumns.map(()=>'?').join(',')+')');
       try{for(const row of payload.catalogs)catalog.run(projectCatalog(row));}finally{catalog.free();}
@@ -78,11 +83,29 @@
           if(i%5000===0)onProgress({phase:'importing',loaded:i,total:payload.records.length});
         }
       }finally{insert.free();}
+      const members=payload.exact_membership??[];
+      if(!Array.isArray(members))throw error('Invalid exact-copy membership.','SQL_DATA');
+      const grouped=new Map(payload.records.filter(r=>(r.source_record_count??1)>1).map(r=>[r.record_key??r.id,r]));
+      const observed=new Map();const memberInsert=db.prepare('INSERT INTO exact_membership VALUES(?,?,?,?,?)');
+      try{for(const member of members){
+        const representative=grouped.get(member.representative_key);
+        if(!representative||representative.exact_group_key!==member.group_key
+            ||member.member_key!==member.catalogue_id+'~'+member.source_event_id
+            ||memberColumns.some(k=>typeof member[k]!=='string'||!member[k]))throw error('Exact-copy membership does not match its representative.','SQL_DATA');
+        memberInsert.run(memberColumns.map(k=>member[k]));
+        if(!observed.has(member.representative_key))observed.set(member.representative_key,new Set());
+        observed.get(member.representative_key).add(member.member_key);
+      }}finally{memberInsert.free();}
+      for(const [key,row] of grouped){
+        if(observed.get(key)?.size!==row.source_record_count||!observed.get(key).has(key))throw error('Incomplete exact-copy membership.','SQL_DATA');
+      }
       db.run('COMMIT');
       db.run('CREATE INDEX records_catalogue ON records(catalogue_id); CREATE INDEX records_year ON records(year);');
       db.run('PRAGMA query_only=ON;');
       const metadata={recordCount:payload.records.length,catalogueCount:payload.catalogs.length,selectionKey:String(payload.key??''),importMs:Date.now()-started,
-        engine:'SQLite via sql.js '+version,recordColumns:recordColumns.map(([name,type])=>({name,type})),catalogColumns:catalogColumns.map(([name,type])=>({name,type})),evidence:copy(payload.evidence)};
+        engine:'SQLite via sql.js '+version,countUnit:payload.evidence?.count_unit??'source_records',exactMembershipCount:members.length,
+        exactMembershipScope:'Only groups with multiple source members; singleton records have source_record_count=1.',
+        recordColumns:recordColumns.map(([name,type])=>({name,type})),catalogColumns:catalogColumns.map(([name,type])=>({name,type})),memberColumns:memberColumns.map(name=>({name,type:'TEXT'})),evidence:copy(payload.evidence)};
       onProgress({phase:'ready',loaded:payload.records.length,total:payload.records.length});return {db,metadata};
     }catch(exc){db.close();throw exc;}
   }
@@ -143,5 +166,5 @@
     }
     return Object.freeze({setData,query,cancel(){stop();status({phase:'cancelled'});},dispose(){stop();disposed=true;status({phase:'closed'});},isReady:()=>ready});
   }
-  return Object.freeze({create,validateSQL,createDatabase,execute,recordColumns,catalogColumns,version,defaultLimit});
+  return Object.freeze({create,validateSQL,createDatabase,execute,recordColumns,catalogColumns,memberColumns,version,defaultLimit});
 });

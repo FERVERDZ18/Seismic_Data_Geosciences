@@ -6,16 +6,61 @@ Mexico paper snapshot, NRCan Canada and surroundings (1985–2019), and the
 native SSN download (1900–6 November 2026, partial year; M≥3.5). Text
 search, provider/catalogue selectors and scientific filters operate on the
 selected catalogue or an explicit combined view. The verified public baseline
-is `b503c22d384a7a11d4b502370df66c34c191719f` (9 November 2026).
+recorded for the manuscript is `729c86ae535b93f649a07c74f3bb736bdfe78bac`
+(14 November 2026).
 That baseline includes compressed transport, guided browser queries,
 administrative selection, tectonic context, count heatmaps, a functional Home
-workspace and descriptive country comparison. The local 10 November revision
-adds Simple view, Historical Top 10, Historical proximity and Help/about;
-those four additions await separately authorized commit, push and publication.
+workspace and descriptive country comparison, together with Simple view,
+Historical Top 10, Historical proximity and Help/about.
 Records retain their source and are not counted as
 independent physical earthquakes. Retained origin-product revisions remain a
 separate 36-event pilot. This is a research audit interface, not a forecasting
 or operational alert service.
+
+## Sequence comparison and scientific figures
+
+The new `dist/sequences/` page is linked from the observatory navigation. It is
+a research workspace. Pages deployment remains manual: a commit or push alone
+does not update the hosted site.
+Serve `dist/` over HTTP and open `/sequences/index.html?lang=en` or `?lang=es`.
+The browser verifies the scientific input manifest, then Workers calculate
+magnitude-weighted spherical nearest parents and deterministic families under
+Zaliapin–Ben-Zion (2013), or the Gardner–Knopoff fixed-window baseline. The
+method explanation distinguishes operational groups from physical triggering
+and duplicates. Source records remain separately exportable.
+
+The principal selection is reported M>=4.5, with 4.1/3.5 exploratory views.
+SSN/ComCat Mexico are contemporaneous in 2016–2025; the retained Alaska rectangle
+is a single-source transfer case, not all Alaska or a second agency comparison.
+Development thresholds are frozen: Mexico2016–2020; Alaska2020–2022. A numerical
+EM cutoff without supported bimodality is explicitly warned, rather than called
+statistical family validation. Common candidate membership preserves original
+source measurements and the native-development thresholds.
+
+Paired maps, magnitude timelines and T–R diagrams are calculated from the active
+records. Case display windows intersect the original query rectangle; the
+2017 strip south of14N is marked unqueried. Cropping a display does not recluster
+its records. Dense views draw every record using raster rendering; sparse views
+retain selectable SVG points. CSV/JSON include IDs, classifications and parameters;
+the same computation JSON can be inspected before download. Changing an analytic
+selection invalidates old results and disables exports until recalculation.
+Canonical binary64 trigonometric preprocessing and its hash are explicit inputs,
+not precalculated classifications. Cross-runtime numerical checks and independent
+Python/author-code comparisons are separate evidence; the exact thresholds,
+primitives, operation order and finite-input scope must remain documented.
+
+The scientific gallery embeds byte-identical PNGs of revised-manuscript
+Figures 2–4: measured search scaling, magnitude/T–R diagnostics and the 2017/2022
+anchor families. These are fixed scientific results with full-resolution links;
+changing explorer filters does not recalculate the images. Their independent
+hashes, sizes and interpretation are in `dist/sequences/figures/manifest.json`.
+The gallery's case buttons open the live M>=4.5 native-catalogue calculation,
+with the complete anchor family selected. The browser then recomputes roles;
+the images never supply classifications. A star retains the reference ComCat
+anchor and a dashed 150-km circle in both local and complete-family maps,
+without relocating either source's observations. Whitelisted URL settings
+restore language, cut, method, weight, membership, case and display extent.
+Historical `?figure=` routes keep their original IDs and numbering.
 
 Unversioned entry opens Home with all four catalogues and their 287,936 source
 rows on the map, with English as the default and Spanish available. The eight
@@ -69,7 +114,7 @@ No recurrence rate, hazard, risk, earthquake probability or forecast is estimate
 zero pairs do not establish safety. Maps preserve source coordinates and unwrap
 only display copies at the antimeridian. **Fit records** restores their extent.
 
-**Help and about** supplies interface version `2026.11.10`, twelve searchable
+**Help and about** supplies interface version `2026.11.16.1`, twelve searchable
 ES/EN questions, human authors, academic correspondence at `ghurtadoa@ipn.mx`,
 repository/issue links and licence information. The repository code is MIT;
 SSN/UNAM, NRCan, USGS and third-party data/component terms remain distinct.
@@ -232,6 +277,17 @@ and `python -m unittest discover -s tests -p test_country_index.py` alongside
 the existing frontend and view-state tests.
 
 The geographic map supports pan, zoom, fitting filtered records and selecting an epicenter to inspect its source record. The table provides the same record inspection through keyboard-accessible buttons. Filters apply to both the map and the table; panning only changes the visible map area, not the filtered count or CSV export.
+
+The optional **Group exact copies** control (`copies=1` in a shared URL) uses
+hash-bound, full-original-cell evidence. It retains every member and leaves
+different revisions and cross-provider candidates separate. The four packages
+contain 287,936 source rows and 285,768 exact-copy groups. Map, SQLite and exports
+share the active counting unit; SQL exposes both selected groups and represented
+source rows. Existing article links keep their original source-row view.
+See [the evidence rules and reproduction commands](../docs/exact_record_groups.md).
+The [SSN–USGS pilot protocol](../docs/pilot_ssn_usgs_protocol.md) describes a
+separate local association experiment; it does not merge the public catalogues
+or update the manuscript.
 
 The optional count heatmap gives every selected source row whose epicentre centre
 is inside the viewport weight 1. It bins screen positions on an 8-CSS-pixel grid,

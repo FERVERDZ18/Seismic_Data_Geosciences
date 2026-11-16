@@ -1,6 +1,7 @@
 """Catalogue link policies tested with temporary synthetic data and no HTTP."""
 
-from contextlib import redirect_stdout
+from contextlib import redirect_stderr, redirect_stdout
+import hashlib
 import io
 import json
 from pathlib import Path
@@ -69,6 +70,40 @@ class CatalogueLinkTests(unittest.TestCase):
             external, _, _, _, notes = check_links.collect_links("all")
         self.assertEqual(external["http://127.0.0.1:8787/"], {"system/dist/app.js"})
         self.assertEqual([entry["source"] for entry in notes], ["README.md"])
+
+    def test_parameterized_reverse_lookup_is_a_template_without_service_validation(self):
+        tools = self.dist / "map-tools.js"
+        tools.write_text("const url=new URL('https://nominatim.openstreetmap.org/reverse');"
+                         "url.search=new URLSearchParams({format:'jsonv2',lat:String(p.lat),"
+                         "lon:String(((p.lng+180)%360+360)%360-180),zoom:'10',"
+                         "'accept-language':en()?'en':'es'});", encoding="utf-8")
+        with patch.object(check_links, "source_paths", return_value=[tools]):
+            external, _, templates, _, _ = check_links.collect_links("artifact")
+        self.assertNotIn("https://nominatim.openstreetmap.org/reverse", external)
+        self.assertEqual(len(templates), 1)
+        self.assertEqual(templates[0]["classification"], "template_reverse_geocoder")
+        self.assertEqual(templates[0]["required_parameters"], ["format", "lat", "lon", "zoom"])
+        self.assertIn("does not verify service availability", templates[0]["status"])
+        self.urlopen.assert_not_called()
+
+    def test_reverse_template_does_not_exempt_literal_links_other_paths_or_missing_parameters(self):
+        base = "https://nominatim.openstreetmap.org/reverse"
+        readme = self.root / "README.md"
+        readme.write_text("Service link: " + base, encoding="utf-8")
+        tools = self.dist / "map-tools.js"
+        tools.write_text("\n".join([
+            "const literal='" + base + "';",
+            "const url=new URL('" + base + "');url.search=new URLSearchParams({format:'jsonv2',zoom:'10'});",
+            "const url=new URL('" + base + "-other');url.search=new URLSearchParams({format:'jsonv2',lat:String(p.lat),lon:String(((p.lng+180)%360+360)%360-180),zoom:'10','accept-language':en()?'en':'es'});",
+        ]), encoding="utf-8")
+        other_source = self.dist / "unrelated-map-tools.js"
+        other_source.write_text("const url=new URL('" + base + "');url.search=new URLSearchParams({format:'jsonv2',lat:String(p.lat),lon:String(((p.lng+180)%360+360)%360-180),zoom:'10','accept-language':en()?'en':'es'});", encoding="utf-8")
+        with patch.object(check_links, "source_paths", return_value=[tools, readme, other_source]):
+            external, _, templates, _, _ = check_links.collect_links("all")
+        self.assertEqual(external[base], {"README.md", "system/dist/map-tools.js", "system/dist/unrelated-map-tools.js"})
+        self.assertEqual(external[base + "-other"], {"system/dist/map-tools.js"})
+        self.assertEqual(templates, [])
+        self.urlopen.assert_not_called()
 
     def test_canadian_derived_keys_never_generate_usgs_routes_in_any_mode(self):
         for mode in ["none", "sample", "all"]:
@@ -153,6 +188,91 @@ class CatalogueLinkTests(unittest.TestCase):
         self.assertEqual(len(report["url_templates"]), 4)
         self.assertEqual(report["dynamic_events"]["route_count"], 0)
         self.assertFalse(report["generated_event_links_exhaustively_checked"])
+        self.urlopen.assert_not_called()
+
+
+class AdditionalManuscriptTests(unittest.TestCase):
+    def setUp(self):
+        temporary = tempfile.TemporaryDirectory(prefix="seismic-article-links-")
+        self.addCleanup(temporary.cleanup)
+        self.root = Path(temporary.name).resolve()
+        self.dist = self.root / "system/dist"
+        self.dist.mkdir(parents=True)
+        self.app = self.dist / "app.js"
+        self.app.write_text("const source='https://example.test/system';", encoding="utf-8")
+        self.old = self.root / "paper/drafts/manuscript.md"
+        self.old.parent.mkdir(parents=True)
+        self.old.write_text("Original: https://example.test/v0\n", encoding="utf-8")
+        self.current = self.root / "outputs/reviewed_revision/manuscript.md"
+        self.current.parent.mkdir(parents=True)
+        self.current.write_text("Current: https://example.test/revised\n[Figure](case.svg)\n", encoding="utf-8")
+        (self.current.parent / "case.svg").write_text("<svg/>", encoding="utf-8")
+        for name, value in [("ROOT", self.root), ("DIST", self.dist)]:
+            replacement = patch.object(check_links, name, value)
+            replacement.start()
+            self.addCleanup(replacement.stop)
+        http = patch.object(check_links, "urlopen", side_effect=AssertionError("No real HTTP is allowed in these tests"))
+        self.urlopen = http.start()
+        self.addCleanup(http.stop)
+
+    def test_current_article_adds_urls_bytes_and_hash_without_replacing_default_sources(self):
+        selected = check_links.source_paths("all", [self.current])
+        self.assertIn(self.old, selected)
+        self.assertIn(self.app, selected)
+        self.assertIn(self.current, selected)
+        external, local, _, sources, _ = check_links.collect_links("all", [self.current])
+        self.assertIn("https://example.test/v0", external)
+        self.assertIn("https://example.test/system", external)
+        self.assertEqual(external["https://example.test/revised"], {"outputs/reviewed_revision/manuscript.md"})
+        entry = next(item for item in sources if item["path"] == "outputs/reviewed_revision/manuscript.md")
+        raw = self.current.read_bytes()
+        self.assertEqual(entry["bytes"], len(raw))
+        self.assertEqual(entry["sha256"], hashlib.sha256(raw).hexdigest())
+        self.assertIn({"source": entry["path"], "link": "case.svg", "ok": True, "reason": "exists"}, local)
+        self.urlopen.assert_not_called()
+
+    def test_repeatable_cli_records_each_explicit_article_and_checks_uppercase_markdown(self):
+        second = self.current.parent / "second.MD"
+        second.write_text("[Missing case](missing.svg)\nhttps://example.test/second\n", encoding="utf-8")
+        argv = ["check_links.py", "--scope", "all", "--manuscript", str(self.current.relative_to(self.root)),
+                "--manuscript", str(second), "--manuscript", str(self.current)]
+        artifact = {"inventory": [], "privacy_failures": [], "integrity_checks": []}
+        dynamic = {"malformed_event_ids": [], "unmapped_raw_csv_files": []}
+        with patch("sys.argv", argv), patch.object(check_links, "privacy_and_integrity", return_value=artifact), \
+                patch.object(check_links, "event_routes", return_value=(dynamic, [])), redirect_stdout(io.StringIO()):
+            self.assertEqual(check_links.main(), 1)  # Extra sources cannot hide a local failure.
+        report = json.loads((self.root / "outputs/links/report_local.json").read_text(encoding="utf-8"))
+        self.assertEqual(report["additional_manuscripts"], ["outputs/reviewed_revision/manuscript.md", "outputs/reviewed_revision/second.MD"])
+        self.assertEqual(report["failed_local"], 1)
+        self.assertIn("https://example.test/v0", {item["url"] for item in report["literal_external_inventory"]})
+        self.assertIn("https://example.test/second", {item["url"] for item in report["literal_external_inventory"]})
+        self.assertFalse(report["network_checked"])
+        self.urlopen.assert_not_called()
+
+    def test_outside_existing_article_is_rejected_before_collection_or_network(self):
+        outside_directory = tempfile.TemporaryDirectory(prefix="seismic-other-workspace-")
+        self.addCleanup(outside_directory.cleanup)
+        outside = Path(outside_directory.name) / "unrelated.md"
+        outside.write_text("This belongs to another workspace.", encoding="utf-8")
+        with self.assertRaisesRegex(ValueError, "inside this repository"):
+            check_links.source_paths("all", [outside])
+        with patch("sys.argv", ["check_links.py", "--network", "--manuscript", str(outside)]), \
+                patch.object(check_links, "collect_links") as collect, \
+                redirect_stdout(io.StringIO()), redirect_stderr(io.StringIO()), \
+                self.assertRaises(SystemExit) as error:
+            check_links.main()
+        self.assertEqual(error.exception.code, 2)
+        collect.assert_not_called()
+        self.urlopen.assert_not_called()
+
+    def test_missing_non_markdown_and_directory_arguments_cannot_be_silently_dropped(self):
+        wrong_suffix = self.current.with_suffix(".txt")
+        wrong_suffix.write_text("Not an article Markdown", encoding="utf-8")
+        directory = self.current.parent / "folder.md"
+        directory.mkdir()
+        for path in [self.current.parent / "missing.md", wrong_suffix, directory]:
+            with self.subTest(path=path), self.assertRaisesRegex(ValueError, "existing Markdown"):
+                check_links.source_paths("artifact", [self.current, path])
         self.urlopen.assert_not_called()
 
 

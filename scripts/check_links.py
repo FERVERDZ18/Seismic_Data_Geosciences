@@ -23,6 +23,14 @@ ROOT = Path(__file__).resolve().parents[1]
 DIST = ROOT / "system/dist"
 URL = re.compile(r"https?://[^\s<>\"'`(){}\[\]\\$]+")
 ENCODED_URL_SUFFIX = re.compile(r"['\"]\s*\+\s*encodeURIComponent\s*\(")
+REVERSE_GEOCODER_PARAMS = re.compile(r"""
+    \s*\)\s*;\s*url\.search\s*=\s*new\s+URLSearchParams\(\s*\{
+    \s*format\s*:\s*['"]jsonv2['"]\s*,
+    \s*lat\s*:\s*String\(\s*p\.lat\s*\)\s*,
+    \s*lon\s*:\s*String\(\s*\(\(\s*p\.lng\s*\+\s*180\s*\)\s*%\s*360\s*\+\s*360\s*\)\s*%\s*360\s*-\s*180\s*\)\s*,
+    \s*zoom\s*:\s*['"]10['"]\s*,
+    \s*['"]accept-language['"]\s*:\s*en\(\)\s*\?\s*['"]en['"]\s*:\s*['"]es['"]\s*\}\s*\)
+""", re.X)
 CSS_URL = re.compile(r"url\(\s*['\"]?([^)'\"\s]+)", re.I)
 LOCAL_JSON = re.compile(r"['\"]((?:data|vendor)/[^'\"\s$]+)['\"]")
 SOURCE_MAP = re.compile(r"[#@]\s*sourceMappingURL=([^\s]+)")
@@ -67,20 +75,51 @@ class Assets(HTMLParser):
             self.links.extend(item.strip().split()[0] for item in attrs["srcset"].split(",") if item.strip())
 
 
-def source_paths(scope):
+def is_reverse_geocoder_template(name, text, match):
+    """Recognize only the packaged map control's parameterized constructor.
+
+    A bare reverse endpoint elsewhere remains a literal link, even in this file.
+    Classifying the constructor does not establish availability of the service.
+    """
+    if name != "system/dist/map-tools.js" or match.group() != "https://nominatim.openstreetmap.org/reverse":
+        return False
+    prefix = re.search(r"\bconst\s+url\s*=\s*new\s+URL\(\s*(['\"])$", text[max(0, match.start()-64):match.start()])
+    if not prefix or text[match.end():match.end()+1] != prefix.group(1):
+        return False
+    return bool(REVERSE_GEOCODER_PARAMS.match(text, match.end()+1))
+
+
+def manuscript_paths(manuscripts=()):
+    """Resolve explicit article sources without reading outside this repository."""
+    root = ROOT.resolve()
+    paths = []
+    for value in manuscripts:
+        path = Path(value)
+        path = (path if path.is_absolute() else root / path).resolve()
+        if not path.is_relative_to(root):
+            raise ValueError("Manuscript path must stay inside this repository: " + str(value))
+        if path.suffix.lower() != ".md" or not path.is_file():
+            raise ValueError("Manuscript must be an existing Markdown file: " + str(value))
+        paths.append(path)
+    return sorted(set(paths))
+
+
+def source_paths(scope, manuscripts=()):
     paths = [p for p in DIST.rglob("*") if p.is_file() and p.suffix.lower() in {".html", ".js", ".css", ".json", ".geojson"} and not ("vendor" in p.relative_to(DIST).parts and p.suffix == ".js")]
     if scope == "all":
         paths += [ROOT / "README.md", ROOT / "system/README.md", ROOT / "paper/drafts/manuscript.md"]
         paths += list((ROOT / "docs").rglob("*.md"))
         paths += [ROOT / "data/source_manifest.json", ROOT / "paper/templates/provenance.json"]
         paths += [ROOT / "research-data/README.md", ROOT / "research-data/comcat/manifest.json"]
+    paths += manuscript_paths(manuscripts)
     return sorted({p for p in paths if p.is_file()})
 
 
-def collect_links(scope):
+def collect_links(scope, manuscripts=()):
     external, templates = defaultdict(set), []
     local, sources, non_navigation = [], [], []
-    for path in source_paths(scope):
+    paths = source_paths(scope, manuscripts) if manuscripts else source_paths(scope)
+    for path in paths:
         raw = path.read_bytes()
         text = raw.decode("utf-8")
         name = path.relative_to(ROOT).as_posix()
@@ -94,6 +133,11 @@ def collect_links(scope):
                 non_navigation.append({"url": url, "source": name, "classification": "reserved parser base, never a navigable link", "line": text.count("\n", 0, match.start()) + 1})
             elif name in {"README.md", "system/README.md"} and urlsplit(url).hostname in {"127.0.0.1", "localhost", "::1"}:
                 non_navigation.append({"url": url, "source": name, "classification": "local preview example in developer instructions; not a public deployment destination", "line": text.count("\n", 0, match.start()) + 1})
+            elif is_reverse_geocoder_template(name, text, match):
+                templates.append({"source": name, "prefix": url, "classification": "template_reverse_geocoder",
+                                  "required_parameters": ["format", "lat", "lon", "zoom"],
+                                  "line": text.count("\n", 0, match.start()) + 1,
+                                  "status": "Parameterized reverse-geocoding request for an explicit user-selected point; the base URL is not a complete request. This inventory does not verify service availability."})
             elif text[match.end():match.end()+2] == "${":
                 templates.append({"source": name, "prefix": url, "status": "resolved separately from typed packaged event IDs"})
             elif text[match.end():match.end()+1] == "{":
@@ -132,7 +176,7 @@ def collect_links(scope):
                                            "classification": "sql.js local resolver directory prefix; complete JS/WASM/licence paths independently pinned", "line": text.count("\n", 0, match.start())+1})
                 else:
                     refs.append(link)
-        elif path.suffix == ".md":
+        elif path.suffix.lower() == ".md":
             refs += [a or b for a, b in MARKDOWN_LINK.findall(text)]
         if path.suffix in {".js", ".css"}:
             refs += SOURCE_MAP.findall(text)
@@ -412,10 +456,16 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--network", action="store_true")
     parser.add_argument("--scope", choices=("all", "artifact"), default="all")
+    parser.add_argument("--manuscript", action="append", default=[], metavar="PATH",
+                        help="Additional article Markdown inside this repository; repeat to include multiple revisions without replacing the default inventory")
     parser.add_argument("--dynamic-events", choices=("none", "sample", "all"), default="none")
     parser.add_argument("--workers", type=int, choices=range(1, 5), default=4)
     args = parser.parse_args()
-    external, local, templates, sources, non_navigation = collect_links(args.scope)
+    try:
+        manuscripts = manuscript_paths(args.manuscript)
+    except ValueError as error:
+        parser.error(str(error))
+    external, local, templates, sources, non_navigation = collect_links(args.scope, manuscripts)
     artifact = privacy_and_integrity()
     dynamic, routes = event_routes(args.dynamic_events)
     urls = sorted(set(external) | set(routes))
@@ -427,6 +477,7 @@ def main():
     failures += len(dynamic["malformed_event_ids"]) + len(dynamic["unmapped_raw_csv_files"])
     network_failures = sum(not item["ok"] for item in checked)
     report = {"checked_at_utc": datetime.now(timezone.utc).isoformat(), "scope": args.scope, "source_files": sources,
+              "additional_manuscripts": [path.relative_to(ROOT.resolve()).as_posix() for path in manuscripts],
               "local_assets": local, "artifact": artifact, "literal_external_url_count": len(external),
               "literal_external_inventory": [{"url": url, "linked_from": sorted(paths)} for url, paths in sorted(external.items())],
               "non_navigation_urls": non_navigation,
@@ -441,6 +492,7 @@ def main():
     name = "report_network.json" if args.network else "report_local.json"
     (output / name).write_text(json.dumps(report, indent=2, ensure_ascii=False), encoding="utf-8")
     print(json.dumps({"report": str(output / name), "scope": args.scope, "public_files": len(artifact["inventory"]),
+                      "additional_manuscripts": report["additional_manuscripts"],
                       "local_references": len(local), "literal_external_urls": len(external), "dynamic_events": dynamic,
                       "network_checked": args.network, "failed_local": failures, "failed_external": network_failures}, indent=2))
     return 1 if failures or network_failures else 0

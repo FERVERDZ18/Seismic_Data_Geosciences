@@ -218,6 +218,11 @@ def retained_projection_conditional(
 
     Multiple lineages for an event remain multiple records. The returned count is
     a count of retained product lineages passing a query, never unique earthquakes.
+    Every supplied version is checked for conflicting full product objects and
+    captured event associations before applying the cutoff or selecting latest.
+    This includes superseded versions and versions later than the cutoff. Equal
+    objects may repeat; differing content/metadata at one identity/time fails.
+    DELETE payloads are checked and retained as supplied, not normalized away.
     """
     if isinstance(assumptions, str) or not isinstance(assumptions, Sequence):
         raise ValueError("Acknowledge every required assumption explicitly by its key")
@@ -228,6 +233,8 @@ def retained_projection_conditional(
     cutoff = _instant(cutoff_utc)
     spec = _query(query)
     latest = {}
+    versions = {}
+    associated_events = {}
     considered = 0
     for event in events:
         products = event["properties"].get("products", {})
@@ -246,13 +253,18 @@ def retained_projection_conditional(
             if identity[1] != product_type:
                 raise ValueError("Product type contradicts its containing product array")
             when = _instant(_millisecond_instant(product.get("updateTime")))
+            version_key = (identity, when)
+            previous_version = versions.get(version_key)
+            if previous_version is not None and previous_version != product:
+                raise ValueError("Conflicting retained bytes for one product identity and version")
+            previous_event = associated_events.get(identity)
+            if previous_event is not None and previous_event != event["id"]:
+                raise ValueError("One product identity occurs under multiple captured event IDs; resolve associations explicitly")
+            versions[version_key] = product
+            associated_events[identity] = event["id"]
             if when > cutoff:
                 continue
             previous = latest.get(identity)
-            if previous and previous[0] == when and previous[1] != product:
-                raise ValueError("Conflicting retained bytes for one product identity and version")
-            if previous and previous[2] != event["id"]:
-                raise ValueError("One product identity occurs under multiple captured event IDs; resolve associations explicitly")
             if previous is None or previous[0] < when:
                 latest[identity] = (when, product, event["id"])
     active, deletions = [], []

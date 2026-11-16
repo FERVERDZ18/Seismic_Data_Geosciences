@@ -6,7 +6,7 @@
 })(typeof globalThis === 'object' ? globalThis : this, function () {
   'use strict';
   const defaults = Object.freeze({search: '', yearFrom: 1900, yearTo: 2026, magMin: 3.5, magMax: 10,
-    magType: '', originSource: '', depthMax: 1000, missingOnly: false, unmOnly: false, country: '', admin1: ''});
+    magType: '', originSource: '', depthMax: 1000, missingOnly: false, unmOnly: false, country: '', admin1: '', exactCopies: false});
   const keys = Object.keys(defaults);
   const tabs = ['home', 'catalog', 'sources', 'analysis', 'comparison', 'revisions', 'sql', 'methods','quick','top','recurrence','help'];
   const sorts = ['recent', 'oldest', 'mag'];
@@ -15,7 +15,7 @@
   const unmSourceCodes = Object.freeze(['unm', 'us_unm']);
   const isUnmAttributed = event => unmSourceCodes.includes(event.locationSource) || unmSourceCodes.includes(event.magSource);
   const urlKeys = {search: 'q', yearFrom: 'from', yearTo: 'to', magMin: 'min', magMax: 'max',
-    magType: 'mt', originSource: 'src', depthMax: 'depth', missingOnly: 'missing', unmOnly: 'unmOnly', country: 'country', admin1: 'adm'};
+    magType: 'mt', originSource: 'src', depthMax: 'depth', missingOnly: 'missing', unmOnly: 'unmOnly', country: 'country', admin1: 'adm', exactCopies: 'copies'};
   const countrySpecials = ['outside','boundary','invalid'];
   const admin1Specials = ['admin1-outside','admin1-boundary','admin1-invalid','admin1-unavailable'];
   const validHash = value => typeof value === 'string' && /^[a-f0-9]{64}$/.test(value);
@@ -45,7 +45,7 @@
     for (const [k, allowed] of [['magType', options.magTypes], ['originSource', options.originSources]]) {
       if (f[k].length > 80 || (allowed && f[k] && !allowed.includes(f[k]))) errors.push(k);
     }
-    for (const key of ['missingOnly', 'unmOnly']) if (typeof f[key] !== 'boolean') errors.push(key);
+    for (const key of ['missingOnly', 'unmOnly', 'exactCopies']) if (typeof f[key] !== 'boolean') errors.push(key);
     if (f.unmOnly && options.catalog && options.catalog.id !== legacyCatalog) errors.push('unmOnly');
     return {valid: !errors.length, filters: Object.fromEntries(keys.map(k => [k, f[k]])), errors: [...new Set(errors)]};
   }
@@ -78,6 +78,10 @@
     if (params.has('missing')) {
       if (!['0', '1'].includes(params.get('missing'))) invalid.push('missing');
       raw.missingOnly = params.get('missing') === '1';
+    }
+    if (params.has('copies')) {
+      if (!['0', '1'].includes(params.get('copies'))) invalid.push('copies');
+      raw.exactCopies = params.get('copies') === '1';
     }
     if (params.has('unmOnly')) {
       if (!['3','4','5'].includes(params.get('v')) || !['0', '1'].includes(params.get('unmOnly'))) invalid.push('unmOnly');
@@ -153,13 +157,14 @@
       && (!f.unmOnly || isUnmAttributed(e))
       && (!f.country || e.country_id === f.country)
       && (!f.admin1 || e.admin1_id === f.admin1)
-      && (!q || searchText(e.id).includes(q) || searchText(e.source_event_id).includes(q) || searchText(e.place).includes(q)));
+      && (!q || searchText(e.id).includes(q) || searchText(e.source_event_id).includes(q) || searchText(e.place).includes(q)
+        || (f.exactCopies && (e.exact_member_keys||[]).some(key=>searchText(key).includes(q)))));
     rows.sort(sort === 'mag' ? (a,b) => b.mag-a.mag || b.time.localeCompare(a.time)
       : sort === 'oldest' ? (a,b) => a.time.localeCompare(b.time) : (a,b) => b.time.localeCompare(a.time));
     return rows;
   }
 
-  function queryDocument({view, catalog, manifest, assetHashes, fields, rows, pageURL, createdUTC, inputs, geography}) {
+  function sourceQueryDocument({view, catalog, manifest, assetHashes, fields, rows, pageURL, createdUTC, inputs, geography}) {
     const activeAdmin1 = !!view.filters.admin1;
     if (activeAdmin1) {
       const a = geography?.admin1;
@@ -246,6 +251,47 @@
         ] : [])
       ]
     };
+  }
+  function queryDocument(args) {
+    if (!args.view.filters.exactCopies) return sourceQueryDocument(args);
+    const grouping = args.grouping;
+    if (!grouping || grouping.mode !== 'exact' || !validHash(grouping.evidence_sha256)
+        || !Number.isInteger(grouping.result_source_records) || grouping.result_source_records < args.rows.length
+        || grouping.result_groups !== args.rows.length
+        || grouping.result_collapsed_copies !== grouping.result_source_records-args.rows.length
+        || !Array.isArray(grouping.groups)) throw Error('Exact-copy queries require matching grouping evidence');
+    const selected = new Map(args.rows.map(row=>[row.id,row])), memberKeys = new Set();
+    let copies = 0;
+    for (const group of grouping.groups) {
+      const row=selected.get(group.representative_key);
+      if (!row || !Array.isArray(group.member_keys) || group.member_keys.length<2
+          || new Set(group.member_keys).size!==group.member_keys.length
+          || group.member_keys.length!==group.exact_member_count
+          || row.exact_member_count!==group.exact_member_count || row.exact_group_key!==group.group_key
+          || !group.member_keys.includes(group.representative_key)
+          || group.member_keys.some(key=>memberKeys.has(key))) throw Error('Exact-copy queries require matching grouping evidence');
+      group.member_keys.forEach(key=>memberKeys.add(key));
+      copies+=group.member_keys.length-1;
+    }
+    if (copies!==grouping.result_collapsed_copies) throw Error('Exact-copy queries require matching grouping evidence');
+    const rawView = {...args.view, filters:{...args.view.filters, exactCopies:false}};
+    const query = sourceQueryDocument({...args, view:rawView});
+    query.selection = {...args.view.filters};
+    query.count_unit = 'exact_source_record_groups';
+    query.grouping = JSON.parse(JSON.stringify(grouping));
+    query.result.count_unit = query.count_unit;
+    query.result.source_record_count = grouping.result_source_records;
+    query.predicate_rules.exact_copies = 'Before filtering, group only raw-cell-identical copies proved by the hash-bound evidence. Keep revisions and cross-provider candidates separate. Choose one fixed representative per group; retain every source member.';
+    query.predicate_rules.search = 'Case/accent-insensitive substring over representative ID, preserved source ID, place and every exact-copy member key.';
+    query.predicate_rules.sort_ties = 'Time ties retain the stable catalogue-qualified representative-key order established before filtering.';
+    if (query.predicate_rules.composition) query.predicate_rules.composition = 'Catalogue-qualified source rows grouped only by the supplied exact-copy proof; no cross-provider earthquake identity is inferred.';
+    query.limits = [
+      'Counts describe exact source-record groups, not independently validated physical earthquakes.',
+      'Per-catalogue aggregates describe the fixed representative catalogue; group membership retains all contributing catalogues.',
+      'Different revisions and uncertain cross-provider associations remain separate.',
+      ...query.limits.filter(text => !text.startsWith('Counts are source records,') && !text.includes('Shared USGS IDs are flagged, not removed.'))
+    ];
+    return query;
   }
   return {defaults, tabs, defaultCatalog, legacyCatalog, unmSourceCodes, isUnmAttributed, catalogDefaults, catalogFromURL, validateFilters, validMap, parseURL, serialize, filterEvents, queryDocument};
 });

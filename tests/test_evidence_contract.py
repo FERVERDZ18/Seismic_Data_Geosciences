@@ -3,6 +3,7 @@
 from copy import deepcopy
 from datetime import datetime
 import hashlib
+from itertools import permutations
 import json
 import unittest
 
@@ -164,6 +165,106 @@ class ConditionalProjectionTests(unittest.TestCase):
         second["properties"]["magnitude"] = "5.7"
         with self.assertRaises(ValueError):
             retained_projection_conditional(blob(event(first, second)), CUTOFF, ACK)
+
+    def test_superseded_conflicting_version_fails_for_every_product_order(self):
+        old_a = product("2020-01-01T01:00:00Z", 5.6)
+        old_b = deepcopy(old_a)
+        old_b["properties"]["magnitude"] = "5.7"
+        newer = product("2020-01-01T02:00:00Z", 6.0)
+        for order in permutations([old_a, newer, old_b]):
+            with self.subTest(order=[p["properties"]["magnitude"] for p in order]):
+                with self.assertRaisesRegex(ValueError, "Conflicting retained bytes"):
+                    retained_projection_conditional(blob(event(*order)), CUTOFF, ACK)
+
+    def test_superseded_identical_copies_are_order_independent(self):
+        old = product("2020-01-01T01:00:00Z", 5.6)
+        newer = product("2020-01-01T02:00:00Z", 6.0)
+        expected = None
+        for order in permutations([old, newer, deepcopy(old)]):
+            result = retained_projection_conditional(blob(event(*order)), CUTOFF, ACK)
+            self.assertEqual(result["retained_versions_considered"], 3)
+            self.assertEqual(result["records"][0]["magnitude"], 6.0)
+            if expected is None:
+                expected = result["records"]
+            self.assertEqual(result["records"], expected)
+
+    def test_full_product_conflict_is_not_reduced_to_projected_measurements(self):
+        old_a = product("2020-01-01T01:00:00Z", 5.6)
+        newer = product("2020-01-01T02:00:00Z", 6.0)
+        for field in ("equivalent_numeric_spelling", "unused_metadata"):
+            old_b = deepcopy(old_a)
+            if field == "equivalent_numeric_spelling":
+                old_b["properties"]["magnitude"] = "5.60"
+            else:
+                old_b["preferredWeight"] = 2
+            for order in permutations([old_a, newer, old_b]):
+                with self.subTest(field=field, order=[p["id"] for p in order]):
+                    with self.assertRaisesRegex(ValueError, "Conflicting retained bytes"):
+                        retained_projection_conditional(blob(event(*order)), CUTOFF, ACK)
+
+    def test_conflicts_after_cutoff_are_validated_before_temporal_selection(self):
+        earlier = product("2020-01-01T01:00:00Z", 5.6)
+        future_a = product("2020-01-03T01:00:00Z", 6.0)
+        future_b = deepcopy(future_a)
+        future_b["properties"]["magnitude"] = "6.1"
+        for order in permutations([earlier, future_a, future_b]):
+            with self.subTest(order=[p["properties"]["magnitude"] for p in order]):
+                with self.assertRaisesRegex(ValueError, "Conflicting retained bytes"):
+                    retained_projection_conditional(blob(event(*order)), CUTOFF, ACK)
+
+    def test_missing_version_time_cannot_be_hidden_by_newer_product_order(self):
+        missing = product("2020-01-01T01:00:00Z", 5.6)
+        newer = product("2020-01-01T02:00:00Z", 6.0)
+        for absent in (False, True):
+            bad = deepcopy(missing)
+            if absent:
+                del bad["updateTime"]
+            else:
+                bad["updateTime"] = None
+            for order in permutations([bad, newer]):
+                with self.subTest(absent=absent, missing_first=order[0] is bad):
+                    with self.assertRaisesRegex(ValueError, "Missing product updateTime"):
+                        retained_projection_conditional(blob(event(*order)), CUTOFF, ACK)
+
+    def test_equal_version_update_delete_conflict_fails_in_every_order(self):
+        update = product("2020-01-01T01:00:00Z", 5.6)
+        deleted = deepcopy(update)
+        deleted["status"] = "DELETE"
+        deleted["properties"] = {}
+        newer = product("2020-01-01T02:00:00Z", 6.0)
+        for order in permutations([update, newer, deleted]):
+            with self.subTest(order=[p["status"] for p in order]):
+                with self.assertRaisesRegex(ValueError, "Conflicting retained bytes"):
+                    retained_projection_conditional(blob(event(*order)), CUTOFF, ACK)
+
+    def test_duplicate_delete_retains_authentic_payload_without_resurrection(self):
+        old = product("2020-01-01T01:00:00Z", 5.6)
+        deleted = product("2020-01-01T02:00:00Z", 5.7, status="DELETE")
+        # Existing output semantics preserve supplied DELETE properties as evidence.
+        for order in permutations([old, deleted, deepcopy(deleted)]):
+            result = retained_projection_conditional(blob(event(*order)), CUTOFF, ACK)
+            self.assertEqual(result["records"], [])
+            self.assertEqual(len(result["retained_deletions"]), 1)
+            self.assertEqual(result["retained_deletions"][0]["magnitude"], 5.7)
+
+    def test_delete_payload_difference_is_not_normalized_away(self):
+        first = product("2020-01-01T01:00:00Z", 5.6, status="DELETE")
+        second = deepcopy(first)
+        second["properties"]["magnitude"] = "5.7"
+        newer = product("2020-01-01T02:00:00Z", 6.0)
+        for order in permutations([first, newer, second]):
+            with self.subTest(order=[p["properties"]["magnitude"] for p in order]):
+                with self.assertRaisesRegex(ValueError, "Conflicting retained bytes"):
+                    retained_projection_conditional(blob(event(*order)), CUTOFF, ACK)
+
+    def test_future_cross_event_association_is_not_hidden_by_cutoff_or_event_order(self):
+        earlier = product("2020-01-01T01:00:00Z", 5.6)
+        future = product("2020-01-03T01:00:00Z", 6.0)
+        for features in permutations([event(earlier), event(future, identifier="synthetic-B")]):
+            with self.subTest(event_order=[e["id"] for e in features]):
+                raw = blob({"type": "FeatureCollection", "features": features})
+                with self.assertRaisesRegex(ValueError, "multiple captured event IDs"):
+                    retained_projection_conditional(raw, CUTOFF, ACK)
 
     def test_product_under_two_event_ids_requires_association_resolution(self):
         same = product("2020-01-01T01:00:00Z", 5.6)

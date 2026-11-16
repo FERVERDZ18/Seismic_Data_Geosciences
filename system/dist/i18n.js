@@ -238,6 +238,24 @@
   Object.assign(messages.es,{pointColor:'Color de los puntos',catalogueColors:'Catálogo · color + forma',depthColors:'Profundidad documentada',heatNoSourceColors:'La escala de calor representa concentración de filas, no identidad del catálogo. Elige Epicentros para ver colores y formas de las fuentes.'});
   Object.assign(messages.en,{sourceHeading:'Catalogue workbench',sourceInventoryText:'Choose a preserved source. Its real records, colour, symbol and source contract stay connected.',sourceViewModes:'Source workbench views',sourceAtlas:'Atlas',sourceTime:'Time and coverage',sourceViewHint:'One selection, two complementary views.',sourcePick:'CHOOSE A CATALOGUE',sourceObservedWindow:'OBSERVED ORIGIN INTERVALS',sourceTimeTitle:'Different windows, explicit boundaries',sourceWorkflow:'Source to reusable output',sourceRetained:'Retained source',sourceRetainedText:'Read the original contract',sourceNormalized:'Common fields',sourceNormalizedText:'Inspect the explicit adapter rules',sourceAnalysis:'Browser analysis',sourceAnalysisText:'Calculate from this selection',sourceExport:'Reusable output',sourceExportText:'Download data and evidence',sourceExplore:'Explore on map ↗',sourceInspect:'Inspect selected rows ↗',sourceExportSelection:'Export selection ZIP ↓',sourceFullContracts:'All four source contracts and original assets'});
   Object.assign(messages.es,{sourceHeading:'Mesa de catálogos',sourceInventoryText:'Elige una fuente conservada. Sus registros reales, color, símbolo y contrato de origen permanecen conectados.',sourceViewModes:'Vistas de la mesa de catálogos',sourceAtlas:'Atlas',sourceTime:'Tiempo y cobertura',sourceViewHint:'Una selección, dos vistas complementarias.',sourcePick:'ELIGE UN CATÁLOGO',sourceObservedWindow:'INTERVALOS DE ORIGEN OBSERVADOS',sourceTimeTitle:'Ventanas distintas, límites explícitos',sourceWorkflow:'De la fuente al resultado reutilizable',sourceRetained:'Fuente conservada',sourceRetainedText:'Lee el contrato original',sourceNormalized:'Campos comunes',sourceNormalizedText:'Consulta las reglas explícitas de adaptación',sourceAnalysis:'Análisis en el navegador',sourceAnalysisText:'Calcula con esta selección',sourceExport:'Resultado reutilizable',sourceExportText:'Descarga datos y evidencia',sourceExplore:'Explorar en el mapa ↗',sourceInspect:'Consultar filas seleccionadas ↗',sourceExportSelection:'Exportar selección ZIP ↓',sourceFullContracts:'Los cuatro contratos y archivos de origen'});
+  Object.assign(messages.es, {
+    exactCopies:'Agrupar copias exactas', matchingGroups:'Grupos de registros que coinciden',
+    filterSummaryGroups:'{n} de {total} grupos de registros · {from}–{to} · M ≥ {min}',
+    exactRawNotice:'Se cuentan todas las filas de origen. La agrupación conserva los enlaces a cada copia.',
+    exactGroupedNotice:'{groups} grupos reúnen {records} filas de origen; {copies} copias exactas agrupadas. Revisiones y coincidencias inciertas entre agencias permanecen separadas. Las estadísticas por catálogo usan el representante del grupo.',
+    exactMembers:'Procedencias de este grupo', exactGroupsUnit:'grupos de registros',
+    exactProofFailed:'No se pudo verificar la evidencia de copias exactas. Se conserva la vista de filas de origen.'
+  });
+  Object.assign(messages.en, {
+    exactCopies:'Group exact copies', matchingGroups:'Matching record groups',
+    filterSummaryGroups:'{n} of {total} record groups · {from}–{to} · M ≥ {min}',
+    exactRawNotice:'Every source row is counted. Grouping keeps the links to each copy.',
+    exactGroupedNotice:'{groups} groups retain {records} source rows; {copies} exact copies grouped. Revisions and uncertain cross-agency matches remain separate. Per-catalogue statistics use each group representative.',
+    exactMembers:'Provenance of this group', exactGroupsUnit:'record groups',
+    exactProofFailed:'Exact-copy evidence could not be verified. The source-row view is retained.'
+  });
+  messages.es.sequenceWorkspace = 'Secuencias entre catálogos';
+  messages.en.sequenceWorkspace = 'Sequences across catalogues';
   let language = 'en';
   function t(key, values = {}) {
     return String(messages[language][key] ?? messages.en[key] ?? key).replace(/\{(\w+)\}/g, (_, k) => String(values[k] ?? ''));
@@ -250,6 +268,8 @@
     document.querySelectorAll('[data-i18n-aria]').forEach(el => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => el.placeholder = t(el.dataset.i18nPlaceholder));
     const selector = document.getElementById('language'); if (selector) selector.value = language;
+    const sequenceLink = document.getElementById('sequenceWorkspace');
+    if (sequenceLink) sequenceLink.href = 'sequences/index.html?lang=' + language;
   }
   window.SeismicI18n = {t, apply, get language() {return language;}, messages};
 })();

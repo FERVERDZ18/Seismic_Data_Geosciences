@@ -42,6 +42,23 @@ async function main(){
     const first=client.setData({key:'old',records:[],catalogs:[]}).catch(e=>e.code);
     const second=client.setData({key:'new',records:[],catalogs:[]});assert.equal(await first,'SQL_CANCELLED');assert.equal((await second).selectionKey,'new');assert(client.isReady());client.dispose();
   });
+  await test('exact-copy SQL separates selected groups from represented source rows and keeps complete membership',async()=>{
+    const payload={key:'exact',evidence:{count_unit:'exact_source_record_groups'},catalogs:[{id:'a'},{id:'b'}],records:[
+      {record_key:'a~one',catalogue_id:'a',exact_group_key:'group-one',source_record_count:2},
+      {record_key:'a~two',catalogue_id:'a',source_record_count:1}
+    ],exact_membership:[
+      {group_key:'group-one',representative_key:'a~one',member_key:'a~one',catalogue_id:'a',source_event_id:'one'},
+      {group_key:'group-one',representative_key:'a~one',member_key:'b~one',catalogue_id:'b',source_event_id:'one'}
+    ]};
+    const grouped=await Q.createDatabase(SQL,payload);
+    assert.equal(grouped.metadata.countUnit,'exact_source_record_groups');
+    assert.deepEqual(Q.execute(grouped.db,'SELECT COUNT(*), SUM(source_record_count) FROM records').rows,[[2,3]]);
+    assert.deepEqual(Q.execute(grouped.db,'SELECT member_key FROM exact_membership ORDER BY member_key').rows,[['a~one'],['b~one']]);
+    assert.equal(Q.execute(grouped.db,'SELECT COUNT(*) FROM exact_membership m JOIN catalogs c USING(catalogue_id)').rows[0][0],2);
+    grouped.db.close();
+    for(const members of [[],payload.exact_membership.slice(0,1),[payload.exact_membership[0],{...payload.exact_membership[1],representative_key:'missing'}]])await assert.rejects(Q.createDatabase(SQL,{...payload,exact_membership:members}),e=>e.code==='SQL_DATA');
+    await assert.rejects(Q.createDatabase(SQL,{...payload,records:[{...payload.records[0],source_record_count:0}]}),e=>e.code==='SQL_DATA');
+  });
   console.log(JSON.stringify({passed:checks}));
 }
 main().catch(e=>{console.error(e);process.exitCode=1;});

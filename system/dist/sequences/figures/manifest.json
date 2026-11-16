@@ -1,0 +1,38 @@
+{
+  "schema": "article-scientific-figures/1",
+  "article_title": "A browser-based seismic data observatory for detecting and comparing earthquake sequences across North American catalogues",
+  "reference_manuscript_pdf_sha256": "8593a19d51ccc5a5a8168278f2869a53c5fcc2af0472f9b23ed5da5aaaee9f66",
+  "figure_behavior": "Fixed figures; explorer filtering does not recalculate or modify these images.",
+  "image_transformations": "None: byte-identical copies of the manuscript PNGs.",
+  "data_attribution": "SSN, Institute of Geophysics, UNAM; USGS ComCat and contributing networks. Original provider attribution and rights remain applicable.",
+  "interpretation": "Operational families are not physical triggering truth; cross-catalogue pairs remain candidates. Reported magnitudes are not converted to a common physical scale.",
+  "assets": [
+    {
+      "article_figure": 4,
+      "path": "figures/figure-4-families.png",
+      "sha256": "0b9dacc6f0825940fd4401a340c3a6806e5cb827203334142a4867d670bf6f1b",
+      "bytes": 508909,
+      "width": 1950,
+      "height": 2100,
+      "scope": "Anchored operational families for 2017 and 2022; native reported M>=4.5; fixed source-specific development thresholds."
+    },
+    {
+      "article_figure": 3,
+      "path": "figures/figure-3-diagnostics.png",
+      "sha256": "c8d94ee30e99a45038df8f627d43b9c1c402a2a8b3c72070f227d4374c852a84",
+      "bytes": 537673,
+      "width": 2130,
+      "height": 2250,
+      "scope": "Retained magnitude distributions, weighted time-distance proximities, and candidate-pair reported-magnitude differences."
+    },
+    {
+      "article_figure": 2,
+      "path": "figures/figure-2-search.png",
+      "sha256": "d9f02368bfa26195966ca8e8faf11325322926c982d46afa22760f5b3df7bea9",
+      "bytes": 500735,
+      "width": 3285,
+      "height": 2520,
+      "scope": "Computational scaling on the complete retained SSN reported-M>=3.5 input; machine-specific measured timings."
+    }
+  ]
+}

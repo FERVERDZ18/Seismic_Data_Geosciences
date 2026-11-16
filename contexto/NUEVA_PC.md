@@ -2,6 +2,249 @@
 
 ## Estado actual
 
+<!-- article-figures-git-2026-11-16-state start -->
+- 16 nov 2026, revisión 2026.11.16.1: Gabriel pidió integrar las figuras del artículo de forma atractiva en el sistema y autorizó expresamente UN commit y su push con identidad humana; no autorizó un despliegue adicional de Pages. Esta autorización corresponde sólo a esta revisión y no se reutiliza.
+- El explorador sequences incorpora la Figura 4 completa y las Figuras 2/3 del manuscrito revisado, copiadas byte a byte, con ampliación y accesos a casos 2017/2022. Las rutas históricas?figure= conservan IDs/numeración. Las imágenes fijas se distinguen del cálculo dinámico; no suministran clasificaciones precargadas.
+- Los casos dinámicos mantienen el ancla ComCat y el círculo 150 km también al mostrar la familia completa, conservan coordenadas originales y guardan parámetros de vista validados en el URL. Se verificaron 2017 (292/204; con peso aparente 955/208),2022 (21/10 completos; 13/9 locales), restauración del enlace, ES/EN, galería móvil sin desbordamiento y arranque principal 287936 registros/cuatro paquetes verificados.
+- Se corrigió el pin de transporte desactualizado, sincronizado con 1f88d5add8763b4455b0010b2f7407d5afe98ada9a654b89fe1691e8fee56d6e, y los hashes de caché. Hay prueba de regresión para pin/caché y pruebas de rutas/figuras. Pasan 122 pruebas Python y 23 suites JavaScript; cero fallos locales/privacidad. El motor NN y sus datos/calibración no cambian.
+- Gate de push actualizado: el verificador incluye explícitamente el MD del PDF 26p. Auditoría fresca 599/616 URLs correctas,17 HTTP 403 (14 DOI, NRCan y 2 ScienceDirect), más muestra 339/36872 rutas USGS. Excepciones específicas y resultado real de Git se registran localmente en outputs/ui_article_figures_2026-11-16/; no se presume aprobación por autorizaciones antiguas. Si esa evidencia no está en otra PC, consultar Git/origin y no inventar sus resultados.
+- El PDF/Word científico de 26p permanece intacto en outputs/claude_response_2026-11-16/manuscript/out/; PDF SHA 8593a19d51ccc5a5a8168278f2869a53c5fcc2af0472f9b23ed5da5aaaee9f66. Se conserva título, 9 figuras v0 y declaración académica veraz de IA. La revisión2 de Claude se solicita con PROMPT_CLAUDE_REVISION_2.txt y el dictamen recibido; no se controla su sesión.
+- La integración Git incluye código/datos del sistema, pruebas, documentación técnica y sólo los 3 Markdown permitidos de contexto. Se excluyen outputs privados, prompts, borradores, runtime y PDF/Word anteriores. Comprobar el estado efectivo del commit/push mediante Git y origin/main; la publicación de Pages sigue siendo manual y requiere permiso específico. No hay envío editorial ni aprobación humana inventada.
+<!-- article-figures-git-2026-11-16-state end -->
+
+<!-- claude-response-active-2026-11-16 start -->
+- 16 nov 2026: terminado el contraste documentado de los 14 hallazgos de Claude en outputs/claude_response_2026-11-16/RESPUESTA_A_CLAUDE.md. Se corrigieron método NN 2013 determinista, corte autoral, equivalencia Python/JavaScript, calibración/temporalidad, controles, magnitudes/contexto y evidencia científica; no se borran ejecuciones fallidas ni resultados adversos.
+- Entrega local corregida: outputs/claude_response_2026-11-16/manuscript/out/Seismic_CG_sequences_manuscript.pdf y outputs/claude_response_2026-11-16/manuscript/out/Seismic_CG_sequences_manuscript.docx; 26 páginas,13 figuras (9 grupos v0 íntegros+4 científicos),4 tablas,33 referencias,16 enlaces interactivos originales. Título/autores originales aprobados conservados. PDF SHA-256 8593a19d51ccc5a5a8168278f2869a53c5fcc2af0472f9b23ed5da5aaaee9f66. Revisión visual página a página y recibos del pipeline en manuscript/review/ de esa carpeta.
+- Sistema local nuevo en system/dist/sequences/: NN y Gardner–Knopoff, mapas/cronologías/T–R, candidatos comunes y sensibilidad de pesos; calcula en Workers desde datos verificados, sin clasificaciones Python precargadas. Exportaciones reales de Edge 157 se compararon registro por registro para 3 selecciones; Node 22.12.0 cubre 9 cohortes / 200982 selecciones-registro. No prometer identidad binaria entre cualquier libm ni verdad física.
+- Pasan 115 pruebas Python y 22 suites JavaScript, oráculos históricos y validación retenida; final_checks/round_01 conserva 2 fallos iniciales de empaquetado, corregidos y verificados en round_02 (cero fallos locales/privacidad). Se añadió gzip de grupos exactos y se regeneró manifiesto de transporte sin alterar observaciones originales. No se verificaron de nuevo por HTTP todos los enlaces; ninguna excepción antigua vale para un próximo push.
+- Referencia exhaustiva completa 170880 medida 139.94 s; medianas KD 6.83 s / octree 6.52 s en este equipo y protocolo. Reproducción aislada del núcleo reproduce 3208 arrays y 4204642 campos JSON científicos; extensión de interfaz lleva su propio manifiesto y no reescribe el núcleo anterior.
+- Revisión adversarial automatizada: tres rondas automatizadas: Reject científico inicial y Reject visual corregidos; la tercera no encuentra un motivo técnico de rechazo demostrado dentro del alcance revisado. No es dictamen editorial ni asegura aceptación. R1 disponibilidad pública y R2 revisión/aprobación humana siguen pendientes. Candidatos no adjudicados, completitud local y parentesco físico son límites explícitos; no se presentan como resueltos por concordancia.
+- No se hizo commit, amend, push, publicación, release, correo ni envío. HEAD sigue 729c86ae535b93f649a07c74f3bb736bdfe78bac. Pedir autorización expresa y separada antes de CADA acción Git/publicación; identidad Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin IA en Git. Declaración académica veraz de asistencia de IA conservada. No modificar otros proyectos/sitios ni renombrar documentos abiertos.
+<!-- claude-response-active-2026-11-16 end -->
+
+<!-- claude-review-request-2026-11-16-state start -->
+- 16 nov 2026: Gabriel entregó el dictamen de Claude/Fable y pidió a Codex registrarlo. Veredicto recibido: Reject, con 14 hallazgos (3 críticos R1–R3, 9 mayores R4–R12 y 2 menores R13–R14). Es una evaluación privada aportada por Gabriel, no una decisión editorial de Computers & Geosciences.
+- Alcance declarado por el revisor: PDF completo de 24 páginas, tablas 1–4, figuras 1–11 y referencias; guía de autores, Zaliapin–Ben-Zion (2020, pp. 3–9) y existencia de cuatro referencias. No recibió S1–S6/repositorio, no abrió enlaces interactivos, no inspeccionó código ni reprodujo resultados y no leyó contexto/. No presentar este registro como una nueva validación de esas afirmaciones.
+- Copia literal privada: outputs/claude_external_review_2026-11-16/round_01/DICTAMEN_CLAUDE_RECIBIDO.txt. Recibo con SHA, clasificación R1–R14 y hashes de la versión local de referencia: outputs/claude_external_review_2026-11-16/round_01/REGISTRO_DICTAMEN.json. El texto recibido no informa hash del PDF que leyó; no se inventa esa verificación.
+- El Accept anterior corresponde a dos rondas internas de Codex y se conserva como antecedente, no como cierre de las objeciones de Claude. R1–R14 quedan pendientes de contraste y respuesta; el artículo no se declara listo para envío. No hay revisión/aprobación final humana acreditada ni autorización de publicación.
+- En este paso sólo se registra el dictamen: Word/PDF, fuente, datos, imágenes, título y autores permanecen intactos. Sin nuevas pruebas numéricas, cambios científicos, commit, amend, push, publicación o envío.
+<!-- claude-review-request-2026-11-16-state end -->
+
+<!-- piloto-secuencias-activo-2026-11-15 start -->
+- Gabriel autorizó el piloto con datos actuales, métodos publicados, nuevo artículo y hasta cinco rondas adversariales. Título aprobado: A browser-based seismic data observatory for detecting and comparing earthquake sequences across North American catalogues. Se conservan las nueve figuras v0 por hash. No hay autorización nueva de Git o publicación.
+- Trabajo privado: outputs/sequence_pilot_2026-11-15/. México SSN/ComCat 2016–2025 permite comparar catálogos; Alaska ComCat 2020–2025 es control de una sola fuente. Canadá no coincide temporalmente. El corte condicionado de M reportada 4.1 no certifica completitud ni armoniza Mw. Los 2989 pares siguen siendo candidatos sin identidad física validada.
+- Sobre los mismos 2459 pares, acuerdo GK A/B/C=68.7271/72.3871/82.5132%. Sobre los mismos 2458 definidos, NN B/C=60.3112/75.1607% y media|pSSN−pComCat|=0.228658/0.098203. AMENDMENT_01.md conserva las reparaciones: veinte sorteos fuente/ID independientes corrigen el acoplamiento inicial; no ocultar ni reescribir los recibos originales.
+- Evidencia nueva de componentes (S1–S3): ARI GK 0.780375→0.782750 pese al cambio de roles; NN medio 0.483561→0.640994. Sin reclustering tras proyectar los mismos pares. Testigo cronológico por ID y todos los 28 pares con M≥6 en cualquiera exportados. Son particiones y spans observados, no familias físicas ni causas mínimas. S4 reporta sensibilidades y S6 los nulos temporales.
+- Los controles adversos permanecen: NN F1 ETAS con corte≈0.696 frente a trivial≈0.702, falsos agrupamientos N0/N1 sustanciales y Carluccio default 0/0/1 multiplets con otro objetivo. No ajustar para ganar. Índice KD exacto limitado a w=0,d=1.5,2D; SSN 170880 con cien campos en54.74s antes de componentes/export. Brute-force completo no ejecutado. Benchmark posterior a R1:45/45 corridas, cinco fixtures, tres backends, tres repeticiones y cuatro hilos; ratios mediana ref/index=7.75–29.28 con salidas idénticas. Umbral−1 sólo para rendimiento; hardware/fases/RSS en benchmark/ y S5.
+- Prototipo browser_pilot/ privado: GK/NN en Node 24.22.1, diez cohortes y 205345 filas-de-selección verificadas; decisiones NN idénticas, máximo error float 3.11e−15. Edge sólo valida agregados GK_B,NN_B/C y NN_AlaskaB; no afirmar paridad exhaustiva por registro en Edge ni CSV exportado capturado. No eludir el bloqueo de edge://downloads. Se aclaró Gardner–Knopoff como método1974 de agrupación, sin confirmar duplicados/réplicas. El servidor temporal propio (sesión37222) se detuvo; para revisar el prototipo reiniciarlo según su README. Sistema previo y317 archivos protegidos conservados.
+- reproducibility/bundle_v1/ privado: README inglés, fuentes/dependencias/licencias y replay limpio fuera del checkout con dos entornos nuevos:40 pasos PASS,93 CSV idénticos, contenidos de92 NPZ/1046 campos exactos y32786 valores JSON sin diferencia. No afirmar identidad del contenedor NPZ ni PNG. Bundle_v2 está sellado aparte:477 archivos seleccionados más manifiesto,15 NPZ/120 campos revalidados y siete archivos S1–S6 idénticos. Prueba incremental de cuatro descriptores/extractores; S5 conserva las45 mediciones originales, sin repetir benchmark, detectores o permutaciones. V2_INCREMENTAL_REPLAY_RECEIPT.json y V2_DELIVERY.json verificados; v1 intacto.
+- Auditoría HTTP del16nov:52 destinos,41 respuestas200, una202 IEEE sin certificar contenido y diez bloqueos editoriales403;16/16 vistas200 y parámetros locales PASS. Cero404/410 observados. Los diez bloqueos NO son excepciones autorizadas para un futuro push. URLs finales ligadas a fuente en review/round_02_url_binding.json; no nueva revisión visual pública ni equivalencia del parser público distinto.
+- Ronda formal1: Major Revision; SEQ01–04 reparados para ronda2. SEQ05 (acceso público) es requisito separado antes del envío. Las prerrevisiones técnicas no cuentan como rondas. Maqueta previa de23 páginas revisada; fuente posterior en manuscript/manuscript.md. Las entregas anteriores siguen protegidas.
+- Autores: José Manuel Villa Vargas primero, Gabriel Hurtado Avilés segundo/correspondencia. No inventar aprobación humana. Conservar declaración académica veraz de IA en Methods, final y pie de Figura1. Antes de CADA commit/amend, CADA push y CADA publicación pedir autorización específica y esperar; Fable debe hacer lo mismo. Git humano: Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin IA, coautores ni trailers automáticos.
+- Entrega privada final verificada: outputs/sequence_pilot_2026-11-15/manuscript/out/Seismic_CG_sequences_manuscript.pdf y outputs/sequence_pilot_2026-11-15/manuscript/out/Seismic_CG_sequences_manuscript.docx; 24 páginas; 2 rondas formales, dictamen Accept. Ver FINAL_DELIVERY.json paraSHA yQA. Es revisión automatizada privada, no aceptación de la revista ni aprobación de autores.
+<!-- piloto-secuencias-activo-2026-11-15 end -->
+
+<!-- alternativa secuencias 2026-11-15 start -->
+- DECISIÓN POSTERIOR: Gabriel rechazó también la auditoría/certificador de estabilidad: «otra cosa, a mí me suena a que hace menos». Las dos rutas previas (ISC/geodesia y auditoría de estabilidad) NO están aprobadas. No implementar ni reescribir el paper como si estuvieran acordadas.
+- Alternativa nueva sólo propuesta: motor de detección y caracterización de episodios/secuencias espacio–temporales, con comparación entre catálogos, controles estadísticos y procedencia/campos ausentes explícitos. Amplía las funciones actuales de proximidad, mapas, SQL y comparación; conserva título e imágenes v0. Ver outputs/substantive_revision_2026-11-15/OPCION_SECUENCIAS.md. No aprobado, no implementado, sin resultados nuevos de secuencias.
+- Antecedentes primarios examinados: Zaliapin/Ben-Zion2020 y detector multiplets C&G2024 ya cubren vecindad/grafos y controles; esas ideas no se presentarán como nuevas. Habría que demostrar una capacidad adicional y un resultado científico relevante frente a ambos. No convertir agrupaciones en predicción, causalidad de réplicas ni identidades validadas.
+- Inventario de reproducción del paper anterior ya terminado: 155 entradas selladas y 369 rutas verificadas; propuesta seleccionada de 355 archivos/346.9MB, con 14 exclusiones y adaptaciones pendientes en copias. Plan en release_preparation/PLAN_MINIMAL_EN.md. No se construyó ni probó paquete limpio y SR03 sigue abierto. Sin Git, publicación o cambios al paper/imágenes/producto.
+<!-- alternativa secuencias 2026-11-15 end -->
+
+<!-- investigacion y opcion interna 2026-11-15 start -->
+- NUEVA PETICIÓN, 15 nov 2026 por la noche: Gabriel pide resolver SR01–03, conservar el título original y todas las figuras de v0, y preguntar antes de cada commit, push o publicación. También pide un artículo nuevo incorporando las sugerencias del agente revisor. No hay autorización nueva para acciones Git/publicación.
+- Se investigó una ruta de búsqueda geodésica completa con una referencia ISC revisada. Gabriel la RECHAZÓ como aportación principal: «Parece más un reuso de material público con una visualización dinámica; dame otra opción centrada en lo que actualmente ya tiene el sistema». No se implementó ni congeló esa ruta; no presentarla como aprobada.
+- Alternativa interna propuesta y PENDIENTE DE ACUERDO: auditor/certificador de estabilidad de comparaciones regionales, con familia de decisiones analíticas predefinida, resultados invariantes, cambios mínimos y registros testigo verificables; comparar con SQL exhaustivo optimizado. Usar fuente, tipo literal, UTC, unidad y geografía explícitos. No presentar grafo, bitsets, Shapley o nuevas tablas como novedad automática. Propuesta concreta: outputs/substantive_revision_2026-11-15/OPCION_CENTRADA_EN_EL_SISTEMA.md. Pregunta asíncrona enviada sobre esta alternativa; sin respuesta a ese segundo acuerdo al registrar esta nota. El usuario aún no ha aprobado implementarla.
+- El nuevo artículo se redactará después de obtener resultados reales del método acordado; conservará título exacto v0, imágenes y seis reparaciones del revisor. No se creó todavía un nuevo paper final ni se declara SR01–03 resuelto o aceptación garantizada. El Word/PDF anterior de 24 páginas conserva sus hashes y sigue en outputs/final_paper_2026-11-15/manuscript/out/.
+- Investigación conservada en outputs/substantive_revision_2026-11-15/research/. Se descargaron muestras ISC con agrupaciones revisadas/orígenes MEX, NEIC, ISC, OTT/PGC y campos reales. MEX corresponde a SSN México; SSN es Sudán. ISC es referencia curada externa, no independencia observacional absoluta. Sawires Figshare se descargó; Largest Earthquakes no contiene crosswalk de IDs. Los dos XLS cifrados no se pudieron leer. No inventar validación del piloto antiguo ni licencias ISC-Bulletin heredadas de ISC-GEM.
+- Se verificó que el pin oficial GEM d13e63b sigue siendo el HEAD remoto consultado y que el blob local coincide. La API oficial sin modificar omitió tres pares SINTÉTICOS elegidos tras inspección (latitud alta/antimeridiano) y asoció el control de México; todos cumplían sus ventanas de distancia/tiempo. Esto NO mide prevalencia real ni cierra novedad/ciencia. Recibo research/scientific_criteria/GEM_GEOMETRY_RECEIPT.json; el fallo inicial ZeroMQ y el reintento autorizado quedaron registrados. No se envió issue/PR/mensaje a GEM.
+- Diagnóstico del grafo antiguo: 65536 emparejamientos de cardinalidad máxima; el coste mínimo actual es único. Las cotas globales de discrepancia M4.5 son estrechas (796/1686 a 803/1690); M5.5 permanece 19/110. Son análisis exploratorios de asociaciones posibles, no identidades físicas. Antecedentes directos impiden presentar esas cotas generales como nuevas. Ver research/computational_route/.
+- SR03: preparación local del inventario/plan de un paquete público seleccionado, con dependencias, licencias y guía inglesa. El sello de 155 entradas del paper actual no es por sí solo un paquete portátil completo y contiene materiales privados que deben excluirse. No se construyó ni publicó un release nuevo. No modificar recibos antiguos para simular reproducción pública.
+- Protección comprobada: 169 archivos de la entrega anterior/v0 ligados en PROTECTED_PREVIOUS_DELIVERIES.json, además de la verificación histórica de los agentes sobre 368 archivos. Fuentes/Word/PDF e imágenes anteriores permanecen intactos. Sólo investigación, propuesta e inventario privados y esta continuidad cambian en esta fase; no algoritmos productivos ni otros proyectos.
+<!-- investigacion y opcion interna 2026-11-15 end -->
+
+<!-- cierre revision adversarial final 2026-11-15 start -->
+- ENTREGA CORREGIDA 15 nov 2026 (noche; prevalece sobre antecedentes): Gabriel pidió recuperar el título original v0, conservar todas sus imágenes y revisión adversarial por subagente. Título exacto: A browser-based seismic observatory for regional earthquake catalogue comparison in North America.
+- Carpeta canónica nueva: outputs/final_paper_2026-11-15/manuscript/. Word/PDF en out/Seismic_CG_final_manuscript.docx y .pdf. No se renombró/borró v3, v1, v2_compacta ni outputs/archive/v2_antigua_2026-11-15/.
+- Entrega documental: 24 páginas, 12 grupos de figuras (nueve v0 y tres revisiones), ocho paneles, siete tablas, 39 referencias, 16 destinos. Resumen214/cuerpo+tablas+declaraciones3970 palabras. Sin comentarios/revisiones; plantilla17partes y368originales protegidos. QA estructural pasa y las24páginas se inspeccionaron individualmente. Meta23p suave no alcanzada; no se achicó letra, microtexto de capturas heredado y huecos naturales documentados.
+- SHA fuente799d5827b05647b0fee38ce4f5af1393f626ab67075365ad442ffa3e08342632; Word4888e673c4e42b4031db3b5f70be97bad211d2707f2bdc64696d3552fe018155; PDF47047c344854964d6b1f4e60d75ac76077151cd472d37837e0d08255f6314541. Recibo, receta, imágenes y respuestas están en esa carpeta; consultar LEEME_FINAL.md.
+- Dos rondas del subagente revisor estricto + addendum del PDF: Reject persiste. Seis hallazgos locales SR04–09 corregidos; SR01novedad computacional, SR02alcance geocientífico y SR03material esencial privado ABIERTOS. No está listo para envío ni se garantiza aceptación. RESPUESTA_REVISORES.md diferencia correcciones de evidencia/decisión/autorización pendiente.
+- Recuento exploratorio corregido: |ΔM|≥0.3 da1112/2989=37.20% con decimales conservados, versus757/2989=25.33% con resta/comparación binary64. Las355 diferencias son fronteraexacta; no es error físico ni discrepancia Python/navegador. PythonDecimal/Fraction, SQLiteINTEGER3.53.1, JSBigInt y sql.jsINTEGER3.49.1 coinciden; Edge157 observadoPASS2989filas. Escala10^13 conserva tokens nativos; no añade precisión geofísica. Cinco deltas completas enTabla6. Guíainglesa y recibos en outputs/final_paper_2026-11-15/analysis/.
+- ΔMmediaSSN-USGS+0.1303 no es sesgo calibrado: mb+0.1422(n2546), mww−0.0406(n276), tipoSSN desconocido. M4.5 discordancia799/1688=47.33% sobreunión (26.73% de todos); M5.5 19/110=17.27% (0.64% de todos). Pares siguen no validados. Profundidad10km no prueba valorpor defecto.
+- Fallo real de conflicto de versiones corregido en scripts/evidence_contract.py: valida producto completo+evento por TODAS las claves antesdelcutoff/latest. 30testscontrato+4oráculo pasan;6/6permutaciones contradictorias rechazan;4720casosreales+24sintéticos sin diferencias; outputs antiguos intactos. Nuevo recibo analysis/contract_fix/CONTRACT_FIX_RECEIPT.json. El oráculo de revisiones usa REAL, no el nuevo contrato decimal exacto: ahora está descrito correctamente.
+- Sin commit/amend/push/publicación/Pages/release/correo/envío. HEAD729c86a, cambios locales permanecen sin commit. Cada acción requiere autorización específica previa; también Fable. Git siempre Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin IA/coautores/trailers; conservar declaración académica veraz de IA y aprobación final humana pendiente. Evidencias outputs privadas pueden faltar en otra PC: verificar existencia/hashes, no inventar resultados.
+<!-- cierre revision adversarial final 2026-11-15 end -->
+
+<!-- cierre piloto v3 2026-11-15 start -->
+- CIERRE PILOTO Y V3 15 nov 2026 (prevalece sobre antecedentes): Gabriel autorizó
+  el piloto SSN–USGS y agrupación exacta; después pidió que Codex continuara y
+  terminara, sin nueva versión paralela de Fable. Ningún permiso Git/publicación nuevo.
+- Implementación local 2026.11.15.1: opción «Agrupar copias exactas»/copies=1,
+  con prueba SHA de 60 CSV originales. 287936 filas → 285768 grupos;
+  2163 copias USGS y cinco NRCan, sin borrar originales ni fusionar revisiones
+  distintas/agencias. Mapa, SQL y exportaciones comparten membresía y unidad.
+  Vistas antiguas y sus conteos permanecen en modo filas por defecto.
+- Piloto congelado antes del matching: 170880 SSN/3945 USGS, UTC2016–2025,
+  M reportada≥3.5, rectángulo14..33/−118..−86, sin filtro terrestre.
+  3007 aristas/2989 asignaciones/17 componentes ambiguas. Grafo=greedy en
+  nueve ventanas; no ventaja demostrada. GEM oficial ejecutado sin modificar,
+  commit d13e63bebedcc6788e0ec88e8632957b749d3b60: 2984 pares comunes y
+  cinco exclusivos por método. Sólo GEM principal completo; ocho secundarios
+  cancelados incompletos. Concordancia NO es accuracy; 78 casos sin etiquetas.
+- V3 privada: outputs/v3/manuscript/out/Seismic_CG_v3_manuscript.docx y .pdf,
+  23 páginas, 12 figuras (todas nueve v0 y ocho paneles), cinco tablas,
+  37 referencias y 16 destinos interactivos; sin comentarios ni revisiones.
+  Fuente/manifiesto/LEEME_V3/recibo y QA completa en outputs/v3/manuscript/.
+  Word SHA 67303629a8d4908d46c722a4c46175760bfe2d7aaca5ebff65c102d9de0214cc;
+  PDF SHA 3930628d96aa426ec9cb768f51f304afca0728b4b8b870cf14d46e63d18fa90f.
+- Pasan 106 pruebas Python, 19 suites JS (frontend49 checks) y SQL real en Edge.
+  Originales/v0/v1/v2/v2compacta y declaraciones humanas/IA académica conservados.
+  Evidencia privada outputs/ssn_usgs_pilot_2026-11-15/; puede faltar en otra PC:
+  comprobar existencia y hashes, no inventar resultados ni suponer transferencia.
+  No commit/amend/push/Pages/release/correo/envío. HEAD sigue 729c86a;
+  identidad Git Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>.
+<!-- cierre piloto v3 2026-11-15 end -->
+
+### Antecedente previo al piloto autorizado (superado)
+
+- REVISIÓN IJCOPI/GRAFO 15 nov 2026: leídos completos los envíos 37 y 38
+  (15 páginas cada uno) identificados en Edge; código y ambos sistemas públicos
+  examinados sólo en lectura. Grafo de agua ejecuta SPARQL real; obras publica
+  JSON y conserva RDF reproducible offline. Notas en outputs/ijcopi_graph_review_2026-11-15/.
+- Recálculo: 2163 pares USGS con ID y 22 campos idénticos; cinco repeticiones
+  adicionales NRCan seleccionadas. Top10 agrupa USGS; mapa/SQL conservan filas.
+  No es un conteo de eventos físicos únicos entre agencias. Se recomienda estudiar
+  conciliación auditable con grafo, restricciones y validación independiente;
+  GEM ya ofrece deduplicación. Ruta aún no aprobada. Todas las imágenes v0 se conservan.
+  Sin cambios productivos, a otros proyectos, manuscritos, Git o publicaciones.
+
+- ACLARACIÓN BIBLIOGRÁFICA 15 nov 2026: Gabriel cuestiona atractivo y pide ver
+  comparables. No se leyeron todos los artículos: 6811 registros Crossref,
+  sin abstracts en ese inventario; cribados léxicos, no lectura integral.
+  Fase 1 declara 24 páginas oficiales abiertas, no 24 resúmenes completos
+  verificados, y cero fulltexts. Hoy se leyó completo multiplets (C&G 2024);
+  seis comparables y límites en outputs/journal_comparison_2026-11-15/COMPARACION.txt.
+  Elsevier exige aportación computacional y geocientífica sustantivas. Valoración:
+  riesgo alto de rechazo inicial de la v2; presentación y tests no bastan.
+  No se implementó nueva ciencia ni se modificaron manuscritos/Git/sitio.
+
+- V2 COMPACTA ENTREGADA 15 nov 2026: Gabriel pidió resumir y reducir espacios,
+  sin quitar imágenes, especialmente las de v0. Entrega actual privada en
+  outputs/v2_compacta/manuscript/out/Seismic_CG_v2_compacta.docx y .pdf.
+  21 páginas frente a 36; resumen 196 palabras; cuerpo y tablas 3080 frente a 5498.
+- Conserva las 12 figuras en el cuerpo: nueve de v0, sus ocho paneles originales
+  y tres gráficas del piloto; cinco tablas y 34 referencias. Paneles en cuadrícula
+  2×2 con enlace inmediatamente debajo; 16 destinos idénticos en Word y PDF.
+  Se compactaron texto, pies y referencias; cuerpo de 10 pt y doble espacio intacto.
+  Quedan huecos de flujo y microtexto que requiere ampliar PDF o usar el enlace.
+- PDF Word nativo: 21 páginas inspeccionadas individualmente, 92 controles pasan;
+  sin comentarios/revisiones. Recibo/LEEME en el mismo directorio. v0/v1/v2 anterior
+  intactas por hash; declaraciones de autoría y asistencia académica de IA intactas.
+  Sin cambios de código/datos/sitio ni experimentos nuevos; sin nuevo gate HTTP.
+  Sin commit, amend, push, despliegue, publicación o envío; requieren permiso nuevo.
+
+- VERSIÓN2 ENTREGADA15nov2026 por petición de Gabriel: título «Tracing earthquake
+  catalogue revisions with a reproducible seismic observatory». Word/PDF en
+  outputs/v2/manuscript/out/Seismic_CG_v2_manuscript.docx y.pdf. Fuente/LEEME/
+  CAMBIOS_V2/RECIBO_V2 en outputs/v2/manuscript/, todo privado e ignorado.
+- v2 integra TODAS9figurasv0 en el cuerpo más3gráficas del piloto:12figuras,8paneles
+  originales a ancho completo con enlace debajo,5tablas,34referencias,16destinos
+  interactivosHTTP200.36páginas revisadas visualmente completas;17partes de plantilla
+  preservadas;sin comentarios/revisiones.267palabrasresumen y5498cuerpo+tablas.
+- Corregidas afirmaciones del TEXTO: contratos sóloPythonoffline; rechazo de
+  conflictos no universal;11/24 son diferencias de alcance/unidad y nofallos de
+  implementación;crucesascendentes como observación. No se modificó código.
+  Nuevorecálculo4720/0 y selecciones idénticas a v1; sin experimentos nuevos.
+- v0/v1 conservadas porhash, autores/licencias/declaraciónacadémicaIA preservados.
+  Borrador para revisión humana; no se afirma aceptación ni novedad suficiente.
+  Sin commit/amend/push/despliegue/publicación/envío;permisosnuevos requeridos.
+
+
+- REVISIÓN INDEPENDIENTE15nov2026 sobre v1: cifrasprincipales y4720/0 reproducidas;
+ 24sintéticos con diferencias11/10/11/10 frente a conteos públicos, NOerrores del
+  contrato.52archivos delrecibo,31dev0 y17activosgráficos coinciden porhash.
+  PDF23/7/1p; sin comentarios/revisionesWord. InspecciónvisualPARCIAL(p1,14,17),
+  no recertificación de todas las páginas. v0/v1/código/datos/sitio sin cambios.
+- Hallazgos concretos: garantía de rechazo de conflictos no universal(reproducido
+  fixture antiguaA/nueva/antiguaB); contratosoffline atribuidos al navegador;
+  crucesascendentes observados no forzados universalmente por filtroactual.
+  Reorganización útil como base, pero avance sustancial paraC&G aún no demostrado.
+  Informe privado:outputs/review_v1_2026-11-15/REVISION_INDEPENDIENTE.txt.
+  Leído Rösler2022 completo y READMEINGV en revisión bibliográfica; no los34fulltext.
+  Ninguna aprobación de título/coautores ni cambios/Git/publicación autorizados.
+
+
+- MANUSCRITO v1 ENTREGADO 15nov2026 (Claude Code, modelo Fable5.2; sólo local, sin Git): Gabriel
+  pidió el artículo ya, con lo disponible y sin experimentos nuevos, y delegó la decisión de ruta.
+  v1 reorganiza el artículo alrededor de la auditoría de revisiones retenidas: contratos de
+  evidencia, validación en dos partes (oráculoSQL + historias sintéticas) y piloto de36eventos;
+  el observatorio queda como vehículo reproducible. Título NUEVO, pendiente de aprobación de
+  Gabriel (el anterior lo eligió él el8nov): «Evidence-scoped queries over retained
+  earthquake-catalogue revisions: executable contracts, independent validation and a ComCat pilot».
+- Entregables en outputs/v1/manuscript/: out/Seismic_CG_v1_manuscript.docx y.pdf (23p,6figuras,
+  5tablas,34referencias), out/Seismic_CG_v1_supplement.docx y.pdf (7p,S1–S6),
+  out/Seismic_CG_v1_highlights.docx y.pdf; fuente manuscript.md/supplement.md/highlights.txt;
+  LEEME.md, TRAZABILIDAD.md, EVALUACION_CRITICA.md y RECIBO_V1.json. Plantilla C&G intacta
+  (17partes); resumen298 palabras; cuerpo4867+327 en tablas; PDF con Word nativo; cero
+  comentarios/revisiones; todas las páginas revisadas. Generador propio de v1 en build/, sin
+  tocar scripts/build_manuscript.py.
+- Cifras de v1: todas recalculadas desde los bytes conservados (auditoría regenerada idéntica al
+  archivo;4720/0; 24casos sintéticos: la proyección condicional difiere en11 y los atajos en
+  10/11/10; selecciones regionales recomputadas; oráculo histórico31casos). Las9figuras y
+  8paneles de v0 se reutilizan como copias idénticas; tres gráficas del piloto regeneradas.
+  v0 intacta por hash (par, fuente y31entradas).
+- v1 NO está lista para envío: falta revisión y aprobación de José Manuel y Gabriel, lectura de
+  textos completos, alinear README/repositorio público, depósito con DOI, frase de
+  responsabilidad en la declaración de IA y los25puntos de EVALUACION_CRITICA.md. El riesgo de
+  encaje sigue alto: novedad computacional modesta, piloto pequeño seleccionado por estado
+  actual y ninguna validación contra estados públicos reales. Sin commit, push, publicación ni envío.
+
+- FASE1 v1 ENTREGADA 14nov2026 (Claude Code, modelo Fable5.2; sólo local): diagnóstico
+  en outputs/v1/fase1/FASE1_DIAGNOSTICO.md, recibo RECIBO.json, evidencia/ y registro
+  outputs/v1/REGISTRO_IA.md. Todo privado e ignorado por Git. v0 intacta: par Word/PDF,
+  fuente,31entradas del manifiesto,9figuras y8paneles verificados por SHA.
+  Reejecutado sin escribir evidencia:80Python,18suitesNode y4720proyecciones con
+  0discrepancias (Python3.10.11,Node22.12.0). No se reejecutó audit_revisions ni gate.
+- Guía de autores releída COMPLETA en el navegador integrado (el cliente automático da403):
+  exige novedad computacional Y geocientífica; excluye artículos de GUI, empaquetado/
+  interfaz y aplicación rutinaria;5500palabras (+10%); suscripción sin cargo, OA USD3870;
+  nota de fronteras en mapas y pies sin «the». v0 cae hoy en categorías excluidas.
+- Bibliografía:6811títulos cribados en dos pasadas,520inspeccionados,24resúmenes C&G
+  leídos en página oficial, NINGÚN texto completo. Matriz de22filas con nivel de acceso.
+  63DOI comprobados (59Crossref,2DataCite,1handle;1suposición errónea retirada).
+- RECOMENDACIÓN, pendiente de decisión humana: ruta A′ = reconstrucción as-of del lado
+  consumidor validada contra estados públicos archivados; B sólo como análisis secundario;
+  C descartada como contribución. Sondeo de factibilidad (NO resultado): Wayback conserva
+  capturas casi diarias de feeds GeoJSON del USGS2019–2024 (p.ej.4.5_month:1875con HTTP200);
+  NCEDC publica instantáneas diarias en Git desde2017. El piloto v0 de36eventos no sirve
+  para A′ por estar seleccionado por estado actual. Sin ciencia nueva ni resultados.
+- Sin commit, amend, push, publicación, despliegue, correo ni envío editorial en esta sesión.
+  No consta revisión ni aprobación de José Manuel. Estas notas de continuidad quedan locales.
+  outputs/v1/ no viaja con un clon: conservarla en el respaldo privado al cambiar de PC.
+
+- CIERRE729c86a/14nov2026: commit y push ejecutados y origin/main comprobado en
+  729c86ae535b93f649a07c74f3bb736bdfe78bac. Autor/committer Gabriel Hurtado, sinIA en
+  metadatos/mensaje/trailers/firmas; declaración académica conservada. Noamend.
+  Gabriel aceptó expresamente para ESTEpush7incidenciasHTTP y muestra339/36872.
+- Pages2026.11.14.1 PUBLICADO: cero runs antes de disparar, UNdispatch autorizado,
+  ejecución43623346132 con validate/deploySUCCESS;85/85assetsHTTP coinciden porbytes
+  con729c86a y la candidata probada.80Python/18suitesJS localesPASS. TresbugsUI
+  corregidos. v0Word/PDF congelados intactos; no hay nuevo artículo v1 todavía.
+- PromptFable y paquete privados actualizados: preguntar antes de CADAcommit/amend
+  y CADA push; identidadhumana Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>,
+  sin atribucionesdeIA. No se enviaron a modelos externos. Notaspostcommit de cierre
+  quedan locales: no repetircommit/amend/push/publicación sin permiso NUEVO.
+  Evidencia:outputs/commit_push_2026-11-14/git_receipt.json ypublic_assets.json.
+
+
+- COMMIT EJECUTADO14nov2026: 729c86ae535b93f649a07c74f3bb736bdfe78bac,16rutas, autor ycommitter
+  Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin coautores/trailers/firmas
+  ni atribuciones automáticas.85assets coinciden con bytes probados. UNcommit
+  autorizado CONSUMIDO. No repetircommit ni amend. Push autorizado, pendiente
+  sólo de excepción NUEVA por7enlaces externos y muestra339/36872USGS.
+  Evidencia:outputs/commit_push_2026-11-14/git_receipt.json. Sin nuevoPages.
+
+
 - AUTORIZACIÓN NUEVA14nov2026: Gabriel pide ejecutar el commit y push pendientes
   con su identidad humana, sin atribuciones de IA. La regla explícita de preguntar
   antes de CADA commit/amend y CADA push se refuerza en AGENTS.md y el promptFable.
@@ -699,6 +942,112 @@ No se trasladan chats, credenciales, hooks ni .git/config con un clon.
 
 ## Siguiente paso
 
+<!-- article-figures-git-2026-11-16-next start -->
+- Revisar el dictamen externo de Claude sobre el PDF 26p y contrastar cualquier hallazgo nuevo antes de modificar el artículo. Las pruebas/correcciones se hacen aquí; no reinterpretar revisiones de IA como aceptación editorial.
+- El único commit/push autorizado para esta integración usa Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin coautores, firmas o trailers automáticos. Cada commit adicional, amend y push futuro exige autorización nueva. Antes del push de esta revisión deben constar las excepciones actuales del gate; comprobar recibo local/Git, sin asumir que existen en otra PC.
+- Para que las nuevas figuras se vean en el sitio alojado hace falta autorización separada para desplegar el commit concreto en GitHub Pages. No lanzar workflows, crear releases ni publicar otros sitios heredando permisos. El código preparado no sustituye revisión/aprobación de ambos autores ni libera todo el paquete numérico privado.
+<!-- article-figures-git-2026-11-16-next end -->
+
+<!-- claude-response-next-2026-11-16 start -->
+- Gabriel y José Manuel deben revisar el nuevo PDF y aprobar científicamente el manuscrito; no inventar esa aprobación ni cambiar autores/afiliaciones.
+- Si Gabriel solicita integrar Git: revisar diff concreto, seleccionar sólo materiales permitidos, pedir autorización para ESE commit. Antes de ESE push autorizado ejecutar el verificador adaptado del artículo/artefacto y resolver fallos o pedir excepciones específicas; después pedir autorización separada del push.
+- Publicar esta revisión en GitHub Pages o liberar código/datos requiere autorización específica adicional. Mantener el workflow manual; no lanzarlo por continuidad ni heredando permisos antiguos. R1 sólo se cierra con disponibilidad pública documentada efectiva, no con el paquete local.
+- Conservar outputs/claude_response_2026-11-16 y sus manifiestos/recibos privados. La carpeta reproducibility_candidate es una preparación local revisable, no una publicación ni DOI. No sustituir v0, la entrega de 24 páginas ni sus dictámenes históricos.
+<!-- claude-response-next-2026-11-16 end -->
+
+<!-- claude-review-request-2026-11-16-next start -->
+1. Contrastar R1–R14 con manuscrito, código, suplementos y fuentes primarias; distinguir defectos comprobados, dudas del revisor y requisitos previos al envío. No aceptar ni descartar en bloque sus conclusiones y no usar el Accept de Codex para cerrarlas.
+2. Priorizar el encaje y aportación (R3/R11), la adecuación del método NN al objetivo de identificar secuencias (R5), la evaluación del índice (R4) y el diseño/datos/validación (R6–R10). Las correcciones y pruebas se harán aquí; esta inscripción no las ejecuta ni las da por resueltas.
+3. Conservar título aprobado y todas las figuras v0. Acordar con Gabriel cualquier cambio de ruta científica antes de implementarlo; no publicar ni afirmar aprobación humana para resolver R1/R2 sin las autorizaciones reales. Pedir permiso específico antes de cada commit/amend, push o publicación; también Claude/Fable debe hacerlo.
+<!-- claude-review-request-2026-11-16-next end -->
+
+<!-- piloto-secuencias-siguiente-2026-11-15 start -->
+1. Gabriel y José Manuel deben revisar y aprobar científicamente la entrega y confirmar la declaración de responsabilidad antes del envío; no inventar esa aprobación.
+2. Preparar el alcance exacto del repositorio/depósito público y resolver enlaces bloqueados o pedir excepciones específicas para el push concreto. Revalidar requisitos/tarifas de C&G antes de enviar, vía suscripción sin APC.
+3. Pedir y esperar autorización expresa separada para CADA commit/amend, CADA push y CADA publicación. No publicar contextos, prompts o evidencias privadas ni tocar proyectos/sitios históricos.
+<!-- piloto-secuencias-siguiente-2026-11-15 end -->
+
+<!-- alternativa secuencias 2026-11-15 start -->
+- Acordar con Gabriel una ruta que añada capacidad científica antes de implementar. El auditor de estabilidad fue rechazado; no volver a tratar su pregunta anterior como pendiente de aprobación. La detección/comparación de secuencias es sólo una alternativa conceptual por discutir.
+- Si se elige esa ruta, diagnosticar diferencia real frente a Zaliapin/Ben-Zion y Carluccio, congelar método/criterios/datos/evaluación y ejecutar comparadores antes de redactar resultados. Conservar título y todas las figuras v0, sin garantías editoriales. Git/publicación requieren autorización específica previa.
+<!-- alternativa secuencias 2026-11-15 end -->
+
+<!-- investigacion y opcion interna 2026-11-15 start -->
+- Recibir la decisión de Gabriel sobre la alternativa interna de estabilidad antes de implementar, como exige AGENTS.md. La ruta ISC/geodesia fue rechazada como centro del artículo. Si Gabriel elige otra aportación, diagnosticarla con fuentes primarias y acordarla primero.
+- Tras acuerdo: congelar pregunta, consultas, familia admisible y criterios de mínimo; desarrollar y evaluar frente al oráculo/comparador fuerte; conservar resultados negativos y excluir invariancias triviales de los supuestos descubrimientos. Después preparar el artículo nuevo con título/imágenes v0, revisión adversarial y QA completa de Word/PDF. No garantizar aceptación ni inventar resultados para cerrar SR01–02.
+- Completar paquete público seleccionado y reproducir desde carpeta limpia. Sólo tras tener contenido concreto, solicitar autorización para CADA commit, push, publicación o depósito necesario; comprobar enlaces antes de cualquier push autorizado. Autor/committer Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin atribuciones de IA en Git, y conservar la declaración académica veraz de IA. También Fable debe preguntar.
+<!-- investigacion y opcion interna 2026-11-15 end -->
+
+<!-- cierre revision adversarial final 2026-11-15 start -->
+- No enviar esta entrega como aceptable por C&G. Revisar LEEME_FINAL.md y RESPUESTA_REVISORES.md; acordar con Gabriel una contribución computacional/geocientífica evaluable y la evidencia independiente necesaria para SR01–02. No inventar etiquetas de los78pares ni sustituirlas por acuerdoGEM.
+- SR03: la reproducción está preparada localmente con guíainglesa/verificador; cualquier commit, push, publicación o depósito requiere permiso nuevo para ESA acción y su gate de enlaces. No heredar excepciones ni publicar continuidad/evidencia privada por omisión. Falta aprobación final de ambos autores. Mantener título e imágenes v0.
+<!-- cierre revision adversarial final 2026-11-15 end -->
+
+<!-- siguiente piloto v3 2026-11-15 start -->
+- PRIORIDAD TRAS V3: Gabriel y José Manuel revisan título, cifras y manuscrito.
+  La mejora documental no acredita aceptación editorial ni superioridad del grafo.
+  Adjudicar los 78 casos sólo con evidencia de identidad independiente; no convertir
+  cercanía espacio-temporal o acuerdo GEM en verdad física. No inventar aprobaciones.
+- Si continúan cambios, usar outputs/v3/manuscript/manuscript.md y su builder;
+  regenerar Word/PDF y revisar TODAS las páginas. Conservar íntegra v0 y sus imágenes.
+  Todo sigue local. Preguntar y esperar autorización específica antes de cada
+  commit/amend y de cada push/publicación; verificar enlaces para ESE push.
+  Git siempre humano, sin autores/coautores/trailers IA; conservar declaración IA del paper.
+<!-- siguiente piloto v3 2026-11-15 end -->
+
+- TRAS REVISIÓN IJCOPI: valorar RECOMENDACION_CIENTIFICA.txt con Gabriel y José
+  Manuel y acordar protocolo/criterio de mejora antes de implementar conciliación.
+  Preservar figuras v0 y distinguir vistas de filas, agrupación exacta y asociaciones.
+
+- TRAS COMPARACIÓN: Gabriel y José Manuel valoran si continuar hacia C&G con
+  evidencia científica nueva y protocolo acordado. La v2 compacta sigue siendo
+  borrador; no asumir novedad cubierta ni autorización de experimento o envío.
+
+- TRAS V2 COMPACTA: Gabriel y José Manuel revisan la pareja de 21 páginas en
+  outputs/v2_compacta/manuscript/out/. Nuevos cambios sobre su manuscript.md,
+  con regeneración y revisión completa; conservar v0, v1 y v2 de 36 páginas.
+  No sustituir finales públicos ni ejecutar Git/Pages/envío sin permiso específico.
+
+- TRAS v2: Gabriel revisa título y todas las imágenes en Word/PDFv2 y comparte
+  el borrador con JoséManuel para revisión humana. Cambios futuros se hacen en
+  outputs/v2/manuscript/manuscript.md con regeneración y QA completa, sin tocarv0/v1.
+  No reemplazar finales públicos ni hacer Git/Pages/envío sin autorización específica.
+
+
+
+- TRAS REVISIÓNINDEPENDIENTE15nov: pasar informe aClaude/Fable; corregir primero
+  afirmaciones sobre garantía de conflictos, alcanceoffline/navegador y sesgo de
+  cruces. Gabriel/JoséManuel deciden título y ruta científica; no asumir suficiencia
+  editorial por reorganizar. Mantener v0intacta y v1como borrador privado.
+
+
+
+- TRAS v1 (15nov2026): Gabriel y José Manuel leen outputs/v1/manuscript/out/
+  Seismic_CG_v1_manuscript.pdf y EVALUACION_CRITICA.md; deciden título, si aceptan la
+  reorganización y qué pendientes se atienden antes de pensar en envío. Para cambios, editar
+  manuscript.md y recompilar según LEEME.md. Si se quiere reducir el riesgo de encaje, el
+  experimento contra capturas archivadas está descrito en outputs/v1/fase1/ §7. Cada commit,
+  push, publicación o envío sigue requiriendo permiso específico nuevo.
+
+- DECISIÓN PENDIENTE TRAS FASE1 (14nov2026): Gabriel y José Manuel eligen ruta (A′, B, C
+  o ninguna), si autorizan el piloto, el alcance (global M>=4.5 con región secundaria, o
+  sólo región) y si se inicia una captura prospectiva de feeds. Leer
+  outputs/v1/fase1/FASE1_DIAGNOSTICO.md §7,§8 y§12. Sólo después: protocolo de Fase2 con
+  hipótesis, denominador, comparadores fijados y los cuatro criterios de abandono; no
+  adquirir datos ni implementar antes. Antes de citar, releer en la fuente lo marcado «E»
+  y leer textos completos. Cada commit/push sigue requiriendo permiso específico.
+
+- PRIORIDADTRAS729c86a: entregar el paquete local actualizado aFable y elegir con
+  JoséManuel la ruta científica antes de implementar/manuscrito v1. Conserva v0.
+  Publicación14nov completa: no repetir Git ni Pages; toda acción NUEVA requiere
+  permiso específico. Las notas de cierre posteriores alcommit quedan locales.
+
+
+
+- No repetircommit:729c86a ya creado. Obtener excepción actual y ejecutar sólo
+  el push autorizado; después comprobarorigin/main.
+
+
 - CIERRE DE GIT14nov2026: ejecutar UN commit autorizado con identidad humana;
   verificar metadatos/mensaje y solicitar excepción NUEVA para ESTE push por las
   siete incidencias externas y el muestreo339/36872USGS. Sólo tras recibirla hacer
@@ -744,6 +1093,103 @@ No se trasladan chats, credenciales, hooks ni .git/config con un clon.
   Identidad humana de Gabriel, sin atribuciones de IA en Git; declaración académica conservada.
 
 ## Bitácora
+
+<!-- article-figures-git-2026-11-16-log start -->
+- 16 nov 2026: por petición de Gabriel se integraron figuras científicas 2–4, botones de casos y referencias visuales dinámicas; se corrigió el arranque por pin de transporte y se validó escritorio/móvil, 122 Python + 23 Node. Commit/push expresamente autorizados para esta revisión; gate nuevo con 17 HTTP403 y cobertura 339/36872 requiere aceptación específica. PDF 26p intacto; prompt corto para Claude preparado; sin permiso adicional de Pages ni envío editorial.
+<!-- article-figures-git-2026-11-16-log end -->
+
+<!-- claude-response-log-2026-11-16 start -->
+- 16 nov 2026, cierre de respuesta a Claude: 14 hallazgos contrastados con código y fuentes primarias; original del dictamen/hash preservados. Nueva entrega 26p,13 figuras / 4 tablas / 33 referencias, título y v0 intactos. Nuevas vistas científicas ybenchmark exhaustivo;115 Python + 22 Node y rechequeo de empaque/privacidad PASS. tres rondas automatizadas: Reject científico inicial y Reject visual corregidos; la tercera no encuentra un motivo técnico de rechazo demostrado dentro del alcance revisado. Sin Git/publicación; responsabilidades humanas y liberación pública siguen como condiciones previas al envío. Ver RESPUESTA_A_CLAUDE.md, REGISTRO_IA.md y recibos finales.
+<!-- claude-response-log-2026-11-16 end -->
+
+<!-- claude-review-received-2026-11-16-log start -->
+- 16 nov 2026: por instrucción expresa de Gabriel, Codex registró en los tres Markdown el dictamen aportado de Claude/Fable: Reject, 14 hallazgos (3 críticos, 9 mayores, 2 menores), revisión declarada del PDF sin código/suplementos/reproducción. Copia literal en outputs/claude_external_review_2026-11-16/round_01/DICTAMEN_CLAUDE_RECIBIDO.txt. Se preservan el dictamen interno anterior y la entrega de 24 páginas; las objeciones nuevas quedan pendientes de contraste. Sin modificar artículo/datos/imágenes ni ejecutar nuevas pruebas numéricas; sin Git/publicación/envío.
+<!-- claude-review-received-2026-11-16-log end -->
+
+<!-- claude-review-request-2026-11-16-log start -->
+- 16 nov 2026: Gabriel aclaró que él gestiona la sesión de Claude y sólo solicita el prompt con rutas. Se preparó el encargo de revisión independiente; no se inició revisión Claude ni se modificó el artículo, sus datos o imágenes. Sin commit, push o publicación.
+<!-- claude-review-request-2026-11-16-log end -->
+
+<!-- piloto-secuencias-cierre-2026-11-16 start -->
+- 16nov2026: entrega nueva cerrada localmente en 24 páginas con nueve grupos v0 intactos y dos gráficas científicas. 2 rondas formales, dictamen automatizado Accept; benchmark45/45 ycomponentes/sensibilidades añadidos; pruebas de portabilidad/Node/Edge con alcance documentado. Sin commit, push, publicación o envío; aprobación humana y acceso público autorizado pendientes.
+<!-- piloto-secuencias-cierre-2026-11-16 end -->
+
+<!-- piloto-secuencias-bitacora-2026-11-15 start -->
+- 15nov2026, piloto autorizado en curso: cálculoNN completo y controlesGK/ETAS/nulos terminados; tres reparaciones técnicas transparentes preservan originales. Manuscrito nuevo y prototipoNN en elaboración, cero rondas formales todavía, sinWord/PDF nuevos niGit/publicación. Este estado prevalece sobre las propuestas antiguas rechazadas o todavía marcadas «no aprobado» en la historia.
+<!-- piloto-secuencias-bitacora-2026-11-15 end -->
+
+<!-- alternativa secuencias 2026-11-15 start -->
+- 15 nov2026: Gabriel rechazó auditoría de estabilidad porque «hace menos». Se investigó y propuso añadir detección/caracterización/comparación de secuencias espacio–temporales, con antecedentes y límites explícitos; no implementación ni paper nuevo. Cerrado inventario/plan privado de reproducción; sin construir paquete o publicar.
+<!-- alternativa secuencias 2026-11-15 end -->
+
+<!-- investigacion y opcion interna 2026-11-15 start -->
+- 15 nov 2026, noche: a petición de resolver las tres objeciones, se investigaron referencias y antecedentes, se descartó all-matching como aporte único y se diagnosticó el prefiltro GEM con cuatro casos sintéticos. Gabriel rechazó centrar el paper en nueva referencia pública/geodesia y pidió una alternativa interna más un artículo nuevo con las correcciones del agente. Se preparó propuesta de estabilidad de conclusiones y se solicitó acuerdo previo; sin implementación de esa ruta ni nuevo paper final. Entrega anterior protegida; sin acciones Git/publicación.
+<!-- investigacion y opcion interna 2026-11-15 end -->
+
+<!-- cierre revision adversarial final 2026-11-15 start -->
+- 15 nov 2026, noche: Codex recuperó título exactov0, recalculó auditdecimal, corrigió conflictoorderdependiente y descripciónREAL, añadió cinco deltas/denominadores/IAmetodológica/codificacionesfiguras. Subagenteadversarial rechazó01y02; seisarreglos cerrados,tresobjecionescientífico/editoriales abiertas. Word/PDF24p generados y revisados; originales protegidos. Nueva carpeta final_paper_2026-11-15; no cambio de nombres históricos ni accionesGit/publicación.
+<!-- cierre revision adversarial final 2026-11-15 end -->
+
+<!-- bitacora piloto v3 2026-11-15 start -->
+- 15 nov 2026, cierre del piloto autorizado y revisión v3: implementada agrupación
+  no destructiva desde celdas originales; ejecutados protocolo SSN–USGS, nueve
+  sensibilidades, comparación GEM real e independencia por enumeración exhaustiva.
+  106Python/19JS y SQL navegador pasan. Diferencias GEM y límites documentados;
+  78 pares quedan sin labels humanos. Entregados Word/PDF v3 de 23 páginas
+  tras revisión visual de cada página y preservación de todas las figuras v0.
+  Sin Git/publicación ni modificaciones a otros proyectos o sitios históricos.
+<!-- bitacora piloto v3 2026-11-15 end -->
+
+- 15 nov 2026: revisados papers IJCOPI 37/38 completos y sistemas publicados;
+  consultas reales del grafo de agua comprobadas y duplicados locales recalculados.
+  Propuesta científica con comparadores y límites, sin implementación ni Git;
+  sitios y archivos de los otros proyectos intactos.
+
+- 15 nov 2026: auditada cobertura bibliográfica y contrastados seis publicados
+  cercanos con fuentes primarias. Distinguido inventario/cribado/lectura;
+  multiplets leído completo hoy. Advertido riesgo editorial alto sin atribuir
+  probabilidad numérica ni acceso a manuscritos confidenciales en evaluación.
+  Notas privadas; ningún cambio de paper, ciencia, Git o publicación.
+
+- 15 nov 2026: entregada v2 compacta de 21 páginas, sin eliminar ninguna figura.
+  Texto y maquetación condensados; 12 figuras, ocho paneles, cinco tablas,
+  34 referencias y 16 destinos conservados. QA visual completa y 92 controles.
+  Versiones anteriores intactas; sólo edición documental local, sin Git/publicación.
+
+- 15nov2026: creada v2 con título nuevo,12figuras en cuerpo incluyendo9originales
+  y3piloto;paneles ampliados. Corregido alcance científico del texto, sin modificar
+  el sistema. PDF Word36p, todasinspeccionadas;estructura y16enlacesPASS.
+  v0/v1 intactas;sin Git/publicación/aprobación de autores inferida.
+
+
+
+- 15nov2026: revisión independiente de v1 sin modificar entregables. Recalculadas
+  cifras y verificadoshashes; documentados tres problemas de alcance/semántica y
+  limitación de novedad. Fixture mínimo confirma aceptación de conflicto antiguo
+  intercalado. Informe local; sin Git, publicación ni aprobación de autores.
+
+
+
+- 15nov2026 (Fable5.2): a petición de Gabriel («dame el paper ya, con lo disponible») se redactó
+  y compiló el manuscrito v1 con suplemento y highlights; cifras recalculadas,34referencias
+  verificadas a nivel de resumen o documentación, tres compilaciones revisadas página por página.
+  v0, sistema y datos sin cambios. Sin Git, publicación ni envío. Revisión humana pendiente.
+
+- 14nov2026 (Fable5.2): Fase1 entregada en outputs/v1/fase1/. Leídos contexto, dossier,
+  fuente y PDF v0 completo; pruebas reejecutadas; guía y alcance revalidados; inventario
+  cribado; comparadores USGS/INGV/NCEDC/RDA consultados; tres rutas comparadas y A′
+  recomendada con piloto y criterios de abandono. v0, sistema y datos sin cambios.
+  Ninguna acción Git, publicación ni envío. Decisión de ruta pendiente de los autores.
+
+- 14nov2026: Gabriel aceptó siete incidencias y muestra339/36872 para ESTEpush.
+  Push729c86a verificado; UNPages43623346132 completadoSUCCESS y85assets idénticos.
+  Identidadhumana y ausencia de atribuciones automáticas comprobadas; v0 intacta.
+  PromptFable actualizado. Noamend ni segundo commit/push ni envío editorial.
+
+
+
+- 14nov2026: commit humano729c86a creado y comprobado;push pendiente de gateHTTP.
+
 
 - 14nov2026, reanudación Git solicitada: reforzadas reglas paraFable y AGENTS,
   corregidos tres bugs de UI y aprobadas80pruebasPython/18suitesJS. v0 intacta.

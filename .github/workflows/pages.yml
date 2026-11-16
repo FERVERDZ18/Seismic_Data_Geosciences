@@ -40,6 +40,7 @@ jobs:
           node tests/test_system_labels.cjs
           node tests/test_catalog_frontend.cjs
           node tests/test_catalog_composition.cjs
+          node tests/test_decimal_decisions.cjs
           node tests/test_analytics.cjs
           node tests/test_research_charts.cjs
           node tests/test_preferences.cjs
@@ -49,11 +50,15 @@ jobs:
           node tests/test_sql_explorer.cjs
           node tests/test_country_comparison.cjs
           node tests/test_sql_guided.cjs
+          node tests/test_sql_panel.cjs
           node tests/test_revision_story.cjs
           node tests/test_source_workbench.cjs
           node tests/test_history_explorer.cjs
           node tests/test_quick_start.cjs
           node tests/test_article_views.cjs
+          node tests/test_sequence_nearest_parent.cjs
+          node tests/test_sequence_input_manifest.cjs
+          node tests/test_sequence_view.cjs
       - name: Reproduce historical rankings and direct spatial pairs with an independent Python oracle
         run: python scripts/audit_historical_views.py --node node
       - name: Reproduce the independent retained-product validation
