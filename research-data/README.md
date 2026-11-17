@@ -11,10 +11,13 @@ Run from the repository root:
 ```text
 python scripts/prepare_public_evidence.py verify
 python scripts/prepare_public_evidence.py restore
+python scripts/restore_catalog_sources.py --download
 python scripts/audit_revisions.py
 python -m scripts.validate_evidence
 python -m unittest discover -s tests
 ```
+
+The catalogue restore command fetches only the 58 CSVs listed at their immutable upstream Git revision. It validates size, SHA-256 and Git blob IDs before writing any input; it does not query a live earthquake catalogue. These ignored files are required by the exact-copy and pilot-cohort checks.
 
 Restoration verifies every response and refuses to replace different existing
 evidence. It copies only the explicitly listed files to ignored

@@ -26,6 +26,22 @@ assert.equal(view.parse('?cut=3.5&weight=reported_b').weight,'fixed');
 assert.equal(view.parse('?case=javascript%3Aalert(1)&lang=xx&cut=0&extent=family').case,'all');
 assert.equal(view.parse('?case=all&extent=family').extent,'local');
 assert(!view.query({...weighted,redirect:'https://example.com',token:'private'}).includes('redirect'));
+const framed=view.parse('?view=cases&case=2022&panel=full&expanded_map=full&point_size=large&full_lat=18.503259&full_lon=-103.22556&full_zoom=7.3&local_lat=18.4&local_lon=-103.3&local_zoom=8.2&inspect_source=ssn&inspect_record=ssn-mx-historical~ssn-local-abc-1');
+assert.deepEqual(view.parse(view.query(framed)),framed);
+assert.equal(framed.expanded_map,'full');assert.equal(framed.point_size,'large');assert.equal(framed.inspect_source,'ssn');
+assert.deepEqual(view.mapViewport(framed,'full'),{latitude:18.503259,longitude:-103.22556,zoom:7.3});
+for(const invalid of [
+  {full_lat:'90'}, {full_lat:'-90'}, {full_lat:'NaN'}, {full_lat:'Infinity'}, {full_lat:''}, {full_lat:'0x10'}, {full_lat:' 18 '}, {full_lat:[]},
+  {full_lon:'181'}, {full_lon:'-181'}, {full_zoom:'1.9'}, {full_zoom:'13.1'}, {full_zoom:null}, {full_lon:undefined}
+]){const rejected=view.normalize({...framed,...invalid});for(const key of ['full_lat','full_lon','full_zoom'])assert.equal(rejected[key],undefined);assert.equal(rejected.local_zoom,'8.2');}
+for(const viewport of [{full_lat:'85.051129',full_lon:'180',full_zoom:'13'},{full_lat:'-85.051129',full_lon:'-180',full_zoom:'2'}]){const accepted=view.normalize({...framed,...viewport});assert.deepEqual(view.parse(view.query(accepted)),accepted);}
+assert.equal(view.normalize({...framed,full_lat:'18.12345678'}).full_lat,'18.123457');
+assert.equal(view.normalize({...framed,full_zoom:'7.3456'}).full_zoom,'7.3');
+for(const invalid of [{inspect_source:'alaska'},{inspect_record:'../private'},{inspect_record:'<script>'},{inspect_record:'a'.repeat(257)},{inspect_record:null}]){const rejected=view.normalize({...framed,...invalid});assert.equal(rejected.inspect_source,undefined);assert.equal(rejected.inspect_record,undefined);}
+for(const patch of [{case:'2017'},{membership:'common'},{radius:'200'},{before:'3'},{after:'40'}]){const changed=view.transition(framed,patch);for(const key of [...view.viewportKeys,'inspect_source','inspect_record'])assert.equal(changed[key],undefined);}
+for(const patch of [{lang:'es'},{source:'usgs'},{comparison:'fixed'},{panel:'inspector'},{expanded_map:'local'},{point_size:'normal'}]){const changed=view.transition(framed,patch);assert.equal(changed.full_zoom,'7.3');assert.equal(changed.inspect_record,framed.inspect_record);}
+const otherView=view.normalize({...framed,view:'diagnostics'});assert.equal(otherView.full_lat,undefined);assert.equal(otherView.inspect_record,undefined);assert.equal(otherView.expanded_map,'none');assert.equal(otherView.point_size,'normal');
+assert.equal(view.parse('?view=cases&expanded_map=javascript:1&point_size=huge').expanded_map,'none');
 const distance=(a,b)=>{const r=Math.PI/180,p=(b.latitude-a.latitude)*r,l=(b.longitude-a.longitude)*r,h=Math.sin(p/2)**2+Math.cos(a.latitude*r)*Math.cos(b.latitude*r)*Math.sin(l/2)**2;return 2*6371.0088*Math.asin(Math.sqrt(Math.min(1,h)));};
 for(const anchor of [{latitude:15,longitude:-94},{latitude:18.4,longitude:-103.3},{latitude:80,longitude:179.9}]){
   const points=view.referenceCircle(anchor);assert.equal(points.length,121);

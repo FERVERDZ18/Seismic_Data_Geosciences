@@ -27,7 +27,15 @@ or a separate application. The older `dist/sequences/index.html` and
 does not update the hosted site.
 Serve `dist/` over HTTP and open `/index.html?workspace=sequences&view=cases&case=2017&lang=en`
 (or `lang=es`). Parameters `panel=full`, `local`, `timeline` and `inspector` focus the
-actual component. An inspected record must be selected explicitly. Regenerate
+actual component. The validated `full_lat/full_lon/full_zoom` and
+`local_lat/local_lon/local_zoom` triples restore the two map cameras;
+`expanded_map` and `point_size` retain their presentation settings. The atomic
+`inspect_source`/`inspect_record` pair restores an original record only when its
+ID belongs to the active source cohort. Panning and zooming update the URL
+without recalculating families. Native SVG map and timeline exports preserve
+the active records and carry the source URL and presentation metadata; map
+exports use the current Leaflet projection and are vector exports, not screenshots.
+Regenerate
 owned-script cache keys with `python scripts/refresh_sequence_assets.py`; verify
 them with `--check`. Vendor pins and scientific input bytes are preserved.
 The browser verifies the scientific input manifest, then Workers calculate
@@ -68,8 +76,9 @@ inputs. Points and bins lead to source records, with complete dense plots and
 paginated tables. **Search performance** draws SVG curves and tables from the
 retained timing measurements and recalculates their summaries in the browser;
 it does not claim to rerun the original Python/Numba benchmark in JavaScript.
-The article gallery maps all thirteen current figures to working views, including
-six separate links for the case maps and timelines. Historical route IDs remain
+The article gallery maps all thirteen current figures to twenty-six working
+targets, including six separate links with the published map cameras and timelines
+and an inspector link that restores the identified witness record. Historical route IDs remain
 valid. Each workspace stores its permitted analytic settings in its URL and supports
 ES/EN labels. Direct manuscript links restore the published selections. Data
 and calibration assets are byte-size/SHA-256 checked before use; original
@@ -134,7 +143,7 @@ No recurrence rate, hazard, risk, earthquake probability or forecast is estimate
 zero pairs do not establish safety. Maps preserve source coordinates and unwrap
 only display copies at the antimeridian. **Fit records** restores their extent.
 
-**Help and about** supplies interface version `2026.11.16.3`, fifteen searchable
+**Help and about** supplies interface version `2026.11.16.4`, fifteen searchable
 ES/EN questions, human authors, academic correspondence at `ghurtadoa@ipn.mx`,
 repository/issue links and licence information. The repository code is MIT;
 SSN/UNAM, NRCan, USGS and third-party data/component terms remain distinct.

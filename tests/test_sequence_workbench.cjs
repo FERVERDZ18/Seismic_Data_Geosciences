@@ -51,6 +51,9 @@ function environment({failFirst=false}={}){
   assert(env.appended.filter(n=>n.tagName==='SCRIPT').every(n=>new URL(n.src).origin==='https://example.test'));
   const focused=new URL(api.buildURL({...api.getState(),case:'2022',panel:'local',redirect:'https://evil.test',token:'private'}));
   assert.equal(focused.pathname,'/repo/index.html');assert.equal(focused.searchParams.get('workspace'),'sequences');assert.equal(focused.searchParams.get('panel'),'local');assert(!focused.searchParams.has('redirect'));assert(!focused.searchParams.has('token'));
+  const exact=new URL(api.buildURL({...api.getState(),view:'cases',case:'2022',panel:'inspector',full_lat:'18.125',full_lon:'-103.5',full_zoom:'7.3',local_lat:'18.25',local_lon:'-103.25',local_zoom:'8.1',expanded_map:'local',point_size:'large',inspect_source:'ssn',inspect_record:'ssn-mx-historical~ssn-local-abc-1'}));
+  assert.equal(exact.searchParams.get('full_zoom'),'7.3');assert.equal(exact.searchParams.get('local_lon'),'-103.25');assert.equal(exact.searchParams.get('expanded_map'),'local');assert.equal(exact.searchParams.get('point_size'),'large');assert.equal(exact.searchParams.get('inspect_record'),'ssn-mx-historical~ssn-local-abc-1');
+  const invalid=new URL(api.buildURL({...api.getState(),view:'cases',full_lat:'91',full_lon:'-103',full_zoom:'7',inspect_source:'ssn',inspect_record:'../private'}));assert(!invalid.searchParams.has('full_lat'));assert(!invalid.searchParams.has('full_zoom'));assert(!invalid.searchParams.has('inspect_record'));
   for(const view of ['explorer','cases','diagnostics','benchmark']){
     const u=new URL(api.buildURL({view,case:'2017',lang:'en'}));assert.equal(u.searchParams.get('view'),view);
   }

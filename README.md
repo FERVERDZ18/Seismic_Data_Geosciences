@@ -113,11 +113,14 @@ remote backgrounds, loaded after selection; background changes preserve
 the active catalogue. The app serves packaged data without a database server, API key
 or paid map account. See [catalogues, attribution and coverage](docs/CATALOGS.md).
 
+The original catalogue checks also restore the 58 CSV files from their pinned upstream Git revision, checking byte counts, SHA-256 and Git blob IDs. This downloads preserved input bytes, not a live catalogue, and keeps them in ignored `data/raw/`.
+
 Core auditing and validation require Python 3.10+ and its standard library.
 The browser suites and browser-equivalence oracle also require Node.js:
 
 ```text
 python scripts/prepare_public_evidence.py restore
+python scripts/restore_catalog_sources.py --download
 python scripts/audit_revisions.py
 python -m scripts.validate_evidence
 python -m unittest discover -s tests

@@ -3,3 +3,15 @@
 .nc-witness-key{display:inline-flex;align-items:center;gap:5px}.nc-witness-chip{display:inline-block;padding:2px 5px;border-radius:4px;background:#173342;color:white;font:700 11px system-ui,sans-serif}
 
 .nc-witness-above:after,.nc-witness-below:after{content:"";position:absolute;left:50%;width:1px;height:7px;background:#173342;pointer-events:none}.nc-witness-above:after{top:100%}.nc-witness-below:after{bottom:100%}
+
+/* These controls and legends are part of the live map, including shared URLs. */
+.nc-map-actions{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 12px}.nc-map-actions button,.nc-map-actions a{font-size:.8rem}.nc-map-actions a,.nc-inspector>a{color:var(--green,#075b85);text-underline-offset:3px}.nc-map-card{scroll-margin-top:calc(var(--app-header-height,88px) + 16px)}.nc-map-expanded{grid-column:1/-1}.nc-map-expanded .nc-map{height:clamp(480px,68vh,820px)}
+.nc-map-key{position:absolute;z-index:450;top:12px;right:12px;display:grid;gap:5px;max-width:210px;padding:9px 11px;border:1px solid var(--line,#cbdde5);border-radius:5px;background:var(--paper,#fff);color:var(--ink,#173b4f);font:12px/1.35 system-ui,sans-serif;box-shadow:0 1px 6px #17334220;pointer-events:none}.nc-map-key .nc-key{display:block}.nc-map-key .nc-key:before{width:9px;height:9px}.nc-map-key .nc-symbol-key{display:block}
+.nc-map[data-point-size=large] .nc-map-key{font-size:20px;gap:7px;max-width:330px;padding:12px 15px}.nc-map[data-point-size=large] .nc-map-key .nc-key:before{width:14px;height:14px;margin-right:8px}.nc-map[data-point-size=large] .leaflet-control-scale-line{font-size:20px;line-height:1.3;border-width:2px;padding:3px 7px}.nc-map[data-point-size=large] .nc-anchor-marker{font-size:43px;line-height:42px}.nc-map[data-point-size=large] .nc-witness-marker{font-size:20px;line-height:40px}.nc-map[data-point-size=large] :is(.nc-witness-above,.nc-witness-below):after{height:12px}
+@media(max-width:520px){.nc-map-key{font-size:10px;max-width:160px;gap:3px;padding:7px;top:8px;right:8px}.nc-map[data-point-size=large] .nc-map-key{font-size:13px;max-width:190px;padding:8px}.nc-map[data-point-size=large] .leaflet-control-scale-line{font-size:13px}}
+
+/* Legends sit outside the geographic viewport in both the live card and SVG. */
+.nc-map-key{position:static;z-index:auto;top:auto;right:auto;width:100%;max-width:none;margin:0;padding:12px;border:0;border-top:1px solid var(--line,#cbdde5);border-radius:0;box-shadow:none;font:12px/1.35 Arial,sans-serif;gap:7px;pointer-events:auto}.nc-map-key-row{display:flex;flex-wrap:wrap;gap:7px 22px;align-items:center}.nc-map-key-row>span{white-space:nowrap}.nc-map-key[data-point-size=large]{font-size:20px}.nc-map-key[data-point-size=large] .nc-key:before{width:14px;height:14px;margin-right:8px}
+@media(max-width:520px){.nc-map-key[data-point-size=large]{font-size:13px}.nc-map-key-row{column-gap:14px}}
+
+.nc-timeline text{font-family:Arial,sans-serif;font-size:14px}

@@ -59,6 +59,12 @@
   function inspectNative(value){options.onRecord?.(value);}
   function clearNativeRecord(){$('nativeRecord').hidden=true;$('nativeRecordDetails').replaceChildren();}
   function nativeSignature(state){return JSON.stringify({...state,panel:'all'});}
+  function rememberNativePresentation(patch,meta){
+    if(destroyed||viewState.view!=='cases'||Object.entries(meta.context||{}).some(([key,value])=>String(viewState[key])!==String(value)))return;
+    viewState=SeismicSequenceView.normalize({...viewState,...patch});
+    nativeRendered.set('cases',nativeSignature(viewState));updateStudyNavigation();
+    if(!notifySuppressed)options.onStateChange?.({...viewState},{push:false,presentation:true});
+  }
   async function activateStudy(){
     if(destroyed)return;
     const view=viewState.view,registry={cases:['nativeCases',window.NativeCases],diagnostics:['nativeDiagnostics',window.NativeDiagnostics],benchmark:['nativePerformance',window.NativePerformance]};
@@ -74,8 +80,8 @@
       try{
         if(!nativeMounts.has(view)){
           const mountedState={...viewState},mountedSignature=nativeSignature(mountedState);
-          const options={client:SeismicStudyData,state:mountedState,onStateChange:patch=>navigateStudy(patch),onRecord:value=>{if(viewState.view===view)inspectNative(value);}};
-          nativeMounts.set(view,Promise.resolve(api.mount(container,options)).then(value=>{if(!destroyed)nativeRendered.set(view,mountedSignature);return value;}));
+          const nativeOptions={client:SeismicStudyData,state:mountedState,buildURL:options.buildURL,onStateChange:(patch,meta={})=>meta.presentation?rememberNativePresentation(patch,meta):navigateStudy(patch),onRecord:value=>{if(viewState.view===view)inspectNative(value);}};
+          nativeMounts.set(view,Promise.resolve(api.mount(container,nativeOptions)).then(value=>{if(!destroyed)nativeRendered.set(view,mountedSignature);return value;}));
         }
         await nativeMounts.get(view);if(destroyed||viewState.view!==view)return;
         const desired={...viewState},signature=nativeSignature(desired);
@@ -85,8 +91,8 @@
     });
     nativeOperations.set(view,operation);await operation;
   }
-  async function navigateStudy(patch,push=false){
-    const next=SeismicSequenceView.normalize({...viewState,...patch,lang:patch.lang||lang});
+  async function navigateStudy(patch,push=false,restoring=false){
+    const next=restoring?SeismicSequenceView.normalize({...patch,lang:patch.lang||lang}):SeismicSequenceView.transition(viewState,{...patch,lang:patch.lang||lang});
     pendingPush=push;
     applyView(next);language();clearNativeRecord();await activateStudy();
     if(next.view==='explorer'&&manifest){if(!latestTiming||lastCalculationKey!==selectionKey())await calculate();else{render();calculationStatus();}}
@@ -295,7 +301,7 @@
   const initialActivation=activateStudy();
   const dataReady=SeismicStudyData.manifest().then(async m=>{if(destroyed)return;manifest=m;diagnostics=await checked('diagnostics.json');if(destroyed)return;try{basemap=await SeismicStudyData.basemap();}catch(_){}if(!destroyed&&viewState.view==='explorer')await calculate();}).catch(e=>{if(!destroyed)status(t('No se pudo cargar: ','Loading failed: ')+e.message);throw e;});
   const ready=Promise.all([initialActivation,dataReady]);
-  return Object.freeze({ready,getState:()=>({...viewState}),async setState(next){panelFocusPending=Boolean(next.panel&&next.panel!=='all');notifySuppressed++;try{return await navigateStudy(next,false);}finally{notifySuppressed--;}} ,async setLanguage(next){if(next===lang)return;notifySuppressed++;try{lang=next==='en'?'en':'es';viewState.lang=lang;language();await activateStudy();}finally{notifySuppressed--;}} ,setVisible(value){visible=Boolean(value);if(visible)requestAnimationFrame(()=>{if(!visible||destroyed)return;if(viewState.view==='cases')global.NativeCases?.resize?.();focusPanel();});},destroy(){destroyed=true;request++;workers.forEach(w=>w.terminate());workers=[];for(const api of [global.NativeCases,global.NativeDiagnostics,global.NativePerformance])api?.destroy?.();host.replaceChildren();}});
+  return Object.freeze({ready,getState:()=>({...viewState}),async setState(next){panelFocusPending=Boolean(next.panel&&next.panel!=='all');notifySuppressed++;try{return await navigateStudy(next,false,true);}finally{notifySuppressed--;}} ,async setLanguage(next){if(next===lang)return;notifySuppressed++;try{lang=next==='en'?'en':'es';viewState.lang=lang;language();await activateStudy();}finally{notifySuppressed--;}} ,setVisible(value){visible=Boolean(value);if(visible)requestAnimationFrame(()=>{if(!visible||destroyed)return;if(viewState.view==='cases')global.NativeCases?.resize?.();focusPanel();});},destroy(){destroyed=true;request++;workers.forEach(w=>w.terminate());workers=[];for(const api of [global.NativeCases,global.NativeDiagnostics,global.NativePerformance])api?.destroy?.();host.replaceChildren();}});
   }
   global.SeismicSequenceExplorer=Object.freeze({mount});
 })(window);
