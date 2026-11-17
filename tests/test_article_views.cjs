@@ -1,6 +1,6 @@
 'use strict';
 const assert=require('node:assert/strict'),fs=require('node:fs'),crypto=require('node:crypto');
-const P=require('../system/dist/article-views.js'),V=require('../system/dist/view-state.js');
+const P=require('../system/dist/article-views.js'),V=require('../system/dist/view-state.js'),G=require('../system/dist/article-gallery.js'),vm=require('node:vm');
 const read=p=>JSON.parse(fs.readFileSync('system/dist/'+p,'utf8'));
 const registry=read('data/catalogs.json'),geo=read('data/country-index.json'),admin=read('data/admin1-index.json');
 const hash=p=>crypto.createHash('sha256').update(fs.readFileSync('system/dist/'+p)).digest('hex');
@@ -25,7 +25,14 @@ test('all screenshot query counts reproduce directly from original rows and geog
 });
 test('result-specific state and map context are explicit rather than inferred from global filters',()=>{
   assert.equal(P.get('5').quick.action,'statistics');assert.equal(P.get('5').quick.admin1,'MEX-2729');assert.equal(P.get('9b').history.radiusKm,50);assert.equal(P.get('9b').history.includeOffshore,false);assert.equal(P.get('9b').history.yearFrom,1900);assert.equal(P.get('3-time').sourceView,'time');assert.equal(P.get('6').expanded,true);assert.equal(P.get('6').tectonics,true);
-  const html=fs.readFileSync('system/dist/article-figures.html','utf8');for(const id of P.ids)assert(html.includes('href="index.html?figure='+id+'&amp;lang=en"'));
+  const base='https://example.org/Seismic_Data_Geosciences/index.html';
+  const targets=G.targets('en'),mainLegacy=targets.filter(target=>target.legacy).map(target=>target.legacy);
+  assert.deepEqual(new Set(mainLegacy),new Set(P.ids.filter(id=>!['5','8'].includes(id))));
+  for(const id of P.ids){const link=new URL(G.href({legacy:id},'en'),base);assert.equal(link.pathname,new URL(base).pathname);assert.equal(P.resolve(link.href).profile.id,id);}
+  const html=fs.readFileSync('system/dist/article-figures.html','utf8');let redirected='';
+  const bridge={URL,location:{href:'https://example.org/Seismic_Data_Geosciences/article-figures.html?lang=es',replace:href=>{redirected=href;}}};
+  vm.runInNewContext(html.match(/<script>([\s\S]*?)<\/script>/)[1],bridge);
+  const destination=new URL(redirected);assert.equal(destination.origin,new URL(base).origin);assert.equal(destination.pathname,'/Seismic_Data_Geosciences/');assert.equal(destination.searchParams.get('tab'),'figures');assert.equal(destination.searchParams.get('lang'),'es');
   const svg=fs.readFileSync('system/dist/architecture.svg','utf8');assert(svg.includes('href="index.html?figure=4d&amp;lang=en"'));assert(!svg.includes('href="?figure='));
 });
 console.log(checks+' article-view groups passed');

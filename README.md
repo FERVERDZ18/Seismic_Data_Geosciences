@@ -5,12 +5,13 @@ Independent research workspace for a seismic-data article intended for
 
 Authors: José Manuel Villa Vargas; Gabriel Hurtado Avilés (corresponding author).
 
-The system supports consultation, comparison and exploration of heterogeneous
-earthquake catalogues, with traceable descriptive information for analysis,
-study and subsequent research. The article presents three connected contributions:
-the computational system, documented seismic inputs, and reproducible results
-that demonstrate the workflow. Browser operations and offline analytical
-pipelines remain explicitly distinct.
+The observatory is one browser application for exploring preserved earthquake
+catalogues, tracing source records and comparing operational earthquake families.
+A shared navigation frame, language and appearance controls connect the catalogue,
+analysis, SQL, sequence and article-figure workspaces without replacing the page.
+Browser and Python calculations use the declared methods and frozen inputs;
+independent checks compare records, parents, classifications and numerical
+values within documented tolerances. Runtime timings retain their own scope.
 
 The software also audits retained origin-product revisions and makes its evidence
 boundaries explicit. A current-selected ComCat pilot contains 36 events and 236
@@ -23,25 +24,24 @@ the target journal's evaluation of its computational contribution remains separa
 
 ## Manuscript
 
-**A browser-based seismic observatory for regional earthquake catalogue comparison in North America**
+The current author-review title is **A browser-based seismic data observatory for
+detecting and comparing earthquake sequences across North American catalogues**.
+The revised manuscript derives its case maps from the working application and
+retains all nine original figure groups. It remains an author-review document;
+publication and final human approval are separate steps.
 
-The author-review manuscript is available as
+The preserved v0 manuscript is available as
 [editable Word](outputs/paper/Seismic_CG_manuscript.docx) and
-[PDF](outputs/paper/Seismic_CG_manuscript.pdf). The verified local pair has 30 pages,
-13 inline figures and four editable tables with numerical alignment and explicit
-notes. Genuine system captures, text, input hashes and every rendered page were
-checked against the expanded local revision. This pair awaits publication with
-that revision; it is not attributed to the older public baseline below.
+[PDF](outputs/paper/Seismic_CG_manuscript.pdf). This archived pair has 20 pages;
+it is retained as historical material and is not the current sequence manuscript.
 The software MIT licence does not cover manuscript files.
 
-The verified public baseline is
-`590f6e79ad6d5d78d70e286ab0c60bd4e856fdce` (8 November 2026).
-The compressed loader, browser SQL, administrative selection, tectonic context
-and country-comparison additions described below are a local revision awaiting
-publication. They are not attributed to that public commit. The
-[live system](https://gabrielhuav.github.io/Seismic_Data_Geosciences/) uses a manual
-Pages workflow; a new deployment requires separate authorization.
-Publication does not imply journal acceptance or coauthor approval.
+The [live system](https://gabrielhuav.github.io/Seismic_Data_Geosciences/) uses a
+manual Pages workflow. A code push does not deploy it; compare the workflow's
+source commit before attributing a working-tree change to the published site.
+Deployment requires separate authorization. Historical commits, routes and
+archived manuscript files remain preserved. Publication does not imply journal
+acceptance or coauthor approval.
 
 The two IJCOPI articles and systems informed the interface review; those projects
 remain unchanged.
@@ -60,8 +60,11 @@ All four can also be explored together with their source records and overlap
 flags retained. Country/territory filtering uses generalized land polygons,
 independently of the data distributor; outside/boundary categories stay explicit.
 The separate retained-revision pilot remains available in its own view. The local
-revision has eight workspaces: Home, Catalogue, Sources, Analysis, Revisions,
-Evidence/methods, SQL and country comparison. Country clicks require confirmation;
+revision has fourteen workspaces: Home, Catalogue, Sources, Analysis, Revisions,
+Evidence/methods, SQL, country comparison, Simple view, historical Top 10,
+historical proximity, Sequences, Article figures and Help. The four sequence
+views share this application; their fixed pilot cohort is distinct from the
+editable historical catalogue selection. Country clicks require confirmation;
 743 generalized Natural Earth first-order units support state/province selection
 within the existing 47 country/territory land classes. Administrative queries use
 v5 links with geometry/index evidence; earlier links remain supported. Neither

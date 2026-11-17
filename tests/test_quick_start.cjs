@@ -12,7 +12,7 @@ assert.deepEqual(Q.regionOptions(data,'CAN'),[]);
 assert.equal(data.events.length,4,'Subdivision menu must not change the source records');
 assert.deepEqual(Object.keys(Q.words.en).sort(),Object.keys(Q.words.es).sort());
 assert.equal(Q.faqs.en.length,Q.faqs.es.length);
-assert.equal(Q.faqs.en.length,12);
+assert.equal(Q.faqs.en.length,15);
 const exactInclusive={coverage_period:{start_utc:'1900-01-20T06:33:30Z',end_inclusive_utc:'2026-11-06T20:31:07Z'}};
 assert.equal(Q.coverageBoundaryText(exactInclusive,'en'),'Recorded origin times UTC: 1900-01-20T06:33:30Z (inclusive) → 2026-11-06T20:31:07Z (inclusive)');
 const exactExclusive={coverage_period:{start_utc:'2020-01-01T00:00:00Z',end_exclusive_utc:'2026-01-01T00:00:00Z'}};

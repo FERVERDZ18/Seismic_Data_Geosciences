@@ -82,10 +82,13 @@ async function loadExactProof(){
 }
 const downloadJobs=new Map();let lastProgressPaint=0,sqlPanel=null,sqlContextCache=null,sqlSelectionVersion=0;
 // Initial access is gated by actual data verification and view rendering.
-const startupTargets=[...document.querySelectorAll('header,main,.tools-nav')];
+const startupTargets=[...document.querySelectorAll('header,main,.app-navigation')];
 startupTargets.forEach(node=>node.inert=true);
 if(I.language==='es'){$('startupTitle').textContent='Preparando el sistema';$('startupPhase').textContent='Cargando los datos conservados y comprobando las fuentes…';$('startupNote').textContent='El mapa se habilita después de verificar los datos y preparar la vista.';$('startupRetry').textContent='Reintentar carga';}
 function startupPhase(phase){if(!$('startupScreen')||$('startupScreen').hidden)return;const en=I.language==='en';const labels={download:en?'Loading preserved catalogue files…':'Cargando los archivos sísmicos conservados…',verify:en?'Verifying source hashes…':'Verificando hashes de las fuentes…',decompress:en?'Decompressing the verified payload…':'Descomprimiendo los datos verificados…',parse:en?'Reading source records…':'Leyendo los registros de las fuentes…',render:en?'Preparing the selected map and controls…':'Preparando el mapa y los controles seleccionados…'};$('startupPhase').textContent=labels[phase]||labels.verify;}
+const architectureObject=$('architectureDrawing');
+function connectArchitectureLinks(){try{const doc=architectureObject?.contentDocument;if(!doc||doc.documentElement.dataset.navigationConnected)return;doc.documentElement.dataset.navigationConnected='true';doc.addEventListener('click',event=>{const a=event.target.closest('a');const href=a?.getAttribute('href')||a?.getAttribute('xlink:href');if(href&&href.startsWith('?')){event.preventDefault();navigateApplication(href).catch(error=>{$('actionStatus').textContent=error.message;});}});}catch(_){/* The visible architecture retains its HTML controls. */}}
+architectureObject?.addEventListener('load',connectArchitectureLinks);connectArchitectureLinks();
 async function waitForPresentation(){
   await document.fonts?.ready;
   const drawing=$('architectureDrawing');
@@ -98,7 +101,7 @@ async function waitForPresentation(){
 function finishStartup(){
   const failed=!!state.loadError||document.body.dataset.articleStatus==='error';
   if(failed){$('startupTitle').textContent=I.language==='en'?'The system could not finish loading':'No se pudo terminar la carga';$('startupPhase').textContent=state.loadError||$('loadStatus').textContent;$('startupRetry').hidden=false;$('startupProgress').removeAttribute('value');return;}
-  $('startupProgress').value=100;$('startupScreen').hidden=true;startupTargets.forEach(node=>node.inert=false);document.body.dataset.startup='ready';
+  $('startupProgress').value=100;$('startupScreen').hidden=true;startupTargets.forEach(node=>node.inert=false);document.body.dataset.startup='ready';measureAppHeader();
 }
 $('startupRetry').addEventListener('click',()=>location.reload());
 function updateTransportProgress(event){
@@ -187,7 +190,7 @@ function ensureQuickPanel(){
 }
 function ensureHelpPanel(){
   if(!helpPanel && window.SeismicQuickStart)helpPanel=window.SeismicQuickStart.mountHelp($('helpWorkspace'),{
-    getLanguage:()=>I.language,version:'2026.11.16.2',onNavigate:name=>setTab(name)
+    getLanguage:()=>I.language,version:'2026.11.16.3',onNavigate:name=>setTab(name)
   });
   return helpPanel;
 }
@@ -270,18 +273,89 @@ function choices() {
 }
 function readFilters() {return Object.fromEntries(controls.map(k => [k, typeof V.defaults[k] === 'boolean' ? $(k).checked : $(k).value]));}
 function writeFilters(filters) {for (const k of controls) if (typeof V.defaults[k] === 'boolean') $(k).checked = filters[k]; else $(k).value = filters[k];}
+const APP_TABS=['home','catalog','sources','analysis','revisions','comparison','sql','methods','quick','top','recurrence','help','sequences','figures'];
+let sequencePanel=null,sequenceMount=null,mainLoading=null,galleryPanel=null;
+state.sequenceState={view:'cases',case:'2017',lang:I.language};
+function isStudyLocation(href=location.href){const p=new URL(href).searchParams;return p.get('workspace')==='sequences'||p.get('tab')==='sequences';}
+function readStudyLocation(){return window.SeismicSequenceView.normalize({...Object.fromEntries(new URL(location.href).searchParams),view:new URL(location.href).searchParams.get('view')||'cases',lang:new URL(location.href).searchParams.get('lang')||I.language});}
+function studyURL(input=state.sequenceState){const url=new URL(location.href);url.search=window.SeismicSequenceView.query({...input,lang:I.language});url.searchParams.set('workspace','sequences');url.hash='';return url.href;}
+function updateAppContext(){
+  if(state.tab==='sequences')$('integrityStatus').textContent=t('studyScopeShort');
+  else if(state.tab==='figures')$('integrityStatus').textContent=t('figuresScopeShort');
+  else if(state.tab==='help')$('integrityStatus').textContent=t('helpAbout');
+  else $('integrityStatus').textContent=state.ready?t('verifiedMemory',{n:fmt(state.activePacks.length)}):t('integrityLoading');
+  $('query').hidden=['sequences','figures'].includes(state.tab);
+  if(state.tab==='sequences')$('share').disabled=!sequencePanel;
+}
+async function ensureSequencePanel(){
+  if(sequencePanel)return sequencePanel;
+  if(!sequenceMount){
+    const mount=$('sequenceWorkspace');
+    sequenceMount=window.SeismicSequenceWorkbench.mount(mount,{state:{...state.sequenceState,lang:I.language},getLanguage:()=>I.language,onStateChange:(next,meta={})=>{
+      if(meta.initial||state.restoring||state.routing){updateAppContext();return;}
+      if(meta.push){state.navigationRequest=(state.navigationRequest||0)+1;state.locationRequest++;state.routing=null;}
+      state.sequenceState=window.SeismicSequenceView.normalize({...next,lang:I.language});
+      if(state.tab==='sequences'&&!state.restoring){const url=studyURL();if(url!==location.href)history[meta.push&&!meta.initial?'pushState':'replaceState'](null,'',url);}
+      updateAppContext();
+    }}).then(async panel=>{sequencePanel=panel;await panel.setLanguage(I.language);panel.setVisible(state.tab==='sequences');updateAppContext();return panel;}).catch(error=>{
+      sequenceMount=null;const message=document.createElement('p');message.setAttribute('role','alert');message.textContent=(I.language==='en'?'Sequence view unavailable: ':'Vista de secuencias no disponible: ')+error.message;
+      const retry=document.createElement('button');retry.type='button';retry.textContent=t('retry');retry.addEventListener('click',()=>ensureSequencePanel());mount.replaceChildren(message,retry);return null;
+    });
+  }
+  return sequenceMount;
+}
+function ensureFigureGallery(){
+  if(!galleryPanel)galleryPanel=window.SeismicArticleGallery.mount($('figureGallery'),{getLanguage:()=>I.language,onNavigate:href=>navigateApplication(href)});
+  galleryPanel.render?.();return galleryPanel;
+}
+function closeAppNavigation(){document.body.classList.remove('nav-open');$('appMenuToggle').setAttribute('aria-expanded','false');$('appNavBackdrop').hidden=true;$('appNavigation').inert=!$('startupScreen').hidden||window.innerWidth<=1000;}
+$('appMenuToggle').addEventListener('click',()=>{const open=!document.body.classList.contains('nav-open');document.body.classList.toggle('nav-open',open);$('appMenuToggle').setAttribute('aria-expanded',String(open));$('appNavBackdrop').hidden=!open;$('appNavigation').inert=!open&&window.innerWidth<=1000;if(open)$('appNavigation').querySelector('[aria-current]')?.focus();});
+$('appNavBackdrop').addEventListener('click',closeAppNavigation);
+document.addEventListener('keydown',event=>{
+  if(!document.body.classList.contains('nav-open'))return;
+  if(event.key==='Escape'){closeAppNavigation();$('appMenuToggle').focus();}
+  if(event.key==='Tab'&&window.innerWidth<=1000){const items=[$('appMenuToggle'),...$('appNavigation').querySelectorAll('button:not(:disabled),a[href]')];const first=items[0],last=items.at(-1);if(event.shiftKey&&document.activeElement===first){event.preventDefault();last.focus();}else if(!event.shiftKey&&document.activeElement===last){event.preventDefault();first.focus();}}
+});
+function measureAppHeader(){document.documentElement.style.setProperty('--app-header-height',document.querySelector('header').getBoundingClientRect().height+'px');if(!$('startupScreen').hidden){$('appNavigation').inert=true;return;}if(window.innerWidth>1000)closeAppNavigation();else if(!document.body.classList.contains('nav-open'))$('appNavigation').inert=true;}
+if(window.ResizeObserver)new ResizeObserver(measureAppHeader).observe(document.querySelector('header'));window.addEventListener('resize',measureAppHeader);measureAppHeader();
+function navigationFailure(error){
+  $('appNoticeMessage').textContent=I.language==='en'?'This view could not be restored. Retry or choose another workspace.':'No se pudo restaurar esta vista. Reintenta o elige otra área de trabajo.';$('appNotice').hidden=false;
+  if(state.tab==='sequences'){sequencePanel?.destroy();sequencePanel=null;sequenceMount=null;$('sequenceWorkspace').replaceChildren();}
+  console.warn('View restoration failed',error);
+}
+$('appNoticeRetry').addEventListener('click',()=>navigateApplication(location.href,false));
+async function navigateApplication(href,push=true){
+  $('appNotice').hidden=true;
+  const navigation=state.navigationRequest=(state.navigationRequest||0)+1;
+  const target=new URL(href,location.href);if(target.origin!==location.origin)return;
+  const resolved=window.SeismicArticleViews?.resolve(target.href);
+  if(resolved){state.articleFigure=resolved.profile.id;target.search=new URL(resolved.url).search;target.searchParams.set('figure',resolved.profile.id);window.SeismicPreferences?.set({theme:resolved.profile.theme,mode:resolved.profile.appearance});}
+  else {state.articleFigure='';delete document.body.dataset.articleFigure;delete document.body.dataset.articleStatus;}
+  history[push?'pushState':'replaceState'](null,'',target.href);
+  const navigationHref=target.href;
+  try{await restoreLocation();}catch(error){if(navigation===state.navigationRequest)navigationFailure(error);return;}
+  if(navigation!==state.navigationRequest)return;
+  if(location.href!==navigationHref&&!new URL(location.href).searchParams.has('figure'))return;
+  if(resolved&&state.articleFigure!==resolved.profile.id)return;
+  if(resolved){try{await restoreArticleView(resolved.profile,()=>navigation===state.navigationRequest);if(navigation===state.navigationRequest)document.body.dataset.articleStatus='ready';}catch(error){if(navigation!==state.navigationRequest)return;document.body.dataset.articleStatus='error';$('loadStatus').hidden=false;$('loadStatus').textContent=error.message;}}
+  closeAppNavigation();
+}
+document.addEventListener('click',event=>{const a=event.target.closest('a[href]');if(!a||a.getAttribute('href')?.startsWith('#')||event.defaultPrevented||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey||a.hasAttribute('download')||a.target==='_blank')return;const url=new URL(a.href,location.href);const root=new URL('./',location.href);if(url.origin===root.origin&&(url.pathname===root.pathname||url.pathname===root.pathname+'index.html')&&url.search){event.preventDefault();navigateApplication(url.href).catch(error=>{ $('actionStatus').textContent=error.message;});}});
+
 function currentView() {
   return {filters: {...state.applied}, sort: $('sort').value, lang: I.language, tab: state.tab,
     revision: $('revisionEvent').value || '', event: state.selectedEvent || state.highlightedEvent, map: state.map?.getView() || null,
     snapshot: snapshot(), catalog: state.catalog?.id, admin1Geography:state.admin1Hash, base: state.map?.getBase() || 'local',geography:state.geographyHash};
 }
-function syncURL() {
-  if (!state.ready || state.restoring || !state.formValid) return;
+function syncURL(push = false) {
+  if (state.routing || state.restoring || (!['sequences','figures','help'].includes(state.tab)&&(!state.ready||!state.formValid))) return;
   const url=viewURL();
-  history.replaceState(null, '', url);
+  if(url!==location.href)history[push===true?'pushState':'replaceState'](null, '', url);
   if (!$('viewLink').hidden) $('viewLink').value = url;
 }
 function viewURL(view=currentView()){
+  if(view.tab==='sequences')return studyURL();
+  if(['figures','help'].includes(view.tab)){const simple=new URL(location.href);simple.search='tab='+view.tab+'&lang='+I.language;simple.hash='';return simple.href;}
   const url=new URL(V.serialize(view,location.href));
   if(state.map?.getDisplayMode?.()==='heat')url.searchParams.set('display','heat');else url.searchParams.delete('display');
   const pointColour=state.map?.getColorMode?.();if(['depth','warm'].includes(pointColour))url.searchParams.set('pointColor',pointColour);else url.searchParams.delete('pointColor');
@@ -289,14 +363,21 @@ function viewURL(view=currentView()){
   return url.href;
 }
 function setTab(name, persist = true) {
+  if(!APP_TABS.includes(name))name='home';
   const previousTab=state.tab;
+  if(persist&&previousTab!==name){$('appNotice').hidden=true;state.navigationRequest=(state.navigationRequest||0)+1;state.locationRequest++;state.routing=null;state.restoring=false;state.articleFigure='';delete document.body.dataset.articleFigure;delete document.body.dataset.articleStatus;}
+  closeAppNavigation();
   if(state.expanded && !['catalog','home','quick','sources','methods'].includes(name))setExpanded(false);
   state.tab = name;
-  for (const tab of ['home', 'catalog', 'sources', 'analysis', 'revisions', 'comparison', 'sql', 'methods','quick','top','recurrence','help']) {
+  for (const tab of APP_TABS) {
     const active = tab === name; $(tab + 'Panel').hidden = !active;
     if (active) $(tab + 'Tab').setAttribute('aria-current', 'page'); else $(tab + 'Tab').removeAttribute('aria-current');
   }
   document.body.dataset.view=name;
+  sequencePanel?.setVisible(name==='sequences');
+  if(name==='sequences')ensureSequencePanel();
+  if(name==='figures')ensureFigureGallery();
+  if(!state.ready&&state.registry&&!['sequences','figures','help'].includes(name)){if(persist&&previousTab!==name){const pendingURL=new URL(location.href);pendingURL.search='v=4&tab='+name+'&catalog=all-catalogs&lang='+I.language;history.pushState(null,'',pendingURL.href);}state.pendingRootTab=name;if(!mainLoading)mainLoading=loadCatalog('all-catalogs',false).then(()=>{mainLoading=null;if(state.ready&&!['sequences','figures','help'].includes(state.tab))setTab(state.pendingRootTab,persist);});}
   if(name==='quick')ensureQuickPanel()?.activate();
   const mapMount=name==='quick' ? quickPanel?.getMapMount() : name==='home' ? $('homeMapMount') : name==='sources' ? sourceMapMount() : name==='methods' ? $('architectureMapMount') : $('catalogMapMount');
   const mapMoved=mapMount && $('mapCard').parentElement!==mapMount;
@@ -313,9 +394,11 @@ function setTab(name, persist = true) {
   if(name==='top')ensureHistoryPanel('top')?.activate();
   if(name==='recurrence')ensureHistoryPanel('recurrence')?.activate();
   if(name==='help')ensureHelpPanel()?.activate?.();
-  const sharedTools=document.querySelector('.view-tools');if(sharedTools)sharedTools.hidden=['quick','top','recurrence','help','comparison'].includes(name);
-  $('loadStatus').hidden=['top','recurrence','help','comparison'].includes(name);
-  if (persist) syncURL();
+  const sharedTools=document.querySelector('.view-tools');if(sharedTools)sharedTools.hidden=['quick','top','recurrence','help','comparison','figures'].includes(name);
+  $('loadStatus').hidden=['top','recurrence','help','comparison','sequences','figures'].includes(name);
+  $('loadingProgress').hidden=['sequences','figures','help'].includes(name)||state.ready||!!state.loadError;
+  updateAppContext();
+  if (persist){syncURL(previousTab!==name);if(previousTab!==name){window.scrollTo({top:0,behavior:'auto'});$('main').focus({preventScroll:true});}}
 }
 function populate(id, values) {
   for (const x of [...new Set(values)].sort()) {const option = document.createElement('option');option.value = x;option.textContent = x || t('notReported');$(id).append(option);}
@@ -377,7 +460,7 @@ function showWarnings() {
 function buttons() {
   for(const id of ['sourceExplore','sourceInspect','sourceExport','sourceStageAnalysis','sourceStageExport'])$(id).disabled=!state.ready||!state.formValid;
   for(const id of ['quickTab','topTab','recurrenceTab'])$(id).disabled=!state.registry;
-  if($('loadingProgress'))$('loadingProgress').hidden=state.ready || !!state.loadError;
+  if($('loadingProgress'))$('loadingProgress').hidden=['sequences','figures','help'].includes(state.tab)||state.ready || !!state.loadError;
   if(!state.ready || !state.formValid)sqlPanel?.invalidate();
   for (const id of ['share', 'query', 'download', 'analysisRecordCsv', 'analysisQueryJson', 'analysisCsv', 'analysisJson', 'analysisReport','previewAnalysisReport','exportPackage','refreshInlineReport','workbenchCsv','workbenchJson','workbenchZip','workbenchReport','workbenchStats','workbenchSql','workbenchCompare']) $(id).disabled = !state.ready || !state.formValid;
   if(!state.ready || !state.formValid){$('inlineReportFrame').srcdoc='';$('printInlineReport').disabled=true;}
@@ -389,7 +472,7 @@ function buttons() {
   $('unmOnly').disabled = !state.ready || state.catalog?.id !== V.legacyCatalog;
   if(state.tab==='analysis' && (!state.ready || !state.formValid))renderAnalysis();
   if(!state.ready || !state.formValid)renderExplorerInsights();
-  $('integrityStatus').textContent=state.ready ? t('verifiedMemory',{n:fmt(state.activePacks.length)}) : t('integrityLoading');
+  updateAppContext();
   if(!state.ready || !state.formValid){$('queryFingerprint').textContent='—';$('geographyAccounting').textContent='—';fingerprintRows=null;fingerprintRequest++;}
 }
 function applyFilters(persist = true) {
@@ -908,10 +991,10 @@ function describeDataset() {
   $('placeHeader').textContent = t(derivedKey() ? 'placeLocalKey' : 'placeId');
 }
 function changeLanguage(lang, persist = true) {
-  I.apply(lang);updateDisplayEvidence();revisionStory?.refreshLanguage?.();sqlPanel?.refreshLanguage();comparisonPanel?.refreshLanguage();topPanel?.refreshLanguage();recurrencePanel?.refreshLanguage();quickPanel?.refreshLanguage();helpPanel?.refreshLanguage();if($('tectonicToggle').checked)showTectonics();expandedLabel();populateCatalogControls();localizeFilterOptions();$('baseStatus').textContent = t(state.baseStatus);state.map?.languageChanged();
-  if (!state.ready) {describeDataset();$('loadStatus').textContent = state.loadError ? t('loadFailed') + ' ' + state.loadError : loadingText(state.catalog);return;}
+  I.apply(lang);state.sequenceState={...state.sequenceState,lang:I.language};sequencePanel?.setLanguage(lang);galleryPanel?.render?.();updateAppContext();updateDisplayEvidence();revisionStory?.refreshLanguage?.();sqlPanel?.refreshLanguage();comparisonPanel?.refreshLanguage();topPanel?.refreshLanguage();recurrencePanel?.refreshLanguage();quickPanel?.refreshLanguage();helpPanel?.refreshLanguage();if($('tectonicToggle').checked)showTectonics();expandedLabel();populateCatalogControls();localizeFilterOptions();$('baseStatus').textContent = t(state.baseStatus);state.map?.languageChanged();
+  if (!state.ready) {describeDataset();$('loadStatus').textContent = state.loadError ? t('loadFailed') + ' ' + state.loadError : loadingText(state.catalog);if(persist&&['sequences','figures','help'].includes(state.tab))syncURL();return;}
   describeDataset();showWarnings();render();renderRevision();renderCoverage();state.map?.languageChanged();
-  $('integrityStatus').textContent=t('verifiedMemory',{n:fmt(state.activePacks.length)});
+  updateAppContext();
   if (state.selectedEvent && $('detail').open) detail(state.selectedEvent, false);
   $('filterError').textContent = state.formValid ? '' : t('invalidFilters');
   if (state.action) $('actionStatus').textContent = t(state.action);if (persist) syncURL();
@@ -932,7 +1015,7 @@ function restoreFromURL() {
   const missing = $('magType').querySelector('option[value="__missing__"]');if (missing) missing.textContent = t('notReported');
   state.restoring = false;syncURL();
 }
-for (const tab of ['home','catalog','sources','analysis','revisions','comparison','sql','methods','quick','top','recurrence','help']) $(tab + 'Tab').addEventListener('click', () => setTab(tab));
+for (const tab of APP_TABS) $(tab + 'Tab').addEventListener('click', () => setTab(tab));
 for (const id of controls) {
   const numeric=typeof V.defaults[id]==='number';
   $(id).addEventListener(id==='search' || numeric ? 'input' : 'change',()=>{
@@ -983,7 +1066,7 @@ $('revisionEvent').addEventListener('change', () => {renderRevision();syncURL();
 $('language').addEventListener('change', () => changeLanguage($('language').value));
 $('fitMap').addEventListener('click', () => state.map?.fitRecords());$('resetMap').addEventListener('click', () => state.map?.reset());
 window.addEventListener('resize', () => {if(['catalog','home','quick','sources'].includes(state.tab))state.map?.resize();});
-window.addEventListener('popstate',()=>{restoreLocation().catch(()=>{state.invalidLink=['adm'];showWarnings();$('admin1Status').textContent=t('geoLayerFailed');});});
+window.addEventListener('popstate',()=>{navigateApplication(location.href,false).catch(()=>{state.invalidLink=['adm'];showWarnings();$('admin1Status').textContent=t('geoLayerFailed');});});
 I.apply(V.parseURL(location.href).view.lang);
 async function fetchAsset(url) {
   if(state.assetLoader)return state.assetLoader.load(url);
@@ -1013,11 +1096,13 @@ async function loadPackage(c) {
 async function loadCatalog(id, restore = false, preset = {}) {
   const c = id==='all-catalogs' ? combinedDefinition() : state.registry.catalogs.find(c => c.id === id);if (!c) return;
   downloadJobs.clear();sqlPanel?.invalidate();sqlContextCache=null;
+  const restoreHref=location.href,restoreTicket=state.locationRequest;
   const request = ++state.request;clearTimeout(debounce);state.restoring = true;state.ready = false;state.loadError = null;state.catalog = c;state.pendingRestore = restore;
   const initial = {...V.catalogDefaults(c), ...preset};
   if (c.id !== V.legacyCatalog) initial.unmOnly = false;
   state.pendingFilters = {...initial};
   state.applied = restore ? V.parseURL(location.href, {catalogs:state.registry.catalogs,defaultCatalog:state.registry.default_catalog_id,catalog:c}).view.filters : {...initial};
+  const requestedFilters= {...state.applied};
   state.selectedEvent = '';state.highlightedEvent='';if ($('detail').open) $('detail').close();state.events = [];state.fields = [];state.filtered = [];state.manifest = null;state.activePacks=[];state.composition=null;state.exactGrouping=null;state.rawPack=null;
   $('activeFilters').replaceChildren();$('activeFilters').hidden=true;
   state.map?.setRecords([]);$('records').replaceChildren();$('histogram').replaceChildren();
@@ -1045,8 +1130,9 @@ async function loadCatalog(id, restore = false, preset = {}) {
     state.rawFields=pack.fields;
     state.latestUTC = state.events.reduce((latest,e) => e.time > latest ? e.time : latest, '');state.latest = state.latestUTC.slice(0,10);
     populateFilters();state.ready = true;state.formValid = true;state.invalidLink = [];state.restoring = false;
-    if (restore) restoreFromURL();else {
-      state.restoring = true;populateAdmin1(initial);writeFilters(initial);$('sort').value = 'recent';state.page = 0;
+    if (restore&&restoreHref===location.href&&restoreTicket===state.locationRequest) restoreFromURL();else {
+      const retainedFilters=restore?requestedFilters:initial;
+      state.restoring = true;populateAdmin1(retainedFilters);writeFilters(retainedFilters);$('sort').value = 'recent';state.page = 0;
       state.map.setRegion(c.bounds);state.map.reset();applyFilters(false);if(initial.country)state.map.fitRecords();describeDataset();showWarnings();actionStatus('');
       state.restoring = false;syncURL();buttons();
     }
@@ -1056,12 +1142,23 @@ async function loadCatalog(id, restore = false, preset = {}) {
   }
 }
 async function restoreLocation() {
-  if (!state.registry) return;
-  const locationRequest=++state.locationRequest,href=location.href,packageRequest=state.request;
-  if(new URL(href).searchParams.get('adm')&&!state.admin1)await ensureAdmin1();
-  if(locationRequest!==state.locationRequest||href!==location.href||packageRequest!==state.request)return;
-  const id = V.catalogFromURL(href, choices());
-  if (id !== state.catalog?.id || !state.ready) await loadCatalog(id, true);else restoreFromURL();
+  if(!state.registry)return;
+  const ticket=++state.locationRequest,href=location.href;state.routing=ticket;
+  const current=()=>ticket===state.locationRequest&&href===location.href;
+  try{
+    if(isStudyLocation(href)){
+      const desired=readStudyLocation();state.sequenceState=desired;state.restoring=true;I.apply(desired.lang);setTab('sequences',false);
+      const panel=await ensureSequencePanel();if(!current())return;
+      if(panel)await panel.setState(desired);if(!current())return;state.sequenceState=panel?panel.getState():desired;return;
+    }
+    const params=new URL(href).searchParams;
+    if(['figures','help'].includes(params.get('tab'))||params.get('workspace')==='figures'){I.apply(params.get('lang')||I.language);setTab(params.get('tab')==='help'?'help':'figures',false);return;}
+    if(params.get('adm')&&!state.admin1)await ensureAdmin1();if(!current())return;
+    const id=V.catalogFromURL(href,choices());
+    if(id!==state.catalog?.id||!state.ready)await loadCatalog(id,true);else restoreFromURL();
+  }finally{
+    if(current()){state.routing=null;state.restoring=false;updateAppContext();syncURL();}
+  }
 }
 async function initialize() {
   $('retry').hidden = true;$('loadStatus').textContent = t('loading');buttons();
@@ -1085,7 +1182,9 @@ async function initialize() {
       onBaseChange: id => {$('mapBase').value = id;syncURL();},onBaseStatus: key => {state.baseStatus = key;$('baseStatus').textContent = t(key);}});
     state.map.setColorMode?.((['depth','warm'].includes(new URL(location.href).searchParams.get('pointColor'))?new URL(location.href).searchParams.get('pointColor'):'catalogue'));
     state.map.setDisplayMode?.(new URL(location.href).searchParams.get('display')==='heat'?'heat':'points');updateDisplayEvidence();
-    if(!new URL(location.href).searchParams.has('v')){await loadCatalog('all-catalogs',false);setTab('home');requestAnimationFrame(()=>state.map.fitRecords());}
+    buttons();
+    if(isStudyLocation()||['figures','help'].includes(new URL(location.href).searchParams.get('tab'))||new URL(location.href).searchParams.get('workspace')==='figures'){await restoreLocation();}
+    else if(!new URL(location.href).searchParams.has('v')&&!new URL(location.href).searchParams.has('tab')){const homeNavigation=state.navigationRequest||0;state.tab='home';await loadCatalog('all-catalogs',false);if((state.navigationRequest||0)===homeNavigation){setTab('home',false);syncURL();requestAnimationFrame(()=>state.map.fitRecords());}}
     else {if(new URL(location.href).searchParams.get('adm'))await ensureAdmin1();await restoreLocation();}
   } catch (error) {state.loadError = error.message;$('loadStatus').textContent = t('loadFailed') + ' ' + state.loadError;$('retry').hidden = false;buttons();}
 }
@@ -1175,29 +1274,31 @@ function leaveArticlePreset(){
 }
 for(const eventName of ['input','change'])document.addEventListener(eventName,leaveArticlePreset,true);
 document.addEventListener('click',event=>{
-  if(event.target.closest('button[id$="Tab"],#sourceAtlasView,#sourceTimeView,[data-source-catalog],[data-workbench-catalog],[data-quick-action],[data-quick-back],[data-quick-full],#fitMap,#resetMap,#expandMap,.history-fit'))leaveArticlePreset();
+  if(event.target.closest('#sourceAtlasView,#sourceTimeView,[data-source-catalog],[data-workbench-catalog],[data-quick-action],[data-quick-back],[data-quick-full],#fitMap,#resetMap,#expandMap,.history-fit'))leaveArticlePreset();
 },true);
 document.addEventListener('pointerdown',event=>{if(event.target.closest('#map'))leaveArticlePreset();},true);
-async function restoreArticleView(profile){
+async function restoreArticleView(profile,isCurrent=()=>true){
+  if(!isCurrent())return;
   if(!state.ready)throw Error('ARTICLE_DATA_NOT_READY');
   if(profile.sourceView)setSourceView(profile.sourceView);
-  if(profile.quick)await ensureQuickPanel().restore(profile.quick);
-  if(profile.history)await ensureHistoryPanel('recurrence').restore(profile.history);
+  if(profile.quick){await ensureQuickPanel().restore(profile.quick);if(!isCurrent())return;}
+  if(profile.history){await ensureHistoryPanel('recurrence').restore(profile.history);if(!isCurrent())return;}
   if(profile.tab==='top'){
-    const result=await ensureHistoryPanel('top').activate();
+    const result=await ensureHistoryPanel('top').activate();if(!isCurrent())return;
     if(result?.eligible_records!==285773)throw Error('ARTICLE_TOP10_SELECTION');
   }
   if(profile.tab==='comparison'){
-    const result=await ensureComparisonPanel().activate();
+    const result=await ensureComparisonPanel().activate();if(!isCurrent())return;
     if(!result)throw Error('ARTICLE_COMPARISON_SELECTION');
   }
   if(profile.expectedRows!==undefined && state.filtered.length!==profile.expectedRows)throw Error('ARTICLE_ROW_COUNT');
-  if(profile.tectonics!==undefined){$('tectonicToggle').checked=profile.tectonics;await showTectonics();}
+  if(profile.tectonics!==undefined){$('tectonicToggle').checked=profile.tectonics;await showTectonics();if(!isCurrent())return;}
   if(profile.expanded)setExpanded(true);
   $('mapCard').classList.toggle('map-key-large',!!profile.largeKey);$('largeMapKey').setAttribute('aria-pressed',String(!!profile.largeKey));
   await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
+  if(!isCurrent())return;
   if(!profile.quick && ['catalog','home','sources','methods'].includes(profile.tab)){
-    state.map.resize();const center=new URL(requestedArticleView.url).searchParams.get('c');
+    state.map.resize();const center=new URLSearchParams(profile.query).get('c');
     if(profile.fitRecords)state.map.fitRecords();else if(center)state.map.setView(center.split(',').map(Number));
     if(profile.id==='3'&&window.innerWidth<700)state.map.fitCountry('MEX');
   }
@@ -1207,9 +1308,10 @@ async function restoreArticleView(profile){
   // link reapplies its frozen preset; subsequent user edits remain ordinary views.
   syncURL();
 }
+const bootstrapNavigation=state.navigationRequest||0;
 initialize().then(async()=>{
   startupPhase('render');
-  if(!requestedArticleView)return;
-  try{await restoreArticleView(requestedArticleView.profile);document.body.dataset.articleStatus='ready';}
+  if((state.navigationRequest||0)!==bootstrapNavigation||!requestedArticleView||state.articleFigure!==requestedArticleView.profile.id||state.tab!==requestedArticleView.profile.tab)return;
+  try{await restoreArticleView(requestedArticleView.profile,()=>(state.navigationRequest||0)===bootstrapNavigation);if((state.navigationRequest||0)===bootstrapNavigation)document.body.dataset.articleStatus='ready';}
   catch(error){document.body.dataset.articleStatus='error';$('loadStatus').hidden=false;$('loadStatus').textContent='Article view could not be reproduced: '+error.message;}
 }).then(async()=>{await waitForPresentation();await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));finishStartup();}).catch(error=>{state.loadError=error.message;finishStartup();});

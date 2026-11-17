@@ -69,13 +69,15 @@ test('antimeridian display keeps each ring continuous and leaves all source coor
 // Exercise the asynchronous loader against real packaged bytes, without a browser,
 // map tile requests or network access. DOM controls and map behavior are bounded stubs.
 class Element {
-  constructor(id='') {this.id=id;this.value='';this.checked=false;this.hidden=false;this.disabled=false;this.open=false;this.children=[];this.listeners={};this.textContent='';this.dataset={};this.classes=new Set();this.classList={toggle:(name,on)=>on ? this.classes.add(name) : this.classes.delete(name)};}
+  constructor(id='') {this.id=id;this.value='';this.checked=false;this.hidden=false;this.disabled=false;this.open=false;this.children=[];this.listeners={};this.textContent='';this.dataset={};this.classes=new Set();this.classList={toggle:(name,on)=>on ? this.classes.add(name) : this.classes.delete(name),add:name=>this.classes.add(name),remove:name=>this.classes.delete(name),contains:name=>this.classes.has(name)};this.style={setProperty:(name,value)=>{this.style[name]=value;}};}
   append(child) {if(child.parentElement)child.parentElement.children=child.parentElement.children.filter(c=>c!==child);this.children.push(child);child.parentElement=this;if(this.children.length===1 && child.value!==undefined)this.value=child.value;}
   replaceChildren(...children) {this.children=[];this.value='';for(const child of children)this.append(child);}
   querySelector(selector) {const option=selector.match(/^option\[value="([^"]*)"\]$/);return option ? this.children.find(child=>child.value===option[1]) : null;}
   setAttribute(name,value) {this[name]=value;}
   removeAttribute(name) {delete this[name];}
   addEventListener(type,callback) {(this.listeners[type]??=[]).push(callback);}
+  getBoundingClientRect() {return {top:0,left:0,width:1280,height:72};}
+  querySelectorAll() {return [];}
   showModal() {this.open=true;}
   close() {this.open=false;for(const callback of this.listeners.close||[])callback();}
 }
@@ -86,12 +88,14 @@ async function main() {
   elements.get('sort').value='recent';elements.get('mapBase').value='local';
   const documentListeners={};
   const sharedViewTools=new Element('sharedViewTools');
-  const document={documentElement:new Element(),querySelector:selector=>selector==='.view-tools'?sharedViewTools:{},querySelectorAll:()=>[],getElementById:id=>elements.get(id),createElement:()=>new Element(),body:new Element(),
+  const header=new Element('header');
+  const document={documentElement:new Element(),querySelector:selector=>selector==='.view-tools'?sharedViewTools:selector==='header'?header:{},querySelectorAll:()=>[],getElementById:id=>elements.get(id),createElement:()=>new Element(),body:new Element(),
     addEventListener(type,callback){(documentListeners[type]??=[]).push(callback);}};
   for(const element of elements.values())element.focus=()=>{document.activeElement=element;};
   elements.get('mapCard').parentElement=document.body;document.body.children=[elements.get('mapCard'),elements.get('catalogSelect')];
   for(const id of ['homeMapMount','catalogMapMount','sourceAtlasMapMount','sourceTimeMapMount']){elements.get(id).parentElement=document.body;document.body.children.push(elements.get(id));}
   const location={href:'https://example.org/?v=3&catalog=usgs-na-2020-2025'};
+  Object.defineProperty(location,'origin',{get:()=>new URL(location.href).origin});
   const map={records:[],view:[50,-120,3],base:'local',setRecords(rows){this.records=rows;},getView(){return this.view;},setView(v){this.view=v;},setRegion(b){this.region=b;},reset(){this.view=[50,-120,3];},setBase(id){this.base=id;},getBase(){return this.base;},languageChanged(){},resize(){},fitRecords(){},highlight(id){this.highlighted=id;},focusRecord(id){this.highlighted=id;this.view=[60,-120,5.5];},themeChanged(){}};
   Object.assign(map,{displayMode:'points',colorMode:'catalogue',contextCountry:'',
     setDisplayMode(mode){this.displayMode=mode;this.onDisplayChange?.(this.getDisplayEvidence());},getDisplayMode(){return this.displayMode;},
@@ -107,7 +111,7 @@ async function main() {
     const buffer=url===tamper ? Buffer.from(bytes.toString().replace('3.5','3.6')) : bytes;
     return {ok:true,arrayBuffer:async()=>buffer.buffer.slice(buffer.byteOffset,buffer.byteOffset+buffer.byteLength)};
   };
-  const context={window:{SeismicViewState:V,SeismicCatalogComposition:C,SeismicAnalytics:A,SeismicResearchCharts:R,SeismicDiagnostics:require('../system/dist/diagnostics.js'),SeismicExportPackage:require('../system/dist/export-package.js'),addEventListener(){}},document,location,history:{replaceState(_,__,url){location.href=url;}},navigator:{},fetch,
+  const context={window:{SeismicViewState:V,SeismicCatalogComposition:C,SeismicAnalytics:A,SeismicResearchCharts:R,SeismicDiagnostics:require('../system/dist/diagnostics.js'),SeismicExportPackage:require('../system/dist/export-package.js'),addEventListener(){},innerWidth:1280,scrollTo(){}},document,location,history:{replaceState(_,__,url){location.href=url;},pushState(_,__,url){location.href=url;}},navigator:{},fetch,
     crypto:crypto.webcrypto,TextDecoder,TextEncoder,URL,Intl,Blob,setTimeout,clearTimeout,requestAnimationFrame:callback=>callback(),createSeismicMap:options=>{map.onDisplayChange=options.onDisplayChange;map.sourceStyle=options.sourceStyle;return map;}};
   context.window.SeismicMapTools=require('../system/dist/map-tools.js');
   vm.createContext(context);vm.runInContext(fs.readFileSync('system/dist/i18n.js','utf8'),context);
@@ -711,6 +715,39 @@ async function main() {
   vm.runInContext('writeFilters({...state.applied,exactCopies:false});applyFilters();state.exactAsset=state.savedExactAsset',context);
   assert.equal(map.records.length,6613);assert.equal(vm.runInContext('state.formValid',context),true);
   checks++;console.log('PASS single-catalogue exact mode restores qualified inspector URLs and refuses missing proof while retaining raw-row recovery');
+  // Run the real root router after a rejected package. Workspace internals are
+  // bounded interfaces here; their data algorithms have separate real-byte tests.
+  let sequenceMountCount=0,galleryMountCount=0,sequenceState,releaseStudy,waitingStudy=false;
+  context.window.SeismicSequenceView=require('../system/dist/sequences/sequence-view.js');
+  context.window.SeismicSequenceWorkbench={async mount(container,options){
+    sequenceMountCount++;sequenceState=options.state;
+    return {async setLanguage(lang){sequenceState={...sequenceState,lang};},setVisible(){},getState:()=>sequenceState,
+      async setState(next){sequenceState=context.window.SeismicSequenceView.normalize(next);if(next.case==='2022'){waitingStudy=true;await new Promise(resolve=>{releaseStudy=resolve;});}}};
+  }};
+  context.window.SeismicArticleGallery={mount(){galleryMountCount++;return {render(){}};}};
+  tamper=catalogs[0].events_url;vm.runInContext('state.cache.clear()',context);
+  await vm.runInContext("loadCatalog('usgs-na-2020-2025')",context);
+  assert.equal(vm.runInContext('state.ready',context),false);
+  const requestsBeforeWorkspaces=[...fetchCounts.values()].reduce((a,b)=>a+b,0);
+  const failedRequest=vm.runInContext('state.request',context);
+  for(const [href,tab] of [['?workspace=sequences&view=cases&case=2017&lang=en','sequences'],['?tab=figures&lang=en','figures'],['?tab=help&lang=en','help']]){
+    await vm.runInContext('navigateApplication('+JSON.stringify(href)+')',context);
+    assert.equal(vm.runInContext('state.tab',context),tab);assert.equal(elements.get(tab+'Panel').hidden,false);
+    assert.equal(vm.runInContext('state.ready',context),false);assert.equal(elements.get('download').disabled,true);
+    assert.equal(vm.runInContext('state.request',context),failedRequest,'A data-free workspace must not retry a failed catalogue');
+    assert.equal([...fetchCounts.values()].reduce((a,b)=>a+b,0),requestsBeforeWorkspaces);
+  }
+  assert.equal(sequenceMountCount,1);assert.equal(galleryMountCount,1);
+  const lateStudy=vm.runInContext('navigateApplication("?workspace=sequences&view=cases&case=2022&lang=en")',context);
+  for(let n=0;n<100&&!waitingStudy;n++)await new Promise(resolve=>setTimeout(resolve,1));
+  assert.equal(waitingStudy,true,'The sequence restore must reach its asynchronous panel');
+  await vm.runInContext('navigateApplication("?tab=help&lang=en")',context);
+  releaseStudy();await lateStudy;
+  assert.equal(vm.runInContext('state.tab',context),'help');assert.equal(new URL(location.href).searchParams.get('tab'),'help');
+  assert.equal(elements.get('helpPanel').hidden,false);assert.equal(elements.get('sequencesPanel').hidden,true);
+  assert.equal(vm.runInContext('state.request',context),failedRequest);assert.equal(vm.runInContext('state.routing',context),null);
+  assert.equal([...fetchCounts.values()].reduce((a,b)=>a+b,0),requestsBeforeWorkspaces);
+  checks++;console.log('PASS root workspace navigation survives failed catalogue integrity without retry, and a late sequence restore cannot replace newer help navigation');
   console.log(JSON.stringify({passed:checks},null,2));
 }
 main().catch(error=>{console.error(error);process.exitCode=1;});

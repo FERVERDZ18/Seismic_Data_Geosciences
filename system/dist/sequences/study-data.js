@@ -2,18 +2,20 @@
 (function (root) {
   'use strict';
   const cache=new Map(),calculations=new Map();let request=0;
+  const scriptBase=typeof document!=='undefined'&&document.currentScript?.src?new URL('.',document.currentScript.src):null;
+  const resource=path=>scriptBase?new URL(path,scriptBase).href:path;
   function once(key,work){
     if(!cache.has(key))cache.set(key,Promise.resolve().then(work).catch(error=>{cache.delete(key);throw error;}));
     return cache.get(key);
   }
   async function verified(url,spec){
-    const response=await fetch(url);if(!response.ok)throw new Error(url+': HTTP '+response.status);
+    const response=await fetch(resource(url));if(!response.ok)throw new Error(url+': HTTP '+response.status);
     const bytes=await response.arrayBuffer();
     const digest=Array.from(new Uint8Array(await crypto.subtle.digest('SHA-256',bytes)),v=>v.toString(16).padStart(2,'0')).join('');
     if(digest!==spec.sha256||bytes.byteLength!==spec.bytes)throw new Error('Study input integrity mismatch: '+url);
     return JSON.parse(new TextDecoder().decode(bytes));
   }
-  const assets=()=>once('study-assets',async()=>{const r=await fetch('study-assets.json');if(!r.ok)throw new Error('Study asset manifest: HTTP '+r.status);return r.json();});
+  const assets=()=>once('study-assets',async()=>{const r=await fetch(resource('study-assets.json'));if(!r.ok)throw new Error('Study asset manifest: HTTP '+r.status);return r.json();});
   const manifest=()=>once('scientific-manifest',async()=>verified('data/manifest.json',(await assets()).scientific_manifest));
   const checked=path=>once('input:'+path,async()=>{const m=await manifest();if(!m.files[path])throw new Error('Unlisted scientific input: '+path);return verified('data/'+path,m.files[path]);});
   function key(cut){if(!['3.5','4.1','4.5'].includes(String(cut)))throw new Error('Unsupported reported-magnitude cut');return String(cut).replace('.','_');}
@@ -25,7 +27,7 @@
   const performanceData=()=>once('performance-data',async()=>verified('performance-data.json',(await assets()).performance));
   function worker(rows,parameters,threshold){
     return new Promise((resolve,reject)=>{
-      const w=new Worker('worker.js'),token=++request;
+      const w=new Worker(resource('worker.js')),token=++request;
       w.onmessage=event=>{w.terminate();const data=event.data;if(data.request!==token)return reject(new Error('Unexpected worker response'));data.error?reject(new Error(data.error)):resolve(data.result);};
       w.onerror=event=>{w.terminate();reject(new Error(event.message||'Study worker failed'));};
       w.postMessage({request:token,rows,method:'nn',parameters,threshold});

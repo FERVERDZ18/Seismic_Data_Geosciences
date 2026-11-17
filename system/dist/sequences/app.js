@@ -1,12 +1,16 @@
 /* Scientific workspace. Classifications are calculated in a browser worker. */
-(function () {
+(function (global) {
   'use strict';
-  const $ = id => document.getElementById(id), NS = 'http://www.w3.org/2000/svg';
+  const scriptBase=new URL('.',document.currentScript.src);
+  function mount(host,options={}) {
+  if(!host)throw new TypeError('A sequence workspace host is required');
+  const $ = id => host.querySelector('[data-seq-id="'+id+'"]'), NS = 'http://www.w3.org/2000/svg';
   const colors = {main:'#b93624', associated:'#d28b09', isolated:'#347bad'};
-  const initialView=SeismicSequenceView.parse(location.search);
+  const initialView=SeismicSequenceView.normalize({...SeismicSequenceView.parse(location.search),...options.state,lang:options.getLanguage?.()||options.state?.lang||SeismicSequenceView.parse(location.search).lang});
   let lang = initialView.lang;
-  let viewState=initialView;
-  const nativeMounts=new Map();
+  let viewState=initialView,panelFocusPending=initialView.panel!=='all';
+  const nativeMounts=new Map(),nativeRendered=new Map(),nativeOperations=new Map();
+  let destroyed=false,visible=true,notifySuppressed=1,pendingPush=false,lastCalculationKey=null;
   let manifest, cached = new Map(), active = {}, results = {}, currentPairs = [], workers = [], request = 0, basemap, diagnostics, latestTiming=null, firstDisplay=true;
   let fitState={unsupported:[],weighted:false};
   const t = (es,en) => lang === 'en' ? en : es;
@@ -19,8 +23,8 @@
       'Zaliapin and Ben-Zion (2013) link each record to an earlier event using time, distance and parent magnitude. Links below a threshold fitted on 2016–2020 are retained. Their components form groups, with the largest event as operational representative. The 2020 random background-thinning mask is not used to identify these sequences.');
   }
   function language() {
-    document.documentElement.lang = lang; $('language').value = lang;
-    document.querySelectorAll('[data-en]').forEach(e => {if (!e.dataset.es) e.dataset.es=e.textContent; e.textContent=lang==='en'?e.dataset.en:e.dataset.es;});
+    host.lang=lang; $('language').value = lang;host.querySelector('.workspace-nav').setAttribute('aria-label',t('Vistas de secuencias','Earthquake sequence views'));
+    host.querySelectorAll('[data-en]').forEach(e => {if (!e.dataset.es) e.dataset.es=e.textContent; e.textContent=lang==='en'?e.dataset.en:e.dataset.es;});
     $('region').options[1].textContent=t('Alaska · ComCat (una fuente)','Alaska · ComCat (one source)');
     $('method').options[0].textContent='Zaliapin–Ben-Zion (2013)';
     $('method').options[1].textContent='Gardner–Knopoff (1974)';
@@ -32,49 +36,60 @@
     $('visibleJson').setAttribute('aria-label',t('JSON del cálculo','Computation JSON'));
     ['4.5','4.1','3.5'].forEach((c,i) => $('cut').options[i].textContent='≥ '+c+' · '+[t('principal','primary'),t('sensibilidad','sensitivity'),t('diagnóstico de escala','scale diagnostic')][i]);
     $('back').textContent=t('← Observatorio','← Observatory');
-    describe(); if(latestTiming){render();calculationStatus();renderFitWarning();}
+    describe(); if(latestTiming&&viewState.view==='explorer'&&lastCalculationKey===selectionKey()){render();calculationStatus();renderFitWarning();}
     rememberView();
   }
   function viewSettings(){return {...viewState,lang,region:$('region').value,cut:$('cut').value,method:$('method').value,weight:$('weightPolicy').value,membership:$('membership').value,case:$('case').value,extent:$('familyExtent').checked?'family':'local'};}
-  function rememberView(){viewState=SeismicSequenceView.normalize(viewSettings());history.replaceState(null,'',location.pathname+SeismicSequenceView.query(viewState));updateStudyNavigation();}
+  function rememberView(){viewState=SeismicSequenceView.normalize(viewSettings());if(!notifySuppressed)options.onStateChange?.({...viewState},{push:pendingPush});pendingPush=false;updateStudyNavigation();}
+  function selectionKey(){return JSON.stringify(['region','cut','method','weightPolicy','membership'].map(id=>$(id).value));}
+  function focusPanel(){if(!visible||!panelFocusPending||viewState.view!=='cases'||viewState.panel==='all')return;const selectors={full:'[data-case-map="full"]',local:'[data-case-map="local"]',timeline:'.nc-timeline-card',inspector:'.nc-inspector'};const target=$('nativeCases').querySelector(selectors[viewState.panel]);if(target){panelFocusPending=false;target.scrollIntoView({block:'start',behavior:'auto'});}}
   function applyView(v){
     viewState=v;
     lang=v.lang;for(const key of ['region','cut','method','membership','case'])$(key).value=v[key];
     $('weightPolicy').value=v.weight;$('familyExtent').checked=v.extent==='family';configureOptions();
   }
   function updateStudyNavigation(){
-    document.querySelectorAll('[data-study-view]').forEach(a=>{
+    host.querySelectorAll('[data-study-view]').forEach(a=>{
       const view=a.dataset.studyView,settings={...viewState,view};
       if(view==='cases'&&settings.case==='all')settings.case='2017';
-      a.href=location.pathname+SeismicSequenceView.query(settings);
+      a.href=options.buildURL?options.buildURL(settings):SeismicSequenceView.query(settings);
       if(view===viewState.view)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current');
     });
   }
-  function inspectNative(value){
-    $('nativeRecord').hidden=false;const dl=document.createElement('dl');
-    for(const [key,data] of Object.entries(value||{})){const dt=document.createElement('dt'),dd=document.createElement('dd');dt.textContent=key;dd.textContent=typeof data==='object'?JSON.stringify(data):String(data??'');dl.append(dt,dd);}
-    $('nativeRecordDetails').replaceChildren(dl);
-  }
+  function inspectNative(value){options.onRecord?.(value);}
   function clearNativeRecord(){$('nativeRecord').hidden=true;$('nativeRecordDetails').replaceChildren();}
+  function nativeSignature(state){return JSON.stringify({...state,panel:'all'});}
   async function activateStudy(){
+    if(destroyed)return;
     const view=viewState.view,registry={cases:['nativeCases',window.NativeCases],diagnostics:['nativeDiagnostics',window.NativeDiagnostics],benchmark:['nativePerformance',window.NativePerformance]};
     $('explorerWorkspace').hidden=view!=='explorer';$('articleFigures').hidden=view==='explorer';
     for(const [name,[id]] of Object.entries(registry))$(id).hidden=view!==name;
     updateStudyNavigation();if(view==='explorer')return;
     const [id,api]=registry[view],container=$(id);
     if(!api){container.textContent=t('La vista todavía no está disponible.','This view is not available yet.');return;}
-    const options={client:SeismicStudyData,state:{...viewState},onStateChange:patch=>navigateStudy(patch),onRecord:value=>{if(viewState.view===view)inspectNative(value);}};
-    try{
-      const existed=nativeMounts.has(view);
-      if(!existed)nativeMounts.set(view,Promise.resolve(api.mount(container,options)));
-      await nativeMounts.get(view);if(existed&&viewState.view===view)await api.setState({...viewState});
-    }catch(error){nativeMounts.delete(view);container.replaceChildren();const p=document.createElement('p');p.className='warning';p.textContent=t('No se pudo abrir el análisis: ','Could not open the analysis: ')+error.message;container.append(p);}
+    // Serialize each native controller. A completed mount describes the state
+    // it received, never the later global route that may have changed meanwhile.
+    const operation=(nativeOperations.get(view)||Promise.resolve()).catch(()=>{}).then(async()=>{
+      if(destroyed||viewState.view!==view)return;
+      try{
+        if(!nativeMounts.has(view)){
+          const mountedState={...viewState},mountedSignature=nativeSignature(mountedState);
+          const options={client:SeismicStudyData,state:mountedState,onStateChange:patch=>navigateStudy(patch),onRecord:value=>{if(viewState.view===view)inspectNative(value);}};
+          nativeMounts.set(view,Promise.resolve(api.mount(container,options)).then(value=>{if(!destroyed)nativeRendered.set(view,mountedSignature);return value;}));
+        }
+        await nativeMounts.get(view);if(destroyed||viewState.view!==view)return;
+        const desired={...viewState},signature=nativeSignature(desired);
+        if(nativeRendered.get(view)!==signature){await api.setState(desired);if(destroyed)return;nativeRendered.set(view,signature);}
+        if(viewState.view===view){api.resize?.();focusPanel();}
+      }catch(error){if(destroyed)return;nativeMounts.delete(view);nativeRendered.delete(view);container.replaceChildren();const p=document.createElement('p'),retry=document.createElement('button');p.className='warning';p.textContent=t('No se pudo abrir el análisis: ','Could not open the analysis: ')+error.message;retry.type='button';retry.textContent=t('Reintentar','Retry');retry.addEventListener('click',activateStudy);container.append(p,retry);}
+    });
+    nativeOperations.set(view,operation);await operation;
   }
   async function navigateStudy(patch,push=false){
     const next=SeismicSequenceView.normalize({...viewState,...patch,lang:patch.lang||lang});
-    if(push)history.pushState(null,'',location.pathname+SeismicSequenceView.query(next));
+    pendingPush=push;
     applyView(next);language();clearNativeRecord();await activateStudy();
-    if(next.view==='explorer'&&manifest)await calculate();
+    if(next.view==='explorer'&&manifest){if(!latestTiming||lastCalculationKey!==selectionKey())await calculate();else{render();calculationStatus();}}
   }
   function calculationStatus(){
     const elapsed=Object.values(results).reduce((s,r)=>s+r.metadata.total_ms,0),n=Object.values(active).reduce((s,r)=>s+r.length,0);
@@ -87,22 +102,22 @@
   async function checked(path) {return SeismicStudyData.checked(path);}
   function calculateWorker(rows, method, threshold, token, weight=1) {
     return new Promise((resolve,reject)=>{
-      const worker=new Worker('worker.js'); workers.push(worker);
+      const worker=new Worker(new URL('worker.js',scriptBase).href); workers.push(worker);
       worker.onmessage=e=>{worker.terminate(); if(e.data.request!==token) return reject(new Error('Stale worker result')); e.data.error?reject(new Error(e.data.error)):resolve(e.data.result);};
       worker.onerror=e=>{worker.terminate(); reject(new Error(e.message));};
       worker.postMessage({request:token,rows,method,parameters:{d:1.6,w:weight,q:.5,backend:'kd'},threshold});
     });
   }
   async function calculate(event) {
-    if(event) event.preventDefault(); const token=++request, overallStarted=performance.now();
+    if(event) event.preventDefault(); const token=++request, calculationKey=selectionKey(), overallStarted=performance.now();
     workers.forEach(w=>w.terminate()); workers=[]; results={}; active={};
-    latestTiming=null;['maps','timelines','diagnostics','recordDetails'].forEach(id=>$(id).replaceChildren());$('agreement').textContent='';
+    latestTiming=null;lastCalculationKey=null;['maps','timelines','diagnostics','recordDetails'].forEach(id=>$(id).replaceChildren());$('agreement').textContent='';
     $('calculate').disabled=true; ['exportCsv','exportJson','exportSvg','showJson'].forEach(id=>$(id).disabled=true);$('visibleJson').value='';$('visibleJson').hidden=true;
     status(t('Verificando datos y calculando en el navegador…','Verifying data and calculating in the browser…'));
     try {
-      const key=$('cut').value.replace('.','_'), data=await checked('inputs_'+key+'.json');if(token!==request)return;
-      const calibration=await checked('calibration.json');if(token!==request)return;
-      const matching=$('region').value==='mexico'?await checked('candidates_'+key+'.json'):{pairs:[]};if(token!==request)return;
+      const key=$('cut').value.replace('.','_'), data=await checked('inputs_'+key+'.json');if(token!==request||selectionKey()!==calculationKey)return;
+      const calibration=await checked('calibration.json');if(token!==request||selectionKey()!==calculationKey)return;
+      const matching=$('region').value==='mexico'?await checked('candidates_'+key+'.json'):{pairs:[]};if(token!==request||selectionKey()!==calculationKey)return;
       currentPairs=matching.pairs;
       const sources=$('region').value==='alaska'?['alaska']:['ssn','usgs'];
       const common=$('membership').value==='common' && sources.length===2;
@@ -116,10 +131,10 @@
         if(method==='nn' && !c.diagnostics?.two_mode_BIC_guard_passed) unsupported.push(source==='ssn'?'SSN':source);
         // Sequential workers make timing interpretable and leave the UI responsive.
         results[source]=await calculateWorker(rows,method,c?.threshold_log10,token,c?.w??1);
-        if(token!==request) return;
+        if(token!==request||selectionKey()!==calculationKey)return;
       }
       const elapsed=Object.values(results).reduce((s,r)=>s+r.metadata.total_ms,0);
-      fitState={unsupported,weighted:$('weightPolicy').value==='reported_b'};renderFitWarning();
+      lastCalculationKey=calculationKey;fitState={unsupported,weighted:$('weightPolicy').value==='reported_b'};renderFitWarning();
       calculationStatus();
       $('parameters').textContent=Object.entries(results).map(([s,r])=>s+': '+JSON.stringify(r.metadata)).join(' | ');
       $('provenance').textContent=t('Entradas verificadas por SHA-256; fecha de corte: ','Inputs verified by SHA-256; snapshot: ')+manifest.snapshot_utc+'. '+t('Clasificaciones recalculadas; calibración de desarrollo fija.','Classifications recalculated; development calibration fixed.');
@@ -257,7 +272,7 @@
     $('familyExtent').disabled=alaska||$('case').value==='all';if($('familyExtent').disabled)$('familyExtent').checked=false;
   }
   function invalidate() {
-    request++;workers.forEach(w=>w.terminate());workers=[];active={};results={};latestTiming=null;
+    request++;workers.forEach(w=>w.terminate());workers=[];active={};results={};latestTiming=null;lastCalculationKey=null;
     ['maps','timelines','diagnostics','recordDetails'].forEach(id=>$(id).replaceChildren());
     ['agreement','parameters','fitWarning','caseDescription'].forEach(id=>$(id).textContent='');
     $('anchorKey').hidden=true;
@@ -270,18 +285,17 @@
   $('case').addEventListener('change',()=>{configureOptions();if(latestTiming)render();rememberView();});
   $('familyExtent').addEventListener('change',()=>{if(latestTiming)render();rememberView();});
   $('language').addEventListener('change',()=>{lang=$('language').value;language();activateStudy();});
-  document.querySelectorAll('[data-study-view]').forEach(a=>a.addEventListener('click',event=>{event.preventDefault();navigateStudy({view:a.dataset.studyView},true);}));
-  window.addEventListener('popstate',()=>{clearNativeRecord();applyView(SeismicSequenceView.parse(location.search));language();activateStudy();if(viewState.view==='explorer'&&manifest)calculate();});
-  window.addEventListener('article-case',async event=>{
-    if(!['2017','2022'].includes(event.detail?.year))return;
-    await navigateStudy(SeismicSequenceView.articleCase(event.detail.year,lang),true);
-  });
+  host.querySelectorAll('[data-study-view]').forEach(a=>a.addEventListener('click',event=>{event.preventDefault();navigateStudy({view:a.dataset.studyView},true);}));
   $('exportCsv').addEventListener('click',()=>{const rows=exportRows(),keys=Object.keys(rows[0]||{}),q=v=>'"'+String(v??'').replaceAll('"','""')+'"';download('sequence-classifications.csv',[keys.map(q).join(','),...rows.map(r=>keys.map(k=>q(r[k])).join(','))].join('\r\n'),'text/csv;charset=utf-8');});
   $('exportJson').addEventListener('click',()=>download('sequence-computation.json',computationJson(),'application/json'));
   $('showJson').addEventListener('click',()=>{$('visibleJson').value=computationJson();$('visibleJson').hidden=false;});
-  $('exportSvg').addEventListener('click',()=>{const svgs=[...document.querySelectorAll('svg.plot')],combined=element('svg',{xmlns:NS,width:1200,height:Math.ceil(svgs.length/2)*420,viewBox:`0 0 1200 ${Math.ceil(svgs.length/2)*420}`});combined.append(element('style',{},'text{font:12px system-ui,sans-serif;fill:#435b6f}.gridline{stroke:#dce5ed;stroke-width:.7}.axis{stroke:#7a8fa2;stroke-width:1}'));svgs.forEach((svg,i)=>{const g=element('g',{transform:`translate(${i%2*600} ${Math.floor(i/2)*420})`});const title=svg.parentElement.querySelector('h2').textContent;g.append(element('text',{x:25,y:24,style:'font:18px sans-serif'},title));const copy=svg.cloneNode(true);copy.setAttribute('x','0');copy.setAttribute('y','35');copy.setAttribute('width','600');copy.setAttribute('height','350');copy.querySelectorAll('.dot').forEach(e=>{e.removeAttribute('tabindex');e.removeAttribute('role');});g.append(copy);combined.append(g);});download('sequence-figures.svg',new XMLSerializer().serializeToString(combined),'image/svg+xml');});
+  $('exportSvg').addEventListener('click',()=>{const svgs=[...host.querySelectorAll('svg.plot')],combined=element('svg',{xmlns:NS,width:1200,height:Math.ceil(svgs.length/2)*420,viewBox:`0 0 1200 ${Math.ceil(svgs.length/2)*420}`});combined.append(element('style',{},'text{font:12px system-ui,sans-serif;fill:#435b6f}.gridline{stroke:#dce5ed;stroke-width:.7}.axis{stroke:#7a8fa2;stroke-width:1}'));svgs.forEach((svg,i)=>{const g=element('g',{transform:`translate(${i%2*600} ${Math.floor(i/2)*420})`});const title=svg.parentElement.querySelector('h2').textContent;g.append(element('text',{x:25,y:24,style:'font:18px sans-serif'},title));const copy=svg.cloneNode(true);copy.setAttribute('x','0');copy.setAttribute('y','35');copy.setAttribute('width','600');copy.setAttribute('height','350');copy.querySelectorAll('.dot').forEach(e=>{e.removeAttribute('tabindex');e.removeAttribute('role');});g.append(copy);combined.append(g);});download('sequence-figures.svg',new XMLSerializer().serializeToString(combined),'image/svg+xml');});
   applyView(initialView);
-  language(); status(t('Cargando contrato de datos…','Loading the data contract…'));
-  activateStudy();
-  SeismicStudyData.manifest().then(async m=>{manifest=m;diagnostics=await checked('diagnostics.json');try{basemap=await SeismicStudyData.basemap();}catch(_){}if(viewState.view==='explorer')await calculate();}).catch(e=>status(t('No se pudo cargar: ','Loading failed: ')+e.message));
-})();
+  language();notifySuppressed=0;status(t('Cargando contrato de datos…','Loading the data contract…'));
+  const initialActivation=activateStudy();
+  const dataReady=SeismicStudyData.manifest().then(async m=>{if(destroyed)return;manifest=m;diagnostics=await checked('diagnostics.json');if(destroyed)return;try{basemap=await SeismicStudyData.basemap();}catch(_){}if(!destroyed&&viewState.view==='explorer')await calculate();}).catch(e=>{if(!destroyed)status(t('No se pudo cargar: ','Loading failed: ')+e.message);throw e;});
+  const ready=Promise.all([initialActivation,dataReady]);
+  return Object.freeze({ready,getState:()=>({...viewState}),async setState(next){panelFocusPending=Boolean(next.panel&&next.panel!=='all');notifySuppressed++;try{return await navigateStudy(next,false);}finally{notifySuppressed--;}} ,async setLanguage(next){if(next===lang)return;notifySuppressed++;try{lang=next==='en'?'en':'es';viewState.lang=lang;language();await activateStudy();}finally{notifySuppressed--;}} ,setVisible(value){visible=Boolean(value);if(visible)requestAnimationFrame(()=>{if(!visible||destroyed)return;if(viewState.view==='cases')global.NativeCases?.resize?.();focusPanel();});},destroy(){destroyed=true;request++;workers.forEach(w=>w.terminate());workers=[];for(const api of [global.NativeCases,global.NativeDiagnostics,global.NativePerformance])api?.destroy?.();host.replaceChildren();}});
+  }
+  global.SeismicSequenceExplorer=Object.freeze({mount});
+})(window);

@@ -4,8 +4,8 @@
   else root.SeismicSequenceView=api;
 })(typeof window!=='undefined'?window:this,function(){
   'use strict';
-  const allowed={lang:['es','en'],region:['mexico','alaska'],cut:['4.5','4.1','3.5'],method:['nn','gk'],weight:['fixed','reported_b'],membership:['native','common'],case:['all','2017','2022'],extent:['local','family'],view:['explorer','cases','diagnostics','benchmark'],comparison:['both','fixed','reported_b'],source:['all','ssn','usgs','alaska'],diagnostic_panel:['all','fmd','tr','difference'],pair_cut:['3.5','4.1','4.5'],benchmark_metric:['time','pairs','nodes','phases'],scale:['log','linear']};
-  const defaults={lang:'es',region:'mexico',cut:'4.5',method:'nn',weight:'fixed',membership:'native',case:'all',extent:'local',view:'explorer',comparison:'both',source:'all',diagnostic_panel:'all',pair_cut:'3.5',benchmark_metric:'time',scale:'log'};
+  const allowed={lang:['es','en'],region:['mexico','alaska'],cut:['4.5','4.1','3.5'],method:['nn','gk'],weight:['fixed','reported_b'],membership:['native','common'],case:['all','2017','2022'],extent:['local','family'],view:['explorer','cases','diagnostics','benchmark'],comparison:['both','fixed','reported_b'],source:['all','ssn','usgs','alaska'],diagnostic_panel:['all','fmd','tr','difference'],pair_cut:['3.5','4.1','4.5'],benchmark_metric:['time','pairs','nodes','phases'],scale:['log','linear'],panel:['all','full','local','timeline','inspector']};
+  const defaults={lang:'es',region:'mexico',cut:'4.5',method:'nn',weight:'fixed',membership:'native',case:'all',extent:'local',view:'explorer',comparison:'both',source:'all',diagnostic_panel:'all',pair_cut:'3.5',benchmark_metric:'time',scale:'log',panel:'all'};
   const numeric={radius:['150',50,300],before:['7',0,30],after:['30',1,90]};
   function normalize(input){
     const state={};for(const key of Object.keys(defaults))state[key]=allowed[key].includes(input[key])?input[key]:defaults[key];
@@ -17,6 +17,7 @@
     if(state.region==='alaska'){state.membership='native';state.case='all';}
     if(state.region!=='mexico'||state.cut!=='4.5'||state.method!=='nn')state.weight='fixed';
     if(state.case==='all')state.extent='local';
+    if(state.view!=='cases')state.panel='all';
     return state;
   }
   function parse(search){return normalize(Object.fromEntries(new URLSearchParams(search)));}

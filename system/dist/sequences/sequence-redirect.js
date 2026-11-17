@@ -1,0 +1,2 @@
+/* Historical entry URLs now open the same application workspace. */
+(function(){'use strict';const state=SeismicSequenceView.parse(location.search),target=new URL('../index.html',location.href),params=new URLSearchParams('workspace=sequences');for(const [key,value]of new URLSearchParams(SeismicSequenceView.query(state)))params.set(key,value);target.search=params.toString();location.replace(target.href);})();

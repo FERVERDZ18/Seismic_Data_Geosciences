@@ -5,6 +5,28 @@ Leer AGENTS.md completo. Los resultados de antecedentes no son verificaciones nu
 
 ## Estado actual
 
+<!-- unified-app-2026-11-16-state start -->
+- 16 nov 2026, revisión 2026.11.16.3: Gabriel exigió mapas de Figura 4 tomados del sistema y una sola aplicación con UI/UX común. Este bloque prevalece sobre los estados históricos. Las 14 áreas y las cuatro vistas científicas se montan en index.html con navegación, idioma, tema, historial y manejo de errores compartidos; los HTML anteriores sólo redirigen a ese host. Los iframes conservados son vistas previas de informes imprimibles.
+- Se corrigieron restauraciones asíncronas y el fallo real URL 2022/mapa 2017, con regresión de la fábrica real y pruebas adversas. QA real en Edge: 14 áreas, ES/EN, tres temas, claro/oscuro, escritorio/móvil/tableta, Atrás, enlaces históricos, cronología adaptable y W1/W2 sin traslape. Se restauraron preferencias/viewport. Los FAIL intermedios se conservaron; no se atribuyen a la entrega final.
+- Nuevo Word/PDF local: outputs/unified_app_2026-11-16/manuscript/out/Seismic_CG_sequences_manuscript.docx y .pdf; 26 páginas, 13 figuras y 4 tablas. Figura 4 contiene cuatro mapas y dos cronologías genuinos; Figura 5 controles e inspector. Cada panel nuevo lleva su enlace inmediato; 26 destinos interactivos únicos. Título/autores, nueve grupos v0 y ocho paneles originales, cifras científicas y declaración académica veraz de IA se conservan. Los enlaces restauran parámetros, no zoom/registro W1; éste se selecciona manualmente.
+- QA: 122 pruebas Python y 31 suites JavaScript; ronda completa 41/41 y cierre afectado 11/11, 46 claves de caché. Revisor independiente de fuente sin P1/P2 adicional demostrado; 126 archivos públicos congelados y 15 insumos/núcleo científicos cotejados sin cambios. Documento/render/revisión visual en el recibo final. No son nuevos experimentos ni aceptación editorial.
+- Gate fresco: 609/626 URLs pasan; 17 HTTP403 (14 DOI, NRCan y dos ScienceDirect), cero fallos locales. Muestra HTTP 339/36872 rutas USGS; otras 36533 no visitadas. Los 26 destinos incluyen enlaces del manifest de paneles. HTTP200 de raíz no certifica que la función nueva esté publicada. Excepciones sólo con permiso expreso para ESTE push; detalle privado en link_gate/EXCEPCIONES_PUSH.md.
+- Gabriel autorizó expresamente UN commit nuevo y UN push de estos ajustes. Al preparar esta nota todavía no se ejecutaron; consultar Git y los recibos reales antes de actuar. No repetir los commits df578fe/0b638d1 ni hacer amend. Autor y committer Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin atribuciones de IA, coautores, trailers ni firmas automáticas en Git. La declaración académica veraz se mantiene. Publicación Pages adicional NO autorizada al preparar esta revisión; el workflow es manual y push no despliega.
+- Evidencias privadas en outputs/unified_app_2026-11-16/: UI_FREEZE_RECEIPT.json, browser_qa/UI_QA_FINAL.json, checks/, audit/FINAL_SOURCE_REVIEW.md, link_gate/final_03/FINAL_REPORT.json y manuscript/out/FINAL_DELIVERY_RECEIPT.json. Word SHA cdd98b352086fe4a55f420fe24343a3222a654e3e0ea5aad72f5689bed25200d; PDF SHA f9cd5adc45e8c8783087b1fbe4ad26d9c95db558c8da3915a1819e5e9dc5e49c. No agregar outputs/prompts/capturas a Git ni servir contexto. Si faltan en otra PC, consultar Git y archivos reales; no inventar resultados.
+<!-- unified-app-2026-11-16-state end -->
+
+
+<!-- native-paper-sync-2026-11-16-state start -->
+- 16 nov 2026: Gabriel señaló que el paper no mostraba la nueva vista nativa de la Figura 4. La entrega anterior sólo había añadido enlaces y conservaba la captura vieja; se reconoció y corrigió la omisión. Este bloque prevalece sobre los estados históricos.
+- Nueva entrega real sincronizada: outputs/native_paper_sync_2026-11-16/manuscript/out/Seismic_CG_sequences_manuscript.docx y .pdf. Figura 5 en página 16: capturas auténticas de controles/resúmenes, mapas completo/local y el inspector W1. Las otras doce figuras, incluida la Figura 4 analítica, y los nueve grupos v0 con sus ocho paneles permanecen íntegros. Título/autores/declaración académica veraz de asistencia de IA preservados.
+- Se actualizó de verdad el cuerpo (§2.6, §3.4 y §3.5) y las leyendas 4/5; no sólo enlaces. Explica cortes congelados, cambios de entrada frente a recortes de presentación, inspección de padres/registros, exportaciones por vista y rendimiento sobre mediciones retenidas. Figura 5 tiene enlace directo al análisis2017; para reproducir C debe seleccionarse W1 manualmente. El URL no guarda zoom ni registro inspeccionado.
+- Final:26 páginas,13 figuras,4 tablas,33 referencias,4553 palabras cuerpo+tablas,225 resumen,20 destinos únicos y21 enlaces. Pasan105 comprobaciones y revisión visual26/26; se corrigieron páginas casi vacías sin reducir figuras ni el tamaño de letra. Captura fuente fiel por píxeles; PDF exporta JPEG a dimensión completa, sin afirmar identidad de píxeles del PDF. Los detalles pequeños de interfaz se consultan con zoom o en el sistema enlazado.
+- Word SHA c674570664cf4af8c163f20868adb867c9a84f8948c62b6a009d26faa61049d8; PDF SHA 2ccb9046d1d3972646f538d5e47997d7e30df4244fd9b9d73f1560dbb8ae6dca; fuente SHA 1cfb58acbb3558fc5ae15a5e0fed8dbd142fb1bd0186767e6a2ceb1d0f14f5e5. Se conservaron1197 archivos anteriores protegidos y los candidatos fallidos/intermedios; no reutilizar sus resultados como entrega.
+- No hay nuevas cifras científicas/experimentos ni cambios al sistema;150 insumos públicos/pruebas congelados siguen idénticos. El último commit es df578feff00c93ee6699e0e4b754d5ace4657593 (2026.11.16.2), creado con autorización específica de Gabriel y con autor/committer humanos verificados, sin atribuciones de IA, coautores ni trailers. Ese permiso quedó consumido. Esta corrección de manuscrito no hizo commit/amend/push/publicación; quedan cambios de continuidad locales.
+- Las rutas nativas siguen verificadas localmente: no presentar como publicado el nuevo sistema ni el paper. Push y Pages requieren permisos específicos nuevos; ningún permiso/excepción17HTTP403 de0b638d1 se hereda. Antes de publicar comprobar si ya existe ejecución del commit exacto, proteger sitios/links históricos y verificar la versión publicada.
+- Evidencias privadas: outputs/native_paper_sync_2026-11-16/CAPTURE_RECEIPT.json, manuscript/out/FINAL_DELIVERY_RECEIPT.json, manuscript/review/layout_04/, review/REVISION_TEXTO_CAPTURA_ADDENDUM_02.json y PROMPT_CLAUDE_REVISION_2.txt. No agregar outputs/prompts/capturas a Git ni servir contexto. Si faltan en otra PC, verificar los archivos y Git; no inventar resultados. La aprobación real de autores y disponibilidad pública completa siguen pendientes; no asegurar aceptación editorial.
+<!-- native-paper-sync-2026-11-16-state end -->
+
 <!-- native-study-2026-11-16-state start -->
 - 16 nov 2026, revisión local 2026.11.16.2: Gabriel aclaró que las figuras científicas debían integrarse como análisis explorables del sistema. Este bloque prevalece sobre los estados históricos de la galería estática.
 - Se sustituyó la galería visible de Figuras 2–4 por tres vistas nativas: familias 2017/2022 con mapas Leaflet, cronología e inspección de registros; diagnósticos FMD/T–R y diferencias de magnitud; rendimiento con SVG/tablas de las 49 mediciones conservadas. Los resultados no son PNG incrustados. Familias y diagnósticos se calculan desde datos verificados; el rendimiento no se presenta como una nueva medición del navegador. Se preservan datos originales, calibración, título y todas las imágenes v0.
@@ -1237,6 +1259,18 @@ fuera de muestra. No agregar ML ni modelos geotécnicos sin necesidad científic
 
 ## Siguiente paso
 
+<!-- unified-app-2026-11-16-next start -->
+- Completar sólo el push concreto autorizado tras cero fallos o excepción expresa del gate actual. Para desplegar esta revisión en GitHub Pages pedir permiso separado; antes de cualquier dispatch comprobar si ya existe ejecución del SHA exacto y después verificar bytes/UI/enlaces públicos. No publicar otros sitios ni tocar tags/releases históricos.
+- Revisión2 de Claude: usar el PDF actualizado y PROMPT_CLAUDE_REVISION_2.txt de outputs/unified_app_2026-11-16/. Gabriel maneja esa sesión; contrastar sus 14 hallazgos y cualquier rechazo nuevo aquí. La revisión/aprobación humana de ambos autores y la disponibilidad pública completa siguen pendientes; no asegurar aceptación.
+- Cada nuevo commit, amend, push y publicación exige autorización específica previa. Dar esa misma regla a Fable. Git siempre con Gabriel Hurtado y sin atribuciones de IA/coautores/trailers; conservar declaración académica veraz, v0, datos originales y proyectos históricos.
+<!-- unified-app-2026-11-16-next end -->
+
+
+<!-- native-paper-sync-2026-11-16-next start -->
+- Entregar y abrir el Word/PDF nuevos de native_paper_sync, no los de native_study (que sólo añadían cuatro enlaces). Gabriel puede comprobar la Figura 5 en página16 y usar el prompt privado actualizado para revisión2 de Claude; su sesión la maneja él.
+- Para Git/publicación: antes de CADA commit/amend pedir autorización específica; antes del push de un commit autorizado solicitar su permiso y hacer auditoría fresca del artículo/artefacto incluyendo explícitamente el MD nuevo de native_paper_sync. Exigir cero fallos o excepciones expresas para ESE push. Pages necesita permiso propio y comprobación previa de ejecución exacta; después verificar interfaz y enlaces reales. Identidad humana Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin créditos/trailers de IA en Git, conservando declaración académica veraz.
+<!-- native-paper-sync-2026-11-16-next end -->
+
 <!-- native-study-2026-11-16-next start -->
 - El commit de la revisión nativa 2026.11.16.2 está autorizado para este cierre; comprobar su resultado/identidad en Git y el recibo local. Después solicitar autorización específica para su push y completar auditoría fresca de enlaces del artículo/artefacto, sin heredar las excepciones de0b638d1. Pages requiere otra autorización y comprobar primero si ya hay ejecución del commit exacto. Cualquier otro commit o amend requiere permiso nuevo.
 - Tras despliegue autorizado, comprobar públicamente los cuatro enlaces nuevos y las rutas históricas, y pasar el enlace real. Gabriel puede usar el prompt corto privado con Claude para revisar R1–R14; corregir aquí sin prometer aceptación ni fingir disponibilidad/revisión humana.
@@ -1399,6 +1433,15 @@ fuera de muestra. No agregar ML ni modelos geotécnicos sin necesidad científic
   Identidad humana de Gabriel, sin atribuciones de IA en Git; declaración académica conservada.
 
 ## Bitácora
+
+<!-- unified-app-2026-11-16-log start -->
+- 16 nov 2026: por orden de Gabriel se integró el observatorio en un host de 14 áreas, se auditó UI/UX y se sustituyó Figura 4 por capturas genuinas de mapas/cronologías. Figura 5 muestra controles/inspector; v0 íntegra. Word/PDF de 26p revisados según recibo final; 122 Python/31 JavaScript y cierres pasan. Gate fresco 609/626, 17 HTTP403 y 339/36872. Gabriel autorizó expresamente UN commit nuevo y UN push de estos ajustes. Al preparar esta nota todavía no se ejecutaron; consultar Git y los recibos reales antes de actuar. No repetir los commits df578fe/0b638d1 ni hacer amend. Sin publicación Pages ni envío editorial nuevos.
+<!-- unified-app-2026-11-16-log end -->
+
+
+<!-- native-paper-sync-2026-11-16-log start -->
+- 16 nov 2026, corrección de integración real en el paper: Gabriel detectó que la última versión conservaba la captura vieja pese a los enlaces nativos. Se capturó el sistema actual en Edge mediante CUA, se compuso fielmente la nueva Figura5 y se actualizaron texto/leyendas. Candidatos02/03 dejaban párrafos huérfanos; el04 final recupera26p sin reducir imágenes ni datos científicos.105 checks y visual26/26 PASS; nueve grupos v0 y cifras W1 preservados. Word/PDF nuevos están en native_paper_sync/manuscript/out; Fig5p16. Sin nuevo Git/publicación; HEADdf578fe humano, permisos anteriores consumidos.
+<!-- native-paper-sync-2026-11-16-log end -->
 
 <!-- native-study-2026-11-16-log start -->
 - 16 nov 2026, autorización específica recibida para UN commit 2026.11.16.2 con identidad humana y sin coautores/trailers. Se confirmó que Word y PDF ya integran los cuatro enlaces nativos y conservan las nueve figuras v0; documentos/evidencias nuevas permanecen privados e intactos. No hay autorización de push ni Pages para esta revisión. Resultado efectivo del commit: consultar Git y GIT_COMMIT_RESULT.json local.

@@ -8,7 +8,7 @@
   const defaults = Object.freeze({search: '', yearFrom: 1900, yearTo: 2026, magMin: 3.5, magMax: 10,
     magType: '', originSource: '', depthMax: 1000, missingOnly: false, unmOnly: false, country: '', admin1: '', exactCopies: false});
   const keys = Object.keys(defaults);
-  const tabs = ['home', 'catalog', 'sources', 'analysis', 'comparison', 'revisions', 'sql', 'methods','quick','top','recurrence','help'];
+  const tabs = ['home', 'catalog', 'sources', 'analysis', 'comparison', 'revisions', 'sql', 'methods','quick','top','recurrence','help','sequences','figures'];
   const sorts = ['recent', 'oldest', 'mag'];
   const defaultCatalog = 'usgs-na-2020-2025', legacyCatalog = 'usgs-mx-historical';
   const bases = ['local', 'osm', 'osm-hot', 'usgs-topo', 'nasa-blue-marble'];
@@ -105,6 +105,9 @@
         if (allowed.includes(params.get(key))) view[key] = params.get(key); else invalid.push(key);
       }
     }
+    if (params.get('workspace') === 'sequences') view.tab = 'sequences';
+    else if (params.get('workspace') === 'figures') view.tab = 'figures';
+    else if (params.has('workspace')) invalid.push('workspace');
     for (const [key, allowed] of [['revision', options.revisions], ['event', options.events]]) {
       const value = params.get(key === 'revision' ? 'rev' : key);
       if (value !== null) {

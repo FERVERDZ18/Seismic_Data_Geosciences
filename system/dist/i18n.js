@@ -206,8 +206,8 @@
   Object.assign(messages.en, {"exportSvg": "↓ SVG", "diagnosticTitle": "Retained-version diagnostics", "diagnosticLimits": "USGS pilot independent of the map catalogue. Compares retained endpoints within US/origin/event-code lineages. It does not reconstruct historical preference or measure error against independent truth.", "displaySpreadNote": "Horizontal point spread for readability only; median marked.", "depthPairTitle": "Retained endpoint depths", "displacementTitle": "Epicentral displacement by current cohort", "magnitudePairTitle": "Exact same-type magnitude endpoints", "lineageTitle": "Lineage of the event selected in the table", "lineageMagnitudeTitle": "Retained magnitude by update", "lineageDepthTitle": "Retained depth by update", "earliestDepth": "Earliest retained depth (km)", "latestDepth": "Latest retained depth (km)", "displacementKm": "Epicentral displacement (km)", "currentCohort": "Current cohort", "earliestMagnitude": "Earliest retained magnitude", "latestMagnitude": "Latest retained magnitude", "threshold": "Threshold", "updateTimestamp": "Product Update Time (UTC)", "diagnosticCount": "{n} events · {versions} retained primary versions", "lineageMixedTypes": "Different magnitude types: no single magnitude curve is joined or compared. The table retains every literal code.", "lineageKnownType": "Literal type: {type} · {n} retained versions; not the complete public history.", "independentDownload": "COMPLETE DOWNLOAD · INDEPENDENT EVIDENCE", "fullSsnCoverageTitle": "Historical coverage of the SSN download", "fullSsnCoverageScope": "Summary of the complete 402,082-row CSV, separate from the M ≥ 3.5 map package and the filters above. 2026 is partial through 6 November. Years without rows do not establish physical absence of earthquakes.", "coverageSummary": "{from}–{to}: {n} source rows; {gaps} years with no rows in this download.", "coverageCountTitle": "Observed rows by year", "coverageMaximumTitle": "Reported maximum per observed year", "coverageGapKey": "Grey bands: no rows · hollow symbol: partial 2026", "allDownloadRows": "All rows", "logAnnualRows": "log10(annual row count)", "annualMaximum": "Maximum reported magnitude M", "precomputedCoverage": "Python aggregates counts offline from the hash-verified CSV; the browser selects the interval and draws these charts. This is not a calculation on the map catalogue or a forecast.", "invalidCoverageYears": "Enter integer years from 1900 to 2026 in increasing order.", "rawGap": "No rows in the download"});
   Object.assign(messages.es, {"architectureCaption": "Arquitectura en funcionamiento: elige una fuente para cargar sus registros en el mapa central. Un solo espacio en el navegador; auditoría Python/SQLite separada."});
   Object.assign(messages.en, {"architectureCaption": "Live architecture: choose a source to load its real records in the central map. One shared browser workspace; separate Python/SQLite evidence audit."});
-  Object.assign(messages.es, {"verifiedMemory": "{n} paquetes activos verificados · memoria de sesión"});
-  Object.assign(messages.en, {"verifiedMemory": "{n} active verified packages · session memory"});
+  Object.assign(messages.es, {"verifiedMemory": "{n} catálogos verificados disponibles"});
+  Object.assign(messages.en, {"verifiedMemory": "{n} verified catalogues available"});
   Object.assign(messages.es, {workflowShortcuts:"Atajos del flujo de trabajo"});
   Object.assign(messages.en, {workflowShortcuts:"Workflow shortcuts"});
   Object.assign(messages.es, {numericMagnitudeRows:"Magnitud numérica"});
@@ -256,6 +256,8 @@
   });
   messages.es.sequenceWorkspace = 'Secuencias entre catálogos';
   messages.en.sequenceWorkspace = 'Sequences across catalogues';
+  Object.assign(messages.es,{articleFigures:'Figuras del artículo',workspaces:'Áreas de trabajo',tools:'Herramientas',appNavigation:'Navegación del observatorio',openNavigation:'Abrir navegación',closeNavigation:'Cerrar navegación',studyScopeShort:'Secuencias · selección propia',figuresScopeShort:'Figuras · vistas reproducibles'});
+  Object.assign(messages.en,{articleFigures:'Article figures',workspaces:'Workspaces',tools:'Tools',appNavigation:'Observatory navigation',openNavigation:'Open navigation',closeNavigation:'Close navigation',studyScopeShort:'Sequences · dedicated selection',figuresScopeShort:'Figures · reproducible views'});
   let language = 'en';
   function t(key, values = {}) {
     return String(messages[language][key] ?? messages.en[key] ?? key).replace(/\{(\w+)\}/g, (_, k) => String(values[k] ?? ''));
@@ -268,8 +270,7 @@
     document.querySelectorAll('[data-i18n-aria]').forEach(el => el.setAttribute('aria-label', t(el.dataset.i18nAria)));
     document.querySelectorAll('[data-i18n-placeholder]').forEach(el => el.placeholder = t(el.dataset.i18nPlaceholder));
     const selector = document.getElementById('language'); if (selector) selector.value = language;
-    const sequenceLink = document.getElementById('sequenceWorkspace');
-    if (sequenceLink) sequenceLink.href = 'sequences/index.html?view=cases&case=2017&lang=' + language;
+
   }
   window.SeismicI18n = {t, apply, get language() {return language;}, messages};
 })();

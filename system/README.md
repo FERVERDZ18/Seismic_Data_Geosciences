@@ -19,10 +19,17 @@ or operational alert service.
 
 ## Sequence comparison and scientific figures
 
-The new `dist/sequences/` page is linked from the observatory navigation. It is
-a research workspace. Pages deployment remains manual: a commit or push alone
+The sequence workspace is mounted inside the same `dist/index.html` application
+as the catalogue, SQL, source records and article gallery. It shares the persistent
+navigation, theme, language, error handling and browser history; it is not an iframe
+or a separate application. The older `dist/sequences/index.html` and
+`article-figures.html` addresses are compatibility bridges into this same host. Pages deployment remains manual: a commit or push alone
 does not update the hosted site.
-Serve `dist/` over HTTP and open `/sequences/index.html?lang=en` or `?lang=es`.
+Serve `dist/` over HTTP and open `/index.html?workspace=sequences&view=cases&case=2017&lang=en`
+(or `lang=es`). Parameters `panel=full`, `local`, `timeline` and `inspector` focus the
+actual component. An inspected record must be selected explicitly. Regenerate
+owned-script cache keys with `python scripts/refresh_sequence_assets.py`; verify
+them with `--check`. Vendor pins and scientific input bytes are preserved.
 The browser verifies the scientific input manifest, then Workers calculate
 magnitude-weighted spherical nearest parents and deterministic families under
 Zaliapin–Ben-Zion (2013), or the Gardner–Knopoff fixed-window baseline. The
@@ -61,7 +68,9 @@ inputs. Points and bins lead to source records, with complete dense plots and
 paginated tables. **Search performance** draws SVG curves and tables from the
 retained timing measurements and recalculates their summaries in the browser;
 it does not claim to rerun the original Python/Numba benchmark in JavaScript.
-Each workspace stores its permitted analytic settings in its URL and supports
+The article gallery maps all thirteen current figures to working views, including
+six separate links for the case maps and timelines. Historical route IDs remain
+valid. Each workspace stores its permitted analytic settings in its URL and supports
 ES/EN labels. Direct manuscript links restore the published selections. Data
 and calibration assets are byte-size/SHA-256 checked before use; original
 catalogue rows, magnitude types and frozen calibration remain unchanged.
@@ -89,7 +98,8 @@ summaries, annual source-row counts and conditional descriptive Pearson
 associations. Unknown types and undocumented units remain explicit; no magnitude
 conversion or cross-provider event reconciliation is inferred.
 
-Four local access tools extend this navigation to twelve workspaces. **Simple
+Four local access tools extend the eight baseline workspaces; Sequences and
+Article figures complete the fourteen-area application. **Simple
 view** offers three large task buttons: historical map, descriptive statistics
 and personal report. A short source/place form narrows the catalogue footprint
 to an optional Mexico/Canada/USA land class and recorded state/province; years,
@@ -124,7 +134,7 @@ No recurrence rate, hazard, risk, earthquake probability or forecast is estimate
 zero pairs do not establish safety. Maps preserve source coordinates and unwrap
 only display copies at the antimeridian. **Fit records** restores their extent.
 
-**Help and about** supplies interface version `2026.11.16.2`, twelve searchable
+**Help and about** supplies interface version `2026.11.16.3`, fifteen searchable
 ES/EN questions, human authors, academic correspondence at `ghurtadoa@ipn.mx`,
 repository/issue links and licence information. The repository code is MIT;
 SSN/UNAM, NRCan, USGS and third-party data/component terms remain distinct.

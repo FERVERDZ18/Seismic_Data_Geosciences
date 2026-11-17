@@ -2,9 +2,10 @@
 const assert=require('node:assert/strict'),fs=require('node:fs'),path=require('node:path'),vm=require('node:vm'),crypto=require('node:crypto');
 const directory=path.join(__dirname,'../system/dist/sequences');
 function client(options={}){
-  const fetched=[];
+  const fetched=[],workerUrls=[];
   class LocalWorker{
-    constructor(){
+    constructor(url){
+      workerUrls.push(url);
       this.self={postMessage:value=>queueMicrotask(()=>this.onmessage?.({data:value}))};
       const scope=vm.createContext({self:this.self,performance,console});
       scope.importScripts=(...files)=>files.forEach(file=>vm.runInContext(fs.readFileSync(path.join(directory,file),'utf8'),scope));
@@ -13,13 +14,13 @@ function client(options={}){
     postMessage(message){queueMicrotask(()=>{try{this.self.onmessage({data:structuredClone(message)});}catch(error){this.onerror?.({message:error.message});}});}
     terminate(){}
   }
-  const window={},scope=vm.createContext({window,crypto:crypto.webcrypto,TextDecoder,Worker:LocalWorker,fetch:async url=>{
-    fetched.push(url);const target=path.resolve(directory,url);assert(target.startsWith(path.resolve(directory,'..')));
+  const window={},scope=vm.createContext({window,URL,...(options.scriptURL?{document:{currentScript:{src:options.scriptURL}}}:{}),crypto:crypto.webcrypto,TextDecoder,Worker:LocalWorker,fetch:async url=>{
+    fetched.push(url);const relative=/^https?:/.test(url)?path.posix.relative('/repo/sequences',new URL(url).pathname):url;const target=path.resolve(directory,relative);assert(target.startsWith(path.resolve(directory,'..')));
     let data=fs.readFileSync(target);if(options.tamperPerformance&&url==='performance-data.json')data=Buffer.concat([data,Buffer.from(' ')]);
     return {ok:true,status:200,json:async()=>JSON.parse(data),arrayBuffer:async()=>data.buffer.slice(data.byteOffset,data.byteOffset+data.byteLength)};
   }});
   vm.runInContext(fs.readFileSync(path.join(directory,'study-data.js'),'utf8'),scope);
-  return {api:window.SeismicStudyData,fetched};
+  return {api:window.SeismicStudyData,fetched,workerUrls};
 }
 (async()=>{
   const {api,fetched}=client();
@@ -37,5 +38,11 @@ function client(options={}){
   await assert.rejects(()=>api.classify('ssn',{cut:'3.5',weight:'reported_b'}),/4.5/);
   await assert.rejects(()=>api.checked('../private.json'),/Unlisted/);
   await assert.rejects(()=>client({tamperPerformance:true}).api.performance(),/integrity/);
+  const embedded=client({scriptURL:'https://example.test/repo/sequences/study-data.js?v=pinned'});
+  const embeddedRows=await embedded.api.classify('ssn',{cut:'4.5'});assert.equal(embeddedRows.rows.length,1780);assert.equal(family(embeddedRows),292);
+  assert(embedded.fetched.includes('https://example.test/repo/sequences/data/inputs_4_5.json'));
+  assert.deepEqual(embedded.workerUrls,['https://example.test/repo/sequences/worker.js']);
+  assert((await embedded.api.basemap()).features.length>0);assert.equal((await embedded.api.performance()).measurements.length,49);
+
   console.log('Native study client PASS: actual worker protocol, weighted/frozen families, cache separation and tamper rejection');
 })().catch(error=>{console.error(error);process.exitCode=1;});
