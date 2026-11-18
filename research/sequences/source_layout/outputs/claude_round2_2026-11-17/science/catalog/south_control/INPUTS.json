@@ -1,0 +1,47 @@
+[
+  {
+    "path": "system/dist/data/catalogs/ssn-mx/events.json",
+    "bytes": 71317664,
+    "sha256": "0ec2dfd575d67bdf0a5009938cccbf03548207c6d47e95f7038b08398712c7e2"
+  },
+  {
+    "path": "system/dist/data/catalogs/ssn-mx/manifest.json",
+    "bytes": 11953,
+    "sha256": "7f563caed9069f07fec86c271d627b6fa48455ce7cb542065388428024af4b0b"
+  },
+  {
+    "path": "research-data/catalogs/ssn-mx/ssn_19000101_20261106.csv",
+    "bytes": 45950120,
+    "sha256": "0601c65544bc95ef865d3440e5e6d84249acdebd8edfb379669597096543f993"
+  },
+  {
+    "path": "system/dist/data/events.json",
+    "bytes": 5331814,
+    "sha256": "7acac40dae8b60cd35443de3458f92bb8980f6f4923e4bd1b268ada87dc3aefe"
+  },
+  {
+    "path": "system/dist/data/manifest.json",
+    "bytes": 22144,
+    "sha256": "7ab89ec5726c8febeb002f717431b427975372ef4c99191b3d6716337d20c63b"
+  },
+  {
+    "path": "outputs/sequence_pilot_2026-11-15/inputs/ssn.csv",
+    "bytes": 25317009,
+    "sha256": "28a835c3cc09a80249d76afd2372d37a6ffa0d4f7ac99133f609c25324be3542"
+  },
+  {
+    "path": "outputs/sequence_pilot_2026-11-15/inputs/usgs.csv",
+    "bytes": 558416,
+    "sha256": "063bcce8eb1ae48c2c2c52fa3df06bb38e9d596b09f8fffd3e0286f0271627b0"
+  },
+  {
+    "path": "outputs/ssn_usgs_pilot_2026-11-15/graph_candidate_pairs.json",
+    "bytes": 436399,
+    "sha256": "93187c19cc25a3f9d5c6a4042410ef57d9336feca1b36fc2e445952257645939"
+  },
+  {
+    "path": "outputs/claude_response_2026-11-16/catalog_design/scientific_diagnostics.compact.json",
+    "bytes": 10055760,
+    "sha256": "a1d10f7356ce5bd4dc6feded14c2537fa9ffc6bbc1a4904abc1d1330576f3470"
+  }
+]

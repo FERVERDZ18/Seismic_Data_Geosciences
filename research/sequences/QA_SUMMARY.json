@@ -1,0 +1,90 @@
+{
+  "schema": "private-scientific-review-qa/1",
+  "status": "PASS_LOCAL_REVIEW_CANDIDATE",
+  "public_availability_claimed": false,
+  "human_author_approval_not_implied": true,
+  "recalculated_stages": [
+    "legacy_v3",
+    "catalog",
+    "twins",
+    "south",
+    "zero_distance",
+    "large_parents"
+  ],
+  "core_comparison_records": 757,
+  "additional_synthetic_comparison_records": 1221,
+  "decoded_array_fields_compared": 24466,
+  "historical_GEM": {
+    "status": "PASS",
+    "engine_reexecuted": false,
+    "GEM_assignments": 2989,
+    "graph_assignments": 2989,
+    "intersection": 2984,
+    "only_GEM": 5,
+    "only_graph": 5,
+    "nonzero_time_shifts_recalculated": 10
+  },
+  "browser": {
+    "status": "PERSISTED_SCIENTIFIC_ARRAYS_REVALIDATED",
+    "cells": 24,
+    "computed": 18,
+    "censored": 6,
+    "timing_experiment_reexecuted": false,
+    "parents": "exact",
+    "log_score_max_abs_criterion": 1e-10,
+    "nonfinite_masks": "exact",
+    "public_metadata_projection_explicit": true,
+    "original_POST_sha256": "1a53ec72f288742da20ff5475a72f687d1729d02a8e93e9d99a389cffd330038"
+  },
+  "fixtures": {
+    "passed": 16,
+    "changed_scientific_value_rejected": true,
+    "changed_parameter_rejected": true
+  },
+  "not_reexecuted": [
+    "matched native timings",
+    "large exhaustive reference runs",
+    "browser timings",
+    "GEM engine",
+    "author/eqclustering comparison runs"
+  ],
+  "target": {
+    "platform": "Windows x64",
+    "python": "3.12.14",
+    "dependencies": {
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "numba": "0.63.1",
+      "llvmlite": "0.46.0",
+      "pyproj": "3.7.2",
+      "bruces": "0.5.0",
+      "matplotlib": "3.10.3",
+      "utm": "0.8.1"
+    },
+    "user_site_disabled": true,
+    "numerical_dependency_imports": "New isolated virtual environment; no original private scientific directories",
+    "external_standard_Python_distribution_separately_tested": false
+  },
+  "scientific_source_bytes_changed": false,
+  "expected_outputs_copied_as_new_calculations": false,
+  "plain_code_config_guarantee": true,
+  "critical_code_only_in_ZIP": false,
+  "record_count": 2837,
+  "archives": 22,
+  "data_archive_bytes": 462745542,
+  "max_archive_bytes": 60416994,
+  "archive_cap_bytes": 95000000,
+  "preserved_private_QA_failures": [
+    "Unlisted own audit cache rejected and removed",
+    "Runtime-created manifest hash required complete scientific inventory validation",
+    "Newly generated catalogue metadata rebound only after exact scientific verification",
+    "Missing auxiliary CJS restored byte-identically from original execution seal"
+  ],
+  "scope_limitations": [
+    "No regeneration of private manuscript/Word/PDF or thirteen current/v0 figures",
+    "Finite pinned-input/platform verification, no universal IEEE/libm or physical family/identity accuracy guarantee",
+    "Public repository/code/data bytes must still be checked after authorized publication"
+  ],
+  "comparison_contract": "EXPECTED_COMPARISON_CONTRACT.json",
+  "manifest": "MANIFEST.json"
+}

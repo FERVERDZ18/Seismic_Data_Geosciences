@@ -1,0 +1,43 @@
+{
+  "schema": "private-browser-input-contract/1",
+  "assets": [
+    {
+      "file": "inputs_ssn_m35.json",
+      "sha256": "d213720df5144a24157348701cdd82a6846852328feba1571a4ed13768ea9119",
+      "bytes": 62514781
+    },
+    {
+      "file": "nearest-parent.js",
+      "sha256": "ca075af9ac4ac1e7b2b59dfa5898674fdfd3aa52d196e41511f99d08c78f6ea0",
+      "bytes": 9126
+    },
+    {
+      "file": "worker.js",
+      "sha256": "b791b3a30cde03a61040c7bc550a0e7fec07d75e3b24cf7b3dc584d6095a4974",
+      "bytes": 827
+    },
+    {
+      "file": "harness.js",
+      "sha256": "8779126409815d03b982a4dec55c96b65d34c065c0cf3477cc9a770ed5477572",
+      "bytes": 4641
+    },
+    {
+      "file": "index.html",
+      "sha256": "76affb212abdca2c0febb17d2eebc7312989627cca59beb51d4f92f16fdb1d79",
+      "bytes": 1519
+    }
+  ],
+  "sizes": [
+    2000,
+    10000,
+    50000,
+    170880
+  ],
+  "repetitions": 3,
+  "backends": [
+    "reference",
+    "kd"
+  ],
+  "wall_cap_seconds": 120,
+  "planned_cells": 24
+}

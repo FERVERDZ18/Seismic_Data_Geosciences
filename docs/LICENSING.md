@@ -2,6 +2,36 @@
 
 No software or dataset licence is inferred from a public URL alone. The code, bounded evidence package and catalogue additions retain the source-specific rights and credits described here; publication authorization does not change those rights.
 
+## Sequence-science reproduction components
+
+The [audited sequence package](../research/sequences/README.md) is a collection
+with component-specific rights, not a blanket MIT distribution. Its
+[licence map](../research/sequences/LICENSES_MAP.json) links each preserved
+original notice and records pinned source revisions. In particular:
+
+- The normalmix Python port and original Zaliapin nearest-neighbour distribution
+  retain GPL-3.0 as declared by their source. Root MIT does not relicense that
+  derived implementation or a combined GPL-dependent distribution.
+- The separately retained historical GEM `oq-mbtk` source at
+  `d13e63bebedcc6788e0ec88e8632957b749d3b60` remains AGPL-3.0-only. The default
+  clean replay verifies identified historical evidence rather than executing the
+  GEM engine again.
+- The eqclustering comparator retains Apache-2.0, its NOTICE and the explicit
+  Python 3 compatibility diff. The bruces dependency retains BSD-3-Clause.
+  Python dependencies keep their respective notices and locked versions.
+- Original project software keeps its MIT notice. SSN observations retain the
+  original reproduction notice and SSN terms; USGS/ComCat observations retain
+  distributor and contributing-network provenance. Synthetic truth and observation
+  ledgers remain identified as synthetic, with no invented new dataset licence.
+
+The package's [sources and rights](../research/sequences/SOURCES_AND_RIGHTS.json)
+distinguish observed data, assumed synthetic errors, source code and historical
+results. Preserved original source files, complete licence texts and notices are
+plain browseable files. Data archives do not change these rights. No archival DOI,
+institutional endorsement, notification email or editorial submission is implied.
+
+## Existing application, data and manuscript rights
+
 - Original project code and technical documentation are covered by the root `LICENSE`: MIT, copyright 2026 Gabriel Hurtado Avilés. Its scope is the newly authored audit/build scripts, explorer HTML/JavaScript/CSS and project documentation. It does not relicense source observations, acquired API response contents, third-party dependencies, the Word template, scientific manuscript or manuscript figures.
 - The historical seismic software has MIT copyright Gabriel Hurtado (2025). It was inspected, not imported into this repository. Its licence does not license the SSN observations or the AZCATL article.
 - The pinned fuentes-alternas repository identifies MIT for its software and credits Actronix09 and Samy (2026). This project did not execute or copy its Python implementation. Snapshot CSV origins, URLs and SHA-256 values are retained in `data/source_manifest.json`.

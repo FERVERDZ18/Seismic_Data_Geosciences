@@ -1,0 +1,91 @@
+{
+  "gem": {
+    "gem_assignments": 2989,
+    "graph_assignments": 2989,
+    "intersection": 2984,
+    "gem_only": 5,
+    "graph_only": 5,
+    "symmetric_difference": 10,
+    "engine_rerun": false,
+    "original_engine_commit": "d13e63bebedcc6788e0ec88e8632957b749d3b60"
+  },
+  "time_shifts": [
+    {
+      "shift_days": 0,
+      "edges": 3007,
+      "assignments": 2989,
+      "ssn_with_candidates": 3001,
+      "usgs_with_candidates": 2992
+    },
+    {
+      "shift_days": -90,
+      "edges": 3,
+      "assignments": 3,
+      "ssn_with_candidates": 3,
+      "usgs_with_candidates": 3
+    },
+    {
+      "shift_days": -60,
+      "edges": 2,
+      "assignments": 2,
+      "ssn_with_candidates": 2,
+      "usgs_with_candidates": 2
+    },
+    {
+      "shift_days": -30,
+      "edges": 6,
+      "assignments": 6,
+      "ssn_with_candidates": 6,
+      "usgs_with_candidates": 6
+    },
+    {
+      "shift_days": -14,
+      "edges": 9,
+      "assignments": 9,
+      "ssn_with_candidates": 9,
+      "usgs_with_candidates": 9
+    },
+    {
+      "shift_days": -7,
+      "edges": 11,
+      "assignments": 11,
+      "ssn_with_candidates": 11,
+      "usgs_with_candidates": 11
+    },
+    {
+      "shift_days": 7,
+      "edges": 31,
+      "assignments": 31,
+      "ssn_with_candidates": 31,
+      "usgs_with_candidates": 31
+    },
+    {
+      "shift_days": 14,
+      "edges": 18,
+      "assignments": 18,
+      "ssn_with_candidates": 18,
+      "usgs_with_candidates": 18
+    },
+    {
+      "shift_days": 30,
+      "edges": 13,
+      "assignments": 13,
+      "ssn_with_candidates": 13,
+      "usgs_with_candidates": 13
+    },
+    {
+      "shift_days": 60,
+      "edges": 5,
+      "assignments": 5,
+      "ssn_with_candidates": 5,
+      "usgs_with_candidates": 5
+    },
+    {
+      "shift_days": 90,
+      "edges": 12,
+      "assignments": 12,
+      "ssn_with_candidates": 12,
+      "usgs_with_candidates": 12
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+{
+  "status": "PASS",
+  "tests": [
+    "test_first_is_not_zero_edge",
+    "test_frozen_edge_deletion_no_alternative",
+    "test_no_zero_is_identity"
+  ],
+  "runner_sha256": "608b961a576ac2530d211efe90f722503a4310ee4c5d2e3946a79fa695a66c34",
+  "test_sha256": "dbba11f86c4452c35ff02c060bf87508b699248c0577471f16fc9ae8922cb9b8",
+  "retained_catalogue_computation": false
+}

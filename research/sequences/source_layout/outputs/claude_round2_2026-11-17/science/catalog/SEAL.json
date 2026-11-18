@@ -1,0 +1,10 @@
+{
+  "sealed_utc": "2026-11-17T16:34:11.635541+00:00",
+  "files": {
+    "PROTOCOL.md": "561c9d3c96086e1bc1f8e606e0fa5be35ef7b9966f224e093b83f4da069b3084",
+    "PROTOCOL.json": "87c301029e378092eb9458d45a814001d4386fcc74ac0a553388e062c8b9166a",
+    "INPUTS.json": "0f095e2988f540f3f45eeaabd51977c0d87c3cafa2750cb72bec3da46d0b02ae",
+    "VENDOR.json": "8477eb298544d1660ed3acbebddc60746a3a7e257a64d4ca100773946a63d7c4"
+  },
+  "scientific_results_created": false
+}

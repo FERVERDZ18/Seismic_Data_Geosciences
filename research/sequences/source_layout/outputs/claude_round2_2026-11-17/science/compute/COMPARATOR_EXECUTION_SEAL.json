@@ -1,0 +1,155 @@
+{
+  "status": "SEALED_BEFORE_THIS_PHASE_EXECUTION",
+  "created_utc": "2026-11-17T17:01:05.236561+00:00",
+  "phase": "COMPARATOR",
+  "protocol_sha256": "75ee605d04cfc6869ff265d9ad8072f7e5e808098682281906d669d4dcc7825f",
+  "entries": [
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/add_date.m",
+      "sha256": "32cab20e7415f0f64acebabd3ab400c7f4134c1aea6dbb791a317cf11f4f89e7",
+      "bytes": 1683
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/bp.m",
+      "sha256": "919244fc9a920c130e6f04375dc35f66be4f6a265eb9b1b5009d47f8247307d0",
+      "bytes": 2325
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/cluster_analysis.m",
+      "sha256": "259f5042dd41427173ba373d1231ec671b3938fb20b89b12a694e6ead997b3bf",
+      "bytes": 3142
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/date2doy.m",
+      "sha256": "bc019398fad7203fa4f3c5a95c591e41e9b3232bdead32d481d6f0bf792d79de",
+      "bytes": 1464
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/descend_all.m",
+      "sha256": "9c074cb72551e3c0c984d0eb7af262da23ff279b8a494f8e120a5a462a5269f7",
+      "bytes": 1159
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/eq_cluster.m",
+      "sha256": "a06063889bb42b484c2b2cd87f4f431f95d11c3a23b7828d34df1a81561fb22c",
+      "bytes": 7465
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/gauss.m",
+      "sha256": "ae948587f11c4156e1f833d1554a5120c239ac36353ca4330fe21ab00c0592cd",
+      "bytes": 957
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/latlonkm.m",
+      "sha256": "ff7641c653f2cf58b75de10e81426ca90ae31ee327aa2a84dedea886939205d2",
+      "bytes": 692
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/makeindex.m",
+      "sha256": "9d2211f0caf9a4844c3f060793a8b825203f86b77668ebbd16f28816e0c18122",
+      "bytes": 2215
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/normalmix_1D.m",
+      "sha256": "bed7d2371ff50283e41a7b5881c02fcb14d88b7c5f51789b95fac2e31629a204",
+      "bytes": 1680
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/setfig.m",
+      "sha256": "a1cfe218b6c8895f01d5bfa2745ef65cd7eb54fab84efe349e9c80bac0165305",
+      "bytes": 137
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/xymap.m",
+      "sha256": "9b58321c09c422b0d66a956872d8292fa3cdb0a9af03a7c84ffd74601a01054a",
+      "bytes": 1734
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/eq_cluster/ymdhms2d.m",
+      "sha256": "01ec9495ebe64354b1c2dbbba8883cef23bff7d2908984441d1ae141b46fdfac",
+      "bytes": 2282
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/octave_wrappers/close.m",
+      "sha256": "60678cee57e434b9b6e160b9f980a6cacd3c6a8663fe4ed938daf1596ee586c8",
+      "bytes": 271
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/octave_wrappers/set.m",
+      "sha256": "816aa9e07b3196e15452369154a3409bf43d1cddc6728f4c2017b600e0a0ed06",
+      "bytes": 297
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/methods/octave_wrappers/waitbar.m",
+      "sha256": "84ab18852ba394ba0b468ea4c11c0efaea43eac54c1ae3fcc56367094df3ce6b",
+      "bytes": 119
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/runtime/octave-11.3.0-w64/mingw64/bin/octave-cli.exe",
+      "sha256": "387ac823fb5b01b3407fb34edda6ab1cdba0c9619841a0f6dee323d05a850f2d",
+      "bytes": 26112
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/common.py",
+      "sha256": "f628f8a0cc48c4d1c78b775dffe3cd6a6704a546ee36dfc2125d7babada5ca89",
+      "bytes": 2701
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/comparator_worker.py",
+      "sha256": "80a6c43f2e83f3c2501a7114a8d5b836cb35e8de5c07591bdd76a574090d5010",
+      "bytes": 3552
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/comparators/ADAPTATION.json",
+      "sha256": "a2511edb48eec44abe9f58cfb53e737fe1589afd36c5c4b32d0eb50e16b75017",
+      "bytes": 956
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/comparators/author_core.m",
+      "sha256": "90c4dddf70c613c4fd487af133cf7a7a82a27e622b64ad584d8f97eb491b2ef4",
+      "bytes": 878
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/comparators/eqclustering_python3_constants.py",
+      "sha256": "71341ba6e194310bae64470f4cbc521e64d03f945dea69629ea1f6d92f8932e5",
+      "bytes": 11581
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/comparators/LICENSE_eqclustering.txt",
+      "sha256": "a8ad31b1c3f40dca5a84119351b8fa8ddc868edd77fad8a8ebf6d8f2d16fa4ae",
+      "bytes": 11324
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/comparators/NOTICE_eqclustering.txt",
+      "sha256": "6d0b36cd4b0a2036cd97745694a092c1624b1d5f2bc4fcbd4dfe40563eca4e4e",
+      "bytes": 336
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/comparators/PYTHON3_CONSTANT_COMPATIBILITY.diff",
+      "sha256": "4328cc1eafa51874edb2660b039e735fa138c13ca2e81716419b8dacfcb7c0e8",
+      "bytes": 1180
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/MANIFEST.json",
+      "sha256": "26581df08c47f9625a6aa27057ff28a1664865715ca6e4091ef1f98e719b7fe8",
+      "bytes": 7319
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/PROTOCOL_COMPUTE.md",
+      "sha256": "75ee605d04cfc6869ff265d9ad8072f7e5e808098682281906d669d4dcc7825f",
+      "bytes": 8499
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/run_comparators.py",
+      "sha256": "99adf27b0d1e3e663ea84abd5cf0080077110f77e0df9ab7846a792db96388ac",
+      "bytes": 8082
+    }
+  ],
+  "chronology": {
+    "native_status_at_glue_seal": "IN_PROGRESS",
+    "native_cells_already_observed": 63,
+    "statement": "Later browser/comparator glue completed after these native observations. All N/repetition/cap/comparator/semantic choices were fixed in PROTOCOL_COMPUTE before the first native result; no choice changed from those outcomes."
+  },
+  "cpu_status": "WAIT_SEPARATE_ROOT_GO",
+  "results_of_this_phase_exist": false
+}

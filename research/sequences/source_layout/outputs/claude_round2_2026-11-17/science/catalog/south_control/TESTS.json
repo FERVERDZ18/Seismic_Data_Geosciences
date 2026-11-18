@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "tests": [
+    "test_boundaries",
+    "test_time_and_snapshot_identity",
+    "test_transported_cut_keeps_parents",
+    "test_support_cell_boundaries_and_development_only"
+  ],
+  "runner_sha256": "5fa36d80ff0b4e78df916766cdf450628dbf5503d62ed3568fc9c0a4b25572e5",
+  "support_module_sha256": "83dbf56c6b45db725426b676bd100c50cebc7dbd5d7ffe4da0d70e2b5c584411",
+  "test_script_sha256": "0d14d7d2a48af1ca953e3e3bf6edccdfcaaa88a573d25dc9a7ba604331799efb",
+  "retained_catalogue_computation": false
+}

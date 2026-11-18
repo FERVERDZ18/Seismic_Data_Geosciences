@@ -1,0 +1,3008 @@
+{
+  "schema": "public-metadata-projection/1",
+  "transformations": [
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/catalog/south_control/runs/south_run_01/MANIFEST.json",
+      "original_source_sha256": "34bec9b479f56eb41c48f267958a65a97d8650d1e58d27bcff3a79f4cf84fb43",
+      "public_sha256": "2c67a7264adac23e95eff3ce3f53d36ade4a9086fb90e4e33d0f535eee8c41dd",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/BROWSER_PREPARATION_SEAL_V3.json",
+      "original_source_sha256": "868348308a92b12b0e3435f3e742215421139cbf3bfbff0a3c763d37a16f5653",
+      "public_sha256": "c9755179ea5cc67715a168ec856c14577726b5ca9ce986e62d6a35264e59a1d1",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_status",
+          "cpu_gate_status",
+          "cpu_exclusive_note",
+          "approval",
+          "authorized",
+          "cpu_gate"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/BROWSER_V3_PROFILE.json",
+      "original_source_sha256": "d77cb8ca360a5aad01ed0e017d3179d47290db20162dbe7ce494fcf9b90a00a9",
+      "public_sha256": "d77cb8ca360a5aad01ed0e017d3179d47290db20162dbe7ce494fcf9b90a00a9",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_status",
+          "cpu_gate_status",
+          "cpu_exclusive_note",
+          "approval",
+          "authorized",
+          "cpu_gate"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/COMPARATOR_COLOCATION_WITNESS.json",
+      "original_source_sha256": "2a36abe842ec7d9404570460a4d52e098c7bd9ca232ab56d7ef0d295cb8cc47d",
+      "public_sha256": "e58d04b0641f4d08b91ec80cc6fbe55c7c43fe698e59bb8ef8ee54a020020782",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/COMPARATOR_SUMMARY.json",
+      "original_source_sha256": "80ef3a306e48cb9f4674c4cc5908f726bcd610a59e1e0e15517318088eed35a8",
+      "public_sha256": "2a1d9cef78bd401a8287aff9d120ec7a94c4f7e402820cde7a0e81c959ca5ef4",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/browser_actual_v3_01/observed.json",
+      "original_source_sha256": "1a53ec72f288742da20ff5475a72f687d1729d02a8e93e9d99a389cffd330038",
+      "public_sha256": "de4168e4242d4e76d5ef0a4535cb8d88e6eb21601d42c8c83e5a3ab5843ca4f8",
+      "operation": {
+        "drop_keys": [
+          "cpu_note"
+        ],
+        "project_relative_paths": true
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/browser_actual_v3_01/receipt.json",
+      "original_source_sha256": "5d292702e4027c0856dde8ae18e832be3751101ba087797a6c908b6c3dfa7c66",
+      "public_sha256": "5b1047048988aadb33a078454760fb470ed46fb9d193ee1d36d092752f0add9a",
+      "operation": {
+        "project_relative_paths": true,
+        "payload_reference": "expected/outputs/claude_round2_2026-11-17/science/compute/browser_actual_v3_01/observed.json"
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/browser_result_v3_01/VERIFICATION.json",
+      "original_source_sha256": "9b6512a6275d670ebe3e89adbf705e7966ed6f98961539557ea5364ee4a5ffe8",
+      "public_sha256": "c4be0d15891e592520ab62406d64def8b48efad4e7ca4ab1f27752f16657c53e",
+      "operation": {
+        "project_relative_paths": true
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/browser_v2_unexported/OBSERVED_TIMINGS.json",
+      "original_source_sha256": "fcf3678995d040436bd180f597d3ee8b12b04071f01e7582bb67c5728048da13",
+      "public_sha256": "d1d5a005537d62ddf01faf1e95495f851c75832d52b0823eaa77760807fb0405",
+      "operation": {
+        "include_keys": [
+          "status",
+          "recovered_utc",
+          "method",
+          "browser",
+          "computed",
+          "censored",
+          "failed",
+          "array_export_obtained",
+          "python_array_parity_claimed",
+          "preserve_original_v2",
+          "rows",
+          "chronology"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/MANIFEST.json",
+      "original_source_sha256": "5c50ec3c1ed08ac2a190d7858d91ee78292afd6994f4454ecadaa5e37a18617f",
+      "public_sha256": "26fd57072678c21b9b4ee8545d50b3ef9af7a5c0b50b449d7d2fded5444d20fb",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/ssn_principal45_author_octave_0/receipt.json",
+      "original_source_sha256": "bf731756a5af4654241b4d8dacbfce5aa0185305e679d167c8b13be701a4beda",
+      "public_sha256": "5e15aa2146c89e453195f5fcc9d8ddc1da461e8a81f1a2a55aa3567fcadd3325",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/ssn_principal45_author_octave_1/receipt.json",
+      "original_source_sha256": "c46bd632824dfd96b969249044ee79a2f9a35845b0ace7ee43c3346ccb0a21ad",
+      "public_sha256": "b0da2a09cf74a000e6ce3905ef30b4f06a9aaddaa4a30ec4115a2ef2982ce28a",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/ssn_principal45_author_octave_2/receipt.json",
+      "original_source_sha256": "44cd5a87995e10d797c4d5acdbbab5077215e8ac4653512c39e00ecf74eb1023",
+      "public_sha256": "bb2631c883de6310408b1da6c47dfbdd5dcffb819e0573a7bbec7f65a9e1e857",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/ssn_principal45_eqclustering_0/receipt.json",
+      "original_source_sha256": "454ed701753debc801871e3b712cb4e4aaa34af22080dcb0dac2b9c0752fb738",
+      "public_sha256": "d694bedc60d002c297d91f922ae4ddf20299a98d44c007a71ba80ae3e62f9e85",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/ssn_principal45_eqclustering_1/receipt.json",
+      "original_source_sha256": "ef204ece554f653d760864ee554db9befc99a0648b5b640a5ed9a475c4cf9c0e",
+      "public_sha256": "1ed7529654b5d7e891e2a5483f8d42b0078aa823287a41bbd1805914cfaaafa4",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/ssn_principal45_eqclustering_2/receipt.json",
+      "original_source_sha256": "bdb76b3e02c4c9c5a5097a07c05f47c225abe92b1d2bec10ce24256679b83908",
+      "public_sha256": "0dc50893c3331b8a40d28fd35a85fc5e3f618e4426eb768cf5fbc39c73240678",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/usgs_principal45_author_octave_0/receipt.json",
+      "original_source_sha256": "7afe206cad20d043e7eff894206fdf8586b2bdc0b36f419c841091832acbcea5",
+      "public_sha256": "6bf1b604c9fadd570a3e2349c4ef0aa88b61a84d4fa4a5d658e075175c010d63",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/usgs_principal45_author_octave_1/receipt.json",
+      "original_source_sha256": "ecd9fe9f94c77b1326abd999dfb70618d445d59cba1734b4013c26c70037025d",
+      "public_sha256": "5a3220d2b83d1517b22dad6aa3dc7786418690713e23aec9891cd50fad488b08",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/usgs_principal45_author_octave_2/receipt.json",
+      "original_source_sha256": "1ef1269d16af10679106cde95f1f89033749a4a0ac38c8d652e96509577188dd",
+      "public_sha256": "d1c49cf16bfed0226e8af1568f83e17c69a8afc3967ce1ae4d1defd4434c2495",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/usgs_principal45_eqclustering_0/receipt.json",
+      "original_source_sha256": "9876d45ae9563f78cc877af392a9c22a08888d82e0b1c30b16a0f83dcf1fb300",
+      "public_sha256": "d2328f16e4722fc14652fb59a46e1c0457f72b375f03fa448dd19e154421ecde",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/usgs_principal45_eqclustering_1/receipt.json",
+      "original_source_sha256": "46869302b96bcfc35ff136084ef9284a37ba82a2a47aeb80c32b8e152f5fd8c7",
+      "public_sha256": "618a9bf106c02e00ed201434d0e7f5cd0c3362326940e234550bd4917a6a3424",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/comparators_01/usgs_principal45_eqclustering_2/receipt.json",
+      "original_source_sha256": "341e13a792027429e1315447432a5d251c775206bab97ccaae9ef41cd4dcc388",
+      "public_sha256": "45ff9dd449e1c095b5d03c5ad394f27978ac81d0563319e7567a65cb907ce9d3",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/MANIFEST.json",
+      "original_source_sha256": "0cdc155aec52c578717388b9fde75f7c097043ff7e86a3e62e70ca2f02b21f6d",
+      "public_sha256": "537fa6a5b3130b999df07d98f78187ea3b036c241fdc2d085646e82cf4e866c8",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w0p8_kd/receipt.json",
+      "original_source_sha256": "7617df68cbdfe7e11fc77a16e8e0f386568eeedc2d9785e05663f92a537dc4dc",
+      "public_sha256": "a1b9227cc725bf0ff9df55b28fd737b3229d3b7c146b33c0a5c6fe771ee90f1a",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w0p8_node/receipt.json",
+      "original_source_sha256": "de651c2e4592e8089a1bc29b7d851ef2b1cdfdb7932c557048ffc428669c9eff",
+      "public_sha256": "de651c2e4592e8089a1bc29b7d851ef2b1cdfdb7932c557048ffc428669c9eff",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w0p8_reference/receipt.json",
+      "original_source_sha256": "94e575f0bcd351a6b4c402e33fd16a09b8cdf4e43fd5d0584cfa3fdb096a3e89",
+      "public_sha256": "096617c940e9d446d75e0ed33071af34da099481ad6f57b7805205b73dad27b3",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w0p9_kd/receipt.json",
+      "original_source_sha256": "beee5a640234d9b5bbb5bf9ede7a36e627f69f4569d3a90cb0b50c412bf9c4ff",
+      "public_sha256": "bfc35f9dd1a8b0e64e3278225507a1c51304b4d46d46067e1b8232f5f279c5e7",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w0p9_node/receipt.json",
+      "original_source_sha256": "75e41b92978249726ca32b649659a0c4437c050fb00c983e162a3bdb39bd410b",
+      "public_sha256": "75e41b92978249726ca32b649659a0c4437c050fb00c983e162a3bdb39bd410b",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w0p9_reference/receipt.json",
+      "original_source_sha256": "4cecdedf1b77e6a623ddeefd89a7bb1ba5a5e55577b646d8191de224861f8153",
+      "public_sha256": "cbefcf897be2542f92c1480907050c2d6b6ff3b4721669a8b968451c6ff14b58",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p0_kd/receipt.json",
+      "original_source_sha256": "c40ad76b52c8282412855eeccf0af2b98ad70a9ca89eb0ac816dea180322615e",
+      "public_sha256": "73f1f0b6f2fbb18792d32c09f91e2f9925e5bea2ca25fa0bda082b036045a75b",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p0_node/receipt.json",
+      "original_source_sha256": "b24f2daffc67456a1337757318c48752074cf0e3f5fde16b5ce1d3b74680b905",
+      "public_sha256": "b24f2daffc67456a1337757318c48752074cf0e3f5fde16b5ce1d3b74680b905",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p0_reference/receipt.json",
+      "original_source_sha256": "e230da07e412da69cf533b7e36c28cc2b69a974519a48969ffb1de4b551adee3",
+      "public_sha256": "2ff326247077580594e2071aa5342c3c7abb091980a642c3061e5316a6c97feb",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p1_kd/receipt.json",
+      "original_source_sha256": "357b4a8cc729212583051b184bd26a2c0c21f17907f957548db3613d38a6088d",
+      "public_sha256": "733f6821049f8e19ac3bbb0e6e77b6c2a27d8db35c1ecfa01b08c6fc54026205",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p1_node/receipt.json",
+      "original_source_sha256": "ae906b04eff3958f085ce351e68ca3aa29ae1dc4db4f252101d84ca15d6030aa",
+      "public_sha256": "ae906b04eff3958f085ce351e68ca3aa29ae1dc4db4f252101d84ca15d6030aa",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p1_reference/receipt.json",
+      "original_source_sha256": "c23421d447849b2f8d6cf09e9b715257a180b719cdaa6db8b33b379fa5763952",
+      "public_sha256": "7b8539e51b7773b1336386d8f4f53eb754752d9ed70e4c07b7104727fdfb4e9d",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p2_kd/receipt.json",
+      "original_source_sha256": "59a463da4729b265bda2db0f2f8629ca949ebe85e1366a92cac30cc3f7df47c8",
+      "public_sha256": "4c2db706cf50e01843a3633e15299184fb7f03ccbbfee4b45621e06cc6714e55",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p2_node/receipt.json",
+      "original_source_sha256": "50c230440064d882d0e06a18a276e55a28d32a5b1645b67d67ba56d3baed3476",
+      "public_sha256": "50c230440064d882d0e06a18a276e55a28d32a5b1645b67d67ba56d3baed3476",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p2_reference/receipt.json",
+      "original_source_sha256": "2dcac712575f740593ee451ac39df5eee40bf61e5efd9e18c855645cb55d7222",
+      "public_sha256": "0b6d28fa68baa4fc354d323eaa7b9e7c7bd6f497d618f08b13e0226e922442a5",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p3_kd/receipt.json",
+      "original_source_sha256": "cd0c053d948227c83c1aa3344938b0335df8e546d5eaa936340b11da5fb669cf",
+      "public_sha256": "0e86146754e518ea3df278e03c67a9f2ee83c463d23e0311ac686ad197ac417f",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p3_node/receipt.json",
+      "original_source_sha256": "4d45eb7e3fec61d0e5ba9712d8b68db469d02401fdfc415e73aaee22abc34566",
+      "public_sha256": "4d45eb7e3fec61d0e5ba9712d8b68db469d02401fdfc415e73aaee22abc34566",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p3_reference/receipt.json",
+      "original_source_sha256": "b0ccd5545d88a232f3d94ae15bee8286042da2d6b55ed85ba3822fbb0bffbb7f",
+      "public_sha256": "11e1304b975f15fd8623cf0fcf61c7a0d1a8abb0c60df7afd45d66c7d7e68e1b",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p4_kd/receipt.json",
+      "original_source_sha256": "a26e7e3fbf4fd3aa6e7696d08905df31a92d04ee39a184908079283095002de3",
+      "public_sha256": "4a0710839d07fab96212c7506eb85f7bff055fad7267d6461fc0706fe72d3710",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p4_node/receipt.json",
+      "original_source_sha256": "9e398c75558ec3da8a77449a6df336be848e007d5543ed57dc87a612c0003192",
+      "public_sha256": "9e398c75558ec3da8a77449a6df336be848e007d5543ed57dc87a612c0003192",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w1p4_reference/receipt.json",
+      "original_source_sha256": "d846fe189da0c400423424fcadcb5527943d2183431702b52b4ebfaf73812666",
+      "public_sha256": "e55de5cbcf867f8a2754e55a8fa833d06e5449df6824dd34b3c8eb240b7e4624",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w_b_ssn_kd/receipt.json",
+      "original_source_sha256": "553b077d4d5a0e73cb787e583a3a99a31663cb0ac2dbc635c5bf93e319be407b",
+      "public_sha256": "2d6624682de6042425f9a37c6f1503f690405ff21080f9162d3c81e6554182e4",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w_b_ssn_node/receipt.json",
+      "original_source_sha256": "3fac4eb59234ef56fe0b403e4a64d339d511d99b523a7c20b13cbcbe04f71288",
+      "public_sha256": "3fac4eb59234ef56fe0b403e4a64d339d511d99b523a7c20b13cbcbe04f71288",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w_b_ssn_reference/receipt.json",
+      "original_source_sha256": "537c5a8e9e7e5671999370656b7f7c436dd4ed802dacff0a40c3f7f638e9f825",
+      "public_sha256": "09408d047aecac626d490fa06502b8231a1a9389f06d9f62ce5ebdfc5577b625",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w_b_usgs_kd/receipt.json",
+      "original_source_sha256": "d642901550e8768e44df3eb199b43403ec04d6d9317d6104b5bf3afee30a045c",
+      "public_sha256": "dc735e7394ac8487be107fa2b7a4ee97b5375570746412dab2905988e0521e19",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w_b_usgs_node/receipt.json",
+      "original_source_sha256": "93ee632c34c795ab7c6c2b1a97a69be92c3e3bbec383b59b0ad653f41edaeed7",
+      "public_sha256": "93ee632c34c795ab7c6c2b1a97a69be92c3e3bbec383b59b0ad653f41edaeed7",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_common_w_b_usgs_reference/receipt.json",
+      "original_source_sha256": "6010afdcdc2b639803f952b01e87e614277d620cc31d6da64eab9c7a53efc677",
+      "public_sha256": "6293ff9b656b029fbd765756a98533a66fd81f727bbef552aa737924f444bbfd",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w0p8_kd/receipt.json",
+      "original_source_sha256": "0eaef0b2c6a6f92397d9ef410c708a1716bb49817ff360980edbb1db58e9ce5d",
+      "public_sha256": "21b44a14dcfc06927f21af4a6412f1f04b5c2dd23abe4e791efa991540db89c9",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w0p8_node/receipt.json",
+      "original_source_sha256": "81e07ba74cc6fb05633ab0bafcdb2ae50148fbdbaa5f48e4e1ddb918a8bd687e",
+      "public_sha256": "81e07ba74cc6fb05633ab0bafcdb2ae50148fbdbaa5f48e4e1ddb918a8bd687e",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w0p8_reference/receipt.json",
+      "original_source_sha256": "4fbb61cafc14500e44f610cecffe62a5ab25cfb549c0a44bd3c4c5f758c3f459",
+      "public_sha256": "887e8c02d2898f36d6e657c324180a9ac27672db80496e965d0ba48f9c05ab19",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w0p9_kd/receipt.json",
+      "original_source_sha256": "ca01452918518fa373cce6b71f9519c1e3cde4a8b12158fc87a2647eae28587b",
+      "public_sha256": "953130d627a1552695d9a10805746323fa235ff4a3f6310874981ca52c9d0a16",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w0p9_node/receipt.json",
+      "original_source_sha256": "103fd94f15b0ec98037b00dcf5db3d88a1697752de335f72397313dcafc18965",
+      "public_sha256": "103fd94f15b0ec98037b00dcf5db3d88a1697752de335f72397313dcafc18965",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w0p9_reference/receipt.json",
+      "original_source_sha256": "562007d67d0504b0a06494edd11f6d63512a317fa767f3551adf7469f30b0637",
+      "public_sha256": "187ed7d21669a6d07861f8dd58e2dbc356e4cd6fd01f77e194c0e8e82c685d7b",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p0_kd/receipt.json",
+      "original_source_sha256": "068d716bc520351bd42e3611b0193c5d5945542b8f9e053851bec635c9ee1b49",
+      "public_sha256": "8778d9f60a94699674dab89c6456440693a0b08e28848ac2e5570a78a82b3e03",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p0_node/receipt.json",
+      "original_source_sha256": "6fdaf874612e508a4b78b387f4f8ad4617478db7385145e6cf6701a1295802b6",
+      "public_sha256": "6fdaf874612e508a4b78b387f4f8ad4617478db7385145e6cf6701a1295802b6",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p1_kd/receipt.json",
+      "original_source_sha256": "8335ba7d45359c6b84f069fe0325fd8ffc2e4816a4fadb0cae33727e199a87d1",
+      "public_sha256": "3bf9a5167f4e9282f29676ae1d015fbb60dc6119fa2f57f246c34f75859dd65e",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p1_node/receipt.json",
+      "original_source_sha256": "afa47037796986a00d7a202bcd2297d5f5719059ef1fad1da224268372e7fab2",
+      "public_sha256": "afa47037796986a00d7a202bcd2297d5f5719059ef1fad1da224268372e7fab2",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p1_reference/receipt.json",
+      "original_source_sha256": "90c97b3bf1a67ae9941ea59a212855986ed59dfeab3d0ea61716a7c91055c06e",
+      "public_sha256": "86b7c1441cd051c5fe242370b70587773bbaf67c03b73922ed0b6aeb04d343de",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p2_kd/receipt.json",
+      "original_source_sha256": "edd5e87e559f9754bf90286bdda8fa0927b67d000d1851e7b56118ac1722bd94",
+      "public_sha256": "5ec64e470c5f04341669c14054f5347ff9ceb85358fc5ca99ecd28898a54cd34",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p2_node/receipt.json",
+      "original_source_sha256": "f4f4b37633610226efa17cf6e0918b1efaebc6e2b7602a4cc306e53c78802780",
+      "public_sha256": "f4f4b37633610226efa17cf6e0918b1efaebc6e2b7602a4cc306e53c78802780",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p2_reference/receipt.json",
+      "original_source_sha256": "e929e984f484ea2aefb0829c420a27dc40736b302f299e2f5322fc00ab276880",
+      "public_sha256": "83e88cb7f2ce3cfa85946a6f66f1cfcfa52fcf1caff2e5c0cb7bdef2f96b2669",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p3_kd/receipt.json",
+      "original_source_sha256": "b9208b6c4cd80f0ef470ac89853919e9e5e161f6e970891856f59ccf088cdd04",
+      "public_sha256": "9d7f4a99440496c2faa627bcef16041c105dc2a782db171721b7f376f5aa4263",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p3_node/receipt.json",
+      "original_source_sha256": "d95f5c8686ef34173c04122406d20f6707d6fa039147fbf99060d7a010f195ae",
+      "public_sha256": "d95f5c8686ef34173c04122406d20f6707d6fa039147fbf99060d7a010f195ae",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p3_reference/receipt.json",
+      "original_source_sha256": "12d8ffdf1a915ca80a5db646c5dfa0f8810c8cab66c942f53d48e788c77c9e55",
+      "public_sha256": "955e019a363f3ad6396444a266307fadb2cd71c3d3ce49eccd50f649054b3605",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p4_kd/receipt.json",
+      "original_source_sha256": "130cad20306172ef0bb90cde88b6d73eee2f04e5fabf4342151d702221c907b8",
+      "public_sha256": "b980b65aa1606fd8dcf1021c4db2ad84f54e6f7c24ddf4595274e83e0bc341c2",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p4_node/receipt.json",
+      "original_source_sha256": "12161722ae644808ca5014b87b1a0a8b87ac7da640bd004eba7df3629a825f3b",
+      "public_sha256": "12161722ae644808ca5014b87b1a0a8b87ac7da640bd004eba7df3629a825f3b",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w1p4_reference/receipt.json",
+      "original_source_sha256": "d4a71d42ade3d6041bf2eada2715af57d67390dd21a80b3927aa454044c43e8f",
+      "public_sha256": "6aa1a5200832caaccfd7bed4712ed4639296fd2141dbf93587578031aa9e8caa",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w_b_ssn_kd/receipt.json",
+      "original_source_sha256": "5993bb02988e3f424bfdd5fadde272e0b952b24e4985d554a65c4d7973334358",
+      "public_sha256": "b1d9357d0979fc321b9a93ed0f1d00499f2cc6113c7cf295a29d4eff5ffcebf2",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w_b_ssn_node/receipt.json",
+      "original_source_sha256": "4325416a3fd62962c224c3a8d9eae9ff41af26c1332656dc24dbd04e90edcad7",
+      "public_sha256": "4325416a3fd62962c224c3a8d9eae9ff41af26c1332656dc24dbd04e90edcad7",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w_b_ssn_reference/receipt.json",
+      "original_source_sha256": "33bc5c87ff3865a56dc74af997c33434e423d08f4c591a7855425bc384619fcc",
+      "public_sha256": "bc598d6997d7c9b0f574fcc877571b0e73c84c3d548a381d8c9188c09580b9b3",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w_b_usgs_kd/receipt.json",
+      "original_source_sha256": "3433432891d281a466b0f9019d532e1cf36f9e9484a7a04ef2d26c318613a122",
+      "public_sha256": "cb38dc47dba61e0aee727b714dbab3b403a9c9e6aeb20cab7fa717a175bb4590",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w_b_usgs_node/receipt.json",
+      "original_source_sha256": "017bcff4234c868c185ecba24a6ed272628e354e4fa221f42f31b8c1733bb9c7",
+      "public_sha256": "017bcff4234c868c185ecba24a6ed272628e354e4fa221f42f31b8c1733bb9c7",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/ssn_native_w_b_usgs_reference/receipt.json",
+      "original_source_sha256": "6fe4d6ac5be70996e4f385ffe73d26654e59f508189c8a33f74cbb3b570f85ad",
+      "public_sha256": "fece3199be6663f150dba3f5f290037066cffa307a1844db6a5e077a9a130bac",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w0p8_kd/receipt.json",
+      "original_source_sha256": "a80027f7d6472f11e15cae7c95a7775e6a61505fe247cc825392004b66e3261c",
+      "public_sha256": "0ad594f918472c7bb157a9448581ffc11d5d2a8b9e432a9b9d2ef5470e9d6d82",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w0p8_node/receipt.json",
+      "original_source_sha256": "e0064852a91563f7a90052d33941bd0a1dc94c0dbaa7c2ca13d26e0f9ee3554e",
+      "public_sha256": "e0064852a91563f7a90052d33941bd0a1dc94c0dbaa7c2ca13d26e0f9ee3554e",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w0p8_reference/receipt.json",
+      "original_source_sha256": "82d7b35701e207fd912959a1d4381dacfe3035a99647ee09eb1e53d2a3b31e72",
+      "public_sha256": "bd7c55338129961f954b8e7cf6a6d5d177661f62906780a4cf1f9b833acd12ba",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w0p9_kd/receipt.json",
+      "original_source_sha256": "b49446e8507ba887d7160a48d83977ea12d05d0c5dd751be550ef436ea6a5e98",
+      "public_sha256": "d0f511ff3497846597022b714faf3b5fdb7465d567d5239b587564cd07b7a782",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w0p9_node/receipt.json",
+      "original_source_sha256": "2b6d03b918b803ed24d94f322e2fa358a9163c2ceae1332de4599bcb1e6ad1b0",
+      "public_sha256": "2b6d03b918b803ed24d94f322e2fa358a9163c2ceae1332de4599bcb1e6ad1b0",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w0p9_reference/receipt.json",
+      "original_source_sha256": "4f4911e8e8dd5fb1e5e41079bb042400539da30b2861712bb33956b57d96d57b",
+      "public_sha256": "2380d54f92db8d2d42764d0e03fcd19a3f1a2ec9d476dd6aecf9973ca2e216a6",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p0_kd/receipt.json",
+      "original_source_sha256": "363c188b2eedbce7a77e1b701635ba86c2bde95bb0bcd4e94a2842d8b52856b5",
+      "public_sha256": "ae6af7426ce15a461d9ac7c3a583b0f5b3e96a74de89b6eea931f1960edc2242",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p0_node/receipt.json",
+      "original_source_sha256": "496ceab93669969300c8f000c5eab2efed79356a68a700d37155248e2021efe5",
+      "public_sha256": "496ceab93669969300c8f000c5eab2efed79356a68a700d37155248e2021efe5",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p0_reference/receipt.json",
+      "original_source_sha256": "9f06a7638e5c6d7f6cc3f73a6faa42cf8d163b95691b937f4abff0a505c3f813",
+      "public_sha256": "0f013cf5d4a0f455ea46b932d08dca0b6823539ce438edf2404ac81990cf793e",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p1_kd/receipt.json",
+      "original_source_sha256": "6e45cdeb9ebb2ed800909560b93ea60c3c7f195a35db7ee288847ccea105faba",
+      "public_sha256": "cf1e3290136433dd31833602041ab218269906f962c95bd23ec0b4aa8434f826",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p1_node/receipt.json",
+      "original_source_sha256": "59ac40ed6c85bc4d7ac3fc36af1e6f427e5b93687c8e0e1246e362fc680682a0",
+      "public_sha256": "59ac40ed6c85bc4d7ac3fc36af1e6f427e5b93687c8e0e1246e362fc680682a0",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p1_reference/receipt.json",
+      "original_source_sha256": "a72fa6871c47909cf295ab5f70137deb9a26ca10783e10083574fc6c5ad891de",
+      "public_sha256": "f4a83724e05c363482c9a8cad87bd967812d2eabceeb2b578be8001bd77f3727",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p2_kd/receipt.json",
+      "original_source_sha256": "fea0b34b1c5537fd0ff82931de6e8fc39956fb9ba4cae58de0bc7d8879f5ec29",
+      "public_sha256": "e99baaeeba987e7d683621ac85791e406bf2d2355908a9d8301e0f7b5f0db7c7",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p2_node/receipt.json",
+      "original_source_sha256": "18abf095383b22efe9b53c7f1e50270999851bab1589ae3d8986715437db6f33",
+      "public_sha256": "18abf095383b22efe9b53c7f1e50270999851bab1589ae3d8986715437db6f33",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p2_reference/receipt.json",
+      "original_source_sha256": "89f62af3214a5cb4da74bafe2c56d3db1a3814e58e6804a2d579663f05b0d0e9",
+      "public_sha256": "9b41fbe219c933c91e74d5312a0eebcaede6031cd7b72867c9682b9ffa224784",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p3_kd/receipt.json",
+      "original_source_sha256": "009ea0a44bf5c480e96e8315beb1faaa35c7a008113e633c18e9c6ed8d47ed7b",
+      "public_sha256": "cd77b6a3df6a5df98e5c4c69ef9e3aeed4709e3a13052e318c842c1f0fd3d3bd",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p3_node/receipt.json",
+      "original_source_sha256": "a86956a4dda192253df11d5d43a71c82aa2e9798cfa46a7049e28668ec10efd9",
+      "public_sha256": "a86956a4dda192253df11d5d43a71c82aa2e9798cfa46a7049e28668ec10efd9",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p3_reference/receipt.json",
+      "original_source_sha256": "04bd84450f5d3f665f4a2f86d4eb86aa4e06f4e194eec5a3aad18e24472b99c4",
+      "public_sha256": "96d510a2f8c7a4f070f27404c7d7d95d641037461a1b6cb61a0ed32d842c5ccf",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p4_kd/receipt.json",
+      "original_source_sha256": "7af26877d969ef0e56bbb9d16a4832761867d66f15dacd0302fa73d5490cd949",
+      "public_sha256": "6690be02659d88728407d64a8e14443a8391248f596ccd3c1733298c97f66378",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p4_node/receipt.json",
+      "original_source_sha256": "f8d043ec89d7fcd361cb3b2fd40ed6131a28942e1bcdd1d0a83996f808f28eab",
+      "public_sha256": "f8d043ec89d7fcd361cb3b2fd40ed6131a28942e1bcdd1d0a83996f808f28eab",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w1p4_reference/receipt.json",
+      "original_source_sha256": "1d4b15663527daee9ceb0089a1bcc934aa0bf1de1ba93533f4690b1d55af4750",
+      "public_sha256": "14ea902d1a1c0993b78c9389ef2e5d4b058aa46056a338dbf00c52c4404d87a3",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w_b_ssn_kd/receipt.json",
+      "original_source_sha256": "30d9730f61012dbd530ebfaf61e7089600d1f3d66af3778e32d3491364729e1a",
+      "public_sha256": "018fa56c2d8ce1617e155a4a44ed464788e29450079659da2570fb4078518c3a",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w_b_ssn_node/receipt.json",
+      "original_source_sha256": "8d6931381d089c294cadc20db92759e0ab0866b45895222bce9ce216ba3226c6",
+      "public_sha256": "8d6931381d089c294cadc20db92759e0ab0866b45895222bce9ce216ba3226c6",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w_b_ssn_reference/receipt.json",
+      "original_source_sha256": "92b5d24185acfebda56a30d8880a4283361918b8e51f9844417cb170ee77e23b",
+      "public_sha256": "7ed6046b046263e00dfa768938acaf0823e4cf08799d950c66822810aa2d4697",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w_b_usgs_kd/receipt.json",
+      "original_source_sha256": "876f8ed2378a0e5cb0ea9bf01faa290a04827fd72ca4800c7020131939dbe6d9",
+      "public_sha256": "74fb617a60eb2162209b84751d2730d8c0cdd128a871cf659da4bdee9da8d5fb",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w_b_usgs_node/receipt.json",
+      "original_source_sha256": "c1b8ee300bdf83cd88642cb636fc52b11611d96d3e7334ffe101fd24ca3a7f68",
+      "public_sha256": "c1b8ee300bdf83cd88642cb636fc52b11611d96d3e7334ffe101fd24ca3a7f68",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_common_w_b_usgs_reference/receipt.json",
+      "original_source_sha256": "46c16e1c88747aa39b5c594f11f83e2a9f9dcb48a9aa1a9184f1dff230c876a2",
+      "public_sha256": "adae57e0c6ce0093ced63f17408eba1793877693828157d4a0c1be4b1be41c73",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w0p8_kd/receipt.json",
+      "original_source_sha256": "e9345537dc8b296d95730fad5036bf7c0607721250a048c7c4d4b839826f0dba",
+      "public_sha256": "fe97fab7993ca4d03aac7022f32667e4a43e490e54c7c84e353d9e69680d73fd",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w0p8_node/receipt.json",
+      "original_source_sha256": "a574770131c8eeca5938b0ee07ae3c9ab9c1214a94cd87651d7b2c512bc15879",
+      "public_sha256": "a574770131c8eeca5938b0ee07ae3c9ab9c1214a94cd87651d7b2c512bc15879",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w0p8_reference/receipt.json",
+      "original_source_sha256": "c637f289a9980f48b707b4086fd765ee6c2c275e09eb18c42962fd92dab1e1ae",
+      "public_sha256": "9f4f5f97dbb16e3010350097c1af2f477b1d6013e3430dda7018de7724284eb3",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w0p9_kd/receipt.json",
+      "original_source_sha256": "1c0f0e83bf38203d40c9f0953fbee4ca74938cf0f1b85d20501a23191b13b2d1",
+      "public_sha256": "7a52b7c8ea241c819810a1c5ce6e7fc48ae92f7c00849223ad1acb73fa2d91c0",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w0p9_node/receipt.json",
+      "original_source_sha256": "195a5bc08a1c7bc84abd58f65935fcaf76acc27d04ec9b34bb6d13201113da81",
+      "public_sha256": "195a5bc08a1c7bc84abd58f65935fcaf76acc27d04ec9b34bb6d13201113da81",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w0p9_reference/receipt.json",
+      "original_source_sha256": "a733334976367abe9434c2ae70ea5389bad1b4e4eac3da8a0b5f9cc49a1f94ce",
+      "public_sha256": "1baa83c5f3579f70420804de4a680f659cb966e63924c16ad2644c994ffa3feb",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p0_kd/receipt.json",
+      "original_source_sha256": "d74de6bb7322cb0fab7cbb56ee52751412819f279f274d22705269e7a9e351b2",
+      "public_sha256": "f2b245b93bc24f97dc7c12fb7abbea04b96c62a738e008db91243d6b532de455",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p0_node/receipt.json",
+      "original_source_sha256": "f8015c5c0cb5dcb8579fce97db687e916fa8bd73f586766a1cd5c547e3f9318c",
+      "public_sha256": "f8015c5c0cb5dcb8579fce97db687e916fa8bd73f586766a1cd5c547e3f9318c",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p0_reference/receipt.json",
+      "original_source_sha256": "8b62a8056bd513a536cc0838e88e68e4c9142acc17d7521a0e676efcebfd763a",
+      "public_sha256": "357cb60d01e86f9d933a90f299d6dd752f7121247025ec21acaaa5702e95361d",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p1_kd/receipt.json",
+      "original_source_sha256": "834b5539ae37aaf69fa7632cccf9d65ccd86a2c1ca52bc19df73b95b34435ca8",
+      "public_sha256": "87d0c2b2e97e4511e843d5f63cefd5b1889cc18828ef373dc1fcefaea390ddd4",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p1_node/receipt.json",
+      "original_source_sha256": "73ae1b490fd3259e71dd4f927918894cb3263e589f59c7314c230ac82a1ac116",
+      "public_sha256": "73ae1b490fd3259e71dd4f927918894cb3263e589f59c7314c230ac82a1ac116",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p1_reference/receipt.json",
+      "original_source_sha256": "968d1932715203951e8deee4631faf17a735b013a5b8335ae842c94330186cc6",
+      "public_sha256": "52c1fe5e0ec2fd56c756d66e812fb36878546461e92c6fe575ce425fd2506130",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p2_kd/receipt.json",
+      "original_source_sha256": "74f73ea0103442df551a958b5de031eb5d913e3bc5c2a2a90b1de82cb24d62d3",
+      "public_sha256": "207463ecf63613ad564f5a224654c6ff6e2cc067db9ea87b41495705f393631e",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p2_node/receipt.json",
+      "original_source_sha256": "2ad98f1f5bedbe34173ab22ea5e413c75d4badf9296b3dbb9ec6484d1960be12",
+      "public_sha256": "2ad98f1f5bedbe34173ab22ea5e413c75d4badf9296b3dbb9ec6484d1960be12",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p2_reference/receipt.json",
+      "original_source_sha256": "d2379569b52887b55abefc43dfed97fd55c7b74f68b957826599acebfb24df13",
+      "public_sha256": "2e2fe041aac8f474ea6f9c4229aa6983d2f21cb1387aa724276eb58849099a05",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p3_kd/receipt.json",
+      "original_source_sha256": "d8d8246cc68d383b5ab09825fe7c4a48179e3e22078ef03f042bee7d87762ec3",
+      "public_sha256": "fccc44cdb7f73dcd5b559bd462c111d17b3ab0f21a4ff6ddae34ece7f6b543b5",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p3_node/receipt.json",
+      "original_source_sha256": "8ef7f450b4a595d92e5575ad4b2f008f7bec4c1d95f5bec8d1c9ab24b496d9ef",
+      "public_sha256": "8ef7f450b4a595d92e5575ad4b2f008f7bec4c1d95f5bec8d1c9ab24b496d9ef",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p3_reference/receipt.json",
+      "original_source_sha256": "322dfd7357192955c785e00eacb8c1a051c18df996e66c545b779a0518b7df74",
+      "public_sha256": "086d9ef22bf88590250ef5c81406af18967fd220ae41801fde4f60100f600c58",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p4_kd/receipt.json",
+      "original_source_sha256": "f291eb10a40e506112e1ad127c8cb572d5aa691aca5b4382c0eb083be241ebce",
+      "public_sha256": "951c334be55f525b7fc0496271d9c22e82f72b89454041c967aeffc3044621c8",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p4_node/receipt.json",
+      "original_source_sha256": "5321acff220608b55a693673043aeb200d5a380d144980596175d1ba46d8cace",
+      "public_sha256": "5321acff220608b55a693673043aeb200d5a380d144980596175d1ba46d8cace",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w1p4_reference/receipt.json",
+      "original_source_sha256": "4c6c454dbc943bd10976f25d205010c3090619f4aae0db68cb5ec124f8646c5d",
+      "public_sha256": "52305dcced2a01c9a46235fc9f097540b91f91ba6f46a542899d95b7e547561b",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w_b_ssn_kd/receipt.json",
+      "original_source_sha256": "e369a1669ef7097523c6a7d84198c0c74b2ba88cd5027717d78d9db177418164",
+      "public_sha256": "52defbea02115e1c063332100f145adb4259c0c2e4687fc8418cf3fdb50cbc48",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w_b_ssn_node/receipt.json",
+      "original_source_sha256": "6a7d765971d07d6cb4f63f1e5201202d4bad8a443c80a739ff0a782c8c90bf4f",
+      "public_sha256": "6a7d765971d07d6cb4f63f1e5201202d4bad8a443c80a739ff0a782c8c90bf4f",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w_b_ssn_reference/receipt.json",
+      "original_source_sha256": "3fc7dc11ef07ddb38cdcd55923e26323f62e9e9c0637e90f7a865dea9f0fc15b",
+      "public_sha256": "b79ee5f3f4471ad480083a113f3064325af4429e23e37ca4b7df74c335f2cd80",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w_b_usgs_kd/receipt.json",
+      "original_source_sha256": "51d5e2739dee47a8ce656686736af4e4e3cc83e23081db370ebd3813609c0616",
+      "public_sha256": "3bf018503e203720627d0fa8315f5c70f4381466808c9c3f43c81447c2c69cc3",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w_b_usgs_node/receipt.json",
+      "original_source_sha256": "63ebc83d981e1535f5ff83e6eaff8637f9b85b2f2f445d5ad932b0cba20edf37",
+      "public_sha256": "63ebc83d981e1535f5ff83e6eaff8637f9b85b2f2f445d5ad932b0cba20edf37",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/usgs_native_w_b_usgs_reference/receipt.json",
+      "original_source_sha256": "d0da951b09044686cc1d1bbeb899157c2e91fb875785febccc6bd6195a33b5ac",
+      "public_sha256": "3260184b25c18d0bbc01da30807e6e16b0662e55c6d5f6fca7d4e172b3b8af72",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/MANIFEST.json",
+      "original_source_sha256": "7a9a7ac9ba793e3ead84f2cb48bc394dab05eb87411f833b0866eadd4e273bce",
+      "public_sha256": "99baf96dca9bbd92b0c784d8d986a1ed7605dcbb1e5cd02329a8b221ff57f0ce",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_100000_kd_0/receipt.json",
+      "original_source_sha256": "40b2ae99b726118b9aa07b402ccc962a3b86ed7a0459a827f89e01d523dc59a2",
+      "public_sha256": "27e29fa2cf60fa7228e547b18bdce4324343be45f3995c6938e9bf3d83951dc1",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_100000_kd_1/receipt.json",
+      "original_source_sha256": "af186696532f413694ad1ef7ae99cef8393dec73c8e10c7db645b69d402aab1b",
+      "public_sha256": "16a5c97b103a46c24ade9836ff02d33d4aa0e76e2bed90594f333c44bba35396",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_100000_kd_2/receipt.json",
+      "original_source_sha256": "0daa53501b290ef787e6e1b30ada64d88a067f464cbda84a047f52a5e1e8a2b0",
+      "public_sha256": "b71a4c1da4239e2cf8b6d3e49cc9be0fb096b22bd7ccf2053edb6487f11d0666",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_100000_octree_0/receipt.json",
+      "original_source_sha256": "c040e6b72f4c5af99d9abcea8403c34c312f56159f87f9e43a1d5db1d03feb2e",
+      "public_sha256": "66ad2b218466fc2caf45443d2476eb8ea452344863cc0b94fe14c0c86a7a4a2f",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_100000_octree_1/receipt.json",
+      "original_source_sha256": "e1e30768aa172432349a0145f6003fd10525c5635372304e0d27f15b029d27bf",
+      "public_sha256": "99d96f26ccebc6762623f56973153e7a1baa6aee6da93581a6835b657f3ade44",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_100000_octree_2/receipt.json",
+      "original_source_sha256": "ac8cbb34586de072b973ff6c00e88b4efb539ed8aee5b4b901ef31aa98af1d6d",
+      "public_sha256": "6b71eea4d9267d2bfb7cc477b1598a18ec63a2995aa93b6dc52f6e1f79dd3f4c",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_100000_reference_0/receipt.json",
+      "original_source_sha256": "83731cd9410deac21653f1b795603876db18e15715f7120b9697286d97760f12",
+      "public_sha256": "db7d082eb0ca187aa9e02daea781d0822b8225de372a2b80652062bb90183cc3",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_100000_reference_1/receipt.json",
+      "original_source_sha256": "a291d7e6384d6ff45247e33b47ded542f1818cb4b70657a9f4cb448ddb0d16e0",
+      "public_sha256": "0ae6932f05d95c2df494a17b6030f8a1e31221388067a04b67e1c1cf9109be36",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_100000_reference_2/receipt.json",
+      "original_source_sha256": "7d4914bf465993ef448b953860946e077106ce054212c3ad221f66ba58143374",
+      "public_sha256": "5522d95e852cae71e98a3b04793f62a7183e241384c3109f34ecb9ff3f466fbb",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_10000_kd_0/receipt.json",
+      "original_source_sha256": "32be0c287695ab68e44e2e307c553c73a3ca2d186f9fe6f83f69359fb10115fb",
+      "public_sha256": "ed3a1f2eb71efe2621053584ee1f678ee930c4613661b04b87f1dad477f2bacc",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_10000_kd_1/receipt.json",
+      "original_source_sha256": "4df0930923f8f833221101c540bc9bc258200899625a25bb7bba185b7def0ec1",
+      "public_sha256": "46aa82d5a0991f02c665d23d4b6df4ac02027e770075060d7f7247d43253567f",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_10000_kd_2/receipt.json",
+      "original_source_sha256": "a7c9e3dc6d800e397d503cd9d4f0731a5028eb4e6332ffa0e8c16c8c3252eba8",
+      "public_sha256": "35e6d780a291ff61ee4104cdcb926a67872a2516f5da1b0722688bd58cab05f1",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_10000_octree_0/receipt.json",
+      "original_source_sha256": "506a4f723acca7a54d3939fe1563213625a7e1dee2482b6fce4d13a30f4ab77d",
+      "public_sha256": "4e29f1aa0b824965025d0e3149415078b69b8dc7f21f03ba22792de5d39428e5",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_10000_octree_1/receipt.json",
+      "original_source_sha256": "37ef6626acea41397f06f8714e26113498e00ba646d32f4c2031ffcfc890d972",
+      "public_sha256": "500e0d9bab415eafd5cf4a901a72ed584972e4735f2acfa4e7c531c0eb7f1e72",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_10000_octree_2/receipt.json",
+      "original_source_sha256": "c8d2284376d24b98ce6ffa6c0dfe0f7f34d77ea94506c5d20252395196f2909d",
+      "public_sha256": "86cf06d8e58497a2e4945cd30f9138626b09a45050fcecfe97b1dbd13a460a54",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_10000_reference_0/receipt.json",
+      "original_source_sha256": "92aece6cd99518ba769dd5343850fc7bc6efc0bde40a79d08b2aa23e87030d1e",
+      "public_sha256": "7ea66d23315fa8513b09dacbf89538185ff2c1ebb6180a9716b0dea56967fad7",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_10000_reference_1/receipt.json",
+      "original_source_sha256": "14f58b9959f68733eb17182eb23e2d88e523e9c1146ce83215c6c786bcb696e2",
+      "public_sha256": "f7c64958caed46f396bce96751951fcd86be44612d1d2e87cc53eb865a066857",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_10000_reference_2/receipt.json",
+      "original_source_sha256": "2d98c4dd545b8ca4e4f6e920df030b3543cf07d15f27f272f376eb0d2612e109",
+      "public_sha256": "152419f76cf8a04459116e5f97a0d2cd4d0367db56667ee3a40e5eccde29b797",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_170880_kd_0/receipt.json",
+      "original_source_sha256": "ffac7df379328c1e6aeb163522149c98263b440eca4cfa7de56069103ab2a119",
+      "public_sha256": "6c33b4738e260e2c31bc842f5ba9b6e331d5cdbfdf478ef1f93aa76eec37526d",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_170880_kd_1/receipt.json",
+      "original_source_sha256": "e115624933878dc5b828f20991479e3ae7a32a46e297a4b89244b9c0259c57c9",
+      "public_sha256": "3c45a6ff7c8078987c44c3dd276b30ad7c1ca5f0ad45669030fc232241080614",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_170880_kd_2/receipt.json",
+      "original_source_sha256": "b72be034d3d5ab85f987f6a01a96805ae17fb5469d657a0319af8d3ccbef97e2",
+      "public_sha256": "66edbeac9c4d4ea49ccafed5bfd84bc957e92644527e7ecb22c3ca0033d66a8b",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_170880_octree_0/receipt.json",
+      "original_source_sha256": "68152e80b5ba191a58d8ab29c2e1724485c7298bd8bb12ad86f177679abbc4d5",
+      "public_sha256": "2b8a59e8db869168fb0009974f487047d0673b57a74bef481196714380cdddb9",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_170880_octree_1/receipt.json",
+      "original_source_sha256": "7be7ab7ae03d8b3f4724328949bcff84889fddb22099577360cb3c798971b52a",
+      "public_sha256": "4ede25ed4bd5560b4971027dbbe8b2bbb2bf0454cebf940e3eda1f5b9049cabb",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_170880_octree_2/receipt.json",
+      "original_source_sha256": "dafd147e74d3111eeb3eeeb24ddc4ba83e36b3f13e968e7eb09c7d39639fda69",
+      "public_sha256": "975a836a9f696e885dbd08e6859408953d53fe8421c3d6481563fb12aae0b7f5",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_170880_reference_0/receipt.json",
+      "original_source_sha256": "eae2fd01497d8721bf8fda3a481d67754c0d7a6e2333d67f320fa10e72d7b205",
+      "public_sha256": "e8081f5c128d680d54375863889ae4a004fa8e59e7e4598a2dda1051b44dc2a0",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_170880_reference_1/receipt.json",
+      "original_source_sha256": "c08379595a77c37e34a6a3b2a2eabd5e3ba95e391c7151ae4421a9460bc2b4da",
+      "public_sha256": "cdae375e06c151b4f0ec221a25cfa94100dcd611375b4a23c14709e79f1a4fcd",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_170880_reference_2/receipt.json",
+      "original_source_sha256": "2ae498bb3e21b03a8eaa58b22be64611e13bae2e23173dd2b4eb912fd78af6b8",
+      "public_sha256": "df6c44e41eb3c37190aacd863bcb4196cd6c36a95ca66397c2c33e6d4892f6c9",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_20000_kd_0/receipt.json",
+      "original_source_sha256": "7367e6de4552986db408eeb18dc5a301a3ef26e079e5b3c5bdc304139f6f50bb",
+      "public_sha256": "74a69da6b525f54f570ae9a6af5dc38a056f9b80fefda0a7a8983dd190fb1a81",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_20000_kd_1/receipt.json",
+      "original_source_sha256": "9ffa0a4c7b1b82d05aabf137e419afd8e1a7247221db0eff999956697759b163",
+      "public_sha256": "ea28991f8f18c7d834f1823f83e4b8bed3a2d782bf904f41576dca3960f435ee",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_20000_kd_2/receipt.json",
+      "original_source_sha256": "02c9b4a03ffbb54a745e7d88fbb48d3feaa9ba45db80c4b15b3d3d30e8443d8c",
+      "public_sha256": "131607beb3d252356650a84d2c73a8e415884224e28863aed27075ba296f24e4",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_20000_octree_0/receipt.json",
+      "original_source_sha256": "67bffb560c07158a1d0d09db7fc3d9853cecd51856de4e1e5aedb0587ffc4d44",
+      "public_sha256": "043124522fa512f223bebd9944f338bac2a5ae9f7281f9d392c8a9b684e0dc4d",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_20000_octree_1/receipt.json",
+      "original_source_sha256": "f297021aff67de37a683f235eac8d1dd22435d5dca3ea8828f217210e27ee559",
+      "public_sha256": "47cbaffda161583b432c973abb91ff8a76e319d2b06b64f73c5b1f1e9a38783b",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_20000_octree_2/receipt.json",
+      "original_source_sha256": "6ef98d640b007fa3be80de27baf190faf0caa81df6851b14ef6f73c5ef075cc9",
+      "public_sha256": "5059ac9e0bb7452dd084344bb687630666894664ed34f81f24406aaa1747b6e8",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_20000_reference_0/receipt.json",
+      "original_source_sha256": "3b4777e57f1659a8deb8e722f0c5d41f97237cbec01d55916f6cd7150bc3b235",
+      "public_sha256": "340626c94f227740dc92c7272fc44d0c2415454def2e190e0e22815ce5a8b211",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_20000_reference_1/receipt.json",
+      "original_source_sha256": "e87e9d7b72746efb292096bfa3b36c607898b569d31a01d329f7a4edf9f3e238",
+      "public_sha256": "6ba0ba9fd71c955bdce5c864bb48b4a20af07ecacafbf992661cc7820591c4a2",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_20000_reference_2/receipt.json",
+      "original_source_sha256": "88c4c52dcbc43b1a21ddaf90bac6f768d4b62790aa1f6db4f66a2d7c1db86552",
+      "public_sha256": "4062fef55948070a43334a5f02bf73864d4f59abf9a4603b7cb1e2833277ed12",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_2000_kd_0/receipt.json",
+      "original_source_sha256": "e3e5ac654b563a9ffd62f71593765f566fd3ee3967c7c7847a07f2cb4adf4814",
+      "public_sha256": "4522190732bacec4e2b9d0a4f939539c75519ae395fc87db9e7c8e2ff88a20d8",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_2000_kd_1/receipt.json",
+      "original_source_sha256": "e99753da6e2431e8ce5dccabe1585fbe6d2798980ca0b5450ad6eb77fe56c08d",
+      "public_sha256": "e937de34c1d09c1b23a8e04b685e6265bc0e3cb4a190ec8489ca6ea423a82379",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_2000_kd_2/receipt.json",
+      "original_source_sha256": "980b6dda57d8908eb84feb4463506d224d449cb5b7f935eddebe2a8cf05a8401",
+      "public_sha256": "cc68b11400473b53619a361bc32ff5afffadbb76c71571a62c009c86fcfec685",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_2000_octree_0/receipt.json",
+      "original_source_sha256": "3e2ba28a1f2171a7449e0afa29002100029fcb59c2a72d2735be9cbce968aeda",
+      "public_sha256": "8ec3c56682bd8e07ccc25c52d5fa9518d6f54a0d813ce3c698ad085d7d02aef3",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_2000_octree_1/receipt.json",
+      "original_source_sha256": "4fcc5faec135b99673abe781a59621a856e2e861662c6cb2f6bee6c4199de4b6",
+      "public_sha256": "34855ea20db748d0cafdab787616aa0e58b1530d5b2bdf431d4f6b87ff602536",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_2000_octree_2/receipt.json",
+      "original_source_sha256": "fb1f3db00328a524dacf54826a0e0681925f193b2c95b10beeae1d9bcced95b4",
+      "public_sha256": "7ffb55f7e709a5cc5eb1451b85f5eafe0e3af21ae1fca72204161092054d9352",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_2000_reference_0/receipt.json",
+      "original_source_sha256": "e28662de30070caf09c9e96a0ebf0bc2d71babeb4684e0fce91b699467179829",
+      "public_sha256": "083151edd7f65928aa76828fc28e4986df9ecf4171afc27bbe976fd0a66fab50",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_2000_reference_1/receipt.json",
+      "original_source_sha256": "e424fd85df8f4736de92bbb3e65a306acee75d2b88c69749e67bac09eb2a94c9",
+      "public_sha256": "90f3eea0568273c0b0d2b314b2cbf7001b3d4da58ab253c5e3faf75578594091",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_2000_reference_2/receipt.json",
+      "original_source_sha256": "f1c57c1e204827d8f0b3580ebfca8bee59131363bde8571399d4375bb4a5fa51",
+      "public_sha256": "5004b20ad8b856042d6f79cac878874c95b8f92d33b1cd0d36cbd342c550fa4c",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_50000_kd_0/receipt.json",
+      "original_source_sha256": "4fbb9dc5247baadb8006d172870040e54358c9fb7911561b4033133c5d6eb189",
+      "public_sha256": "a975ef6ad197a3afeb82c7ecb172b9f3c8e5452152f28c1f526ab0c2216b0bb3",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_50000_kd_1/receipt.json",
+      "original_source_sha256": "b75120f763e82ba5154d568f045109501a25069df75395930a58a1622048781b",
+      "public_sha256": "af22da2a9b265617960f6361936214cf00ccdcc73eb7929c6618da864925e22e",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_50000_kd_2/receipt.json",
+      "original_source_sha256": "d7f1506d6864781a2f6746ecfa99801c0f09b4f86d87ebe0114a92f383ae730e",
+      "public_sha256": "9045d8f7a8c6688136f09a4afd144f6d6e40787785111a755f2b9abf08e5d74b",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_50000_octree_0/receipt.json",
+      "original_source_sha256": "7883d66c377a3fe5ac9e2596a821dbfaffe94ad9019de192b9d0e8d52eeaf499",
+      "public_sha256": "3e1244e2588bea38e91e035f639cc680c60c05015b19da656af6ab79127346f4",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_50000_octree_1/receipt.json",
+      "original_source_sha256": "88752b3ce4d3aa6c3e40afe1f09f09dad99a094f84a679597b85ca8dbcb15ee2",
+      "public_sha256": "bfa833ac49d0291b0e449a331cda70f635301dea4085ce36f06c97c78fa7a5f5",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_50000_octree_2/receipt.json",
+      "original_source_sha256": "ed00c609e02447ff4fa7d11b33c0d989e8772dcdc96cf1c9986e386e72814470",
+      "public_sha256": "758c6e800d6f40139d681168102efdb14221cdb1395a8e42c74c1de684e8687f",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_50000_reference_0/receipt.json",
+      "original_source_sha256": "089fdff68b27223cba37b978faeaef294fb77f3902f961aa70cad7bca2e1c2fb",
+      "public_sha256": "ccda080ea6ae3a38b19f338408ec53cb56a70abdafb5fb3597e28c2d4ed3266a",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_50000_reference_1/receipt.json",
+      "original_source_sha256": "b558de1ad0671644686ce34b3814854e38d7b3d86fc0c50c88c337ef6c523f8a",
+      "public_sha256": "69b820a736e068d258463f4679eced4b3645568e46b7d7c2bf93846fa9336efb",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_50000_reference_2/receipt.json",
+      "original_source_sha256": "b925f97185bcbb864d4fc6d94bf4cffc6a8f0aa51f0a4ba9254850368e1d2a01",
+      "public_sha256": "6b43ad389852b38277f53e081ef6143c8d440c6afa9b1048d1cb89b42891b8f7",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_5000_kd_0/receipt.json",
+      "original_source_sha256": "48c5fa2b3d9b7b677a79e4b7a8b6de5708be4bb7327bbe7bd534d1880602251d",
+      "public_sha256": "4ef23fd5107a7617c658e6dd7202744a3f868da34bf1af82f30d2e1f03dfee51",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_5000_kd_1/receipt.json",
+      "original_source_sha256": "18ca1ec11b77c1cf0c10a6703e3287bd1cf138484044f6796ae0a1754abd1be7",
+      "public_sha256": "5a3d9f346664ffc01caf4752d875b7f9063d38aaa371014bbf437772e661f1e8",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_5000_kd_2/receipt.json",
+      "original_source_sha256": "39e3e6e4134eb52ee7ccc24cda275d7a2fbabc5ec694f1afacf730da34d09735",
+      "public_sha256": "020cd5236c173976117d7e125b75e5e1e22877e1929a8eb9cb91652067f4f621",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_5000_octree_0/receipt.json",
+      "original_source_sha256": "c46a790e7086db3a5549622ec103c05ee1686cafb5e011382ec34a800ab03352",
+      "public_sha256": "b559da416255a0b7c4505ac48084bac4b55e787885c3210417e8e2a4bdefe442",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_5000_octree_1/receipt.json",
+      "original_source_sha256": "6e94171d99e52fe151a72a8de70286d6dcd36fed0dfd8fdcfedbe1320e777cf1",
+      "public_sha256": "d8e451660e689ae5f05c57c6d6222562e694adae925ac59bbc10038240bab4b5",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_5000_octree_2/receipt.json",
+      "original_source_sha256": "49b29c8780fc0cfe9078aac1d9ab66523ae2346f85beeefe0085d8e2c5766c04",
+      "public_sha256": "de0afe337b2f09c8a9eef314475ee04f7bf4c2aacf6b183140fd83bd84135ba3",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_5000_reference_0/receipt.json",
+      "original_source_sha256": "3bf13883152057526ddf9dd08ae7bed7fd444f0f4950f0e446cc5b59f3520a87",
+      "public_sha256": "74c8a8208ecbe07215b10b4ddb3d0f2edb994b9b99dc7f1b8bb99590579a7261",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_5000_reference_1/receipt.json",
+      "original_source_sha256": "2fa8abfb819be5d6d6b00d3aa7420784dfccbb696c2bd7be016234f12283c6cd",
+      "public_sha256": "d40218714857c0502d08a2ade9619d0145315a29b0e70a4704b9e40926ece2a0",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_native_5000_reference_2/receipt.json",
+      "original_source_sha256": "7fc8accd1fe1f383b4297de19d32469887553970f20529975998974ec8ffe5b2",
+      "public_sha256": "12a4de0a4ca8bdfe3e382cfd6ce28216612a83e46a5d4a04f9450707daae552a",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_principal45_kd_0/receipt.json",
+      "original_source_sha256": "d9d9e47c4ac8352ef0f467a04b9f8286e9f3d1ac3d88a3de6a9ca0861f708389",
+      "public_sha256": "4c4d5da5fa3eab9c532bf20d8cc0ac70187b64213b6c7bf024a673259fb21789",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_principal45_kd_1/receipt.json",
+      "original_source_sha256": "b77f8bbc1262e81ff3b01fc026658a19a18bc0774f532fd0ba15972f6d768bfe",
+      "public_sha256": "ebef30beb60bc7de0c7e7ecde547f48e538c5cdde3ef55366368534230f060d6",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_principal45_kd_2/receipt.json",
+      "original_source_sha256": "9268bf6bcfb0c324e9a391218525013047e25a31941434caff384cfbedf0e4b6",
+      "public_sha256": "db1e82b0c8ae5fd3ee37b00c350472cefba2f200dcaa6a886fd950a0e75b9c49",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_principal45_octree_0/receipt.json",
+      "original_source_sha256": "32301c9630f9220b70d2968e071c7a27b0724db797fc812c7cf8f5259421d99c",
+      "public_sha256": "9b6d7259346c896e20ebf6db3d187f8df14f4a28e1e31a92551a9eed37cc7d2a",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_principal45_octree_1/receipt.json",
+      "original_source_sha256": "5fd0ba05ff6b5e29dde4cab059e866096fee8b495273d6ff9e03ce09daf17b31",
+      "public_sha256": "50752b5534b55232a043d36f36b6297ab1d77478aa0d66ddbb626c18eb3cf78d",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_principal45_octree_2/receipt.json",
+      "original_source_sha256": "812df799e2f0c910634d282b50e04b7aaa8b75db56d53e18216b74a45e5d00cb",
+      "public_sha256": "4f925de58123c59507baa6c04b191e7627e13d747f89a15367c61ae21de64be1",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_principal45_reference_0/receipt.json",
+      "original_source_sha256": "ee423c08fb06c2fd2da68b7f7d82b1aaeced575079996c6df645b8bf5cc9fa59",
+      "public_sha256": "c8bd4ad476e28a09e3abd9340ac82f59ccf68658ae69072a9f952d416c3dbbb0",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_principal45_reference_1/receipt.json",
+      "original_source_sha256": "75025be1f14c7d2060765ffe669c1693a9789245a5a14de9152748659c048e6f",
+      "public_sha256": "5047f138a704c565457ff3a2fd4fe2a2e9d6f3641df281fcfa1160e7a10f98cd",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/ssn_principal45_reference_2/receipt.json",
+      "original_source_sha256": "cf98fa68a73b63cb83448d62342837f76b89dd5e80887b77770acfc1f27ebfff",
+      "public_sha256": "3cc961a559fa1a62664acb2d33177211d78ed73d6e12a819a4eee530a21368bb",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/usgs_principal45_kd_0/receipt.json",
+      "original_source_sha256": "629b3349d3e40b943f5ea7c771d6046e4ab8defe619d43e577d57b4f8e4282e1",
+      "public_sha256": "8261e4048493cbce9ead8279865607ef918182f89045b4a5d42599d8fd935c6e",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/usgs_principal45_kd_1/receipt.json",
+      "original_source_sha256": "2275f558fa5081cffcbb3ca0a6222698ce9f4867fd6c5eb689f4dd064ad5ffb1",
+      "public_sha256": "a9e54a3b7eaeb82471d2392d66a03a046dc248102990b816d308b3cfd8268aae",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/usgs_principal45_kd_2/receipt.json",
+      "original_source_sha256": "2ba17c69c5e67da1026b261168311eb1d1d77b670acade46e93d64c085326e44",
+      "public_sha256": "8c3ab55fcf48e5dd2bbea1237b2735ab679ddbc0657ec26ee15552a3942050b6",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/usgs_principal45_octree_0/receipt.json",
+      "original_source_sha256": "6aa473eafa3bdbb465140e5f1f81d822d905c250b59d6fb0dca938d14b78bcc3",
+      "public_sha256": "e7b3eeaf11bc54123b30dbf9ef7852838248cc75b0cf8d1587f8828a07a2b3e3",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/usgs_principal45_octree_1/receipt.json",
+      "original_source_sha256": "93bda3bac37c45fff12bf02fb4e571f9f46db06cf9a6e9ba3a61dbf61c4f01b9",
+      "public_sha256": "e218ee46f1d607edcb3ef9a1fb47c9cb20fdf3e0e8420a909f8d95769991ab08",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/usgs_principal45_octree_2/receipt.json",
+      "original_source_sha256": "e13a38ac94e3d4a13cd6bbf04fafd3d49b8d5117e395dc469f83af813ea0e08b",
+      "public_sha256": "86b8dfcfa79e14729770ce0da06b19fee071f8035a195618bcb1419d5eaa9cfe",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/usgs_principal45_reference_0/receipt.json",
+      "original_source_sha256": "d9eda7692b299aaae276b49f30e020ce7eb27b7f2fb5d6a99db7b86d56b6f89f",
+      "public_sha256": "52d0a839e257b13b4869a00ac8e6951a68606eae281aa71de64bc4a6f59c0787",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/usgs_principal45_reference_1/receipt.json",
+      "original_source_sha256": "a914b9ac49123a7abbbee8f2609675892533844ef0d4b400df677002916ac58b",
+      "public_sha256": "096233c07d57adca7ed707ba1e6ca583c4fff65f3bcbb5824124cb7f18299def",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/usgs_principal45_reference_2/receipt.json",
+      "original_source_sha256": "678b1c4614ea8efbfcb7602bab044002b637f0a6442478f2caa1ccb3959416fe",
+      "public_sha256": "77dfd81b1bc4dbf27e218acc268939f2b1824a35af0a4c0287153302a02e04b0",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "expected/outputs/claude_round2_2026-11-17/science/zero_distance/runs/zero_run_01/MANIFEST.json",
+      "original_source_sha256": "e3a9cbfec9d80f35e657b62b80e7e92fcd4c19e8d79d1eca3190bb2aed64b713",
+      "public_sha256": "5e5ba8742abab1ea1959a129faf2b530cf258c358b704afe066af25b3bd1d450",
+      "operation": {
+        "project_relative_paths": true,
+        "drop_keys": [
+          "cpu_exclusive_note",
+          "cpu_status",
+          "argv",
+          "python_executable"
+        ]
+      }
+    },
+    {
+      "logical_path": "source_layout/outputs/ssn_usgs_pilot_2026-11-15/gem_results/30s_50km/gem_stdout_stderr.log",
+      "original_source_sha256": "8c924d7ef89668cb36358f83c8af375048589e0efef887222a50cfcb642791bd",
+      "public_sha256": "6a87364f2a606ec0aef2ecb0b9533f498776ba1a0dec3b84dd39d2ed3ed27b5d",
+      "operation": {
+        "text_project_prefix": true
+      }
+    },
+    {
+      "logical_path": "source_layout/outputs/ssn_usgs_pilot_2026-11-15/gem_results/30s_50km/run.json",
+      "original_source_sha256": "777e7ecb885f4de67a22392adfc3f88735fd6b266aa083cca1883245bb99d39c",
+      "public_sha256": "caa239ee81f6d1710f88ff623716489ed2c224e926e948bdf398a87f5cf6afd4",
+      "operation": {
+        "project_relative_paths": true
+      }
+    },
+    {
+      "logical_path": "source_layout/research/sequences/references/association_window_reference.json",
+      "original_source_sha256": "38b3f63e16dfc7a89eb2fc3f92e87a7c81ff2b4dfc4b0e9d10f8836f0227d582",
+      "public_sha256": "91153360247d2938dfc2ca98fc45c26f5fb4809167c21862b1745feb9c9a04c6",
+      "operation": {
+        "include_keys": [
+          "sensitivity"
+        ]
+      }
+    }
+  ],
+  "numerical_source_bytes_changed": false,
+  "original_private_aggregates_excluded": true
+}

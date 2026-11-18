@@ -1,0 +1,46 @@
+{
+  "status": "executed_official_GEM",
+  "utc": "2026-11-15T19:58:30.259787+00:00",
+  "gem_commit": "d13e63bebedcc6788e0ec88e8632957b749d3b60",
+  "inputs": [
+    {
+      "path": "outputs/ssn_usgs_pilot_2026-11-15/ssn_cohort.csv",
+      "sha256": "f32bb059288974d175f449d088975b6dc6369823b048b16d635d16f132c46999"
+    },
+    {
+      "path": "outputs/ssn_usgs_pilot_2026-11-15/usgs_cohort.csv",
+      "sha256": "063bcce8eb1ae48c2c2c52fa3df06bb38e9d596b09f8fffd3e0286f0271627b0"
+    }
+  ],
+  "adapter_sha256": "239021fd678571bf1fa8aa5631f19172377d0a52d51cd23a6f212c01a5f2f9ba",
+  "host_source": "SSN",
+  "guest_source": "USGS",
+  "host_input": 170880,
+  "guest_input": 3945,
+  "excluded": 0,
+  "associated_pairs": 2989,
+  "retained_groups": 171836,
+  "new_guest_events": 956,
+  "time_seconds": 30,
+  "distance_km": 50,
+  "official_api": "ISFCatalogue._create_spatial_index; add_external_idf_formatted_catalogue",
+  "official_module_path": "outputs/ssn_usgs_pilot_2026-11-15/gem_env/official_source/openquake/cat/isf_catalogue.py",
+  "use_kms": true,
+  "use_ids": false,
+  "buff_ll": 0,
+  "buff_t_seconds": 0,
+  "threshold_semantics": "strict time_delta < time_seconds AND GEM geodetic_distance < distance_km",
+  "ordering": "input CSV order preserved within each source; host=SSN by default",
+  "candidate_semantics": "first eligible Rtree candidate; not globally optimal; same magnitude agency cannot be added twice",
+  "prefilter": "GEM uses a fixed +/-2 degree bounding box before geodetic distance",
+  "uncertainty": "no independent physical-event truth; associations are algorithm output, not accuracy",
+  "magnitude": "reported values retained; no conversion or magnitude difference matching; missing type becomes GEM UK internally",
+  "time_mapping": "GEM datetime supports microseconds; raw input CSV retained without changes",
+  "records_with_nonzero_submicroseconds": 0,
+  "doubts": {},
+  "python": "3.12.14 (main, Aug 25 2026, 14:01:42) [MSC v.1944 64 bit (AMD64)]",
+  "platform": "Windows-11-10.0.26300-SP0",
+  "engine_version": "3.25.1",
+  "merging_seconds": 2970.380487300019,
+  "total_seconds": 2980.222446800006
+}

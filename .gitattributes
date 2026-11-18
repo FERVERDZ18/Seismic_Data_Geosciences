@@ -8,9 +8,13 @@ research-data/catalogs/** -text
 system/dist/** -text whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol
 system/dist/data/** -text
 system/dist/vendor/leaflet/** -text
+# Preserve frozen scientific inputs, source pins and document builds verbatim.
+research/sequences/** -text
+paper/manuscript/** -text
 
 # Keep continuity out of site archives; these files remain visible in Git if published.
 AGENTS.md export-ignore
 contexto/ export-ignore
-paper/ export-ignore
+paper/drafts/ export-ignore
+paper/figures/ export-ignore
 outputs/ export-ignore

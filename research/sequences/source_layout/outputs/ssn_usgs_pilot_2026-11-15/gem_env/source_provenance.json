@@ -1,0 +1,71 @@
+{
+  "licence_file": "LICENSE",
+  "repository": "https://github.com/GEMScienceTools/oq-mbtk",
+  "files": [
+    {
+      "url": "https://raw.githubusercontent.com/GEMScienceTools/oq-mbtk/d13e63bebedcc6788e0ec88e8632957b749d3b60/LICENSE",
+      "sha256": "76a97c878c9c7a8321bb395c2b44d3fe2f8d81314d219b20138ed0e2dddd5182",
+      "path": "LICENSE",
+      "bytes": 34520
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GEMScienceTools/oq-mbtk/d13e63bebedcc6788e0ec88e8632957b749d3b60/pyproject.toml",
+      "sha256": "90661e95368366851a311a4e4aa25503246d31f43992bd8d765d42fa46868ad4",
+      "path": "pyproject.toml",
+      "bytes": 1811
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GEMScienceTools/oq-mbtk/d13e63bebedcc6788e0ec88e8632957b749d3b60/requirements-win64.txt",
+      "sha256": "0ea52cec300fbd3a1fb8cb8651dd5a9ca3c61aa1113721a0501f3a44beef6288",
+      "path": "requirements-win64.txt",
+      "bytes": 418
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GEMScienceTools/oq-mbtk/d13e63bebedcc6788e0ec88e8632957b749d3b60/docsrc/contents/cat.rst",
+      "sha256": "291efbf2e83b3d509fa0239653599dfe5af1a643950c8dfe335889e527c99d6f",
+      "path": "docsrc/contents/cat.rst",
+      "bytes": 20129
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GEMScienceTools/oq-mbtk/d13e63bebedcc6788e0ec88e8632957b749d3b60/openquake/cat/__init__.py",
+      "sha256": "7bfbfa2e9db829b9ac2cbc3b23494fba0b055c85f60031e87de945caffecc044",
+      "path": "openquake/cat/__init__.py",
+      "bytes": 561
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GEMScienceTools/oq-mbtk/d13e63bebedcc6788e0ec88e8632957b749d3b60/openquake/cat/isf_catalogue.py",
+      "sha256": "b4b69f6a342fd6f86a1a5ef5143b6aa9e7c75143be6d6ff784c6151f2f703b15",
+      "path": "openquake/cat/isf_catalogue.py",
+      "bytes": 54547
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GEMScienceTools/oq-mbtk/d13e63bebedcc6788e0ec88e8632957b749d3b60/openquake/cat/utils.py",
+      "sha256": "9158e8125a3fb7877052a61f706ccd1297e7a82421bd8d764d1c510a5dfcc909",
+      "path": "openquake/cat/utils.py",
+      "bytes": 91346
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GEMScienceTools/oq-mbtk/d13e63bebedcc6788e0ec88e8632957b749d3b60/openquake/cat/hmg/merge.py",
+      "sha256": "073819e0a1884a502df621f7296854024a0dfe82f8427cfb2c42c6a6f0ffb8db",
+      "path": "openquake/cat/hmg/merge.py",
+      "bytes": 12970
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GEMScienceTools/oq-mbtk/d13e63bebedcc6788e0ec88e8632957b749d3b60/openquake/cat/tests/isf_catalogue_test.py",
+      "sha256": "e60c6f64328b770c5c0e3622cda2d0262ae9b5a5e0956a4a15b363b9936e5473",
+      "path": "openquake/cat/tests/isf_catalogue_test.py",
+      "bytes": 10754
+    },
+    {
+      "url": "https://raw.githubusercontent.com/GEMScienceTools/oq-mbtk/d13e63bebedcc6788e0ec88e8632957b749d3b60/openquake/cat/tests/merge_test.py",
+      "sha256": "5e51d05af2780ae2d44b74f18c4c8a17d7f28da3c9006c353c3ed72bd76e71d2",
+      "path": "openquake/cat/tests/merge_test.py",
+      "bytes": 11327
+    }
+  ],
+  "scope": "Unmodified official modules required for catalogue merging; not an installation of all MBTK components",
+  "commit": "d13e63bebedcc6788e0ec88e8632957b749d3b60",
+  "commit_date": "2026-11-11T11:13:38Z",
+  "licence_pyproject": "AGPL-3.0-only",
+  "retrieved_utc": "2026-11-15T19:03:59.1037914Z"
+}

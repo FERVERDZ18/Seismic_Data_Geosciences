@@ -10,7 +10,9 @@ outputs/paper/*
 !outputs/paper/Seismic_CG_manuscript.docx
 !outputs/paper/Seismic_CG_manuscript.pdf
 paper/drafts/
-# Only the two final manuscript files above are public; authoring inputs stay local.
+# Historical finals above remain intact. The authorized current manuscript and
+# its portable source are prepared separately in paper/manuscript/. Private
+# prompts, review records and historical drafts remain local.
 paper/figures/
 paper/templates/*.docx
 # Preserve original scientific bytes locally until source-specific release rights

@@ -1,0 +1,58 @@
+{
+  "schema": "round2-southern-context-control/1",
+  "queries": [
+    {
+      "label": "2016_2021",
+      "local_start_inclusive": "2016-01-01",
+      "local_end_exclusive": "2021-01-01",
+      "params": {
+        "format": "geojson",
+        "starttime": "2016-01-01T00:00:00Z",
+        "endtime": "2021-01-01T00:00:00Z",
+        "minlatitude": 12,
+        "maxlatitude": 33,
+        "minlongitude": -118,
+        "maxlongitude": -86,
+        "minmagnitude": 3.5,
+        "eventtype": "earthquake",
+        "orderby": "time-asc",
+        "limit": 20000
+      },
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2016-01-01T00%3A00%3A00Z&endtime=2021-01-01T00%3A00%3A00Z&minlatitude=12&maxlatitude=33&minlongitude=-118&maxlongitude=-86&minmagnitude=3.5&eventtype=earthquake&orderby=time-asc&limit=20000"
+    },
+    {
+      "label": "2021_2026",
+      "local_start_inclusive": "2021-01-01",
+      "local_end_exclusive": "2026-01-01",
+      "params": {
+        "format": "geojson",
+        "starttime": "2021-01-01T00:00:00Z",
+        "endtime": "2026-01-01T00:00:00Z",
+        "minlatitude": 12,
+        "maxlatitude": 33,
+        "minlongitude": -118,
+        "maxlongitude": -86,
+        "minmagnitude": 3.5,
+        "eventtype": "earthquake",
+        "orderby": "time-asc",
+        "limit": 20000
+      },
+      "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2021-01-01T00%3A00%3A00Z&endtime=2026-01-01T00%3A00%3A00Z&minlatitude=12&maxlatitude=33&minlongitude=-118&maxlongitude=-86&minmagnitude=3.5&eventtype=earthquake&orderby=time-asc&limit=20000"
+    }
+  ],
+  "md_sha256": "aa3cee08bb15778a8e51c5afe88fe2f9bf5c542bcce524176ff302da31876c08",
+  "inputs_sha256": "d06a231c7bc9375ab0be9908cfcfe2eb1ccbaeb2f1f309ba98230bf74288ac59",
+  "download_script_sha256": "e6a757b68537b2ba24430e967a99fef0a82e207b0c2f350236d7f8db0a23248a",
+  "no_new_SSN_snapshot": true,
+  "no_mixing_old_and_new_ComCat": true,
+  "analysis_cpu_gate": "WAIT root",
+  "old_latitude_min": 14,
+  "new_latitude_min": 12,
+  "magnitude_input_floor": "3.5",
+  "magnitude_analysis_cut": "4.5",
+  "development_end_exclusive": "2021-01-01",
+  "w": 1.0,
+  "d": 1.6,
+  "matching_seconds": 30,
+  "matching_km": 50
+}

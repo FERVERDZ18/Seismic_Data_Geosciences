@@ -1,0 +1,433 @@
+{
+  "platform": "Windows x64 CPython3.12",
+  "files": [
+    {
+      "name": "bruces",
+      "version": "0.5.0",
+      "filename": "bruces-0.5.0-py3-none-any.whl",
+      "bytes": 36435,
+      "sha256": "521ff7fb9371d8b5a452fb31d18694a25c779f005735bbbc964c8136142559ad"
+    },
+    {
+      "name": "certifi",
+      "version": "2025.11.12",
+      "filename": "certifi-2025.11.12-py3-none-any.whl",
+      "bytes": 159438,
+      "sha256": "97de8790030bbd5c2d96b7ec782fc2f7820ef8dba6db909ccf95449f2d062d4b"
+    },
+    {
+      "name": "contourpy",
+      "version": "1.4.0",
+      "filename": "contourpy-1.4.0-cp312-cp312-win_amd64.whl",
+      "bytes": 234083,
+      "sha256": "6e697d94e69f499ff6bebb899cae97a58d5d14f0e1fe9568b43a0248d2f9af8c"
+    },
+    {
+      "name": "cycler",
+      "version": "0.12.1",
+      "filename": "cycler-0.12.1-py3-none-any.whl",
+      "bytes": 8321,
+      "sha256": "85cef7cff222d8644161529808465972e51340599459b8ac3ccbac5a854e0d30"
+    },
+    {
+      "name": "fonttools",
+      "version": "4.68.0",
+      "filename": "fonttools-4.68.0-cp312-cp312-win_amd64.whl",
+      "bytes": 2533508,
+      "sha256": "fedc183bdbc3fdbfbdca26e0e04566d089cbb404712509a4e824608e9304cc77"
+    },
+    {
+      "name": "gitdb",
+      "version": "4.0.12",
+      "filename": "gitdb-4.0.12-py3-none-any.whl",
+      "bytes": 62794,
+      "sha256": "67073e15955400952c6565cc3e707c554a4eea2e428946f7a4c162fab9bd9bcf"
+    },
+    {
+      "name": "GitPython",
+      "version": "3.2.1",
+      "filename": "gitpython-3.2.1-py3-none-any.whl",
+      "bytes": 231548,
+      "sha256": "d66b0832aa8755c1a84892937282df0befb16c97e5a64aeebd68be9c5e323f53"
+    },
+    {
+      "name": "importlib_metadata",
+      "version": "10.2.0",
+      "filename": "importlib_metadata-10.2.0-py3-none-any.whl",
+      "bytes": 34109,
+      "sha256": "c7a4bf1c7479601f6b8e437cfc14f4f77028ba62a8f34ae95cd93d9774dfba51"
+    },
+    {
+      "name": "kiwisolver",
+      "version": "1.5.1",
+      "filename": "kiwisolver-1.5.1-cp312-cp312-win_amd64.whl",
+      "bytes": 70748,
+      "sha256": "06a6917674de9e0fe3f66f5430787f59a9f2ddb64af9b714eaec547e29ef5c19"
+    },
+    {
+      "name": "lazy-importer",
+      "version": "0.1.0",
+      "filename": "lazy_importer-0.1.0-py3-none-any.whl",
+      "bytes": 12580,
+      "sha256": "bd93fab7bef18e842eea02b839410954d37889140dc64ca4d9680aec6880c739"
+    },
+    {
+      "name": "llvmlite",
+      "version": "0.46.0",
+      "filename": "llvmlite-0.46.0-cp312-cp312-win_amd64.whl",
+      "bytes": 38138940,
+      "sha256": "398b39db462c39563a97b912d4f2866cd37cba60537975a09679b28fbbc0fb38"
+    },
+    {
+      "name": "matplotlib",
+      "version": "3.10.3",
+      "filename": "matplotlib-3.10.3-cp312-cp312-win_amd64.whl",
+      "bytes": 8067954,
+      "sha256": "cf37d8c6ef1a48829443e8ba5227b44236d7fcaf7647caa3178a4ff9f7a5be05"
+    },
+    {
+      "name": "networkx",
+      "version": "3.4.2",
+      "filename": "networkx-3.4.2-py3-none-any.whl",
+      "bytes": 1723263,
+      "sha256": "df5d4365b724cf81b8c6a7312509d0c22386097011ad1abe274afd5e9d3bbc5f"
+    },
+    {
+      "name": "numba",
+      "version": "0.63.1",
+      "filename": "numba-0.63.1-cp312-cp312-win_amd64.whl",
+      "bytes": 2750282,
+      "sha256": "bbad8c63e4fc7eb3cdb2c2da52178e180419f7969f9a685f283b313a70b92af3"
+    },
+    {
+      "name": "numpy",
+      "version": "2.2.6",
+      "filename": "numpy-2.2.6-cp312-cp312-win_amd64.whl",
+      "bytes": 12614190,
+      "sha256": "c1f9540be57940698ed329904db803cf7a402f3fc200bfe599334c9bd84a40b2"
+    },
+    {
+      "name": "packaging",
+      "version": "26.3",
+      "filename": "packaging-26.3-py3-none-any.whl",
+      "bytes": 129956,
+      "sha256": "d7193f7c8e4e93f444fde0262bf90af30e16fa0ad0ad44cb553c87339b23cd1c"
+    },
+    {
+      "name": "pillow",
+      "version": "13.0.0",
+      "filename": "pillow-13.0.0-cp312-cp312-win_amd64.whl",
+      "bytes": 7272166,
+      "sha256": "ff3fe9eb621fbb9db4c4be33ab946f6bac5f98ab50ca8d3260503653656c961b"
+    },
+    {
+      "name": "portion",
+      "version": "2.4.0",
+      "filename": "portion-2.4.0-py3-none-any.whl",
+      "bytes": 27715,
+      "sha256": "a084deb01382b53fc7bc83f0734879c537cd7f22c6b6f78ccdc39e963016ea0c"
+    },
+    {
+      "name": "py-cpuinfo",
+      "version": "9.0.0",
+      "filename": "py_cpuinfo-9.0.0-py3-none-any.whl",
+      "bytes": 22335,
+      "sha256": "859625bc251f64e21f077d099d4162689c762b5d6a4c3c97553d56241c9674d5"
+    },
+    {
+      "name": "pyparsing",
+      "version": "3.3.3",
+      "filename": "pyparsing-3.3.3-py3-none-any.whl",
+      "bytes": 126420,
+      "sha256": "ece8c00a69cf01b45d0b1dedabb469c90d8caf996d4fda40f147627a122849a4"
+    },
+    {
+      "name": "pyproj",
+      "version": "3.7.2",
+      "filename": "pyproj-3.7.2-cp312-cp312-win_amd64.whl",
+      "bytes": 6312176,
+      "sha256": "11614a054cd86a2ed968a657d00987a86eeb91fdcbd9ad3310478685dc14a128"
+    },
+    {
+      "name": "python-dateutil",
+      "version": "4.0.0",
+      "filename": "python_dateutil-4.0.0-py3-none-any.whl",
+      "bytes": 92853,
+      "sha256": "a5e246f79eb80475e691bf93862cead98decd8a498cf53ba0516fcdc0f50dc1c"
+    },
+    {
+      "name": "PyYAML",
+      "version": "6.0.3",
+      "filename": "pyyaml-6.0.3-cp312-cp312-win_amd64.whl",
+      "bytes": 154003,
+      "sha256": "5fcd34e47f6e0b794d17de1b4ff496c00986e1c83f7ab2fb8fcfe9616ff7477b"
+    },
+    {
+      "name": "reproducible",
+      "version": "0.4.1",
+      "filename": "reproducible-0.4.1-py3-none-any.whl",
+      "bytes": 17369,
+      "sha256": "228d706494cfcd187da335f1c8f89054906c3868810442b1b775a9aa68ccadec"
+    },
+    {
+      "name": "scipy",
+      "version": "1.15.3",
+      "filename": "scipy-1.15.3-cp312-cp312-win_amd64.whl",
+      "bytes": 40966184,
+      "sha256": "52092bc0472cfd17df49ff17e70624345efece4e1a12b23783a1ac59a1b728ed"
+    },
+    {
+      "name": "smmap",
+      "version": "5.0.3",
+      "filename": "smmap-5.0.3-py3-none-any.whl",
+      "bytes": 24390,
+      "sha256": "c106e05d5a61449cf6ba9a1e650227ecfb141590d2a98412103ff35d89fc7b2f"
+    },
+    {
+      "name": "sortedcontainers",
+      "version": "2.4.0",
+      "filename": "sortedcontainers-2.4.0-py2.py3-none-any.whl",
+      "bytes": 29575,
+      "sha256": "a163dcaede0f1c021485e957a39245190e74249897e2ae4b2aa38595db237ee0"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "filename": "tzdata-2026.6-py2.py3-none-any.whl",
+      "bytes": 348210,
+      "sha256": "0a10eec6e13ef16b627fabed9a5f2ba61a62b1c67f327305f4e7e412a70b4aec"
+    },
+    {
+      "name": "utm",
+      "version": "0.8.1",
+      "filename": "utm-0.8.1-py3-none-any.whl",
+      "bytes": 8613,
+      "sha256": "e3d5e224082af138e40851dcaad08d7f99da1cc4b5c413a7de34eabee35f434a"
+    },
+    {
+      "name": "zipp",
+      "version": "4.1.2",
+      "filename": "zipp-4.1.2-py3-none-any.whl",
+      "bytes": 10581,
+      "sha256": "b30cb6cd253122169c47de245ca24a86bac2a5d3802ba15bf7ba6414eb9e144d"
+    }
+  ],
+  "license_notices": [
+    {
+      "package": "bruces",
+      "wheel_member": "bruces-0.5.0.dist-info/LICENSE",
+      "copy_path": "wheel_licenses/bruces/LICENSE",
+      "sha256": "a10089ce2dd3aea55abff9188118a854e1d9a0b780c7e673b1b4d0db5e90be39"
+    },
+    {
+      "package": "certifi",
+      "wheel_member": "certifi-2025.11.12.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/certifi/licenses/LICENSE",
+      "sha256": "e93716da6b9c0d5a4a1df60fe695b370f0695603d21f6f83f053e42cfc10caf7"
+    },
+    {
+      "package": "contourpy",
+      "wheel_member": "contourpy-1.4.0.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/contourpy/licenses/LICENSE",
+      "sha256": "0e55e86a8fbf3e9b482ae8dc9e111e1b0dc09a7d300e7f480dda68c1125ed614"
+    },
+    {
+      "package": "cycler",
+      "wheel_member": "cycler-0.12.1.dist-info/LICENSE",
+      "copy_path": "wheel_licenses/cycler/LICENSE",
+      "sha256": "f1218143d766da3fea66f13396b7f15df46a83303f29bf96ba6e98eb4d42f408"
+    },
+    {
+      "package": "fonttools",
+      "wheel_member": "fonttools-4.68.0.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/fonttools/licenses/LICENSE",
+      "sha256": "22bef80697ecfaa17f97e62b9a26dfa12820be05583e8dd12ad169b241274c99"
+    },
+    {
+      "package": "fonttools",
+      "wheel_member": "fonttools-4.68.0.dist-info/licenses/LICENSE.external",
+      "copy_path": "wheel_licenses/fonttools/licenses/LICENSE.external",
+      "sha256": "b082a5f86775b2641f01bccb8b9c82908481de5f502bb254b1e13bfc2a9f303d"
+    },
+    {
+      "package": "gitdb",
+      "wheel_member": "gitdb-4.0.12.dist-info/LICENSE",
+      "copy_path": "wheel_licenses/gitdb/LICENSE",
+      "sha256": "efd29f596a08e8857e68e7694a50bcda72839792da7c3f041bcbff5f18009239"
+    },
+    {
+      "package": "GitPython",
+      "wheel_member": "gitpython-3.2.1.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/GitPython/licenses/LICENSE",
+      "sha256": "86fc94c321a9afbc11514713511bafded225f25100dcc0f7350e82bc231b8beb"
+    },
+    {
+      "package": "importlib_metadata",
+      "wheel_member": "importlib_metadata-10.2.0.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/importlib_metadata/licenses/LICENSE",
+      "sha256": "e2f7bb0557e7a381499f15baa7c1d776d83d6616599179d71d3109b8e39f7b25"
+    },
+    {
+      "package": "kiwisolver",
+      "wheel_member": "kiwisolver-1.5.1.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/kiwisolver/licenses/LICENSE",
+      "sha256": "b24c2bf6185f31a124ad6bacccae3071bdc7ad7882de00b00110aa62abb76a15"
+    },
+    {
+      "package": "lazy-importer",
+      "wheel_member": "lazy_importer-0.1.0.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/lazy-importer/licenses/LICENSE",
+      "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30"
+    },
+    {
+      "package": "llvmlite",
+      "wheel_member": "llvmlite-0.46.0.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/llvmlite/licenses/LICENSE",
+      "sha256": "7d6aa93e52a7ae9a995ff6a40c0ea5628311cdf1bd8dcd29c8ce9181f4af3a81"
+    },
+    {
+      "package": "llvmlite",
+      "wheel_member": "llvmlite-0.46.0.dist-info/licenses/LICENSE.thirdparty",
+      "copy_path": "wheel_licenses/llvmlite/licenses/LICENSE.thirdparty",
+      "sha256": "7b564c7af9ab446d245ba66adc8cda2f61d1d162f842899557499e80b715993a"
+    },
+    {
+      "package": "matplotlib",
+      "wheel_member": "matplotlib-3.10.3.dist-info/LICENSE",
+      "copy_path": "wheel_licenses/matplotlib/LICENSE",
+      "sha256": "5a1a81ea301728c8bba2933da832c0cd62229daf20893a024ab3d53244468dbc"
+    },
+    {
+      "package": "networkx",
+      "wheel_member": "networkx-3.4.2.dist-info/LICENSE.txt",
+      "copy_path": "wheel_licenses/networkx/LICENSE.txt",
+      "sha256": "5b433b90f755eb9bbd06feff1d1a4f5f232c5208a185694199e45fa95d762792"
+    },
+    {
+      "package": "numba",
+      "wheel_member": "numba-0.63.1.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/numba/licenses/LICENSE",
+      "sha256": "5f7ae5e48a0a107a9d86a9ef6c18dcce68e55959855d39380050deaea366631c"
+    },
+    {
+      "package": "numba",
+      "wheel_member": "numba-0.63.1.dist-info/licenses/LICENSES.third-party",
+      "copy_path": "wheel_licenses/numba/licenses/LICENSES.third-party",
+      "sha256": "e5ea3f50f1c1aa518a86903b85dfd40c4765589998eb683b9382d111d91bb9ee"
+    },
+    {
+      "package": "numpy",
+      "wheel_member": "numpy-2.2.6.dist-info/LICENSE.txt",
+      "copy_path": "wheel_licenses/numpy/LICENSE.txt",
+      "sha256": "14256cc3a2c9d32ac284da96b937feb44f72dd90bee2317ac3020166846ad99d"
+    },
+    {
+      "package": "packaging",
+      "wheel_member": "packaging-26.3.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/packaging/licenses/LICENSE",
+      "sha256": "cad1ef5bd340d73e074ba614d26f7deaca5c7940c3d8c34852e65c4909686c48"
+    },
+    {
+      "package": "packaging",
+      "wheel_member": "packaging-26.3.dist-info/licenses/LICENSE.APACHE",
+      "copy_path": "wheel_licenses/packaging/licenses/LICENSE.APACHE",
+      "sha256": "0d542e0c8804e39aa7f37eb00da5a762149dc682d7829451287e11b938e94594"
+    },
+    {
+      "package": "packaging",
+      "wheel_member": "packaging-26.3.dist-info/licenses/LICENSE.BSD",
+      "copy_path": "wheel_licenses/packaging/licenses/LICENSE.BSD",
+      "sha256": "b70e7e9b742f1cc6f948b34c16aa39ffece94196364bc88ff0d2180f0028fac5"
+    },
+    {
+      "package": "pillow",
+      "wheel_member": "pillow-13.0.0.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/pillow/licenses/LICENSE",
+      "sha256": "988ffe8ab3480b0f4e9a0ab2702bffd73d9fb6b47198043fb3ba101a62fac236"
+    },
+    {
+      "package": "portion",
+      "wheel_member": "portion-2.4.0.dist-info/LICENSE.txt",
+      "copy_path": "wheel_licenses/portion/LICENSE.txt",
+      "sha256": "a27d3e242d91483cc55cd35a3605aaeac2d9a6df7c06a5ffe24eabc9e0ec9d17"
+    },
+    {
+      "package": "py-cpuinfo",
+      "wheel_member": "py_cpuinfo-9.0.0.dist-info/LICENSE",
+      "copy_path": "wheel_licenses/py-cpuinfo/LICENSE",
+      "sha256": "ddbaf76396bf5c7aa45975a21eafe2e22eecb7da5aa0db7cb0e6152faafef34d"
+    },
+    {
+      "package": "pyparsing",
+      "wheel_member": "pyparsing-3.3.3.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/pyparsing/licenses/LICENSE",
+      "sha256": "a5425f9dc14ac74d4c5f0b679e941f2442e32cca7452a4418d5b1a49893ebe4e"
+    },
+    {
+      "package": "pyproj",
+      "wheel_member": "pyproj-3.7.2.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/pyproj/licenses/LICENSE",
+      "sha256": "c25d436b6fc9009a3d337ca024ed1caf615e55e10f4a0ace1673b9953821c8da"
+    },
+    {
+      "package": "pyproj",
+      "wheel_member": "pyproj-3.7.2.dist-info/licenses/LICENSE_proj",
+      "copy_path": "wheel_licenses/pyproj/licenses/LICENSE_proj",
+      "sha256": "ec8ad0defdbcfac5083e510c000c05a5b63144c685e0a879b7c081b5e44e24c7"
+    },
+    {
+      "package": "python-dateutil",
+      "wheel_member": "python_dateutil-4.0.0.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/python-dateutil/licenses/LICENSE",
+      "sha256": "ba00f51a0d92823b5a1cde27d8b5b9d2321e67ed8da9bc163eff96d5e17e577e"
+    },
+    {
+      "package": "PyYAML",
+      "wheel_member": "pyyaml-6.0.3.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/PyYAML/licenses/LICENSE",
+      "sha256": "8d3928f9dc4490fd635707cb88eb26bd764102a7282954307d3e5167a577e8a4"
+    },
+    {
+      "package": "scipy",
+      "wheel_member": "scipy-1.15.3.dist-info/LICENSE.txt",
+      "copy_path": "wheel_licenses/scipy/LICENSE.txt",
+      "sha256": "f250e7cef15fbd99e8680093d112d7aa7579535b99995268df6c89ac926eb607"
+    },
+    {
+      "package": "smmap",
+      "wheel_member": "smmap-5.0.3.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/smmap/licenses/LICENSE",
+      "sha256": "88e9d93f708d110b328a834302dd1d5c6afbda530e7721d15d80b3511d86f235"
+    },
+    {
+      "package": "sortedcontainers",
+      "wheel_member": "sortedcontainers-2.4.0.dist-info/LICENSE",
+      "copy_path": "wheel_licenses/sortedcontainers/LICENSE",
+      "sha256": "1db7cae7fce6452e2e608e401a0f953e0133e4c2d75db69fb8ae851d2086f5b6"
+    },
+    {
+      "package": "tzdata",
+      "wheel_member": "tzdata-2026.6.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/tzdata/licenses/LICENSE",
+      "sha256": "df58f69ea88683035d720b5375bcef0cf5aeaa98a1d098d572e0992c378deb46"
+    },
+    {
+      "package": "tzdata",
+      "wheel_member": "tzdata-2026.6.dist-info/licenses/licenses/LICENSE_APACHE",
+      "copy_path": "wheel_licenses/tzdata/licenses/licenses/LICENSE_APACHE",
+      "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+    },
+    {
+      "package": "utm",
+      "wheel_member": "utm-0.8.1.dist-info/LICENSE",
+      "copy_path": "wheel_licenses/utm/LICENSE",
+      "sha256": "e570c323cb3ee69d159102b71460ef56f4d7f5ec9aa994fed376911184c86dcc"
+    },
+    {
+      "package": "zipp",
+      "wheel_member": "zipp-4.1.2.dist-info/licenses/LICENSE",
+      "copy_path": "wheel_licenses/zipp/licenses/LICENSE",
+      "sha256": "9755a18519666e5f0f4cae3daad3d7012bcae48a600b31237d75e9fe134e6683"
+    }
+  ]
+}

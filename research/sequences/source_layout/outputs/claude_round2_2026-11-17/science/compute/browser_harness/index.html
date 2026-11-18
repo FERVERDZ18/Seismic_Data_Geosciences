@@ -1,0 +1,12 @@
+<!doctype html><html lang="en"><meta charset="utf-8"><title>Private nearest-parent browser benchmark</title>
+<meta name="viewport" content="width=device-width,initial-scale=1"><style>
+body{font:16px system-ui;max-width:1100px;margin:2em auto;padding:0 1em;color:#183c35;background:#fafcfb}button,input{font:inherit;padding:.6em}table{border-collapse:collapse;width:100%;font-size:14px}td,th{border-bottom:1px solid #ccd7d3;padding:.5em;text-align:left}pre{white-space:pre-wrap;background:white;padding:1em}button:disabled{opacity:.5}</style>
+<h1>Private nearest-parent browser benchmark</h1>
+<p>Actual unchanged JavaScript kernel, observed SSN M≥3.5 rows. This is an experiment harness, not a published application view. No EM or family labels.</p>
+<p>Four sizes × two backends × three fresh Workers. Hard wall limit:120s per cell; censored results are never extrapolated.</p>
+<label><input id="window" type="checkbox"> Coordinator granted a CPU measurement window; user/OS background applications remain uncontrolled.</label>
+<p><button id="start" disabled>Run predefined cells</button> <button id="stop" disabled>Stop after current cell</button> <button id="download" disabled>Download observed results JSON</button></p>
+<pre id="status" aria-live="polite">Loading and verifying input hashes…</pre>
+<table><thead><tr><th>N</th><th>Rep</th><th>Backend</th><th>Status</th><th>Worker pipeline ms</th><th>Cell wall ms</th></tr></thead><tbody id="results"></tbody></table>
+<script src="harness.js"></script></html>
+

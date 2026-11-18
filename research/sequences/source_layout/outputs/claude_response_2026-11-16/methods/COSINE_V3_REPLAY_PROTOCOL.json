@@ -1,0 +1,57 @@
+{
+  "schema": "cosine-primitive-v3-scientific-replay-protocol/1",
+  "reason": "Windows and V8 cosine differed at small-angle rounding; shared explicitly ordered cosineDifferenceJS/Taylor below .02 is a numerical adaptation.",
+  "numerical_index": "spherical_weighted_v2.py",
+  "numerical_index_sha256": "3b207301b5021782cd42910e7a037f3d50ac808f00652b50c4960bc1d00c4f60",
+  "prior_outputs_preserved": true,
+  "no_change_to_hypothesis_parameters_cuts_masks_seeds_or_candidate_pairs": true,
+  "fit_score": "log10(TN*RN)",
+  "edge_cut_score": "log10(TN)+log10(RN)",
+  "keep_edge_when": "score <= frozen development threshold",
+  "score_correction_v2_retained": true,
+  "execution_order": [
+    "run_deterministic_study_v3.py",
+    "validate_synthetic_2013_v3.py",
+    "validate_anchored_synthetic_v3.py",
+    "summarize_synthetic_v3.py",
+    "complete_weight_cross_2x2_v3.py"
+  ],
+  "outputs": [
+    "deterministic_study_v3/",
+    "calibration_v3.json",
+    "synthetic_2013_validation_v3/",
+    "anchored_synthetic_validation_v3/",
+    "SYNTHETIC_DESCRIPTIVE_SUMMARY_v3.json",
+    "weight_cross_2x2_v3/"
+  ],
+  "comparison": "Report every changed input, parent, role, edge, component, fit, metric and floating proximity; never assume zero or overwrite older evidence.",
+  "previous_protocols_remain_operative": [
+    "DETERMINISTIC_STUDY_PROTOCOL.md",
+    "SYNTHETIC_2013_PROTOCOL.md",
+    "ANCHORED_SYNTHETIC_PROTOCOL.md",
+    "WEIGHT_CROSS_2X2_V2_PROTOCOL.md"
+  ],
+  "script_changes": {
+    "run_deterministic_study_v3.py": {
+      "previous_script_sha256": "11418d6d2a44a441743af1ba784e471e619c6db30b8f7e4683cba24c8e2cd900",
+      "new_script_sha256": "d79fd18992a30488243a1f7d1db6d328fef19391c7c7ae732ee308cdd6b369be"
+    },
+    "validate_synthetic_2013_v3.py": {
+      "previous_script_sha256": "94bfb6d91e1af8f588b34a3a055bf383bd8f785bf2f483a526e7e86ea1790eb5",
+      "new_script_sha256": "6245c7580240a2f2e00934ecf2bad6444e8ae3b99b6a705643c61e298a29866c"
+    },
+    "validate_anchored_synthetic_v3.py": {
+      "previous_script_sha256": "4b6de2a0b5d4d2412591002c76ba2ea58885fb45efa674bc829b79dac396b18a",
+      "new_script_sha256": "bbcf4e7893adedbb2917f93d3cc561621aa4ba08979fbb3f1a7d19eabf4e6ac7"
+    },
+    "summarize_synthetic_v3.py": {
+      "previous_script_sha256": "4d782304da84b50e75f0dc042515c8bb13b73a9911d1d52c777b4dce4454b397",
+      "new_script_sha256": "75d7c2bc46c670f325ecabb27f2c75521205307a049c2a689203f78ad2a23fbc"
+    },
+    "complete_weight_cross_2x2_v3.py": {
+      "previous_script_sha256": "2b233adf46ad53051bdcb6f7896f62880b6e545f5b003dfbf64ccdc8199665fe",
+      "new_script_sha256": "a56890ab6349f035edf25ce82adcaa5484e377add343253a16b839b0a5530b65"
+    }
+  },
+  "execution_status": "prepared; replay not yet executed"
+}

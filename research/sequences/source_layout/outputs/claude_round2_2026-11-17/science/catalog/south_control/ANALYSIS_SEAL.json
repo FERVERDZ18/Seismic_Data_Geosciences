@@ -1,0 +1,29 @@
+{
+  "schema": "round2-south-control-tested-analysis-seal/1",
+  "sealed_utc": "2026-11-17T17:40:21.768777+00:00",
+  "runner_sha256": "5fa36d80ff0b4e78df916766cdf450628dbf5503d62ed3568fc9c0a4b25572e5",
+  "frozen_files": {
+    "PROTOCOL.md": "aa3cee08bb15778a8e51c5afe88fe2f9bf5c542bcce524176ff302da31876c08",
+    "PROTOCOL.json": "656cf1beb6ca4a4cc2cf54aacdbc1a7bb19a82bb1fca8375ad9fc6278225b2da",
+    "INPUTS.json": "d06a231c7bc9375ab0be9908cfcfe2eb1ccbaeb2f1f309ba98230bf74288ac59",
+    "SEAL.json": "e73d464b3bcc7bdaf4f080fe42619f0d6839fb72112217acc33fb5a249262fca",
+    "AMENDMENT_DOWNLOAD_01.md": "389a486581eeb6f856a5658238aa50c4ce8424c33f034fccbe6328b755eb9685",
+    "AMENDMENT_DOWNLOAD_02.md": "88ea9f1f2dcf5c3a4f5238a61fc4c9e8150a91401b2a37d31af440c3d4f6066d",
+    "AMENDMENT_SUPPORT_01.md": "c2b3988e82952e210b3d76495b107ce2a3ec0f53ef4cf1e789d1c17e916ba927",
+    "SUPPORT_PROTOCOL.json": "4ba4ab840b59515b85144e87e2d3cd0984cc4c619bdf5703d586ad100f84e766",
+    "SEAL_RESUME_V3.json": "3cc4d2d5b3c84c2ba62e4cc141cc0a006636fda8caa111fb3dce8e4082047806",
+    "TESTS.json": "ca1e2d729c9513ede10eceb5af7c0f041d7b59cb769bc012db6aa5aec1e0ea2a",
+    "run_south_control.py": "5fa36d80ff0b4e78df916766cdf450628dbf5503d62ed3568fc9c0a4b25572e5",
+    "support_masks.py": "83dbf56c6b45db725426b676bd100c50cebc7dbd5d7ffe4da0d70e2b5c584411",
+    "../run_catalog.py": "f8deb0acf696c2aadd36901097c0eeab04cb9ca701c5ed5df4e8dda4479d6d8e",
+    "../VENDOR.json": "8477eb298544d1660ed3acbebddc60746a3a7e257a64d4ca100773946a63d7c4",
+    "../INPUTS.json": "0f095e2988f540f3f45eeaabd51977c0d87c3cafa2750cb72bec3da46d0b02ae",
+    "../PROTOCOL.json": "87c301029e378092eb9458d45a814001d4386fcc74ac0a553388e062c8b9166a",
+    "../PROTOCOL.md": "561c9d3c96086e1bc1f8e606e0fa5be35ef7b9966f224e093b83f4da069b3084",
+    "../AMENDMENT_01.md": "bb3a354cab0796620c15a3aad73709de28e989f206726b13b2056449638e57c3",
+    "../AMENDMENT_02.md": "e01744cd2a57aeff9cc6c13459c7710b99078ed40c15e662295831cf1afe47ee"
+  },
+  "acquisition_manifest_sha256": "863cfdb84b8e48dd1eeb6673f23a0b87562c745ff55a7fbbe23b3ccf7195770a",
+  "analysis_results_created": false,
+  "cpu_gate": "WAIT root explicit go-ahead"
+}

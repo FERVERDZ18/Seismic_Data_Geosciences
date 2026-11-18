@@ -1,0 +1,52 @@
+[
+  {
+    "path": "LICENSE",
+    "official_git_blob_sha1": "dbbe3558157f5861bff35dcb37b328b679b0ccfd",
+    "computed_git_blob_sha1": "dbbe3558157f5861bff35dcb37b328b679b0ccfd"
+  },
+  {
+    "path": "pyproject.toml",
+    "official_git_blob_sha1": "6cae52b16a5b41824c2475966d104aeb5f2472e5",
+    "computed_git_blob_sha1": "6cae52b16a5b41824c2475966d104aeb5f2472e5"
+  },
+  {
+    "path": "requirements-win64.txt",
+    "official_git_blob_sha1": "0a48eb40cf4956579db887231467ee0f2a741079",
+    "computed_git_blob_sha1": "0a48eb40cf4956579db887231467ee0f2a741079"
+  },
+  {
+    "path": "docsrc/contents/cat.rst",
+    "official_git_blob_sha1": "528d718bc48ac91ef17b62d65387f9c719ef3b49",
+    "computed_git_blob_sha1": "528d718bc48ac91ef17b62d65387f9c719ef3b49"
+  },
+  {
+    "path": "openquake/cat/__init__.py",
+    "official_git_blob_sha1": "d3fd9d0b5ce3182443749c528b3b90a1674d9d21",
+    "computed_git_blob_sha1": "d3fd9d0b5ce3182443749c528b3b90a1674d9d21"
+  },
+  {
+    "path": "openquake/cat/isf_catalogue.py",
+    "official_git_blob_sha1": "768305f5e8081776a0c15579eb59c2288372df93",
+    "computed_git_blob_sha1": "768305f5e8081776a0c15579eb59c2288372df93"
+  },
+  {
+    "path": "openquake/cat/utils.py",
+    "official_git_blob_sha1": "398376854cc19d73bc2d8bee37a570bbca700aee",
+    "computed_git_blob_sha1": "398376854cc19d73bc2d8bee37a570bbca700aee"
+  },
+  {
+    "path": "openquake/cat/hmg/merge.py",
+    "official_git_blob_sha1": "f1fd1336acabb90a3a7bfe079d5312626cf00927",
+    "computed_git_blob_sha1": "f1fd1336acabb90a3a7bfe079d5312626cf00927"
+  },
+  {
+    "path": "openquake/cat/tests/isf_catalogue_test.py",
+    "official_git_blob_sha1": "24080b153717994a0bfcc326def10469c408ea06",
+    "computed_git_blob_sha1": "24080b153717994a0bfcc326def10469c408ea06"
+  },
+  {
+    "path": "openquake/cat/tests/merge_test.py",
+    "official_git_blob_sha1": "8f9fa4e5dbb2c03455b38f2d5c551cbe5fc2e25e",
+    "computed_git_blob_sha1": "8f9fa4e5dbb2c03455b38f2d5c551cbe5fc2e25e"
+  }
+]

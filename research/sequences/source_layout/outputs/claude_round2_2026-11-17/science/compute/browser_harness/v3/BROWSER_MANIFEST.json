@@ -1,0 +1,54 @@
+{
+  "schema": "private-browser-input-contract/3",
+  "assets": [
+    {
+      "file": "../inputs_ssn_m35.json",
+      "sha256": "d213720df5144a24157348701cdd82a6846852328feba1571a4ed13768ea9119",
+      "bytes": 62514781
+    },
+    {
+      "file": "../nearest-parent.js",
+      "sha256": "ca075af9ac4ac1e7b2b59dfa5898674fdfd3aa52d196e41511f99d08c78f6ea0",
+      "bytes": 9126
+    },
+    {
+      "file": "worker.js",
+      "sha256": "4cf170d7225e74cad36dc546e265a8b95f1b5e7117bd49096fee1a451ae2d1f6",
+      "bytes": 847
+    },
+    {
+      "file": "harness.js",
+      "sha256": "80283dacd5f049f41a44f42c98461329275df1223a9532b268d33e6896caf4fb",
+      "bytes": 9262
+    },
+    {
+      "file": "index.html",
+      "sha256": "04ab2df87ce1c0b92493ea5c7c7285587b27f72151bb744e603d4c428dc5f386",
+      "bytes": 1963
+    }
+  ],
+  "sizes": [
+    2000,
+    10000,
+    50000,
+    170880
+  ],
+  "repetitions": 3,
+  "backends": [
+    "reference",
+    "kd"
+  ],
+  "wall_cap_seconds": 120,
+  "planned_cells": 24,
+  "initial_load_observations": true,
+  "paint_measured": false,
+  "os_suspension_measured": false,
+  "transport": {
+    "endpoint": "/__results/browser-v3",
+    "method": "POST",
+    "origin": "exact current loopback origin",
+    "timing": "only after all24 cells finish",
+    "retry": "identical serialized bytes; no recomputation",
+    "max_bytes": 268435456
+  }
+}

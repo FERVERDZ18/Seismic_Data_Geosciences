@@ -48,6 +48,21 @@ remain unchanged.
 
 ## Explorer and reproducibility
 
+The [sequence-science reproduction package](research/sequences/README.md) contains
+readable numerical sources, component licences, hash-locked dependencies, frozen
+inputs and expected arrays. Its [source index](research/sequences/SOURCE_INDEX.md)
+and [table producer map](research/sequences/TABLE_SOURCE_MAP.json) make the
+implementation inspectable without unpacking the data archives. The isolated
+replay recalculates six scientific stages; historical performance observations,
+browser transport results and GEM evidence are separately labelled. It does not
+claim to rerun every historical benchmark by default. See the
+[recorded verification scope](research/sequences/QA_SUMMARY.json) and
+[reproduction guide](docs/REPRODUCIBILITY.md#sequence-science-package-202611171).
+Labels such as "local review candidate" in the sealed audit metadata describe
+its prepublication verification; they do not establish public availability or
+human author approval. Access to the package is established by the actual public
+repository commit. This package is outside the Pages artifact.
+
 The [browser-local explorer](system/README.md) provides a geographic map, English
 by default with Spanish available,
 text search, catalogue and provider selectors, filters, source records, CSV export,

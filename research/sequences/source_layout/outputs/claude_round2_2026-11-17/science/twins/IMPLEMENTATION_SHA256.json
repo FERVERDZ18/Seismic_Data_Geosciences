@@ -1,0 +1,36 @@
+{
+  "schema": "twins-pre-results-code-input-seal/1",
+  "sources": {
+    "outputs\\claude_round2_2026-11-17\\science\\twins\\run_twins_v1.py": {
+      "sha256": "30949b10af93645a199bc100ef6fceef5f5438443042c0d2f913e38b626a424a",
+      "bytes": 27549
+    },
+    "outputs\\claude_round2_2026-11-17\\science\\twins\\vendor\\pilot_catalog_reconciliation.py": {
+      "sha256": "5c2d9084cec68cfd07e65b39727ebca8b062d02988f4fc6d4c0e5fa75e594b28",
+      "bytes": 35135
+    },
+    "outputs\\claude_response_2026-11-16\\methods\\run_deterministic_study_v3.py": {
+      "sha256": "d79fd18992a30488243a1f7d1db6d328fef19391c7c7ae732ee308cdd6b369be",
+      "bytes": 17197
+    },
+    "outputs\\claude_response_2026-11-16\\index\\spherical_weighted_v2.py": {
+      "sha256": "3b207301b5021782cd42910e7a037f3d50ac808f00652b50c4960bc1d00c4f60",
+      "bytes": 12025
+    },
+    "outputs\\claude_response_2026-11-16\\methods\\author_normalmix_port.py": {
+      "sha256": "461e09a24a862522641c59c623a6db140679c1af8cbf7dac5258c72e9d7c50a8",
+      "bytes": 3461
+    },
+    "outputs\\claude_response_2026-11-16\\methods\\deterministic_families.py": {
+      "sha256": "31c2b6be158a152f68de852369a173e49fa2d7388b7263ed7b3f8f8e30c6867f",
+      "bytes": 10187
+    },
+    "outputs\\sequence_pilot_2026-11-15\\gardner_knopoff.py": {
+      "sha256": "b1c4754b29e41a16c1b438e0cbb6bc265ae2daa6d3e250cfecd88dc5ab67a908",
+      "bytes": 5149
+    }
+  },
+  "protocol_sha256": "3bbc74242b9c516ba475a73d9e19bd39097947e2893849527c04fc165c4b6147",
+  "fixture_receipt_sha256": "53d8afde047618f044ddb5796e714494390d31ddc6ff5d4e26c151629d145820",
+  "scientific_results_generated": false
+}

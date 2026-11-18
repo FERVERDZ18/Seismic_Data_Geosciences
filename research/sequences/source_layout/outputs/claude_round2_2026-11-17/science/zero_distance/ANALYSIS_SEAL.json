@@ -1,0 +1,9 @@
+{
+  "sealed_utc": "2026-11-17T17:40:21.753244+00:00",
+  "runner_sha256": "608b961a576ac2530d211efe90f722503a4310ee4c5d2e3946a79fa695a66c34",
+  "tests_sha256": "61c51d1adc7db66150a4bef1b9cd71bff078b7616d591d8949ef13bd56449920",
+  "protocol_sha256": "13c4be518d069ec09e723e60d163ebd8a900642f35498db5cfa2ab1e004f5a83",
+  "catalog_helper_sha256": "f8deb0acf696c2aadd36901097c0eeab04cb9ca701c5ed5df4e8dda4479d6d8e",
+  "scientific_zero_counts_not_read": true,
+  "cpu_gate": "WAIT explicit root GO"
+}

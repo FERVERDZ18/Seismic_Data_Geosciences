@@ -1,0 +1,241 @@
+{
+  "schema": "seismic-all-record-JS-Python-parity/1",
+  "source": "alaska",
+  "cut": "4.5",
+  "JS_output_sha256": "bb4a0cc27e4557766f39d534e11f79da9c016b966ca15761324412096b773ce9",
+  "JS_module_sha256_at_execution": "ca075af9ac4ac1e7b2b59dfa5898674fdfd3aa52d196e41511f99d08c78f6ea0",
+  "JS_module_sha256_current": "ca075af9ac4ac1e7b2b59dfa5898674fdfd3aa52d196e41511f99d08c78f6ea0",
+  "python_module_sha256": "3b207301b5021782cd42910e7a037f3d50ac808f00652b50c4960bc1d00c4f60",
+  "python_score_view_sha256": "344c6f46eebd5d907e7b32c3d2af36a39a3c92b5c29e2daa40b8cfc226d455de",
+  "python_family_module_sha256": "31c2b6be158a152f68de852369a173e49fa2d7388b7263ed7b3f8f8e30c6867f",
+  "comparator_sha256": "6d40fe0df6ec44c5343f2d66f23f6a24e8975129fa19a15544ac5874cd5ac206",
+  "protocol_sha256": "041beae4d013246fa10baa0bf267c7a60aaf68cec1c58d2fcdfae86e1d9382d1",
+  "geometry": "canonical binary64 preprocessing",
+  "comparisons": [
+    {
+      "ids_exact": true,
+      "n": 555,
+      "fields": {
+        "eta": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-07,
+          "relative_tolerance": 1e-10,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 7.62939453125e-06,
+          "maximum_finite_relative_difference": 3.626258928739228e-16
+        },
+        "dt": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-15,
+          "relative_tolerance": 5e-13,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 0.0,
+          "maximum_finite_relative_difference": 0.0
+        },
+        "distance": {
+          "status": "PASS",
+          "absolute_tolerance": 0.0002,
+          "relative_tolerance": 1e-10,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 0.0,
+          "maximum_finite_relative_difference": 0.0
+        },
+        "tn": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-15,
+          "relative_tolerance": 1e-10,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 8.673617379884035e-19,
+          "maximum_finite_relative_difference": 3.021749508235581e-16
+        },
+        "rn": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-15,
+          "relative_tolerance": 1e-10,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 1.4210854715202004e-14,
+          "maximum_finite_relative_difference": 4.1260747612186337e-16
+        },
+        "logEta": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 0.0,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 3.552713678800501e-15,
+          "maximum_finite_relative_difference": 3.4755716005369494e-16
+        },
+        "logProduct": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 0.0,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 1.7763568394002505e-15,
+          "maximum_finite_relative_difference": 2.1730964634090413e-16
+        }
+      },
+      "families": [
+        {
+          "spec": {
+            "name": "fixed_numeric_minus5",
+            "cut": -5,
+            "scientific": false
+          },
+          "components_exact": true,
+          "component_mismatches": 0,
+          "roles_exact": true,
+          "role_mismatches": 0
+        },
+        {
+          "spec": {
+            "name": "frozen_development_author_port",
+            "cut": -5.789089077840812,
+            "scientific": true,
+            "calibration_sha256": "f234191c14d53602565e7fa040b68e79f0b8cc8488aeb0bff41e27bb295c565f",
+            "training_end_exclusive": "2023-01-01",
+            "diagnostics": {
+              "status": "diagnosed",
+              "mode_count": 2,
+              "mode_locations": [
+                -7.904856191231721,
+                -4.2245699544419555
+              ],
+              "BIC_one": 1451.7864138746406,
+              "BIC_two": 1425.101600334033,
+              "two_mode_BIC_guard_passed": true,
+              "guard_does_not_change_author_cut_or_hide_operational_output": true
+            }
+          },
+          "components_exact": true,
+          "component_mismatches": 0,
+          "roles_exact": true,
+          "role_mismatches": 0
+        }
+      ],
+      "parents_exact": true,
+      "parent_mismatches": 0,
+      "status": "PASS"
+    },
+    {
+      "ids_exact": true,
+      "n": 555,
+      "fields": {
+        "eta": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-07,
+          "relative_tolerance": 1e-10,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 7.62939453125e-06,
+          "maximum_finite_relative_difference": 3.626258928739228e-16
+        },
+        "dt": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-15,
+          "relative_tolerance": 5e-13,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 0.0,
+          "maximum_finite_relative_difference": 0.0
+        },
+        "distance": {
+          "status": "PASS",
+          "absolute_tolerance": 0.0002,
+          "relative_tolerance": 1e-10,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 0.0,
+          "maximum_finite_relative_difference": 0.0
+        },
+        "tn": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-15,
+          "relative_tolerance": 1e-10,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 8.673617379884035e-19,
+          "maximum_finite_relative_difference": 3.021749508235581e-16
+        },
+        "rn": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-15,
+          "relative_tolerance": 1e-10,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 1.4210854715202004e-14,
+          "maximum_finite_relative_difference": 4.1260747612186337e-16
+        },
+        "logEta": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 0.0,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 3.552713678800501e-15,
+          "maximum_finite_relative_difference": 3.4755716005369494e-16
+        },
+        "logProduct": {
+          "status": "PASS",
+          "absolute_tolerance": 1e-10,
+          "relative_tolerance": 0.0,
+          "nonfinite_mask_mismatches": 0,
+          "finite_outside_tolerance": 0,
+          "maximum_finite_absolute_difference": 1.7763568394002505e-15,
+          "maximum_finite_relative_difference": 2.1730964634090413e-16
+        }
+      },
+      "families": [
+        {
+          "spec": {
+            "name": "fixed_numeric_minus5",
+            "cut": -5,
+            "scientific": false
+          },
+          "components_exact": true,
+          "component_mismatches": 0,
+          "roles_exact": true,
+          "role_mismatches": 0
+        },
+        {
+          "spec": {
+            "name": "frozen_development_author_port",
+            "cut": -5.789089077840812,
+            "scientific": true,
+            "calibration_sha256": "f234191c14d53602565e7fa040b68e79f0b8cc8488aeb0bff41e27bb295c565f",
+            "training_end_exclusive": "2023-01-01",
+            "diagnostics": {
+              "status": "diagnosed",
+              "mode_count": 2,
+              "mode_locations": [
+                -7.904856191231721,
+                -4.2245699544419555
+              ],
+              "BIC_one": 1451.7864138746406,
+              "BIC_two": 1425.101600334033,
+              "two_mode_BIC_guard_passed": true,
+              "guard_does_not_change_author_cut_or_hide_operational_output": true
+            }
+          },
+          "components_exact": true,
+          "component_mismatches": 0,
+          "roles_exact": true,
+          "role_mismatches": 0
+        }
+      ],
+      "parents_exact": true,
+      "parent_mismatches": 0,
+      "status": "PASS"
+    }
+  ],
+  "input_sha256": "d3b64c8e00fb2e59516f3e6ba5ab4deb64a413ca7fd3e2c07cf49752aea0bc76",
+  "Python_reference_backend": "all earlier candidates, corrected published spherical/weighted metric",
+  "status": "PASS",
+  "discrepancy_preview_rows": 0,
+  "preview_limit": "first1000 per field; full arrays retained in source JS JSON and Python reference NPZ"
+}

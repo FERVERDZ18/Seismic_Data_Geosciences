@@ -260,4 +260,71 @@ test('real Leaflet resize compensation preserves the center through mobile, expa
     assert.equal(map.options.trackResize,false);
   }finally{Object.assign(map,saved);delete map._size;delete map._sizeChanged;delete map._loaded;}
 });
+test('record fitting avoids the real Leaflet maximum-zoom fallback for a collapsed or hidden container',()=>{
+  // Run the pinned Leaflet fitting methods. Its getScaleZoom returns Infinity
+  // when negative available pixels yield NaN; fitBounds then applies maxZoom.
+  const leaflet=fs.readFileSync('system/dist/vendor/leaflet/leaflet.js','utf8');
+  class Point{
+    constructor(x,y){this.x=x;this.y=y;}
+    clone(){return new Point(this.x,this.y);}
+    add(p){return new Point(this.x+p.x,this.y+p.y);}
+    subtract(p){return new Point(this.x-p.x,this.y-p.y);}
+    divideBy(n){return new Point(this.x/n,this.y/n);}
+  }
+  const point=v=>v instanceof Point?v:new Point(v[0],v[1]);
+  const bounds=value=>{
+    if(value?.getNorthWest)return value;
+    const lat=value.map(p=>Number(p[0])),lon=value.map(p=>Number(p[1]));
+    const south=Math.min(...lat),north=Math.max(...lat),west=Math.min(...lon),east=Math.max(...lon);
+    return {isValid:()=>true,getNorthWest:()=>({lat:north,lng:west}),getSouthEast:()=>({lat:south,lng:east}),
+      getSouthWest:()=>({lat:south,lng:west}),getNorthEast:()=>({lat:north,lng:east}),
+      getCenter:()=>({lat:(south+north)/2,lng:(west+east)/2})};
+  };
+  const globals={g:bounds,m:point,_:(a,b)=>({getSize:()=>new Point(Math.abs(a.x-b.x),Math.abs(a.y-b.y))}),b:{any3d:true}};
+  const method=(name,next)=>{
+    const token=name+':function(',start=leaflet.indexOf(token)+name.length+1,end=leaflet.indexOf(','+next+':function(',start);
+    assert(start>name.length+1&&end>start,'Pinned Leaflet method '+name+' is available');
+    return vm.runInNewContext('('+leaflet.slice(start,end)+')',globals);
+  };
+  const actualFit=method('fitBounds','fitWorld');
+  const saved={};
+  for(const name of ['getSize','getZoom','getMinZoom','getMaxZoom','getScaleZoom','getBoundsZoom','_getBoundsCenterZoom','project','unproject','setView','fitBounds','invalidateSize','options'])saved[name]=map[name];
+  const oldDimensions=[mapElement.clientWidth,mapElement.clientHeight],calls=[],fixtures=[
+    {...records[0],id:'mexico',latitude:14,longitude:-99},
+    {...records[0],id:'alaska',latitude:71,longitude:-160},
+    {...records[0],id:'canada',latitude:65,longitude:-115}
+  ],unchanged=JSON.stringify(fixtures);
+  let cached=new Point(681,31),zoom=3,view;
+  try{
+    map.options={...map.options,crs:{scale:z=>256*2**z,zoom:s=>Math.log2(s/256)}};
+    map.getSize=()=>cached.clone();map.getZoom=()=>zoom;map.getMinZoom=()=>1.5;map.getMaxZoom=()=>12;
+    map.getScaleZoom=method('getScaleZoom','project');map.getBoundsZoom=method('getBoundsZoom','getSize');
+    map._getBoundsCenterZoom=method('_getBoundsCenterZoom','fitBounds');
+    map.project=(p,z)=>{p=Array.isArray(p)?{lat:p[0],lng:p[1]}:p;const scale=256*2**z;return new Point((p.lng+180)/360*scale,(1-Math.log(Math.tan(Math.PI/4+p.lat*Math.PI/360))/Math.PI)/2*scale);};
+    map.unproject=(p,z)=>{const scale=256*2**z;return {lng:p.x/scale*360-180,lat:Math.atan(Math.sinh(Math.PI*(1-2*p.y/scale)))*180/Math.PI};};
+    map.setView=(center,nextZoom)=>{zoom=nextZoom;view={center,zoom};return map;};
+    map.fitBounds=function(value,options){calls.push({type:'fit',options});return actualFit.call(this,value,options);};
+    map.invalidateSize=function(options){calls.push({type:'invalidate',options});cached=new Point(mapElement.clientWidth,mapElement.clientHeight);return this;};
+    api.setRecords(fixtures);
+    // Demonstrate the observed old behavior using Leaflet itself, not a mock
+    // implementation of its fallback or a guessed numerical zoom.
+    map.fitBounds(fixtures.map(e=>[e.latitude,e.longitude]),{padding:[30,30],maxZoom:8,animate:false});
+    assert.equal(view.zoom,8);
+    calls.length=0;zoom=3;cached=new Point(992,600);
+    mapElement.clientWidth=681;mapElement.clientHeight=31;
+    assert.equal(api.fitRecords(),true);
+    assert.deepEqual(calls.map(c=>c.type),['invalidate','fit']);
+    assert.equal(calls[1].options.padding[0],15);assert.equal(calls[1].options.padding[1],15);
+    assert(Number.isFinite(view.zoom)&&view.zoom<8,'Collapsed fitting must not select maxZoom because of negative pixels');
+    for(const [width,height] of [[0,0],[681,0],[0,380]]){
+      mapElement.clientWidth=width;mapElement.clientHeight=height;const before=calls.length;
+      assert.equal(api.fitRecords(),false);assert.equal(calls.length,before,'Hidden containers must not invalidate or fit');
+    }
+    mapElement.clientWidth=992;mapElement.clientHeight=600;calls.length=0;
+    assert.equal(api.fitRecords(),true);assert.equal(calls[1].options.padding[0],30);assert.equal(calls[1].options.padding[1],30);
+    assert(Number.isFinite(view.zoom)&&view.zoom<8);assert.equal(JSON.stringify(fixtures),unchanged);
+  }finally{
+    Object.assign(map,saved);[mapElement.clientWidth,mapElement.clientHeight]=oldDimensions;api.setRecords(records);
+  }
+});
 console.log(JSON.stringify({passed:count,base_choices:ids.length,network_requests:0},null,2));

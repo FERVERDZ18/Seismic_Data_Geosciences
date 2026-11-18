@@ -1,0 +1,28 @@
+{
+  "schema": "observed-development-support-control/1",
+  "resolutions_degrees": [
+    0.5,
+    1.0,
+    2.0
+  ],
+  "origin_lon_lat": [
+    -180,
+    -90
+  ],
+  "development_end_exclusive": "2021-01-01",
+  "cell_minimum_observed_rows_each_source": 1,
+  "magnitude_support_floor": "3.5",
+  "magnitude_analysis_cut": "4.5",
+  "NN_context_variants": [
+    "project_full_C",
+    "restrict_NN_to_cells_transport_C_cut"
+  ],
+  "candidate_assignments": "fixed C,30s50km,no reassignment",
+  "network_or_completeness_mask": false,
+  "physical_candidate_identity_truth": false,
+  "amendment_sha256": "c2b3988e82952e210b3d76495b107ce2a3ec0f53ef4cf1e789d1c17e916ba927",
+  "south_protocol_sha256": "656cf1beb6ca4a4cc2cf54aacdbc1a7bb19a82bb1fca8375ad9fc6278225b2da",
+  "acquisition_manifest_sha256": "863cfdb84b8e48dd1eeb6673f23a0b87562c745ff55a7fbbe23b3ccf7195770a",
+  "sealed_utc": "2026-11-17T17:08:48.359098+00:00",
+  "scientific_results_created": false
+}

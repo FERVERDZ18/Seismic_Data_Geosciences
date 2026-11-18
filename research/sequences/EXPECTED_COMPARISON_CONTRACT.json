@@ -1,0 +1,16 @@
+{
+  "schema": "scientific-normalized-comparison/1",
+  "status": "DRAFT_TO_VALIDATE_IN_CLEAN_REPLAY",
+  "npz": "Compare decoded field sets, exact dtype/shape and numpy.array_equal(equal_nan=True) for numeric arrays. Container bytes and timestamps are not compared.",
+  "csv": "Compare every parsed cell and row order, ignoring transport newline differences only.",
+  "json": "Compare parsed dictionaries/lists/numbers exactly after removing the explicit volatile keys below; no fitted values, denominators, source hashes or scientific lag/window fields are removed.",
+  "ignored_json_keys": ["started_utc", "completed_utc", "created_utc", "elapsed_seconds", "pid", "preparation_seconds", "tree_seconds", "kernel_seconds", "postprocess_seconds", "total_seconds", "process_wall_seconds", "warmup_seconds", "input_load_seconds", "outer_measurement_seconds", "process_cpu_seconds", "serialization_seconds_excluded", "arrays_sha256", "output_sha256", "receipt_sha256", "python_executable", "argv"],
+  "hash_key_exclusion_condition": "The corresponding decoded arrays/scientific data must have their own exact comparison; never substitute a removed container hash for verifying contents.",
+  "provenance_hash_aliases": "Only exact new->original metadata hashes recorded by the public-projection adapter may normalize sha256-suffixed provenance fields. Numerical source hashes, arrays, observations, fitted values and table cells are not relaxed.",
+  "runtime_created_run_manifest": "run_manifest_sha256 is NOT globally volatile. Before a specific alias is issued, both manifests must authenticate their own complete output inventories; every paired file is compared by exact decoded arrays/CSV cells/normalized scientific JSON, path sets and all other non-runtime manifest fields must match. A changed numeric value or contract prevents the alias. The first QA mismatch and conditional-comparison audit are preserved.",
+  "large_core": "Recompute36 KD/Node cases with original numerical implementations and compare complete selected parent/proximity arrays and summary against retained full references. Exhaustive reruns and timing studies are optional.",
+  "gem_history": "Verify complete retained memberships/decisions/pairs/input hashes and original source pin/license; recompute historical association counts and ten fixed time-shift results. Do not claim the engine itself was newly run.",
+  "javascript": "Owned JS parent indices exact and recorded score absolute tolerance at most1e-10, masks/nonfinite cases explicit. Preserve the original scientific checks; do not relax after discrepancy.",
+  "benchmarks": "Wall times, CPU times, dates, absolute runtime paths, RSS and OS/browser scheduling are observations of a new run; no historical equality claim.",
+  "runtime_scope": "First target is the observed pinned Windows x64 environment. No universal IEEE/libm, MATLAB or POSIX memory-equivalence guarantee."
+}

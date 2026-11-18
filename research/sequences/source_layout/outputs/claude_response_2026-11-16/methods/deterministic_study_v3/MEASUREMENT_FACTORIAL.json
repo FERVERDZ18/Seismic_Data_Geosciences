@@ -1,0 +1,1666 @@
+[
+  {
+    "measurement_flags_time_location_magnitude": [
+      0,
+      0,
+      0
+    ],
+    "cut_source": "ssn",
+    "fixed_cut": -5.31563487877218,
+    "all": {
+      "n": 889,
+      "agreement": 1.0,
+      "kappa": 1.0,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          542,
+          0,
+          0
+        ],
+        [
+          0,
+          67,
+          0
+        ],
+        [
+          0,
+          0,
+          280
+        ]
+      ],
+      "first_marginal": [
+        542,
+        67,
+        280
+      ],
+      "second_marginal": [
+        542,
+        67,
+        280
+      ],
+      "partition": {
+        "ARI": 1.0,
+        "n": 889,
+        "coassigned_pairs_first": 11362,
+        "coassigned_pairs_second": 11362,
+        "coassigned_pairs_both": 11362,
+        "overlap_fraction_of_first": 1.0,
+        "overlap_fraction_of_second": 1.0,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 1.0,
+      "kappa": 1.0,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          275,
+          0,
+          0
+        ],
+        [
+          0,
+          33,
+          0
+        ],
+        [
+          0,
+          0,
+          74
+        ]
+      ],
+      "first_marginal": [
+        275,
+        33,
+        74
+      ],
+      "second_marginal": [
+        275,
+        33,
+        74
+      ],
+      "partition": {
+        "ARI": 1.0,
+        "n": 382,
+        "coassigned_pairs_first": 179,
+        "coassigned_pairs_second": 179,
+        "coassigned_pairs_both": 179,
+        "overlap_fraction_of_first": 1.0,
+        "overlap_fraction_of_second": 1.0,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      0,
+      0,
+      0
+    ],
+    "cut_source": "usgs",
+    "fixed_cut": -5.436938036463503,
+    "all": {
+      "n": 889,
+      "agreement": 1.0,
+      "kappa": 1.0,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          556,
+          0,
+          0
+        ],
+        [
+          0,
+          64,
+          0
+        ],
+        [
+          0,
+          0,
+          269
+        ]
+      ],
+      "first_marginal": [
+        556,
+        64,
+        269
+      ],
+      "second_marginal": [
+        556,
+        64,
+        269
+      ],
+      "partition": {
+        "ARI": 1.0,
+        "n": 889,
+        "coassigned_pairs_first": 10474,
+        "coassigned_pairs_second": 10474,
+        "coassigned_pairs_both": 10474,
+        "overlap_fraction_of_first": 1.0,
+        "overlap_fraction_of_second": 1.0,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 1.0,
+      "kappa": 1.0,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          280,
+          0,
+          0
+        ],
+        [
+          0,
+          31,
+          0
+        ],
+        [
+          0,
+          0,
+          71
+        ]
+      ],
+      "first_marginal": [
+        280,
+        31,
+        71
+      ],
+      "second_marginal": [
+        280,
+        31,
+        71
+      ],
+      "partition": {
+        "ARI": 1.0,
+        "n": 382,
+        "coassigned_pairs_first": 167,
+        "coassigned_pairs_second": 167,
+        "coassigned_pairs_both": 167,
+        "overlap_fraction_of_first": 1.0,
+        "overlap_fraction_of_second": 1.0,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      0,
+      0,
+      1
+    ],
+    "cut_source": "ssn",
+    "fixed_cut": -5.31563487877218,
+    "all": {
+      "n": 889,
+      "agreement": 0.9730033745781778,
+      "kappa": 0.9484550527867033,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          537,
+          3,
+          2
+        ],
+        [
+          2,
+          57,
+          8
+        ],
+        [
+          2,
+          7,
+          271
+        ]
+      ],
+      "first_marginal": [
+        542,
+        67,
+        280
+      ],
+      "second_marginal": [
+        541,
+        67,
+        281
+      ],
+      "partition": {
+        "ARI": 0.9989575442632687,
+        "n": 889,
+        "coassigned_pairs_first": 11362,
+        "coassigned_pairs_second": 11355,
+        "coassigned_pairs_both": 11347,
+        "overlap_fraction_of_first": 0.9986798098926245,
+        "overlap_fraction_of_second": 0.9992954645530603,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9633507853403142,
+      "kappa": 0.9157689157689158,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          273,
+          1,
+          1
+        ],
+        [
+          1,
+          27,
+          5
+        ],
+        [
+          2,
+          4,
+          68
+        ]
+      ],
+      "first_marginal": [
+        275,
+        33,
+        74
+      ],
+      "second_marginal": [
+        276,
+        32,
+        74
+      ],
+      "partition": {
+        "ARI": 0.954435286214492,
+        "n": 382,
+        "coassigned_pairs_first": 179,
+        "coassigned_pairs_second": 173,
+        "coassigned_pairs_both": 168,
+        "overlap_fraction_of_first": 0.9385474860335196,
+        "overlap_fraction_of_second": 0.9710982658959537,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      0,
+      0,
+      1
+    ],
+    "cut_source": "usgs",
+    "fixed_cut": -5.436938036463503,
+    "all": {
+      "n": 889,
+      "agreement": 0.9718785151856018,
+      "kappa": 0.9451920682010421,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          549,
+          2,
+          5
+        ],
+        [
+          2,
+          56,
+          6
+        ],
+        [
+          3,
+          7,
+          259
+        ]
+      ],
+      "first_marginal": [
+        556,
+        64,
+        269
+      ],
+      "second_marginal": [
+        554,
+        65,
+        270
+      ],
+      "partition": {
+        "ARI": 0.9988717473586455,
+        "n": 889,
+        "coassigned_pairs_first": 10474,
+        "coassigned_pairs_second": 10467,
+        "coassigned_pairs_both": 10459,
+        "overlap_fraction_of_first": 0.9985678823754057,
+        "overlap_fraction_of_second": 0.999235693130792,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9685863874345549,
+      "kappa": 0.9260406582768634,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          277,
+          1,
+          2
+        ],
+        [
+          0,
+          27,
+          4
+        ],
+        [
+          1,
+          4,
+          66
+        ]
+      ],
+      "first_marginal": [
+        280,
+        31,
+        71
+      ],
+      "second_marginal": [
+        278,
+        32,
+        72
+      ],
+      "partition": {
+        "ARI": 0.9696281150057338,
+        "n": 382,
+        "coassigned_pairs_first": 167,
+        "coassigned_pairs_second": 163,
+        "coassigned_pairs_both": 160,
+        "overlap_fraction_of_first": 0.9580838323353293,
+        "overlap_fraction_of_second": 0.9815950920245399,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      0,
+      1,
+      0
+    ],
+    "cut_source": "ssn",
+    "fixed_cut": -5.31563487877218,
+    "all": {
+      "n": 889,
+      "agreement": 0.9505061867266592,
+      "kappa": 0.9053323749434283,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          523,
+          4,
+          15
+        ],
+        [
+          4,
+          60,
+          3
+        ],
+        [
+          16,
+          2,
+          262
+        ]
+      ],
+      "first_marginal": [
+        542,
+        67,
+        280
+      ],
+      "second_marginal": [
+        543,
+        66,
+        280
+      ],
+      "partition": {
+        "ARI": 0.9418559312840626,
+        "n": 889,
+        "coassigned_pairs_first": 11362,
+        "coassigned_pairs_second": 11376,
+        "coassigned_pairs_both": 10727,
+        "overlap_fraction_of_first": 0.9441119521211054,
+        "overlap_fraction_of_second": 0.9429500703234881,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9476439790575916,
+      "kappa": 0.8800496129872983,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          266,
+          1,
+          8
+        ],
+        [
+          2,
+          30,
+          1
+        ],
+        [
+          7,
+          1,
+          66
+        ]
+      ],
+      "first_marginal": [
+        275,
+        33,
+        74
+      ],
+      "second_marginal": [
+        275,
+        32,
+        75
+      ],
+      "partition": {
+        "ARI": 0.8774747192814905,
+        "n": 382,
+        "coassigned_pairs_first": 179,
+        "coassigned_pairs_second": 181,
+        "coassigned_pairs_both": 158,
+        "overlap_fraction_of_first": 0.88268156424581,
+        "overlap_fraction_of_second": 0.8729281767955801,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      0,
+      1,
+      0
+    ],
+    "cut_source": "usgs",
+    "fixed_cut": -5.436938036463503,
+    "all": {
+      "n": 889,
+      "agreement": 0.9595050618672666,
+      "kappa": 0.921251743932836,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          539,
+          3,
+          14
+        ],
+        [
+          2,
+          61,
+          1
+        ],
+        [
+          12,
+          4,
+          253
+        ]
+      ],
+      "first_marginal": [
+        556,
+        64,
+        269
+      ],
+      "second_marginal": [
+        553,
+        68,
+        268
+      ],
+      "partition": {
+        "ARI": 0.9662732546644863,
+        "n": 889,
+        "coassigned_pairs_first": 10474,
+        "coassigned_pairs_second": 10732,
+        "coassigned_pairs_both": 10255,
+        "overlap_fraction_of_first": 0.9790910826809242,
+        "overlap_fraction_of_second": 0.9555534849049572,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9554973821989529,
+      "kappa": 0.8957105461786764,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          271,
+          1,
+          8
+        ],
+        [
+          0,
+          31,
+          0
+        ],
+        [
+          6,
+          2,
+          63
+        ]
+      ],
+      "first_marginal": [
+        280,
+        31,
+        71
+      ],
+      "second_marginal": [
+        277,
+        34,
+        71
+      ],
+      "partition": {
+        "ARI": 0.8424238733927326,
+        "n": 382,
+        "coassigned_pairs_first": 167,
+        "coassigned_pairs_second": 151,
+        "coassigned_pairs_both": 134,
+        "overlap_fraction_of_first": 0.8023952095808383,
+        "overlap_fraction_of_second": 0.8874172185430463,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      0,
+      1,
+      1
+    ],
+    "cut_source": "ssn",
+    "fixed_cut": -5.31563487877218,
+    "all": {
+      "n": 889,
+      "agreement": 0.937007874015748,
+      "kappa": 0.8794374847129423,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          523,
+          4,
+          15
+        ],
+        [
+          5,
+          54,
+          8
+        ],
+        [
+          16,
+          8,
+          256
+        ]
+      ],
+      "first_marginal": [
+        542,
+        67,
+        280
+      ],
+      "second_marginal": [
+        544,
+        66,
+        279
+      ],
+      "partition": {
+        "ARI": 0.9416449123905456,
+        "n": 889,
+        "coassigned_pairs_first": 11362,
+        "coassigned_pairs_second": 11364,
+        "coassigned_pairs_both": 10719,
+        "overlap_fraction_of_first": 0.9434078507305051,
+        "overlap_fraction_of_second": 0.9432418162618796,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9267015706806283,
+      "kappa": 0.8327050911081568,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          265,
+          1,
+          9
+        ],
+        [
+          2,
+          27,
+          4
+        ],
+        [
+          7,
+          5,
+          62
+        ]
+      ],
+      "first_marginal": [
+        275,
+        33,
+        74
+      ],
+      "second_marginal": [
+        274,
+        33,
+        75
+      ],
+      "partition": {
+        "ARI": 0.8592615970046675,
+        "n": 382,
+        "coassigned_pairs_first": 179,
+        "coassigned_pairs_second": 170,
+        "coassigned_pairs_both": 150,
+        "overlap_fraction_of_first": 0.8379888268156425,
+        "overlap_fraction_of_second": 0.8823529411764706,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      0,
+      1,
+      1
+    ],
+    "cut_source": "usgs",
+    "fixed_cut": -5.436938036463503,
+    "all": {
+      "n": 889,
+      "agreement": 0.9415073115860517,
+      "kappa": 0.8861951137851916,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          537,
+          3,
+          16
+        ],
+        [
+          3,
+          54,
+          7
+        ],
+        [
+          13,
+          10,
+          246
+        ]
+      ],
+      "first_marginal": [
+        556,
+        64,
+        269
+      ],
+      "second_marginal": [
+        553,
+        67,
+        269
+      ],
+      "partition": {
+        "ARI": 0.9589383767920935,
+        "n": 889,
+        "coassigned_pairs_first": 10474,
+        "coassigned_pairs_second": 10594,
+        "coassigned_pairs_both": 10113,
+        "overlap_fraction_of_first": 0.9655337025014321,
+        "overlap_fraction_of_second": 0.9545969416650935,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9293193717277487,
+      "kappa": 0.8343638086367213,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          270,
+          1,
+          9
+        ],
+        [
+          0,
+          27,
+          4
+        ],
+        [
+          7,
+          6,
+          58
+        ]
+      ],
+      "first_marginal": [
+        280,
+        31,
+        71
+      ],
+      "second_marginal": [
+        277,
+        34,
+        71
+      ],
+      "partition": {
+        "ARI": 0.8265531056020973,
+        "n": 382,
+        "coassigned_pairs_first": 167,
+        "coassigned_pairs_second": 145,
+        "coassigned_pairs_both": 129,
+        "overlap_fraction_of_first": 0.7724550898203593,
+        "overlap_fraction_of_second": 0.8896551724137931,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      1,
+      0,
+      0
+    ],
+    "cut_source": "ssn",
+    "fixed_cut": -5.31563487877218,
+    "all": {
+      "n": 889,
+      "agreement": 1.0,
+      "kappa": 1.0,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          542,
+          0,
+          0
+        ],
+        [
+          0,
+          67,
+          0
+        ],
+        [
+          0,
+          0,
+          280
+        ]
+      ],
+      "first_marginal": [
+        542,
+        67,
+        280
+      ],
+      "second_marginal": [
+        542,
+        67,
+        280
+      ],
+      "partition": {
+        "ARI": 1.0,
+        "n": 889,
+        "coassigned_pairs_first": 11362,
+        "coassigned_pairs_second": 11362,
+        "coassigned_pairs_both": 11362,
+        "overlap_fraction_of_first": 1.0,
+        "overlap_fraction_of_second": 1.0,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 1.0,
+      "kappa": 1.0,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          275,
+          0,
+          0
+        ],
+        [
+          0,
+          33,
+          0
+        ],
+        [
+          0,
+          0,
+          74
+        ]
+      ],
+      "first_marginal": [
+        275,
+        33,
+        74
+      ],
+      "second_marginal": [
+        275,
+        33,
+        74
+      ],
+      "partition": {
+        "ARI": 1.0,
+        "n": 382,
+        "coassigned_pairs_first": 179,
+        "coassigned_pairs_second": 179,
+        "coassigned_pairs_both": 179,
+        "overlap_fraction_of_first": 1.0,
+        "overlap_fraction_of_second": 1.0,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      1,
+      0,
+      0
+    ],
+    "cut_source": "usgs",
+    "fixed_cut": -5.436938036463503,
+    "all": {
+      "n": 889,
+      "agreement": 1.0,
+      "kappa": 1.0,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          556,
+          0,
+          0
+        ],
+        [
+          0,
+          64,
+          0
+        ],
+        [
+          0,
+          0,
+          269
+        ]
+      ],
+      "first_marginal": [
+        556,
+        64,
+        269
+      ],
+      "second_marginal": [
+        556,
+        64,
+        269
+      ],
+      "partition": {
+        "ARI": 1.0,
+        "n": 889,
+        "coassigned_pairs_first": 10474,
+        "coassigned_pairs_second": 10474,
+        "coassigned_pairs_both": 10474,
+        "overlap_fraction_of_first": 1.0,
+        "overlap_fraction_of_second": 1.0,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 1.0,
+      "kappa": 1.0,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          280,
+          0,
+          0
+        ],
+        [
+          0,
+          31,
+          0
+        ],
+        [
+          0,
+          0,
+          71
+        ]
+      ],
+      "first_marginal": [
+        280,
+        31,
+        71
+      ],
+      "second_marginal": [
+        280,
+        31,
+        71
+      ],
+      "partition": {
+        "ARI": 1.0,
+        "n": 382,
+        "coassigned_pairs_first": 167,
+        "coassigned_pairs_second": 167,
+        "coassigned_pairs_both": 167,
+        "overlap_fraction_of_first": 1.0,
+        "overlap_fraction_of_second": 1.0,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      1,
+      0,
+      1
+    ],
+    "cut_source": "ssn",
+    "fixed_cut": -5.31563487877218,
+    "all": {
+      "n": 889,
+      "agreement": 0.9730033745781778,
+      "kappa": 0.9484550527867033,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          537,
+          3,
+          2
+        ],
+        [
+          2,
+          57,
+          8
+        ],
+        [
+          2,
+          7,
+          271
+        ]
+      ],
+      "first_marginal": [
+        542,
+        67,
+        280
+      ],
+      "second_marginal": [
+        541,
+        67,
+        281
+      ],
+      "partition": {
+        "ARI": 0.9989575442632687,
+        "n": 889,
+        "coassigned_pairs_first": 11362,
+        "coassigned_pairs_second": 11355,
+        "coassigned_pairs_both": 11347,
+        "overlap_fraction_of_first": 0.9986798098926245,
+        "overlap_fraction_of_second": 0.9992954645530603,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9633507853403142,
+      "kappa": 0.9157689157689158,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          273,
+          1,
+          1
+        ],
+        [
+          1,
+          27,
+          5
+        ],
+        [
+          2,
+          4,
+          68
+        ]
+      ],
+      "first_marginal": [
+        275,
+        33,
+        74
+      ],
+      "second_marginal": [
+        276,
+        32,
+        74
+      ],
+      "partition": {
+        "ARI": 0.954435286214492,
+        "n": 382,
+        "coassigned_pairs_first": 179,
+        "coassigned_pairs_second": 173,
+        "coassigned_pairs_both": 168,
+        "overlap_fraction_of_first": 0.9385474860335196,
+        "overlap_fraction_of_second": 0.9710982658959537,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      1,
+      0,
+      1
+    ],
+    "cut_source": "usgs",
+    "fixed_cut": -5.436938036463503,
+    "all": {
+      "n": 889,
+      "agreement": 0.9718785151856018,
+      "kappa": 0.9451920682010421,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          549,
+          2,
+          5
+        ],
+        [
+          2,
+          56,
+          6
+        ],
+        [
+          3,
+          7,
+          259
+        ]
+      ],
+      "first_marginal": [
+        556,
+        64,
+        269
+      ],
+      "second_marginal": [
+        554,
+        65,
+        270
+      ],
+      "partition": {
+        "ARI": 0.9988717473586455,
+        "n": 889,
+        "coassigned_pairs_first": 10474,
+        "coassigned_pairs_second": 10467,
+        "coassigned_pairs_both": 10459,
+        "overlap_fraction_of_first": 0.9985678823754057,
+        "overlap_fraction_of_second": 0.999235693130792,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9685863874345549,
+      "kappa": 0.9260406582768634,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          277,
+          1,
+          2
+        ],
+        [
+          0,
+          27,
+          4
+        ],
+        [
+          1,
+          4,
+          66
+        ]
+      ],
+      "first_marginal": [
+        280,
+        31,
+        71
+      ],
+      "second_marginal": [
+        278,
+        32,
+        72
+      ],
+      "partition": {
+        "ARI": 0.9696281150057338,
+        "n": 382,
+        "coassigned_pairs_first": 167,
+        "coassigned_pairs_second": 163,
+        "coassigned_pairs_both": 160,
+        "overlap_fraction_of_first": 0.9580838323353293,
+        "overlap_fraction_of_second": 0.9815950920245399,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      1,
+      1,
+      0
+    ],
+    "cut_source": "ssn",
+    "fixed_cut": -5.31563487877218,
+    "all": {
+      "n": 889,
+      "agreement": 0.9505061867266592,
+      "kappa": 0.9053323749434283,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          523,
+          4,
+          15
+        ],
+        [
+          4,
+          60,
+          3
+        ],
+        [
+          16,
+          2,
+          262
+        ]
+      ],
+      "first_marginal": [
+        542,
+        67,
+        280
+      ],
+      "second_marginal": [
+        543,
+        66,
+        280
+      ],
+      "partition": {
+        "ARI": 0.9418559312840626,
+        "n": 889,
+        "coassigned_pairs_first": 11362,
+        "coassigned_pairs_second": 11376,
+        "coassigned_pairs_both": 10727,
+        "overlap_fraction_of_first": 0.9441119521211054,
+        "overlap_fraction_of_second": 0.9429500703234881,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9476439790575916,
+      "kappa": 0.8800496129872983,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          266,
+          1,
+          8
+        ],
+        [
+          2,
+          30,
+          1
+        ],
+        [
+          7,
+          1,
+          66
+        ]
+      ],
+      "first_marginal": [
+        275,
+        33,
+        74
+      ],
+      "second_marginal": [
+        275,
+        32,
+        75
+      ],
+      "partition": {
+        "ARI": 0.8774747192814905,
+        "n": 382,
+        "coassigned_pairs_first": 179,
+        "coassigned_pairs_second": 181,
+        "coassigned_pairs_both": 158,
+        "overlap_fraction_of_first": 0.88268156424581,
+        "overlap_fraction_of_second": 0.8729281767955801,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      1,
+      1,
+      0
+    ],
+    "cut_source": "usgs",
+    "fixed_cut": -5.436938036463503,
+    "all": {
+      "n": 889,
+      "agreement": 0.9595050618672666,
+      "kappa": 0.921251743932836,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          539,
+          3,
+          14
+        ],
+        [
+          2,
+          61,
+          1
+        ],
+        [
+          12,
+          4,
+          253
+        ]
+      ],
+      "first_marginal": [
+        556,
+        64,
+        269
+      ],
+      "second_marginal": [
+        553,
+        68,
+        268
+      ],
+      "partition": {
+        "ARI": 0.9662732546644863,
+        "n": 889,
+        "coassigned_pairs_first": 10474,
+        "coassigned_pairs_second": 10732,
+        "coassigned_pairs_both": 10255,
+        "overlap_fraction_of_first": 0.9790910826809242,
+        "overlap_fraction_of_second": 0.9555534849049572,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9554973821989529,
+      "kappa": 0.8957105461786764,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          271,
+          1,
+          8
+        ],
+        [
+          0,
+          31,
+          0
+        ],
+        [
+          6,
+          2,
+          63
+        ]
+      ],
+      "first_marginal": [
+        280,
+        31,
+        71
+      ],
+      "second_marginal": [
+        277,
+        34,
+        71
+      ],
+      "partition": {
+        "ARI": 0.8424238733927326,
+        "n": 382,
+        "coassigned_pairs_first": 167,
+        "coassigned_pairs_second": 151,
+        "coassigned_pairs_both": 134,
+        "overlap_fraction_of_first": 0.8023952095808383,
+        "overlap_fraction_of_second": 0.8874172185430463,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      1,
+      1,
+      1
+    ],
+    "cut_source": "ssn",
+    "fixed_cut": -5.31563487877218,
+    "all": {
+      "n": 889,
+      "agreement": 0.937007874015748,
+      "kappa": 0.8794374847129423,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          523,
+          4,
+          15
+        ],
+        [
+          5,
+          54,
+          8
+        ],
+        [
+          16,
+          8,
+          256
+        ]
+      ],
+      "first_marginal": [
+        542,
+        67,
+        280
+      ],
+      "second_marginal": [
+        544,
+        66,
+        279
+      ],
+      "partition": {
+        "ARI": 0.9416449123905456,
+        "n": 889,
+        "coassigned_pairs_first": 11362,
+        "coassigned_pairs_second": 11364,
+        "coassigned_pairs_both": 10719,
+        "overlap_fraction_of_first": 0.9434078507305051,
+        "overlap_fraction_of_second": 0.9432418162618796,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9267015706806283,
+      "kappa": 0.8327050911081568,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          265,
+          1,
+          9
+        ],
+        [
+          2,
+          27,
+          4
+        ],
+        [
+          7,
+          5,
+          62
+        ]
+      ],
+      "first_marginal": [
+        275,
+        33,
+        74
+      ],
+      "second_marginal": [
+        274,
+        33,
+        75
+      ],
+      "partition": {
+        "ARI": 0.8592615970046675,
+        "n": 382,
+        "coassigned_pairs_first": 179,
+        "coassigned_pairs_second": 170,
+        "coassigned_pairs_both": 150,
+        "overlap_fraction_of_first": 0.8379888268156425,
+        "overlap_fraction_of_second": 0.8823529411764706,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  },
+  {
+    "measurement_flags_time_location_magnitude": [
+      1,
+      1,
+      1
+    ],
+    "cut_source": "usgs",
+    "fixed_cut": -5.436938036463503,
+    "all": {
+      "n": 889,
+      "agreement": 0.9415073115860517,
+      "kappa": 0.8861951137851916,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          537,
+          3,
+          16
+        ],
+        [
+          3,
+          54,
+          7
+        ],
+        [
+          13,
+          10,
+          246
+        ]
+      ],
+      "first_marginal": [
+        556,
+        64,
+        269
+      ],
+      "second_marginal": [
+        553,
+        67,
+        269
+      ],
+      "partition": {
+        "ARI": 0.9589383767920935,
+        "n": 889,
+        "coassigned_pairs_first": 10474,
+        "coassigned_pairs_second": 10594,
+        "coassigned_pairs_both": 10113,
+        "overlap_fraction_of_first": 0.9655337025014321,
+        "overlap_fraction_of_second": 0.9545969416650935,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "held_out_2021_2025": {
+      "n": 382,
+      "agreement": 0.9293193717277487,
+      "kappa": 0.8343638086367213,
+      "labels": [
+        "isolated",
+        "operational main",
+        "associated"
+      ],
+      "matrix_first_rows_second_columns": [
+        [
+          270,
+          1,
+          9
+        ],
+        [
+          0,
+          27,
+          4
+        ],
+        [
+          7,
+          6,
+          58
+        ]
+      ],
+      "first_marginal": [
+        280,
+        31,
+        71
+      ],
+      "second_marginal": [
+        277,
+        34,
+        71
+      ],
+      "partition": {
+        "ARI": 0.8265531056020973,
+        "n": 382,
+        "coassigned_pairs_first": 167,
+        "coassigned_pairs_second": 145,
+        "coassigned_pairs_both": 129,
+        "overlap_fraction_of_first": 0.7724550898203593,
+        "overlap_fraction_of_second": 0.8896551724137931,
+        "interpretation": "Partition agreement on retained candidate endpoints, not accuracy or validated event identity"
+      }
+    },
+    "synthetic_intervention_not_new_observed_catalogue": true
+  }
+]

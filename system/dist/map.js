@@ -405,9 +405,16 @@ window.createSeismicMap = function ({element, basemap, onSelect, onHighlight = (
   });
   function reset() {map.closePopup();map.fitBounds(region, {padding: [20, 20], animate: false});labels();}
   function fitRecords() {
-    const rows = events.records || [];if (!rows.length) return;
+    const rows = events.records || [],width=element.clientWidth,height=element.clientHeight;
+    if (!rows.length || !(width>0 && height>0)) return false;
+    // Fitting must use the current container after expansion/reparenting. A
+    // fixed 30-pixel inset on a shorter map gives Leaflet a negative available
+    // height; its resulting non-finite scale otherwise selects maxZoom.
+    map.invalidateSize({pan:true,animate:false});
+    const padding=Math.min(30,Math.max(0,(Math.min(width,height)-1)/2));
     const bounds = L.latLngBounds(rows.map(eventLatLng));
-    map.closePopup();map.fitBounds(bounds, {padding: [30, 30], maxZoom: 8, animate: false});
+    map.closePopup();map.fitBounds(bounds, {padding: [padding, padding], maxZoom: 8, animate: false});
+    return true;
   }
   reset();
   map.on('moveend', onViewChange);

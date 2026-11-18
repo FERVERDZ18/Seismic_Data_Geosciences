@@ -1,0 +1,505 @@
+{
+  "schema": "zero-distance-postreview-diagnostic/1",
+  "sealed_utc": "2026-11-17T17:24:41.607325+00:00",
+  "md_sha256": "753f8a41fec850575387749a276aed93168e09136854e1fc91d3b82aa6e3f481",
+  "cases": [
+    {
+      "source": "ssn",
+      "w": 0.8,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w0p80000000000000004"
+    },
+    {
+      "source": "ssn",
+      "w": 0.9,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w0p90000000000000002"
+    },
+    {
+      "source": "ssn",
+      "w": 1.0,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1"
+    },
+    {
+      "source": "ssn",
+      "w": 1.0905428994843476,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p0905428994843476"
+    },
+    {
+      "source": "ssn",
+      "w": 1.1,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p1000000000000001"
+    },
+    {
+      "source": "ssn",
+      "w": 1.2,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p2"
+    },
+    {
+      "source": "ssn",
+      "w": 1.3,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3"
+    },
+    {
+      "source": "ssn",
+      "w": 1.3265675928192793,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3265675928192793"
+    },
+    {
+      "source": "ssn",
+      "w": 1.4,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3999999999999999"
+    },
+    {
+      "source": "usgs",
+      "w": 0.8,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w0p80000000000000004"
+    },
+    {
+      "source": "usgs",
+      "w": 0.9,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w0p90000000000000002"
+    },
+    {
+      "source": "usgs",
+      "w": 1.0,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1"
+    },
+    {
+      "source": "usgs",
+      "w": 1.0905428994843476,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p0905428994843476"
+    },
+    {
+      "source": "usgs",
+      "w": 1.1,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p1000000000000001"
+    },
+    {
+      "source": "usgs",
+      "w": 1.2,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p2"
+    },
+    {
+      "source": "usgs",
+      "w": 1.3,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3"
+    },
+    {
+      "source": "usgs",
+      "w": 1.3265675928192793,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3265675928192793"
+    },
+    {
+      "source": "usgs",
+      "w": 1.4,
+      "directory": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3999999999999999"
+    }
+  ],
+  "optional_M3_5_w1": [
+    {
+      "source": "ssn",
+      "path": "outputs/claude_response_2026-11-16/catalog_design/web_inputs/nn_parity/round_04/ssn_3_5_js.json"
+    },
+    {
+      "source": "usgs",
+      "path": "outputs/claude_response_2026-11-16/catalog_design/web_inputs/nn_parity/round_04/usgs_3_5_js.json"
+    }
+  ],
+  "inputs": [
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w0p80000000000000004/metadata.json",
+      "sha256": "5a90325b31f89140f518436ef41025f48248c84b0b3d822d1646855bb94a7e9c",
+      "bytes": 3733
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w0p80000000000000004/arrays.npz",
+      "sha256": "3c0fc9e66a1eb5d281435eb00a9f945a06ada1896d547c1ceba1641171240479",
+      "bytes": 176963
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w0p80000000000000004/ids.json",
+      "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+      "bytes": 108585
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w0p80000000000000004/rows.json",
+      "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+      "bytes": 738850
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w0p90000000000000002/metadata.json",
+      "sha256": "9733361722df77b064a40b60d894b292ab1a65fd3fd0364822333fe53587a53c",
+      "bytes": 3740
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w0p90000000000000002/arrays.npz",
+      "sha256": "2509b369bcb88c5870701d0b4bb3c51d52fa174ebb39f9b1aa3655da7a187fed",
+      "bytes": 175996
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w0p90000000000000002/ids.json",
+      "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+      "bytes": 108585
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w0p90000000000000002/rows.json",
+      "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+      "bytes": 738850
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1/metadata.json",
+      "sha256": "9b0aae6b74511808005de103f6b3dd4441bac480741276da82c29efe12f54f7e",
+      "bytes": 3910
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1/arrays.npz",
+      "sha256": "6240786d00a82ee8c0ed0c316b5bde5b644e294a6c4915c89dbcefb56061dc6d",
+      "bytes": 175141
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1/ids.json",
+      "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+      "bytes": 108585
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1/rows.json",
+      "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+      "bytes": 738850
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p0905428994843476/metadata.json",
+      "sha256": "d04fc4aea1e30b2e4e10753963b703cd13530988190c618b42c6e3f5b6f1b5bf",
+      "bytes": 3771
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p0905428994843476/arrays.npz",
+      "sha256": "a7ffba83414ee3eaee05b4b63dc6650bdd8a25db924fd62b3a89429ea377886b",
+      "bytes": 174389
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p0905428994843476/ids.json",
+      "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+      "bytes": 108585
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p0905428994843476/rows.json",
+      "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+      "bytes": 738850
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p1000000000000001/metadata.json",
+      "sha256": "74d17497ef5b3b621040e716f2f5a9adb86aa28b40e61f0282f8435e900e66e3",
+      "bytes": 3740
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p1000000000000001/arrays.npz",
+      "sha256": "71f63b74340e41b85c0f85706d40e6fcd86b9c87c13b347200a500b6e9cc29f1",
+      "bytes": 174306
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p1000000000000001/ids.json",
+      "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+      "bytes": 108585
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p1000000000000001/rows.json",
+      "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+      "bytes": 738850
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p2/metadata.json",
+      "sha256": "f58d54b329e530034ca1e53f55a1a9228ca4a5bec8c93138af71eebdc7215810",
+      "bytes": 3713
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p2/arrays.npz",
+      "sha256": "2a884739ef06df60e7a631e9fb6eade6a9806da9ae319213fd3e3518b8b4410a",
+      "bytes": 173510
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p2/ids.json",
+      "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+      "bytes": 108585
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p2/rows.json",
+      "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+      "bytes": 738850
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3/metadata.json",
+      "sha256": "2a8403e9878b285aad2b6f9052748848eef9afbf6e156d4d09925411df18a079",
+      "bytes": 3737
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3/arrays.npz",
+      "sha256": "5d8bc5054f0bb56cd677ead3cd6e2568948145f5b7b50e045a2777c1b3b12e0b",
+      "bytes": 173149
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3/ids.json",
+      "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+      "bytes": 108585
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3/rows.json",
+      "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+      "bytes": 738850
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3265675928192793/metadata.json",
+      "sha256": "e5926d114310bb63197b4b3aaf84213cacf8145d8896a4f27da1de33e5a32285",
+      "bytes": 3763
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3265675928192793/arrays.npz",
+      "sha256": "642a9db48a7cb8cc4d35d02a597cd588fd45039bf567d9bebdf4b48501cdb7b4",
+      "bytes": 172795
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3265675928192793/ids.json",
+      "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+      "bytes": 108585
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3265675928192793/rows.json",
+      "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+      "bytes": 738850
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3999999999999999/metadata.json",
+      "sha256": "5e2af709e7be8b0b22aba847eb0b6064d7c2b6573602936334a101e583266c1f",
+      "bytes": 3734
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3999999999999999/arrays.npz",
+      "sha256": "68e6585a097090792c4c3ae1abe728966dbddbeaea1ddca3d05cffe7078bba2a",
+      "bytes": 171590
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3999999999999999/ids.json",
+      "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+      "bytes": 108585
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/ssn_w1p3999999999999999/rows.json",
+      "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+      "bytes": 738850
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w0p80000000000000004/metadata.json",
+      "sha256": "f133e08c3a6a4f870939c97acbb651246b6ab19aaf4f9ccdc1f9180afd0c0777",
+      "bytes": 3737
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w0p80000000000000004/arrays.npz",
+      "sha256": "c5ece3416043900c1f513e9796a330b3fe91f63d00b87d022910d4c72efc02f3",
+      "bytes": 128599
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w0p80000000000000004/ids.json",
+      "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+      "bytes": 45221
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w0p80000000000000004/rows.json",
+      "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+      "bytes": 512666
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w0p90000000000000002/metadata.json",
+      "sha256": "d93986f1d973c85cd6343c992dc99a51d3ec9789c4595c76baeb55e1500b4b2b",
+      "bytes": 3731
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w0p90000000000000002/arrays.npz",
+      "sha256": "19c7b016d821a2226528f5f6f80cf7aed96fcb61bdea2b82a3eec0374354a6af",
+      "bytes": 128031
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w0p90000000000000002/ids.json",
+      "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+      "bytes": 45221
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w0p90000000000000002/rows.json",
+      "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+      "bytes": 512666
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1/metadata.json",
+      "sha256": "18a7aa64b5bca13ce9a1e624fc08720ed7fe8041701ea0c244c6d318d4446694",
+      "bytes": 3901
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1/arrays.npz",
+      "sha256": "31857b6dce53cedabe077ba0e79c71a00bfabbcbf7591f5d802cd8ad8edd67fa",
+      "bytes": 127435
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1/ids.json",
+      "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+      "bytes": 45221
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1/rows.json",
+      "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+      "bytes": 512666
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p0905428994843476/metadata.json",
+      "sha256": "e5cc92f6a7814989b8aa9c5be2069a0de13d27fda159a75c7bc7aa79bd6daad6",
+      "bytes": 3763
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p0905428994843476/arrays.npz",
+      "sha256": "e1c85c22febf0098d416f61cba176e510c080363da69213024630f2c08756af2",
+      "bytes": 127024
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p0905428994843476/ids.json",
+      "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+      "bytes": 45221
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p0905428994843476/rows.json",
+      "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+      "bytes": 512666
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p1000000000000001/metadata.json",
+      "sha256": "ee9fb9f63956fa4f5c6ed0f31c38696a55dfc96b7b4c1ea7ecb81756b771c436",
+      "bytes": 3733
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p1000000000000001/arrays.npz",
+      "sha256": "1f7dfa335a704901426e69f7c1db5dc20d6fabebda27575173e6623e21e855e6",
+      "bytes": 127000
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p1000000000000001/ids.json",
+      "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+      "bytes": 45221
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p1000000000000001/rows.json",
+      "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+      "bytes": 512666
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p2/metadata.json",
+      "sha256": "19c2cb98b0ed3af95baa6e9ebc134c40211996d212e99f1d1ac8a7a9996539c0",
+      "bytes": 3729
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p2/arrays.npz",
+      "sha256": "a0feca539ff34368a5680ad7bc4205acb0312acfaa50761b405d76b0f367f511",
+      "bytes": 126458
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p2/ids.json",
+      "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+      "bytes": 45221
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p2/rows.json",
+      "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+      "bytes": 512666
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3/metadata.json",
+      "sha256": "9116cf128eaa3dbf0cd4724fd5b9ff9a6602eb5d795652c04a972d9ddd0ed22b",
+      "bytes": 3730
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3/arrays.npz",
+      "sha256": "ed392a0e70924c4be75a0e38ca504b394f63f616015b6717a9ed4ece441fec66",
+      "bytes": 126088
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3/ids.json",
+      "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+      "bytes": 45221
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3/rows.json",
+      "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+      "bytes": 512666
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3265675928192793/metadata.json",
+      "sha256": "97e1ce7e85c8c8124e9e540b168d5806b37ca9ce7cb5fc1e8869fb0448204b3e",
+      "bytes": 3762
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3265675928192793/arrays.npz",
+      "sha256": "9a704cd46e0fb0f701edb66ca9c715aae46aff75d062f342cba2f59f0776753c",
+      "bytes": 125954
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3265675928192793/ids.json",
+      "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+      "bytes": 45221
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3265675928192793/rows.json",
+      "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+      "bytes": 512666
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3999999999999999/metadata.json",
+      "sha256": "a206ed600b866892284d2333897eb2c95420a7c318168198cba5a3c20a993161",
+      "bytes": 3728
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3999999999999999/arrays.npz",
+      "sha256": "66bacce5be45436ab89dcc8d19a285ce9f5ba211c47a77d52e3733c7341d3a96",
+      "bytes": 125606
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3999999999999999/ids.json",
+      "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+      "bytes": 45221
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/cases/usgs_w1p3999999999999999/rows.json",
+      "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+      "bytes": 512666
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/catalog_design/web_inputs/nn_parity/round_04/ssn_3_5_js.json",
+      "sha256": "319b02bea6dd9ecf19fee58a84bb4ce8dfe821b522f8af48e440fa9a74f856f3",
+      "bytes": 40845939
+    },
+    {
+      "path": "outputs/sequence_pilot_2026-11-15/inputs/ssn.csv",
+      "sha256": "28a835c3cc09a80249d76afd2372d37a6ffa0d4f7ac99133f609c25324be3542",
+      "bytes": 25317009
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/catalog_design/web_inputs/nn_parity/round_04/usgs_3_5_js.json",
+      "sha256": "d0a9f3866be258710b233575124273267a34d159dcdca3d92dab3d5a150a15f7",
+      "bytes": 1635650
+    },
+    {
+      "path": "outputs/sequence_pilot_2026-11-15/inputs/usgs.csv",
+      "sha256": "063bcce8eb1ae48c2c2c52fa3df06bb38e9d596b09f8fffd3e0286f0271627b0",
+      "bytes": 558416
+    },
+    {
+      "path": "outputs/ssn_usgs_pilot_2026-11-15/graph_candidate_pairs.json",
+      "sha256": "93187c19cc25a3f9d5c6a4042410ef57d9336feca1b36fc2e445952257645939",
+      "bytes": 436399
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/catalog_design/scientific_diagnostics.compact.json",
+      "sha256": "a1d10f7356ce5bd4dc6feded14c2537fa9ffc6bbc1a4904abc1d1330576f3470",
+      "bytes": 10055760
+    }
+  ],
+  "scientific_counts_not_read": true,
+  "cpu_gate": "WAIT root",
+  "parent_edge_deletion_rule": "parent>=0 and (RN==0 or log10(TN)+log10(RN)==-inf)",
+  "no_alternative_parent": true,
+  "no_refit": true,
+  "no_epsilon": true
+}

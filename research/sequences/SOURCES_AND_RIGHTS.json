@@ -1,0 +1,57 @@
+{
+  "schema": "frozen-seismic-sources/1",
+  "status": "FROZEN_INPUTS_PACKAGED_AND_VERIFIED_IN_PRIVATE_CLEAN_REPLAY",
+  "observations": [
+    {
+      "source": "SSN/UNAM direct human-downloaded catalogue",
+      "project_path": "research-data/catalogs/ssn-mx/ssn_19000101_20261106.csv",
+      "bytes_recorded": 45950120,
+      "sha256_recorded": "0601c65544bc95ef865d3440e5e6d84249acdebd8edfb379669597096543f993",
+      "doi": "10.21766/SSNMX/EC/MX",
+      "terms_project_path": "research-data/catalogs/ssn-mx/TERMS.txt",
+      "limits": "One current-catalogue download; original header/local/UTC fields retained. Derived row keys are not official event IDs; missing magnitude type is not Mw."
+    },
+    {
+      "source": "Frozen USGS Mexico/North-America original CSVs",
+      "repository": "https://github.com/Actronix09/fuentes-alternas",
+      "commit": "8fe055ffe635875f7290906d45f70562a7896621",
+      "restore_script": "source_layout/scripts/restore_catalog_sources.py",
+      "source_manifests": [
+        "source_layout/data/source_manifest.json",
+        "source_layout/data/north_source_manifest.json"
+      ],
+      "files_recorded": 58,
+      "bytes_recorded": 7049107,
+      "limits": "Only the exact declared CSVs are restorable by size/SHA256/Gitblob. This does not restore SSN or new southern GeoJSON responses."
+    },
+    {
+      "source": "New non-atomic southern ComCat capture",
+      "bodies": [
+        {
+          "project_path": "outputs/claude_round2_2026-11-17/science/catalog/south_control/acquisition/acquisition_03/2016_2021_reused.geojson",
+          "sha256_recorded": "e3e30162faa7e567c20c7fa12c5f3612a74a9807a719b6efe1a9e87a2a805113",
+          "bytes_recorded": 2128959
+        },
+        {
+          "project_path": "outputs/claude_round2_2026-11-17/science/catalog/south_control/acquisition/acquisition_03/2021_2026_attempt1.geojson",
+          "sha256_recorded": "034590df73c2c6c9036f5543320c032e517858ad372280d65f60ec519f509dd8",
+          "bytes_recorded": 1913052
+        }
+      ],
+      "limits": "Preserve acquisition/revalidation failures and receipts. A later live query is not restoration; do not splice these bodies into the older snapshot."
+    }
+  ],
+  "associations": "Frozen maximum-cardinality/minimum-cost candidate assignments; no independently adjudicated physical identities are inferred.",
+  "synthetics": "The twin protocol fixes three independent development and60 independent test histories, shared latent parent/root truth, observation ledgers and16 D/M/X/T treatments. These are assumed errors, not fitted Mexican-agency uncertainties.",
+  "publication_status": "Private local review candidate. Public bytes/access remain to be verified only after separately authorized publication.",
+  "historical_site_or_other_project_changes": false,
+  "browser_observation": {
+    "version": "V3 canonical persisted transport repeat",
+    "original_post_sha256": "1a53ec72f288742da20ff5475a72f687d1729d02a8e93e9d99a389cffd330038",
+    "original_post_bytes": 58810943,
+    "computed": 18,
+    "censored": 6,
+    "public_metadata_projection": "cpu_note removed; human paths relative; arrays/base64/hashes unchanged; derived receipt retains original digest and is not a newPOST",
+    "v2": "24visible timings retained,18computed/6censored; no raw arrays or UA/version recovered"
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "label": "2016_2021",
+  "url": "https://earthquake.usgs.gov/fdsnws/event/1/query?format=geojson&starttime=2016-01-01T00%3A00%3A00Z&endtime=2021-01-01T00%3A00%3A00Z&minlatitude=12&maxlatitude=33&minlongitude=-118&maxlongitude=-86&minmagnitude=3.5&eventtype=earthquake&orderby=time-asc&limit=20000",
+  "method": "GET",
+  "started_utc": "2026-11-17T16:52:18.332183+00:00",
+  "attempt": 2,
+  "status": "FAIL",
+  "error_type": "URLError",
+  "error": "<urlopen error [Errno 11001] getaddrinfo failed>",
+  "completed_utc": "2026-11-17T16:52:18.333697+00:00"
+}

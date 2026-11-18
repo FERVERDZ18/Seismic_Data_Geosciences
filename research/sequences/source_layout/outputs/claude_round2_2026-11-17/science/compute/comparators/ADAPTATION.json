@@ -1,0 +1,26 @@
+{
+  "raw": {
+    "path": "outputs/claude_round2_2026-11-17/audit/primary_sources/eqclustering_393a02db.py",
+    "sha256": "ad65da59bcf65ecdae300adacc4dff8a1e5537252c33e6ddacc1338de2f2db0b",
+    "bytes": 11214
+  },
+  "adapted": {
+    "path": "outputs/claude_round2_2026-11-17/science/compute/comparators/eqclustering_python3_constants.py",
+    "sha256": "71341ba6e194310bae64470f4cbc521e64d03f945dea69629ea1f6d92f8932e5",
+    "bytes": 11581
+  },
+  "diff": {
+    "path": "outputs/claude_round2_2026-11-17/science/compute/comparators/PYTHON3_CONSTANT_COMPATIBILITY.diff",
+    "sha256": "4328cc1eafa51874edb2660b039e735fa138c13ca2e81716419b8dacfcb7c0e8",
+    "bytes": 1180
+  },
+  "replacements": {
+    "datetime.datetime(1970, 01, 01, 00, 00, 00)": 1,
+    "np.Inf": 2,
+    "np.NaN": 4
+  },
+  "numerical_algorithm_changed": false,
+  "year365p35_preserved": true,
+  "acos_without_clamp_preserved": true,
+  "algorithm_executed": false
+}

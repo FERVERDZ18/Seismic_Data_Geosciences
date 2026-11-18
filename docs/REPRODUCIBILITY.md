@@ -1,5 +1,49 @@
 # Reproducing the local audit
 
+## Sequence-science package 2026.11.17.1
+
+The current sequence-science reproduction entry point is
+[`research/sequences/README.md`](../research/sequences/README.md), with a
+[readable source index](../research/sequences/SOURCE_INDEX.md),
+[locked dependencies](../research/sequences/requirements-r2.lock),
+[scientific comparison contract](../research/sequences/EXPECTED_COMPARISON_CONTRACT.json)
+and [table producer map](../research/sequences/TABLE_SOURCE_MAP.json).
+The sections below retain earlier application and manuscript workflows as
+historical context; they do not supersede this package's commands or expand
+its verification claims.
+
+The package contains 2,837 logical paths in 280 physical files. Numerical sources,
+small configurations and licences are plain files; 22 deduplicated data archives
+remain below 95 MB each. A size/SHA-256 manifest binds the inputs and expected
+results. The consumer creates a new independent workspace and never writes
+fresh outputs over supplied expected arrays or an existing checkout.
+
+A new isolated Windows x64 CPython 3.12.14 environment recalculated the six
+declared stages: retained v3 checks, catalogue sensitivity, 60 shared-truth
+synthetic twins, southern support controls, zero-distance diagnostics and 36
+large indexed observed-parent/Node cases. The recorded verification comprises
+757 core plus 1,221 additional synthetic comparison records and 24,466 decoded
+array fields. Sixteen provenance/security fixtures passed. Complete scientific
+arrays and table cells retain their declared tolerances; runtime metadata is
+handled only by the explicit comparison contract.
+
+Historical browser V3 arrays are revalidated separately: 24 planned cells,
+18 computed and six censored reference cells. This is not a new browser timing
+experiment. Likewise the historical GEM profile verifies 2,989 assignments from
+each method, their 2,984-edge intersection and ten time-shift controls; it does
+not rerun GEM. Native benchmarks and author/Octave comparators have explicit
+optional modes and fresh output destinations. A default replay does not repeat
+their historical durations or claim Linux/macOS verification.
+
+The [QA summary](../research/sequences/QA_SUMMARY.json) records the exact clean
+replay scope. "Local candidate" labels inside sealed metadata describe the
+audit before publication, without implying human author approval. Publication
+is established separately by the accessible repository commit and its actual
+bytes. The numerical package is not served by GitHub Pages; the manual Pages
+workflow serves only `system/dist`. Current and v0 manuscript figures remain
+outside this numerical package. Preserve the component-specific
+[licensing terms](LICENSING.md#sequence-science-reproduction-components).
+
 ## Local revision after the verified 10 November 2026 publication
 
 The public baseline verified on 10 November 2026 is

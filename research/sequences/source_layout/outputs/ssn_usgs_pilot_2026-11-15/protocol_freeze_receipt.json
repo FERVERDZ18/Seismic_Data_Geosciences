@@ -1,0 +1,8 @@
+{
+  "frozen_before_matching_utc": "2026-11-15T19:00:19Z",
+  "protocol_path": "docs/pilot_ssn_usgs_protocol.md",
+  "frozen_copy": "protocol_v1_frozen.md",
+  "sha256": "d54e3e851200668dbafd76f93a37801b75b6c8670a76af1429f9d397593d3f2e",
+  "candidate_pairs_observed": false,
+  "source_profile": "cohort_profile_before_matching.json"
+}

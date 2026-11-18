@@ -1,0 +1,11 @@
+# Direct dependencies used by the observed scientific environment.
+# Keep the original project-relative source layout described in METHODS_V3_REPRODUCTION.md.
+numpy==2.2.6
+scipy==1.15.3
+numba==0.63.1
+llvmlite==0.46.0
+pyproj==3.7.2
+# The index's unmodified import adapter currently loads these on import.
+bruces==0.5.0
+matplotlib==3.10.3
+utm==0.8.1

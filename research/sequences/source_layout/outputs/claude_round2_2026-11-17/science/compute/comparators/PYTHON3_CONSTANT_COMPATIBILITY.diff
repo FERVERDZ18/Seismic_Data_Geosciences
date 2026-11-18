@@ -1,0 +1,32 @@
+--- eqclustering393a02db-original
++++ python3-syntax-constants-only
+@@ -34,7 +34,7 @@
+ 
+ def _ts(dt):
+     """Float timestamp from python datetime"""
+-    return (dt-datetime.datetime(1970, 01, 01, 00, 00, 00)).total_seconds()
++    return (dt-datetime.datetime(1970, 1, 1, 0, 0, 0)).total_seconds()
+ 
+ # I/O --- remove or do something ---------------------------------------------
+ def _input_line(line):
+@@ -209,14 +209,14 @@
+         """
+         _n = len(time)
+ 
+-        P = np.empty(_n) * np.NaN # tree
+-        n = np.empty(_n) * np.Inf # eta*
+-        T = np.empty(_n) * np.NaN # T used in eta*
+-        D = np.empty(_n) * np.NaN # R used in eta*
+-        M = np.empty(_n) * np.NaN # Mag of parent event in tree
++        P = np.empty(_n) * np.nan # tree
++        n = np.empty(_n) * np.inf # eta*
++        T = np.empty(_n) * np.nan # T used in eta*
++        D = np.empty(_n) * np.nan # R used in eta*
++        M = np.empty(_n) * np.nan # Mag of parent event in tree
+         
+         if lag is None:
+-            lag = np.Inf
++            lag = np.inf
+         
+         # Function to calulate "Eta(i,j)" distance
+         def eta(t, d, m):

@@ -1,0 +1,105 @@
+{
+  "schema": "scientific-table-producer-map/1",
+  "status": "BOUND_TO_FINAL_LAYOUT02_TABLES_AND_VERIFIED_PRODUCERS",
+  "rows": [
+    {
+      "scientific_content": "Weight/threshold/class concordance, dependence units and bootstrap, geography, inclusion, matching windows, retained annual/factorial and Alaska control",
+      "producer": "outputs/claude_round2_2026-11-17/science/catalog/run_catalog.py",
+      "summary_producer": "outputs/claude_round2_2026-11-17/science/catalog/summarize_catalog.py",
+      "output_root": "outputs/claude_round2_2026-11-17/science/catalog/runs/run_01",
+      "stage": "catalog",
+      "input_scope": "Frozen observed cohorts plus explicit reproducible v3/catalog-design checkpoints; conditional candidate comparison, not accuracy",
+      "status": "RECALCULATED_AND_VERIFIED"
+    },
+    {
+      "scientific_content": "Shared-truth twin class recovery, false positives, fixed-denominator losses and factorial interactions",
+      "producer": "outputs/claude_round2_2026-11-17/science/twins/run_twins_v1.py",
+      "summary_producer": "outputs/claude_round2_2026-11-17/science/twins/summarize_twins_v1.py",
+      "output_root": "outputs/claude_round2_2026-11-17/science/twins/run_v1",
+      "stage": "twins",
+      "input_scope": "Protocol/PCG64 seeds/independent latent truth and observation ledgers, development cuts frozen before test histories",
+      "status": "RECALCULATED_AND_VERIFIED"
+    },
+    {
+      "scientific_content": "Southern support/revision controls and fixed-circle2017 projection",
+      "producer": "outputs/claude_round2_2026-11-17/science/catalog/south_control/run_south_control.py",
+      "output_root": "outputs/claude_round2_2026-11-17/science/catalog/south_control/runs/south_run_01",
+      "stage": "south",
+      "status": "RECALCULATED_AND_VERIFIED"
+    },
+    {
+      "scientific_content": "Zero-distance diagnostics and declared edge-deletion contrast",
+      "producer": "outputs/claude_round2_2026-11-17/science/zero_distance/run_zero_distance.py",
+      "output_root": "outputs/claude_round2_2026-11-17/science/zero_distance/runs/zero_run_01",
+      "stage": "zero_distance",
+      "status": "RECALCULATED_AND_VERIFIED"
+    },
+    {
+      "scientific_content": "Large observed-parent sensitivity and cross-source comparability, without EM families",
+      "producer": "outputs/claude_round2_2026-11-17/science/compute/run_large_parent_study.py",
+      "output_root": "outputs/claude_round2_2026-11-17/science/compute/large_parent_01",
+      "stage": "large_parents",
+      "status": "RECALCULATED_AND_VERIFIED"
+    },
+    {
+      "scientific_content": "Native matched performance, memory and exact backend parity",
+      "producer": "outputs/claude_round2_2026-11-17/science/compute/run_native_benchmark.py",
+      "output_root": "outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01",
+      "stage": "native_benchmark",
+      "default_rerun": false,
+      "scope": "Retained measurements reproducible as protocol, with new timings/RSS rather than promised identical duration",
+      "status": "RETAINED_TIMINGS_NOT_REEXECUTED"
+    }
+  ],
+  "pending": [],
+  "manuscript_tables": [
+    {
+      "number": 1,
+      "content": "Matched native benchmark, nine input rows",
+      "source": "expected/outputs/claude_round2_2026-11-17/science/compute/native_benchmark_01/SUMMARY.json",
+      "selector": "Pivot27backend/input summaries into9input rows; retained81measurements, no timing rerun"
+    },
+    {
+      "number": 2,
+      "content": "NN three-role matrix on889candidate pairs",
+      "source": "expected/outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/WEIGHT_THRESHOLD_METRICS.json",
+      "selector": "Principal w1/delta0 full-period native comparison"
+    },
+    {
+      "number": 3,
+      "content": "Weight sensitivity on889full and382evaluation pairs",
+      "source": "expected/outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/WEIGHT_THRESHOLD_METRICS.csv",
+      "selector": "Principal threshold delta0; report full and2021-2025 separately"
+    },
+    {
+      "number": 4,
+      "content": "Sixteen measurement-factorial cells",
+      "source": "expected/outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/FACTORIAL_16_RETAINED_V3.csv",
+      "selector": "Retained v3 computational substitutions; not additive physical attribution"
+    },
+    {
+      "number": 5,
+      "content": "Ten calendar-year results",
+      "source": "expected/outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/ANNUAL_RETAINED_V3.csv",
+      "selector": "2016-2025; development/evaluation roles remain explicit"
+    },
+    {
+      "number": 6,
+      "content": "Sixteen shared-truth twin treatments, branching0.6",
+      "source": "expected/outputs/claude_round2_2026-11-17/science/twins/run_v1/RESULTS.json",
+      "selector": "Thirty independent histories; D/M/X/T cells and manuscript-described method/cut branch; ALL_HISTORY_CELL_METRICS.csv supplies every history"
+    },
+    {
+      "number": 7,
+      "content": "Southern observed-support controls, C occupancy0.5/1/2degrees",
+      "source": "expected/outputs/claude_round2_2026-11-17/science/catalog/south_control/runs/south_run_01/RESULTS.json",
+      "selector": "observed_development_support_controls; not completeness or common-detection certification"
+    }
+  ],
+  "paragraph_sources": {
+    "3.1_large_parent": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/PARENT_SENSITIVITY_SUMMARY.json",
+    "3.1_browser": "expected/outputs/claude_round2_2026-11-17/science/compute/browser_result_v3_01/VERIFICATION.json",
+    "3.6_colocation": "expected/outputs/claude_round2_2026-11-17/science/zero_distance/runs/zero_run_01/RESULTS.json",
+    "historical_GEM": "source_layout/research/sequences/references/historical_control_reference.json"
+  }
+}

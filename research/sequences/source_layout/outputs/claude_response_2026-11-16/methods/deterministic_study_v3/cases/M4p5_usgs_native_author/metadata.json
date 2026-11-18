@@ -1,0 +1,162 @@
+{
+  "name": "M4p5_usgs_native_author",
+  "cut": 4.5,
+  "source": "usgs",
+  "cohort": "native",
+  "parameter_mode": "author",
+  "d": 1.6,
+  "w": 1.0,
+  "calibration": "native-development cutoff frozen; common membership alone does not refit",
+  "local_fit_if_refit_development": {
+    "status": "estimable",
+    "threshold_log10": -5.436938036463503,
+    "finite_events": 708,
+    "initial_means": [
+      -6.0,
+      -3.0
+    ],
+    "initial_sigmas": [
+      1.0,
+      1.0
+    ],
+    "parameter_tolerance": 0.001,
+    "cutoff_uses_mixture_weights": false,
+    "port_not_native_MATLAB": true,
+    "upstream_commit": "636d07beb89bde7d7deb502db78beebb45528cca",
+    "means": [
+      -7.166656508415178,
+      -4.046656835922663
+    ],
+    "sigmas": [
+      1.2607977288577707,
+      0.851161870058926
+    ],
+    "weights": [
+      0.41835716923701716,
+      0.5816428307629827
+    ],
+    "epsilon": 0.0009695660292727837,
+    "iterations": 84,
+    "quadratic": [
+      -1.7302687681014097,
+      -4.9621417434813,
+      24.168398394318977
+    ],
+    "discriminant": 191.8941503492892,
+    "author_returned_boundary": -5.436938036463503,
+    "boundary_between_means": true,
+    "reason": null
+  },
+  "local_fit_diagnostics": {
+    "status": "diagnosed",
+    "mode_count": 2,
+    "mode_locations": [
+      -7.147852417155643,
+      -4.0808741688409
+    ],
+    "BIC_one": 2900.161981909662,
+    "BIC_two": 2764.9038785363437,
+    "two_mode_BIC_guard_passed": true,
+    "guard_does_not_change_author_cut_or_hide_operational_output": true
+  },
+  "protocol_sha256": "809615e65188aa0d6e5b93bd416814381ebe22c69972bf79129f1b8face8bf51",
+  "events": 1256,
+  "fit": {
+    "status": "estimable",
+    "threshold_log10": -5.436938036463503,
+    "finite_events": 708,
+    "initial_means": [
+      -6.0,
+      -3.0
+    ],
+    "initial_sigmas": [
+      1.0,
+      1.0
+    ],
+    "parameter_tolerance": 0.001,
+    "cutoff_uses_mixture_weights": false,
+    "port_not_native_MATLAB": true,
+    "upstream_commit": "636d07beb89bde7d7deb502db78beebb45528cca",
+    "means": [
+      -7.166656508415178,
+      -4.046656835922663
+    ],
+    "sigmas": [
+      1.2607977288577707,
+      0.851161870058926
+    ],
+    "weights": [
+      0.41835716923701716,
+      0.5816428307629827
+    ],
+    "epsilon": 0.0009695660292727837,
+    "iterations": 84,
+    "quadratic": [
+      -1.7302687681014097,
+      -4.9621417434813,
+      24.168398394318977
+    ],
+    "discriminant": 191.8941503492892,
+    "author_returned_boundary": -5.436938036463503,
+    "boundary_between_means": true,
+    "reason": null
+  },
+  "mixture_diagnostics": {
+    "status": "diagnosed",
+    "mode_count": 2,
+    "mode_locations": [
+      -7.147852417155643,
+      -4.0808741688409
+    ],
+    "BIC_one": 2900.161981909662,
+    "BIC_two": 2764.9038785363437,
+    "two_mode_BIC_guard_passed": true,
+    "guard_does_not_change_author_cut_or_hide_operational_output": true
+  },
+  "kernel_metadata": {
+    "n": 1256,
+    "d": 1.6,
+    "w": 1.0,
+    "q": 0.5,
+    "radius_km": 6367.3,
+    "backend": "kd",
+    "threads": 1,
+    "preparation_seconds": 7.000000914558768e-05,
+    "tree_seconds": 0.004115799994906411,
+    "kernel_seconds": 0.008266599994385615,
+    "postprocess_seconds": 0.00018289999570697546,
+    "total_seconds": 0.012635299994144589,
+    "tree": {
+      "kind": "kd",
+      "nodes": 255,
+      "leaves": 128,
+      "actual_max_depth": 7,
+      "actual_max_leaf_size": 11,
+      "leafsize": 16,
+      "max_depth_limit": null
+    },
+    "counters": {
+      "candidate_pairs": 31016,
+      "visited_nodes": 36532,
+      "bound_tests": 54292,
+      "pruned_on_pop": 4559,
+      "pruned_before_push": 17760,
+      "leaf_slots": 53910,
+      "activated_sources": 1255
+    },
+    "zero_distance_retained": true,
+    "nonparent_logeta": "NaN",
+    "distance": "author acos with [-1,1] clamp and shared small-angle cosine v2",
+    "input_time": "epoch years, author multiply before subtraction",
+    "chord_guard": 2e-07,
+    "log_prune_guard": 1e-10
+  },
+  "role_counts": {
+    "0": 748,
+    "1": 103,
+    "2": 405
+  },
+  "arrays_sha256": "1821fd28a63b180d5af6da5d48095eb06b18919b938beb2781813a6487a0f4bb",
+  "ids_sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+  "interpretation": "Operational statistical families; no physical truth or calibrated magnitude equivalence"
+}

@@ -1,0 +1,5 @@
+# Verificación del gate real
+
+Antes de ejecutar se leyó `../TWINS_GATE_01.json`, creado a las 16:46:18.569809 UTC del 17-11-2026. El archivo real enlazaba el runner SHA256 `30949b10af93645a199bc100ef6fceef5f5438443042c0d2f913e38b626a424a` y el recibo de pruebas SHA256 `53d8afde047618f044ddb5796e714494390d31ddc6ff5d4e26c151629d145820` (9 pruebas). El runner y el recibo coincidieron antes del inicio. `IMPLEMENTATION_SHA256.json` conservó además el sello de código y dependencias antes de generar resultados.
+
+`run_v1/RUN_START.json` registra el inicio a las 16:47:00.932410 UTC y copia el gate recibido, los hashes y las versiones. Tras arrancar, un mensaje del coordinador citó una lectura anterior de código/8 pruebas. Se contrastó con el archivo y el coordinador confirmó que el gate real sí había sellado los archivos actualizados. No hubo modificación del runner después de ese gate, interrupción, repetición ni resembrado del lote. Esta nota se escribió después del arranque para registrar la comprobación; no se presenta como un sello previo.

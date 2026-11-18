@@ -1,0 +1,208 @@
+{
+  "status": "SEALED_BEFORE_ANY_NEW_MEASUREMENT",
+  "created_utc": "2026-11-17T16:51:16.047837+00:00",
+  "protocol_sha256": "75ee605d04cfc6869ff265d9ad8072f7e5e808098682281906d669d4dcc7825f",
+  "phase": "1:matched native and large observed-parent study",
+  "entries": [
+    {
+      "path": "outputs/claude_response_2026-11-16/index/cached_balanced_exhaustive_v2.py",
+      "bytes": 1154,
+      "sha256": "86dfb4f3d5f9a4eea4255f49015d93f304f93e7dd802cf7d4ec4f6a4032515c2"
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/index/spherical_weighted_v2.py",
+      "bytes": 12025,
+      "sha256": "3b207301b5021782cd42910e7a037f3d50ac808f00652b50c4960bc1d00c4f60"
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/index/v2/benchmark_01/input_arrays.npz",
+      "bytes": 5469152,
+      "sha256": "759d39d59e8d882a8ae9d9a42b41c8711c8eb0c42bdf9bbd0e1ab0f5bad46a6a"
+    },
+    {
+      "path": "outputs/claude_response_2026-11-16/index/windows_memory.py",
+      "bytes": 1171,
+      "sha256": "92005344956e7ef69f9d1fa52a9e3980e0c6477ea8b4729a4184802797e653ec"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/browser_harness/inputs_ssn_m35.json",
+      "bytes": 62514781,
+      "sha256": "d213720df5144a24157348701cdd82a6846852328feba1571a4ed13768ea9119"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/browser_harness/nearest-parent.js",
+      "bytes": 9126,
+      "sha256": "ca075af9ac4ac1e7b2b59dfa5898674fdfd3aa52d196e41511f99d08c78f6ea0"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/common.py",
+      "bytes": 2701,
+      "sha256": "f628f8a0cc48c4d1c78b775dffe3cd6a6704a546ee36dfc2125d7babada5ca89"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/candidate_pairs.json",
+      "bytes": 436399,
+      "sha256": "93187c19cc25a3f9d5c6a4042410ef57d9336feca1b36fc2e445952257645939"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/MANIFEST.json",
+      "bytes": 7319,
+      "sha256": "26581df08c47f9625a6aa27057ff28a1664865715ca6e4091ef1f98e719b7fe8"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_common.npz",
+      "bytes": 96640,
+      "sha256": "586b1e42bd3a79bed1919b38903ce76dd90867ab9deed4ad2389f8b20a15fbf9"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_common_ids.json",
+      "bytes": 182334,
+      "sha256": "c90dacc2ab9110d9b093e94b0362eae1e86cb4f640de6d0e0892ddb2136529d0"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_common_rows.json",
+      "bytes": 1240619,
+      "sha256": "e64e72597efe76a19cf218b79d72633bcc0a361b7aa32eb7102b32092b067ddb"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_native.npz",
+      "bytes": 5469152,
+      "sha256": "759d39d59e8d882a8ae9d9a42b41c8711c8eb0c42bdf9bbd0e1ab0f5bad46a6a"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_native_ids.json",
+      "bytes": 10423685,
+      "sha256": "e3afc608c53df74a1be9fefaf5f1b85086edff7baf0d07cab636eb61cb87afb4"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_native_rows.json",
+      "bytes": 70941847,
+      "sha256": "6d2df008ebea1610cba381755371c50f024f6946721955d3525a024589c29b8f"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_principal45.npz",
+      "bytes": 57952,
+      "sha256": "f2289677bfb599b722a549c379a2f7c5cdb06b8809b52ed4ad7ecb0f30c1be38"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_principal45_ids.json",
+      "bytes": 108585,
+      "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_principal45_rows.json",
+      "bytes": 738850,
+      "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_common.npz",
+      "bytes": 96640,
+      "sha256": "9dffe104c7653e48925eb442d8df6964e9d0fb0f6743d16c365448c982ed7a91"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_common_ids.json",
+      "bytes": 107609,
+      "sha256": "0602d797c1f4a8b38d69e9a7cf647cd4c2667c590d336a1fa4e69f02e3f74cd3"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_common_rows.json",
+      "bytes": 1219463,
+      "sha256": "7452bb51765d874ea052c8ed3e0413124b7c4eb04e12c2b09eed57a8f501fa1b"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_native.npz",
+      "bytes": 127232,
+      "sha256": "9abf3aa080fe57db9ff11e32a1a1c85743fc1f8223a43b565824c9b23a7779a7"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_native_ids.json",
+      "bytes": 142059,
+      "sha256": "d7c51b5fc53c941ac95df20c69a40ea27359005df3b79b32bd76f34bacc8a8f0"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_native_rows.json",
+      "bytes": 1611609,
+      "sha256": "b7adf6a751ea6b8877af5e50616590ff46417e19fe4449cca0cc000f50211685"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_principal45.npz",
+      "bytes": 41184,
+      "sha256": "29097987448888a8bc1d212047f919af171c22e68808a087446381565bcb40d8"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_principal45_ids.json",
+      "bytes": 45221,
+      "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_principal45_rows.json",
+      "bytes": 512666,
+      "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/native_worker.py",
+      "bytes": 2917,
+      "sha256": "97a22155dfe03c31527d38fd0f3cffeb60cf7d3cca31beeccea99ea6c39d21ab"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/node_parent_worker.cjs",
+      "bytes": 2549,
+      "sha256": "d99750fa8cf6609de9e74ddb29075691d7b0b9601793bcbbb0c9ed1b461389ee"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/prepare_inputs.py",
+      "bytes": 4013,
+      "sha256": "a96089bd50e30cff9f310c91e888f41cc493f87bd812cc101ed1a6e2d6627a5f"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/PROTOCOL_COMPUTE.md",
+      "bytes": 8499,
+      "sha256": "75ee605d04cfc6869ff265d9ad8072f7e5e808098682281906d669d4dcc7825f"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/run_large_parent_study.py",
+      "bytes": 13463,
+      "sha256": "28e70be055732c19f7d286c83ea4f56d56742d52041d4abe77dfcef7eb89dc96"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/run_native_benchmark.py",
+      "bytes": 5727,
+      "sha256": "f99b27279036a0327a1d8a5392b499b624f89c33f2a763a1bf07f630ad1f5c63"
+    },
+    {
+      "path": "outputs/claude_round2_2026-11-17/science/compute/seal_execution.py",
+      "bytes": 3173,
+      "sha256": "2136dc6165bd873e0b73346a3e11b3d7ebff279116856b809aeea7a2f5cd009a"
+    },
+    {
+      "path": "outputs/sequence_pilot_2026-11-15/inputs/ssn.csv",
+      "bytes": 25317009,
+      "sha256": "28a835c3cc09a80249d76afd2372d37a6ffa0d4f7ac99133f609c25324be3542"
+    },
+    {
+      "path": "outputs/sequence_pilot_2026-11-15/inputs/usgs.csv",
+      "bytes": 558416,
+      "sha256": "063bcce8eb1ae48c2c2c52fa3df06bb38e9d596b09f8fffd3e0286f0271627b0"
+    },
+    {
+      "path": "system/dist/sequences/data/inputs_3_5.json",
+      "bytes": 65132347,
+      "sha256": "9bcac42fe96e6b0980020bae609383d7a5898ddc467e536b4203f437fadceb03"
+    },
+    {
+      "path": "system/dist/sequences/nearest-parent.js",
+      "bytes": 9126,
+      "sha256": "ca075af9ac4ac1e7b2b59dfa5898674fdfd3aa52d196e41511f99d08c78f6ea0"
+    }
+  ],
+  "benchmark_cells": 81,
+  "benchmark_all_threads": 1,
+  "benchmark_repetitions": 3,
+  "runtime": {
+    "python_executable": "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1112-611-0_26.1112.611.0_x64__3k8sg7r9htsxt\\dependencies\\Python\\python.exe",
+    "node_executable": "C:\\Program Files\\WindowsApps\\OpenAI.CodexPrimaryRuntime.v26-1112-611-0_26.1112.611.0_x64__3k8sg7r9htsxt\\dependencies\\node\\bin\\node.exe"
+  },
+  "cpu_status": "WAIT_ROOT_EXCLUSIVE_GO",
+  "results_exist": false,
+  "later_phases": "Browser and comparator definitions fixed in protocol; their adapter glue will have a separate pre-execution code seal and chronology statement. No choice based on performance outcomes is permitted."
+}

@@ -1,0 +1,16 @@
+{
+  "sealed_utc": "2026-11-17T16:55:05.334704+00:00",
+  "script_sha256": "f1546c87736a76aad0c7578f07bc3daecf1be108dffef3291ab33ee7c03ed7e6",
+  "protocol_sha256": "656cf1beb6ca4a4cc2cf54aacdbc1a7bb19a82bb1fca8375ad9fc6278225b2da",
+  "amendments": {
+    "AMENDMENT_DOWNLOAD_01.md": "389a486581eeb6f856a5658238aa50c4ce8424c33f034fccbe6328b755eb9685",
+    "AMENDMENT_DOWNLOAD_02.md": "88ea9f1f2dcf5c3a4f5238a61fc4c9e8150a91401b2a37d31af440c3d4f6066d"
+  },
+  "reused_body": {
+    "path": "acquisition/acquisition_02/2016_2021_attempt1.geojson",
+    "sha256": "e3e30162faa7e567c20c7fa12c5f3612a74a9807a719b6efe1a9e87a2a805113",
+    "original_receipt_path": "acquisition/acquisition_02/2016_2021_attempt1.receipt.json",
+    "original_receipt_sha256": "0df2fcb0b2e4c264f0350448cfd232f404aa4d5b520fb0bf7fe4d9ed555f2c8e"
+  },
+  "scientific_analysis_performed": false
+}

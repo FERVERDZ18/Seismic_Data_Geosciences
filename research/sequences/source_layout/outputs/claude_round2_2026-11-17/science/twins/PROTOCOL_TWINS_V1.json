@@ -1,0 +1,78 @@
+{
+  "schema": "post-review-shared-latent-twins/1",
+  "status": "fixed-before-this-new-batch; not a prospective preregistration",
+  "purpose": "Mechanical validation of sensitivity and recovery under known synthetic observation operations; no empirical Mexico error model or physical causal attribution.",
+  "synthetic": true,
+  "latent": {
+    "model": "Own finite-horizon ETAS-type branching generator with Gaussian spatial offspring; not the original Ogata implementation or an empirical MLE fit",
+    "start_days": -365,
+    "evaluation_start_days": 0,
+    "end_exclusive_days": 730,
+    "epoch_utc": "2001-01-01T00:00:00Z",
+    "immigrants_per_365_days": 600,
+    "background_centres_xy_km": [[-40, 0], [40, 0]],
+    "background_component_probability": 0.5,
+    "background_sd_km": 15,
+    "projection": "+proj=aeqd +lat_0=17 +lon_0=-99 +datum=WGS84 +units=m +no_defs",
+    "M0": 3.5,
+    "Mmax": 6.5,
+    "b": 1.0,
+    "productivity_alpha": 0.5,
+    "infinite_horizon_branching_ratios": [0.0, 0.6],
+    "omori_c_days": 0.001,
+    "omori_theta": 0.2,
+    "offspring_gaussian_sd_km": 5,
+    "count_abort_guard": 20000,
+    "generation_abort_guard": 100,
+    "no_truncation_or_reseeding_on_failure": true
+  },
+  "randomness": {
+    "engine": "numpy PCG64 / SeedSequence([seed, block, stream])",
+    "background_block": 100,
+    "offspring_block": 200,
+    "observation_block": 300,
+    "development_seeds_branching_0p6": [202611171000, 202611171001, 202611171002],
+    "test_seeds_branching_0": [202611172000, 202611172001, 202611172002, 202611172003, 202611172004, 202611172005, 202611172006, 202611172007, 202611172008, 202611172009, 202611172010, 202611172011, 202611172012, 202611172013, 202611172014, 202611172015, 202611172016, 202611172017, 202611172018, 202611172019, 202611172020, 202611172021, 202611172022, 202611172023, 202611172024, 202611172025, 202611172026, 202611172027, 202611172028, 202611172029],
+    "test_seeds_branching_0p6": [202611173000, 202611173001, 202611173002, 202611173003, 202611173004, 202611173005, 202611173006, 202611173007, 202611173008, 202611173009, 202611173010, 202611173011, 202611173012, 202611173013, 202611173014, 202611173015, 202611173016, 202611173017, 202611173018, 202611173019, 202611173020, 202611173021, 202611173022, 202611173023, 202611173024, 202611173025, 202611173026, 202611173027, 202611173028, 202611173029],
+    "replication_justification": "Thirty independent histories per regime bound the run at 960 dependent factorial B cells plus clean A histories. Report history-level SD, SE and t29 95% Monte Carlo interval; no target precision, significance or acceptance is guaranteed and no favourable-result stopping is permitted. Three separate development histories calibrate cuts without concatenating histories before parent search.",
+    "streams": {"background": {"time": 1, "space": 2, "magnitude": 3}, "offspring": {"counts": 1, "delays": 2, "magnitude": 3, "offsets": 4}, "observation": {"detection_uniform": 1, "magnitude_normal": 2, "xy_normal": 3, "time_normal": 4}}
+  },
+  "observations": {
+    "A": "All latent events; reported magnitude rounded to 0.1 using decimal half-up; coordinates from true xy; UTC rounded to microseconds; synthetic depth 10 km.",
+    "B_factorial_order": ["D", "M", "X", "T"],
+    "B_cells": ["0000", "0001", "0010", "0011", "0100", "0101", "0110", "0111", "1000", "1001", "1010", "1011", "1100", "1101", "1110", "1111"],
+    "D": "Retain iff ledger uniform < 0.65 + 0.30*clip((latent_M-3.5)/1.5,0,1); this drops context and evaluation records alike.",
+    "M": "Add +0.15 + Normal(0,0.15) to clean reported magnitude, then decimal half-up to 0.1.",
+    "X": "Add xy bias (+2,-2) km plus independent Normal(0,5) km offsets, then inverse-project.",
+    "T": "Add +2 + Normal(0,2) seconds to clean UTC, rounded to microseconds.",
+    "ledger": "One fixed set of independent observation draws per latent record reused in all 16 cells; no field-dependent redraws. Identity, root, parent and raw errors stored separately from detector inputs.",
+    "assumed_not_fitted": true,
+    "magnitude_cut": 4.5,
+    "inclusion": "Missing, observed below native reported-M cut, and retained are distinct states. Evaluation membership is fixed by latent 0<=t<730; clock perturbations do not silently redefine the target population. All observed burn records above cut supply history.",
+    "identity_primary": "Known shared latent ID; source IDs order equivalent for exact UTC ties, no truth supplied to NN/GK or matcher.",
+    "matching_secondary": "Existing actual maximum-cardinality minimum-integer-cost SSN-USGS candidate assigner, synthetic A adapted as source ssn and B as usgs, time window 30 s inclusive, epicentral distance 50 km inclusive. Adapter labels do not claim observed agency data. Precision/recall compared against retained shared latent identities."
+  },
+  "detectors": {
+    "NN": "Canonical author-2013 v3 implementation: d=1.6, w=1, q=0.5, R=6367.3 km, strictly earlier parents, stable UTC/ID ties; author fit uses eta_log10, family cut uses log10(TN)+log10(RN), inclusive threshold.",
+    "primary_cut": "Fit author_normalmix to pooled finite eta_log10 values from separate clean A development searches; freeze one cut for all test regimes and B cells. No test truth used.",
+    "secondary_cut": "Fit a separate cut per B factorial cell from separate searches of that cell in the same three development histories. Test A retains clean-A cut. This reports calibration sensitivity, not an independently selected favourable analysis.",
+    "mixture_failures": "Save full fit and mode/BIC diagnostic. A failed fit gives unavailable NN labels and counts as a failure; no fallback from observed Mexico or reseeding. The two-mode BIC guard does not suppress an estimable operational result.",
+    "GK": "Existing local continuous-UTC magnitude-priority Gardner-Knopoff baseline, R=6371.0088 km, foreshock fraction 0.5; own implementation previously checked against indexed/all-candidate predicate."
+  },
+  "targets_and_metrics": {
+    "truth_independent": "Parent/root truth comes only from branching generation, never from NN or GK. Observed-family roles are recomputed per catalogue on retained members of each latent root: singleton, largest retained reported-M representative with UTC/ID ties, other associated. A hidden true parent does not convert a generated child to an immigrant.",
+    "recovery": ["3-role confusion, agreement, kappa, per-class precision/recall/F1", "Observed latent-root partition ARI", "Generated-child precision/recall/F1 and true-immigrant false-positive fraction, separate from operational maximum-retained roles"],
+    "baselines": ["always generated-child", "always immigrant", "all singletons", "all one observed family with its largest-retained representative", "each constant operational role"],
+    "cross_catalogue": "On fixed clean-A evaluation keys above cut: denominator, B missing, B below cut, retained both, conditional role confusion/ARI and fixed-denominator total state disagreement. Also report B-only entrants. Never relabel inclusion losses as classification errors without the separate counts.",
+    "factorial": "For each method/cut branch and response, all 16 cells and exact Boolean-lattice Mobius interactions per independent history; these are conditional operation responses, not percentages of physical causation or a unique additive attribution.",
+    "matching": "Store assigned endpoints and candidate edges. Match precision/recall against shared latent identities; operational role agreement on actual assignments reported separately from known-identity primary agreement.",
+    "uncertainty": "Mean of history-level metrics with nonmissing n, SD, SE and Student t interval using df=n-1; pooled confusion/counts supplied separately. No treating 16 cells within a history as independent replicates. Degenerate or undefined denominators remain null."
+  },
+  "audit": {
+    "preserve_failures": true,
+    "prior_results": "Do not overwrite or omit earlier 120-case synthetic and 24-case anchored results; previous NN generated-child F1 0.5542555 and GK 0.684 versus trivial 0.691 remain adverse descriptive evidence, not claimed statistical inferiority.",
+    "execution_gate": "No scientific generation or benchmark until root master protocol and CPU permission; tiny software fixtures may run beforehand.",
+    "outputs": ["protocol SHA manifest", "source/dependency version hashes", "latent events and parent/root truth", "complete observation ledger and derived catalogue rows", "calibration fits and diagnostics", "per-cell NN parent/score/labels arrays and GK labels", "all metrics and failed-case tracebacks", "matching edges/assignments", "history-level interactions", "summary with Monte Carlo uncertainty and replay hashes"]
+  },
+  "limitations": ["Synthetic assumed errors are not real-agency measurement errors or Mexico representativeness.", "Finite burn, finite horizon, Gaussian spatial kernel and two regimes do not span all seismicity.", "Generated child labels and largest-retained operational roles answer different questions.", "Exact-input A=B is a software control, not the scientific success criterion.", "Nonlinear factorial responses have interactions and do not prove physical causality.", "This post-review protocol is frozen before its new batch, not before observing the original catalogues or review."]
+}

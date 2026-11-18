@@ -1,0 +1,162 @@
+{
+  "name": "M4p5_ssn_native_author",
+  "cut": 4.5,
+  "source": "ssn",
+  "cohort": "native",
+  "parameter_mode": "author",
+  "d": 1.6,
+  "w": 1.0,
+  "calibration": "native-development cutoff frozen; common membership alone does not refit",
+  "local_fit_if_refit_development": {
+    "status": "estimable",
+    "threshold_log10": -5.31563487877218,
+    "finite_events": 1038,
+    "initial_means": [
+      -6.0,
+      -3.0
+    ],
+    "initial_sigmas": [
+      1.0,
+      1.0
+    ],
+    "parameter_tolerance": 0.001,
+    "cutoff_uses_mixture_weights": false,
+    "port_not_native_MATLAB": true,
+    "upstream_commit": "636d07beb89bde7d7deb502db78beebb45528cca",
+    "means": [
+      -6.72310359615963,
+      -4.14826453814341
+    ],
+    "sigmas": [
+      1.2477053417167632,
+      0.7890036484980731
+    ],
+    "weights": [
+      0.4325472820995336,
+      0.5674527179004663
+    ],
+    "epsilon": 0.0009659851599570501,
+    "iterations": 90,
+    "quadratic": [
+      -1.8684837248105477,
+      -9.09030471358885,
+      4.475087060664778
+    ],
+    "discriminant": 116.08014914574531,
+    "author_returned_boundary": -5.31563487877218,
+    "boundary_between_means": true,
+    "reason": null
+  },
+  "local_fit_diagnostics": {
+    "status": "diagnosed",
+    "mode_count": 2,
+    "mode_locations": [
+      -6.631718927576859,
+      -4.212766750190918
+    ],
+    "BIC_one": 3972.7317206873818,
+    "BIC_two": 3823.999743809479,
+    "two_mode_BIC_guard_passed": true,
+    "guard_does_not_change_author_cut_or_hide_operational_output": true
+  },
+  "protocol_sha256": "809615e65188aa0d6e5b93bd416814381ebe22c69972bf79129f1b8face8bf51",
+  "events": 1780,
+  "fit": {
+    "status": "estimable",
+    "threshold_log10": -5.31563487877218,
+    "finite_events": 1038,
+    "initial_means": [
+      -6.0,
+      -3.0
+    ],
+    "initial_sigmas": [
+      1.0,
+      1.0
+    ],
+    "parameter_tolerance": 0.001,
+    "cutoff_uses_mixture_weights": false,
+    "port_not_native_MATLAB": true,
+    "upstream_commit": "636d07beb89bde7d7deb502db78beebb45528cca",
+    "means": [
+      -6.72310359615963,
+      -4.14826453814341
+    ],
+    "sigmas": [
+      1.2477053417167632,
+      0.7890036484980731
+    ],
+    "weights": [
+      0.4325472820995336,
+      0.5674527179004663
+    ],
+    "epsilon": 0.0009659851599570501,
+    "iterations": 90,
+    "quadratic": [
+      -1.8684837248105477,
+      -9.09030471358885,
+      4.475087060664778
+    ],
+    "discriminant": 116.08014914574531,
+    "author_returned_boundary": -5.31563487877218,
+    "boundary_between_means": true,
+    "reason": null
+  },
+  "mixture_diagnostics": {
+    "status": "diagnosed",
+    "mode_count": 2,
+    "mode_locations": [
+      -6.631718927576859,
+      -4.212766750190918
+    ],
+    "BIC_one": 3972.7317206873818,
+    "BIC_two": 3823.999743809479,
+    "two_mode_BIC_guard_passed": true,
+    "guard_does_not_change_author_cut_or_hide_operational_output": true
+  },
+  "kernel_metadata": {
+    "n": 1780,
+    "d": 1.6,
+    "w": 1.0,
+    "q": 0.5,
+    "radius_km": 6367.3,
+    "backend": "kd",
+    "threads": 1,
+    "preparation_seconds": 8.749999688006938e-05,
+    "tree_seconds": 0.004318599996622652,
+    "kernel_seconds": 2.0036269999982323,
+    "postprocess_seconds": 0.000245599978370592,
+    "total_seconds": 2.0082786999701057,
+    "tree": {
+      "kind": "kd",
+      "nodes": 255,
+      "leaves": 128,
+      "actual_max_depth": 7,
+      "actual_max_leaf_size": 14,
+      "leafsize": 16,
+      "max_depth_limit": null
+    },
+    "counters": {
+      "candidate_pairs": 63263,
+      "visited_nodes": 54463,
+      "bound_tests": 82680,
+      "pruned_on_pop": 5978,
+      "pruned_before_push": 28217,
+      "leaf_slots": 112020,
+      "activated_sources": 1779
+    },
+    "zero_distance_retained": true,
+    "nonparent_logeta": "NaN",
+    "distance": "author acos with [-1,1] clamp and shared small-angle cosine v2",
+    "input_time": "epoch years, author multiply before subtraction",
+    "chord_guard": 2e-07,
+    "log_prune_guard": 1e-10
+  },
+  "role_counts": {
+    "0": 1064,
+    "1": 135,
+    "2": 581
+  },
+  "arrays_sha256": "38513338aa40f8b7b145f0b0727c37eafb8aadf38470066ca69afeecb633475b",
+  "ids_sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+  "interpretation": "Operational statistical families; no physical truth or calibrated magnitude equivalence"
+}

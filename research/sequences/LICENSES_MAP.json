@@ -1,0 +1,72 @@
+{
+  "schema": "scientific-component-license-map/1",
+  "status": "ORIGINAL_COMPONENT_LICENSES_AND_SCOPE_REVIEWED_FOR_SELECTED_SOURCES",
+  "blanket_license": false,
+  "components": [
+    {
+      "component": "Own independent project software",
+      "license": "MIT",
+      "notice": "Copyright2026 Gabriel Hurtado Aviles; preserve the original accented spelling in source_layout/LICENSE",
+      "license_file": "source_layout/LICENSE"
+    },
+    {
+      "component": "Author normalmix Python port and original nearest-neighbor2013 distribution",
+      "license": "GPL-3.0 as declared by preserved source",
+      "original_author": "Ilya Zaliapin",
+      "upstream_repository": "https://github.com/dttrugman/Nearest_Neighbor_Cluster",
+      "upstream_commit": "636d07beb89bde7d7deb502db78beebb45528cca",
+      "license_file": "source_layout/outputs/claude_response_2026-11-16/methods/authors_2013_exact/LICENSE",
+      "scope": "Root MIT does not relicense the GPL-derived EM port or combined GPL-dependent distribution"
+    },
+    {
+      "component": "eqclustering comparator",
+      "license": "Apache-2.0",
+      "upstream_revision": "393a02db",
+      "license_file": "source_layout/outputs/claude_round2_2026-11-17/science/compute/comparators/LICENSE_eqclustering.txt",
+      "notice_file": "source_layout/outputs/claude_round2_2026-11-17/science/compute/comparators/NOTICE_eqclustering.txt",
+      "adaptation_file": "source_layout/outputs/claude_round2_2026-11-17/science/compute/comparators/PYTHON3_CONSTANT_COMPATIBILITY.diff"
+    },
+    {
+      "component": "bruces",
+      "license": "BSD-3-Clause",
+      "license_file": "source_layout/outputs/sequence_pilot_2026-11-15/browser_pilot/BRUCES_BSD3_LICENSE.txt",
+      "execution_scope": "Imported dependency; the current principal nearest-parent computation does not thereby execute the bruces2020 thinning algorithm"
+    },
+    {
+      "component": "Python dependency notices",
+      "license": "Per package; not blanket MIT",
+      "files": "24 exact recorded dependency licenses in the final allowlist; reconcile every package with the final hash lock",
+      "version_manifest": "science_pipeline.json"
+    },
+    {
+      "component": "SSN observed earthquake records",
+      "license": "SSN-specific terms and original CSV notice; no invented SPDX/CreativeCommons label",
+      "terms_file": "source_layout/research-data/catalogs/ssn-mx/TERMS.txt",
+      "scope": "Preserve source attribution and original nonprofit reproduction notice alongside observed seismic-data free-use terms; do not infer institutional endorsement"
+    },
+    {
+      "component": "USGS/ComCat observations and contributing networks",
+      "license": "Source/contributor-specific rights and provenance",
+      "scope": "The source distributor repository MIT applies to its software and does not relicense all contributed observations"
+    },
+    {
+      "component": "Synthetic histories/truth/observation ledgers",
+      "license": "Own generated scientific results; no additional standalone dataset license assigned",
+      "scope": "Generator source licenses and human attribution preserved; observations remain explicitly synthetic. No new CreativeCommons/SPDX grant is invented."
+    },
+    {
+      "component": "Historical GEM catalogue-merging source and complete retained result evidence",
+      "license": "AGPL-3.0-only for original oq-mbtk source",
+      "upstream_repository": "https://github.com/GEMScienceTools/oq-mbtk",
+      "upstream_commit": "d13e63bebedcc6788e0ec88e8632957b749d3b60",
+      "license_file": "source_layout/outputs/ssn_usgs_pilot_2026-11-15/gem_env/official_source/LICENSE",
+      "scope": "Optional standard-library verification of identified historical evidence; no new engine run. Keep source headers/license and separate historical environment. Root MIT does not relicense this component."
+    },
+    {
+      "component": "Historical Carluccio results",
+      "license": "Preserve retained result provenance; no new runtime execution claim",
+      "scope": "If a rerun is added, expand exact original source/licenses and environment separately"
+    }
+  ],
+  "private_publication_or_human_approval_implied": false
+}

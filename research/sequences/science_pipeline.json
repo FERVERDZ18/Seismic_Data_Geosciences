@@ -1,0 +1,270 @@
+{
+  "schema": "seismic-science-pipeline/1",
+  "status": "VALIDATED_LOCAL_REVIEW_CANDIDATE",
+  "default_profile": "science",
+  "target_environment": "Windows x64, CPython3.12.14, new local virtual environment",
+  "dependency_versions": {
+    "numpy": "2.2.6",
+    "scipy": "1.15.3",
+    "numba": "0.63.1",
+    "llvmlite": "0.46.0",
+    "pyproj": "3.7.2",
+    "bruces": "0.5.0",
+    "matplotlib": "3.10.3",
+    "utm": "0.8.1"
+  },
+  "specific_runtime_versions": {
+    "node": "24.22.1",
+    "octave_author_reference": "11.3.0",
+    "browser": "Record actual browser and OS per manual run; not inferred from Node"
+  },
+  "stages": [
+    {
+      "name": "legacy_v3",
+      "profile": "science",
+      "status": "READY_FOR_REPLAY",
+      "independent_legacy_root": true,
+      "required_scientific_comparison": true,
+      "cap_seconds": 14400,
+      "steps": [
+        {
+          "script": "outputs/claude_response_2026-11-16/methods/run_full_v3_replay.py"
+        }
+      ],
+      "comparison_rules": [
+        {
+          "logical_prefix": "source_layout/outputs/claude_response_2026-11-16/methods/calibration_v3.json"
+        },
+        {
+          "logical_prefix": "source_layout/outputs/claude_response_2026-11-16/methods/deterministic_study_v3/cases/"
+        },
+        {
+          "logical_prefix": "source_layout/outputs/claude_response_2026-11-16/methods/deterministic_study_v3/PAIRED_METRICS.json"
+        },
+        {
+          "logical_prefix": "source_layout/outputs/claude_response_2026-11-16/methods/deterministic_study_v3/MEASUREMENT_FACTORIAL.json"
+        }
+      ],
+      "qa_status": "PASS_IN_NEW_COPIED_WORKSPACE"
+    },
+    {
+      "name": "catalog",
+      "profile": "science",
+      "status": "READY_FOR_REPLAY",
+      "required_scientific_comparison": true,
+      "cap_seconds": 7200,
+      "steps": [
+        {
+          "script": "outputs/claude_round2_2026-11-17/science/catalog/run_catalog.py",
+          "argv": [
+            "--run-id",
+            "run_01",
+            "--cpu-approved"
+          ]
+        },
+        {
+          "script": "outputs/claude_round2_2026-11-17/science/catalog/summarize_catalog.py"
+        }
+      ],
+      "comparison_rules": [
+        {
+          "logical_prefix": "expected/outputs/claude_round2_2026-11-17/science/catalog/runs/run_01/"
+        },
+        {
+          "logical_prefix": "expected/outputs/claude_round2_2026-11-17/science/catalog/RESULTS_SUMMARY.json"
+        }
+      ],
+      "qa_status": "PASS_IN_NEW_COPIED_WORKSPACE"
+    },
+    {
+      "name": "twins",
+      "profile": "science",
+      "status": "READY_FOR_REPLAY",
+      "consumer_twins_gate": true,
+      "required_scientific_comparison": true,
+      "cap_seconds": 14400,
+      "steps": [
+        {
+          "script": "outputs/claude_round2_2026-11-17/science/twins/run_twins_v1.py",
+          "argv": [
+            "--run-reviewed-batch",
+            "--cpu-gate",
+            "{TWINS_GATE}"
+          ]
+        },
+        {
+          "script": "outputs/claude_round2_2026-11-17/science/twins/summarize_twins_v1.py"
+        }
+      ],
+      "comparison_rules": [
+        {
+          "logical_prefix": "expected/outputs/claude_round2_2026-11-17/science/twins/run_v1/"
+        },
+        {
+          "logical_prefix": "expected/outputs/claude_round2_2026-11-17/science/twins/ALL_HISTORY_CELL_METRICS.csv"
+        }
+      ],
+      "qa_status": "PASS_IN_NEW_COPIED_WORKSPACE"
+    },
+    {
+      "name": "south",
+      "profile": "science",
+      "status": "READY_FOR_REPLAY",
+      "required_scientific_comparison": true,
+      "cap_seconds": 7200,
+      "steps": [
+        {
+          "script": "outputs/claude_round2_2026-11-17/science/catalog/south_control/run_south_control.py",
+          "call_args": [
+            "south_run_01",
+            true
+          ]
+        }
+      ],
+      "comparison_rules": [
+        {
+          "logical_prefix": "expected/outputs/claude_round2_2026-11-17/science/catalog/south_control/runs/south_run_01/"
+        }
+      ],
+      "qa_status": "PASS_IN_NEW_COPIED_WORKSPACE"
+    },
+    {
+      "name": "zero_distance",
+      "profile": "science",
+      "status": "READY_FOR_REPLAY",
+      "required_scientific_comparison": true,
+      "cap_seconds": 7200,
+      "steps": [
+        {
+          "script": "outputs/claude_round2_2026-11-17/science/zero_distance/run_zero_distance.py",
+          "call_args": [
+            "zero_run_01",
+            true
+          ]
+        }
+      ],
+      "comparison_rules": [
+        {
+          "logical_prefix": "expected/outputs/claude_round2_2026-11-17/science/zero_distance/runs/zero_run_01/"
+        }
+      ],
+      "qa_status": "PASS_IN_NEW_COPIED_WORKSPACE"
+    },
+    {
+      "name": "large_parents",
+      "profile": "science",
+      "status": "READY_FOR_REPLAY",
+      "required_scientific_comparison": true,
+      "requires_node": true,
+      "cap_seconds": 14400,
+      "steps": [
+        {
+          "package_script": "replay_large_indexed.py",
+          "call_args": [
+            "{PROJECT}",
+            "{NODE}"
+          ]
+        }
+      ],
+      "comparison_rules": [
+        {
+          "logical_prefix": "expected/outputs/claude_round2_2026-11-17/science/compute/large_parent_01/",
+          "actual_prefix": "outputs/claude_round2_2026-11-17/science/compute/large_indexed_replay_01/",
+          "path_regex": "/(?:[^/]+_kd/outputs\\.npz|[^/]+_node/(?:ids\\.json|[^/]+\\.bin)|PARENT_SENSITIVITY_SUMMARY\\.json)$"
+        }
+      ],
+      "scope": "Recompute36 KD/Node cases and original summary; compare to complete retained reference arrays. Exhaustive reference reruns and matched timings remain optional.",
+      "qa_status": "PASS_IN_NEW_COPIED_WORKSPACE"
+    },
+    {
+      "name": "gem_history",
+      "profile": "gem_history",
+      "status": "READY_FOR_REPLAY",
+      "required_scientific_comparison": true,
+      "cap_seconds": 1800,
+      "steps": [
+        {
+          "package_script": "historical_controls.py",
+          "call_args": [
+            "{PROJECT}"
+          ]
+        }
+      ],
+      "comparison_rules": [
+        {
+          "logical_prefix": "source_layout/research/sequences/references/historical_control_reference.json",
+          "actual_prefix": "research/sequences/replayed_controls/HISTORICAL_CONTROL_COUNTS.json"
+        }
+      ],
+      "scope": "Standard-library verification of complete identified historical GEM evidence and recomputation of ten fixed time shifts; does not execute the GEM engine",
+      "qa_status": "PASS_IN_NEW_COPIED_WORKSPACE"
+    },
+    {
+      "name": "native_benchmark",
+      "profile": "native_benchmark",
+      "status": "READY_FOR_REPLAY",
+      "required_scientific_comparison": false,
+      "cap_seconds": 108000,
+      "steps": [
+        {
+          "script": "outputs/claude_round2_2026-11-17/science/compute/run_native_benchmark.py",
+          "argv": [
+            "--cpu-exclusive-note",
+            "Independent consumer matched benchmark; user and OS applications uncontrolled",
+            "--folder",
+            "independent_benchmark_01"
+          ]
+        }
+      ],
+      "timing_contract": "81 planned cells, native workers cap1200 seconds each, one thread and three fresh processes; record censures. Do not expect historical wall time, dates or RSS equality.",
+      "qa_status": "OPTIONAL_EXPERIMENT_NOT_REEXECUTED"
+    },
+    {
+      "name": "author_reference",
+      "profile": "author_reference",
+      "status": "READY_FOR_REPLAY",
+      "requires_octave": true,
+      "consumer_comparator_seal": true,
+      "required_scientific_comparison": false,
+      "cap_seconds": 3600,
+      "steps": [
+        {
+          "script": "outputs/claude_round2_2026-11-17/science/compute/run_comparators.py",
+          "argv": [
+            "--cpu-exclusive-note",
+            "Independent consumer optional comparator replay; user and OS applications uncontrolled",
+            "--folder",
+            "independent_comparators_01"
+          ]
+        }
+      ],
+      "pending": "Include exact two principal45 reference outputs.npz checkpoints and comparator source/seal; declare differences instead of forcing equivalence.",
+      "qa_status": "OPTIONAL_EXPERIMENT_NOT_REEXECUTED"
+    },
+    {
+      "name": "browser_history",
+      "profile": "browser_history",
+      "status": "READY_FOR_REPLAY",
+      "required_scientific_comparison": true,
+      "cap_seconds": 600,
+      "steps": [
+        {
+          "package_script": "browser_history.py",
+          "call_args": [
+            "{PROJECT}"
+          ]
+        }
+      ],
+      "comparison_rules": [
+        {
+          "logical_prefix": "expected/outputs/claude_round2_2026-11-17/science/compute/browser_result_v3_01/VERIFICATION.json",
+          "actual_prefix": "outputs/claude_round2_2026-11-17/science/compute/browser_public_check_01/SCIENTIFIC_VERIFICATION.json"
+        }
+      ],
+      "scope": "Decode and verify the18 persisted V3 computed cells, preserve6 censures; no browser or timing rerun. Public metadata projection is explicit, original POST hash retained.",
+      "qa_status": "PASS_IN_NEW_COPIED_WORKSPACE"
+    }
+  ],
+  "qa_completed": true,
+  "canonical_browser_final_included": true
+}

@@ -1,0 +1,15 @@
+{
+  "files": {
+    "PROTOCOL_TWINS_V1.md": {
+      "bytes": 2939,
+      "sha256": "73f9d4b6cb7ac02d0e4a61e979ce2cc2f604d7a72e34f92f742df40c69f62e61"
+    },
+    "PROTOCOL_TWINS_V1.json": {
+      "bytes": 9398,
+      "sha256": "3bbc74242b9c516ba475a73d9e19bd39097947e2893849527c04fc165c4b6147"
+    }
+  },
+  "schema": "sealed-post-review-twins-protocol/1",
+  "scientific_results_generated": false,
+  "sealed_utc": "2026-11-17T16:38:45.8490514Z"
+}

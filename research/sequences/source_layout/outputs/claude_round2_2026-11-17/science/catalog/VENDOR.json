@@ -1,0 +1,42 @@
+[
+  {
+    "source": "outputs/claude_response_2026-11-16/index/spherical_weighted_v2.py",
+    "copy": "vendor/spherical_weighted_v2.py",
+    "sha256": "3b207301b5021782cd42910e7a037f3d50ac808f00652b50c4960bc1d00c4f60"
+  },
+  {
+    "source": "outputs/claude_response_2026-11-16/methods/author_normalmix_port.py",
+    "copy": "vendor/author_normalmix_port.py",
+    "sha256": "461e09a24a862522641c59c623a6db140679c1af8cbf7dac5258c72e9d7c50a8"
+  },
+  {
+    "source": "outputs/claude_response_2026-11-16/methods/deterministic_families.py",
+    "copy": "vendor/deterministic_families.py",
+    "sha256": "31c2b6be158a152f68de852369a173e49fa2d7388b7263ed7b3f8f8e30c6867f"
+  },
+  {
+    "source": "outputs/sequence_pilot_2026-11-15/gardner_knopoff.py",
+    "copy": "vendor/gardner_knopoff.py",
+    "sha256": "b1c4754b29e41a16c1b438e0cbb6bc265ae2daa6d3e250cfecd88dc5ab67a908"
+  },
+  {
+    "source": "scripts/pilot_catalog_reconciliation.py",
+    "copy": "vendor/pilot_catalog_reconciliation.py",
+    "sha256": "5c2d9084cec68cfd07e65b39727ebca8b062d02988f4fc6d4c0e5fa75e594b28"
+  },
+  {
+    "source": "outputs/claude_response_2026-11-16/methods/run_deterministic_study_v3.py",
+    "copy": "vendor/run_deterministic_study_v3.py",
+    "sha256": "d79fd18992a30488243a1f7d1db6d328fef19391c7c7ae732ee308cdd6b369be"
+  },
+  {
+    "source": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/LICENSE",
+    "copy": "vendor/LICENSE",
+    "sha256": "605e9047a563c5c8396ffb18232aa4304ec56586aee537c45064c6fb425e44ad"
+  },
+  {
+    "source": "outputs/claude_response_2026-11-16/methods/authors_2013_exact/readme.txt",
+    "copy": "vendor/readme.txt",
+    "sha256": "b4298428d21f84cc5ac227880cdf39bcc189cbc0e7c3f367c6ac13cfc6aad650"
+  }
+]

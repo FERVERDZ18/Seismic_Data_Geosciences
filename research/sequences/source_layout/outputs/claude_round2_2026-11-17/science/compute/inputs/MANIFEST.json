@@ -1,0 +1,164 @@
+{
+  "status": "INPUTS_VERIFIED_NOT_CLASSIFIED",
+  "created_utc": "2026-11-17T16:45:18.758335+00:00",
+  "datasets": {
+    "ssn_native": {
+      "n": 170880,
+      "arrays": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_native.npz",
+        "sha256": "759d39d59e8d882a8ae9d9a42b41c8711c8eb0c42bdf9bbd0e1ab0f5bad46a6a",
+        "bytes": 5469152
+      },
+      "ids": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_native_ids.json",
+        "sha256": "e3afc608c53df74a1be9fefaf5f1b85086edff7baf0d07cab636eb61cb87afb4",
+        "bytes": 10423685
+      },
+      "rows": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_native_rows.json",
+        "sha256": "6d2df008ebea1610cba381755371c50f024f6946721955d3525a024589c29b8f",
+        "bytes": 70941847
+      },
+      "time_policy": "(UTCus-2016epoch)/1e6/31557600 years; bp multiply before subtraction",
+      "order_policy": "Observed UTC integer microseconds, then original ID UTF-8 bytes"
+    },
+    "ssn_common": {
+      "n": 2989,
+      "arrays": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_common.npz",
+        "sha256": "586b1e42bd3a79bed1919b38903ce76dd90867ab9deed4ad2389f8b20a15fbf9",
+        "bytes": 96640
+      },
+      "ids": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_common_ids.json",
+        "sha256": "c90dacc2ab9110d9b093e94b0362eae1e86cb4f640de6d0e0892ddb2136529d0",
+        "bytes": 182334
+      },
+      "rows": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_common_rows.json",
+        "sha256": "e64e72597efe76a19cf218b79d72633bcc0a361b7aa32eb7102b32092b067ddb",
+        "bytes": 1240619
+      },
+      "time_policy": "(UTCus-2016epoch)/1e6/31557600 years; bp multiply before subtraction",
+      "order_policy": "Observed UTC integer microseconds, then original ID UTF-8 bytes"
+    },
+    "ssn_principal45": {
+      "n": 1780,
+      "arrays": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_principal45.npz",
+        "sha256": "f2289677bfb599b722a549c379a2f7c5cdb06b8809b52ed4ad7ecb0f30c1be38",
+        "bytes": 57952
+      },
+      "ids": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_principal45_ids.json",
+        "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+        "bytes": 108585
+      },
+      "rows": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/ssn_principal45_rows.json",
+        "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+        "bytes": 738850
+      },
+      "time_policy": "(UTCus-2016epoch)/1e6/31557600 years; bp multiply before subtraction",
+      "order_policy": "Observed UTC integer microseconds, then original ID UTF-8 bytes"
+    },
+    "usgs_native": {
+      "n": 3945,
+      "arrays": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_native.npz",
+        "sha256": "9abf3aa080fe57db9ff11e32a1a1c85743fc1f8223a43b565824c9b23a7779a7",
+        "bytes": 127232
+      },
+      "ids": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_native_ids.json",
+        "sha256": "d7c51b5fc53c941ac95df20c69a40ea27359005df3b79b32bd76f34bacc8a8f0",
+        "bytes": 142059
+      },
+      "rows": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_native_rows.json",
+        "sha256": "b7adf6a751ea6b8877af5e50616590ff46417e19fe4449cca0cc000f50211685",
+        "bytes": 1611609
+      },
+      "time_policy": "(UTCus-2016epoch)/1e6/31557600 years; bp multiply before subtraction",
+      "order_policy": "Observed UTC integer microseconds, then original ID UTF-8 bytes"
+    },
+    "usgs_common": {
+      "n": 2989,
+      "arrays": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_common.npz",
+        "sha256": "9dffe104c7653e48925eb442d8df6964e9d0fb0f6743d16c365448c982ed7a91",
+        "bytes": 96640
+      },
+      "ids": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_common_ids.json",
+        "sha256": "0602d797c1f4a8b38d69e9a7cf647cd4c2667c590d336a1fa4e69f02e3f74cd3",
+        "bytes": 107609
+      },
+      "rows": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_common_rows.json",
+        "sha256": "7452bb51765d874ea052c8ed3e0413124b7c4eb04e12c2b09eed57a8f501fa1b",
+        "bytes": 1219463
+      },
+      "time_policy": "(UTCus-2016epoch)/1e6/31557600 years; bp multiply before subtraction",
+      "order_policy": "Observed UTC integer microseconds, then original ID UTF-8 bytes"
+    },
+    "usgs_principal45": {
+      "n": 1256,
+      "arrays": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_principal45.npz",
+        "sha256": "29097987448888a8bc1d212047f919af171c22e68808a087446381565bcb40d8",
+        "bytes": 41184
+      },
+      "ids": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_principal45_ids.json",
+        "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+        "bytes": 45221
+      },
+      "rows": {
+        "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/usgs_principal45_rows.json",
+        "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+        "bytes": 512666
+      },
+      "time_policy": "(UTCus-2016epoch)/1e6/31557600 years; bp multiply before subtraction",
+      "order_policy": "Observed UTC integer microseconds, then original ID UTF-8 bytes"
+    }
+  },
+  "sources": [
+    {
+      "path": "outputs/sequence_pilot_2026-11-15/inputs/ssn.csv",
+      "sha256": "28a835c3cc09a80249d76afd2372d37a6ffa0d4f7ac99133f609c25324be3542",
+      "bytes": 25317009
+    },
+    {
+      "path": "outputs/sequence_pilot_2026-11-15/inputs/usgs.csv",
+      "sha256": "063bcce8eb1ae48c2c2c52fa3df06bb38e9d596b09f8fffd3e0286f0271627b0",
+      "bytes": 558416
+    }
+  ],
+  "original_benchmark": {
+    "path": "outputs/claude_response_2026-11-16/index/v2/benchmark_01/input_arrays.npz",
+    "sha256": "759d39d59e8d882a8ae9d9a42b41c8711c8eb0c42bdf9bbd0e1ab0f5bad46a6a",
+    "bytes": 5469152
+  },
+  "pairs": {
+    "path": "outputs/claude_round2_2026-11-17/science/compute/inputs/candidate_pairs.json",
+    "sha256": "93187c19cc25a3f9d5c6a4042410ef57d9336feca1b36fc2e445952257645939",
+    "bytes": 436399
+  },
+  "browser_source": {
+    "path": "system/dist/sequences/data/inputs_3_5.json",
+    "sha256": "9bcac42fe96e6b0980020bae609383d7a5898ddc467e536b4203f437fadceb03",
+    "bytes": 65132347
+  },
+  "browser_input": {
+    "path": "outputs/claude_round2_2026-11-17/science/compute/browser_harness/inputs_ssn_m35.json",
+    "sha256": "d213720df5144a24157348701cdd82a6846852328feba1571a4ed13768ea9119",
+    "bytes": 62514781
+  },
+  "browser_engine": {
+    "path": "outputs/claude_round2_2026-11-17/science/compute/browser_harness/nearest-parent.js",
+    "sha256": "ca075af9ac4ac1e7b2b59dfa5898674fdfd3aa52d196e41511f99d08c78f6ea0",
+    "bytes": 9126
+  },
+  "observations_changed": false
+}

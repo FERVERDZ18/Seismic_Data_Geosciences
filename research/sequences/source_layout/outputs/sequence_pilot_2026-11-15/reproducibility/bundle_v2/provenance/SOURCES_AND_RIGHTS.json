@@ -1,0 +1,25 @@
+{
+  "observations": {
+    "SSN": "SSN (2026), Universidad Nacional Autonoma de Mexico, Instituto de Geofisica, Servicio Sismologico Nacional, Mexico, http://www.ssn.unam.mx; verbatim observed terms in licenses/SSN_TERMS.txt. No MIT relicensing.",
+    "USGS_ComCat": "https://earthquake.usgs.gov/data/comcat/; retain source/network/product provenance; no common data license invented."
+  },
+  "scientific_methods": [
+    {
+      "doi": "10.1029/2018JB017120",
+      "reference": "bruces0.5.0 BSD3, commitd62b9faac43e30e364a9e783c6cef258815a0a15; authorMATLAB not executed"
+    },
+    {
+      "doi": "10.1016/j.cageo.2023.105496",
+      "software_repository": "https://github.com/RobiOneKeno6i/multiplets_paper_repo",
+      "software_commit": "ef91504edc805ab5c137d53df64fe76108ae6e0a",
+      "license": "GPL-3.0-or-later; codeheader and GPL text retained"
+    },
+    {
+      "method": "Gardner-Knopoff1974 window baseline, own UTC/haversine implementation; not native HMTK execution"
+    }
+  ],
+  "papers_reading_pdfs_included": false,
+  "raw_native_packages_included": false,
+  "GEM_rerun_required": false,
+  "GEM_status": "Only retained fixed pair result is supplied as sensitivity control; its prior49-minute execution is not repeated or newly claimed."
+}

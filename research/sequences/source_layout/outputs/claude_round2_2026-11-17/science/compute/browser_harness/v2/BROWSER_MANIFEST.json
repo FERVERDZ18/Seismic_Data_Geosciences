@@ -1,0 +1,46 @@
+{
+  "schema": "private-browser-input-contract/2",
+  "assets": [
+    {
+      "file": "../inputs_ssn_m35.json",
+      "sha256": "d213720df5144a24157348701cdd82a6846852328feba1571a4ed13768ea9119",
+      "bytes": 62514781
+    },
+    {
+      "file": "../nearest-parent.js",
+      "sha256": "ca075af9ac4ac1e7b2b59dfa5898674fdfd3aa52d196e41511f99d08c78f6ea0",
+      "bytes": 9126
+    },
+    {
+      "file": "worker.js",
+      "sha256": "4cf170d7225e74cad36dc546e265a8b95f1b5e7117bd49096fee1a451ae2d1f6",
+      "bytes": 847
+    },
+    {
+      "file": "harness.js",
+      "sha256": "ce6d85c700d814c4ff61a05b2b8d473a771e4bc35d6a10e46199ae0e842e1db6",
+      "bytes": 7716
+    },
+    {
+      "file": "index.html",
+      "sha256": "a5b42571bb8d0c1280eac79cc88a3075598c9238f2417b0b94635deaeb404318",
+      "bytes": 1696
+    }
+  ],
+  "sizes": [
+    2000,
+    10000,
+    50000,
+    170880
+  ],
+  "repetitions": 3,
+  "backends": [
+    "reference",
+    "kd"
+  ],
+  "wall_cap_seconds": 120,
+  "planned_cells": 24,
+  "initial_load_observations": true,
+  "paint_measured": false,
+  "os_suspension_measured": false
+}

@@ -853,3 +853,61 @@ body[data-article-figure] .quick-answer, body[data-article-figure] #comparisonWo
 }
 
 .map-scope-note{font-size:16px;line-height:1.45;padding:10px 14px;background:#fff7e7;color:#603511;border-left:4px solid #b86b16}.map-key-large .map-scope-note{font-size:22px}@media(max-width:700px){.map-key-large .map-scope-note{font-size:12px}}
+
+/* An enlarged key must not consume the map's entire height on intermediate
+   widths or short windows. The card scrolls while the map keeps a useful size. */
+@media(max-width:1100px),(max-height:800px){
+  .map-card.is-expanded{overflow:auto}
+  .map-card.is-expanded .section-head{flex:0 0 auto}
+  .map-card.is-expanded .map-wrap{flex:0 0 380px;min-height:380px}
+  .map-card.is-expanded #map{height:380px!important;min-height:380px!important}
+  .map-card.is-expanded>.legend,
+  .map-card.is-expanded>#mapPointLegend,
+  .map-card.is-expanded>.map-note,
+  .map-card.is-expanded>.base-status,
+  .map-card.is-expanded>#tectonicStatus{flex-shrink:0}
+  .map-card.is-expanded .tectonic-key{max-width:180px;padding:6px 7px;font-size:10px;line-height:1.3}
+  .map-card.is-expanded .tectonic-key strong{font-size:11px}
+  .map-card.is-expanded .tectonic-key>div{gap:3px 5px;margin:4px 0}
+  .map-card.is-expanded .tectonic-key span{white-space:normal}
+  .map-card.is-expanded .tectonic-key i{width:8px;height:8px;margin-right:3px;border-width:1px}
+  .map-card.is-expanded .tectonic-key small{font-size:9px}
+  .map-card.is-expanded .map-base-control{max-width:180px;padding:6px}
+  .map-card.is-expanded .map-base-control label{font-size:10px;gap:3px}
+  .map-card.is-expanded .map-base-control select{width:170px;max-width:100%;min-height:38px;padding:5px;font-size:11px}
+  .map-card.is-expanded .map-coordinate-control{max-width:180px;padding:6px;gap:3px;font-size:10px;line-height:1.3}
+  .map-card.is-expanded .map-coordinate-control strong{font-size:11px}
+  .map-card.is-expanded .map-coordinate-control span{font-size:10px}
+  .map-card.is-expanded .map-coordinate-control small{font-size:9px}
+  .map-card.is-expanded .map-coordinate-control button{max-width:100%;padding:5px;font-size:10px;white-space:normal}
+  .map-card.is-expanded .legend,
+  .map-card.is-expanded.map-key-large .legend,
+  .map-card.is-expanded .map-note,
+  .map-card.is-expanded.map-key-large .map-note,
+  .map-card.is-expanded .base-status,
+  .map-card.is-expanded.map-key-large .base-status,
+  .map-card.is-expanded #tectonicStatus,
+  .map-card.is-expanded.map-key-large #tectonicStatus,
+  .map-card.is-expanded.map-key-large:has(#mapScopeNote:not([hidden])) .map-note,
+  .map-card.is-expanded.map-key-large:has(#mapScopeNote:not([hidden])) .base-status,
+  .map-card.is-expanded.map-key-large:has(#mapScopeNote:not([hidden])) #tectonicStatus{font-size:14px!important;line-height:1.4}
+  .map-card.is-expanded .catalogue-legend,
+  .map-card.is-expanded.map-key-large .catalogue-legend{font-size:14px}
+  .map-card.is-expanded .magnitude-tone-legend>strong,
+  .map-card.is-expanded.map-key-large .magnitude-tone-legend>strong,
+  .map-card.is-expanded.map-key-large:has(#mapScopeNote:not([hidden])) .magnitude-tone-legend>strong{font-size:16px!important;line-height:1.35}
+  .map-card.is-expanded .magnitude-tone-legend>span,
+  .map-card.is-expanded.map-key-large .magnitude-tone-legend>span,
+  .map-card.is-expanded.map-key-large:has(#mapScopeNote:not([hidden])) .magnitude-tone-legend>span{font-size:18px!important}
+  .map-card.is-expanded .magnitude-tone-legend>span>i,
+  .map-card.is-expanded.map-key-large .magnitude-tone-legend>span>i,
+  .map-card.is-expanded.map-key-large:has(#mapScopeNote:not([hidden])) .magnitude-tone-legend>span>i{width:22px!important;height:22px!important;flex-basis:22px}
+  .map-card.is-expanded .map-scope-note,
+  .map-card.is-expanded.map-key-large #mapScopeNote,
+  .map-card.is-expanded.map-key-large:has(#mapScopeNote:not([hidden])) #mapScopeNote{font-size:14px;line-height:1.4}
+}
+@media(max-width:1100px){
+  .map-card.is-expanded .section-head{padding:66px 12px 10px;min-height:0;flex-wrap:wrap}
+  .map-card.is-expanded .section-head h2{font-size:20px}
+  .map-card.is-expanded .map-actions{flex-direction:row;flex-wrap:wrap}
+}
