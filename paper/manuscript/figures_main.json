@@ -9,9 +9,9 @@
     },
     {
       "label": "2",
-      "path": "paper/manuscript/figures/figure_exact_search_scaling.png",
-      "sha256": "d9f02368bfa26195966ca8e8faf11325322926c982d46afa22760f5b3df7bea9",
-      "origin": "New exact-search scaling and finite-input validation",
+      "path": "paper/manuscript/figures/figure_2_matched_one_thread.png",
+      "sha256": "5808db854eb9624c6265c911240d23cc3a5df6617e6b40948cd3edaed7844ed2",
+      "origin": "Native observatory matched benchmark SVG exported from the running view and rendered at 1800 pixels",
       "width_emu": 5943600
     },
     {
@@ -145,7 +145,7 @@
       "path": "paper/manuscript/figures/figure_sources.png",
       "sha256": "16416e21a630f4c575924a845dab0fa25f503d3fef1969c4854d55e3d60039b5",
       "origin": "v0 figure, byte-identical copy",
-      "width_emu": 5303520
+      "width_emu": 5943600
     },
     {
       "label": "8",

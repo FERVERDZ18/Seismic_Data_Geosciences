@@ -17,6 +17,11 @@ assert.equal(view.parse('?view=diagnostics&cut=4.5&pair_cut=3.5').pair_cut,'3.5'
 assert.equal(view.parse('?view=benchmark&benchmark_metric=phases&benchmark_n=170880&scale=linear').benchmark_n,'170880');
 assert.equal(view.parse('?view=benchmark&benchmark_n=12345').benchmark_n,'all');
 assert.equal(view.parse('?view=benchmark&benchmark_n=002000').benchmark_n,'2000');
+const matched=view.parse('?workspace=sequences&view=benchmark&benchmark_protocol=matched&lang=en');
+assert.equal(matched.benchmark_protocol,'matched');assert.deepEqual(view.parse(view.query(matched)),matched);
+assert.equal(view.parse('?view=benchmark&lang=en').benchmark_protocol,'historical');
+assert.equal(view.parse('?view=benchmark&benchmark_protocol=arbitrary').benchmark_protocol,'historical');
+assert.equal(view.parse('?view=cases&benchmark_protocol=matched').benchmark_protocol,'historical');
 const focused=view.parse('?view=cases&case=2022&panel=local&lang=en');assert.equal(focused.panel,'local');assert.deepEqual(view.parse(view.query(focused)),focused);
 assert.equal(view.parse('?view=diagnostics&panel=local').panel,'all');assert.equal(view.parse('?view=cases&panel=javascript:1').panel,'all');
 assert.equal(view.parse('?case=2017&region=alaska&weight=reported_b&membership=common&extent=family').case,'all');

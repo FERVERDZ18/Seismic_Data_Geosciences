@@ -7,16 +7,16 @@
   "styles": [
     "sequences/native-cases.css?v=0f366e8cdc21",
     "sequences/native-diagnostics.css?v=fb5e5064e0fb",
-    "sequences/native-performance.css?v=81fe49618a67",
+    "sequences/native-performance.css?v=1fcdd9fb59e1",
     "sequence-workbench.css?v=e1c454015d71"
   ],
   "scripts": [
     [
-      "sequences/sequence-view.js?v=da37745f0cd2",
+      "sequences/sequence-view.js?v=ffc42ebe34d9",
       "SeismicSequenceView"
     ],
     [
-      "sequences/study-data.js?v=d60c8cb76058",
+      "sequences/study-data.js?v=2a3565c3ede5",
       "SeismicStudyData"
     ],
     [
@@ -40,7 +40,11 @@
       "PerformanceMath"
     ],
     [
-      "sequences/native-performance.js?v=7a4cd1c74ee3",
+      "sequences/matched-performance.js?v=fab3bd8171f9",
+      "MatchedPerformance"
+    ],
+    [
+      "sequences/native-performance.js?v=6d83deaeb3c3",
       "NativePerformance"
     ],
     [
@@ -60,7 +64,7 @@
   function buildURL(state={view:'cases',case:'2017'}){
     const value=global.SeismicSequenceView?global.SeismicSequenceView.normalize(state):state;
     const params=new URLSearchParams('workspace=sequences');
-    const keys=['lang','region','cut','method','weight','membership','case','extent','view','comparison','source','diagnostic_panel','pair_cut','benchmark_metric','scale','radius','before','after','benchmark_n','panel','expanded_map','point_size','full_lat','full_lon','full_zoom','local_lat','local_lon','local_zoom','inspect_source','inspect_record'];
+    const keys=['lang','region','cut','method','weight','membership','case','extent','view','comparison','source','diagnostic_panel','pair_cut','benchmark_metric','benchmark_protocol','scale','radius','before','after','benchmark_n','panel','expanded_map','point_size','full_lat','full_lon','full_zoom','local_lat','local_lon','local_zoom','inspect_source','inspect_record'];
     const query=global.SeismicSequenceView?new URLSearchParams(global.SeismicSequenceView.query(value)):new URLSearchParams(keys.filter(key=>value[key]!=null).map(key=>[key,String(value[key])]));
     for(const [key,val]of query)if(keys.includes(key))params.set(key,val);
     if(!params.has('view'))params.set('view',value.view||'cases');

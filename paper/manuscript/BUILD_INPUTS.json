@@ -17,8 +17,8 @@
     },
     {
       "path": "paper/manuscript/README.md",
-      "bytes": 5388,
-      "sha256": "aeb0db49ad15cf1673191db086571c3a87aa8b67979eb89742b6696070c7b4b2"
+      "bytes": 5338,
+      "sha256": "c2dc0ba2a6772390595aa9a0769db87707dbda300e7d686e907967352d03c256"
     },
     {
       "path": "paper/manuscript/THIRD_PARTY_NOTICES.md",
@@ -27,8 +27,8 @@
     },
     {
       "path": "paper/manuscript/article_view_urls.json",
-      "bytes": 2214,
-      "sha256": "309af5a3bbd3d0229de2549fc986f688eb4890e6259c00c1fcee45e5a44b768d"
+      "bytes": 2241,
+      "sha256": "c1a1855ebdb28e15901c5cd84221629af92aed701a6fa6b2e6ed135e99b68db4"
     },
     {
       "path": "paper/manuscript/author_metadata.json",
@@ -37,8 +37,8 @@
     },
     {
       "path": "paper/manuscript/build/build_manuscript.py",
-      "bytes": 30108,
-      "sha256": "2169d1fd61e11cb79a3eb0e28abd503b1823c9e4becdcf4b7a0e74958331a83e"
+      "bytes": 30375,
+      "sha256": "283c93210d4ad0c42bff7c5b3da5988a813591f7077ea6caca013bc79fdc2d9f"
     },
     {
       "path": "paper/manuscript/build/compare_docx_parts.py",
@@ -186,6 +186,11 @@
       "sha256": "bb04bdc704a4d0b4aeddbf588a42369903ef5226de77fed76e3b8098e9dcea6a"
     },
     {
+      "path": "paper/manuscript/figures/figure_2_matched_one_thread.png",
+      "bytes": 159103,
+      "sha256": "5808db854eb9624c6265c911240d23cc3a5df6617e6b40948cd3edaed7844ed2"
+    },
+    {
       "path": "paper/manuscript/figures/figure_catalog_maps.png",
       "bytes": 2724383,
       "sha256": "bad22d05fbe05c2cf70becef31a5f54d3801307c18d2d0fbb7a6e5bd8cb86143"
@@ -194,11 +199,6 @@
       "path": "paper/manuscript/figures/figure_country_comparison.png",
       "bytes": 620430,
       "sha256": "184ec3ce438dcf031bc8a3ae80e1521fac8338971033eb4fe5a02fb5eca89343"
-    },
-    {
-      "path": "paper/manuscript/figures/figure_exact_search_scaling.png",
-      "bytes": 500735,
-      "sha256": "d9f02368bfa26195966ca8e8faf11325322926c982d46afa22760f5b3df7bea9"
     },
     {
       "path": "paper/manuscript/figures/figure_geographic_context.png",
@@ -277,13 +277,13 @@
     },
     {
       "path": "paper/manuscript/figures_main.json",
-      "bytes": 12930,
-      "sha256": "0694d88c3ef2fcd0dcfe1762381244751400814da7bc9d502b470c454dcac3a1"
+      "bytes": 12977,
+      "sha256": "3845eaa0d41aa68a6775eac8a251076765d8453a82388f891c423a991929d3e0"
     },
     {
       "path": "paper/manuscript/manuscript.md",
-      "bytes": 60371,
-      "sha256": "5d1c549ff52d339684ad4a9a975414cf65188a8c077d391b97a2bd5b17f44564"
+      "bytes": 56375,
+      "sha256": "8469e0110c868b5bad3567332ec735874d55cc9faa16a1c28d257d3277e01e16"
     },
     {
       "path": "paper/manuscript/requirements.txt",

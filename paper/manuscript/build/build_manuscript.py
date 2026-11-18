@@ -29,7 +29,9 @@ XML_SPACE = "{http://www.w3.org/XML/1998/namespace}space"
 _NATIVE_URLS = json.loads((BASE/'article_view_urls.json').read_text(encoding='utf-8'))
 VIEW = (r"(?:https://gabrielhuav\.github\.io/Seismic_Data_Geosciences/\?figure=[a-z0-9-]+&lang=en|"
         + '|'.join(re.escape(url) for url in _NATIVE_URLS) + ')')
-INLINE = re.compile(r"\[([^\]]+)\]\((" + VIEW + r")\)|`([^`\n]+)`|\*([^*\n]+)\*|\{\{math:([a-z][a-z0-9-]*)\}\}")
+ARTICLE_LINK = (rf"(?:{VIEW}|https://github\.com/gabrielhuav/Seismic_Data_Geosciences/tree/[0-9a-f]{{40}}"
+                r"|https://gabrielhuav\.github\.io/Seismic_Data_Geosciences/)")
+INLINE = re.compile(r"\[([^\]]+)\]\((" + ARTICLE_LINK + r")\)|`([^`\n]+)`|\*([^*\n]+)\*|\{\{math:([a-z][a-z0-9-]*)\}\}")
 ANCHOR = re.compile(r"<!--\s*figure:\s*(S?[1-9]\d*)\s*-->")
 EQUATION = re.compile(r"<!--\s*equation:\s*(metric|bound)\s*-->")
 WIDTHS = re.compile(r"<!--\s*table-widths:\s*([\d,\s]+)-->")
@@ -225,10 +227,12 @@ def build(args):
             for old in pr.findall(w("keepNext")):
                 pr.remove(old)
             pr.append(node("keepNext"))
-        if role == "caption" and not keep_next:
-            for old in pr.findall(w("keepNext")):
-                pr.remove(old)
-            pr.append(node("keepLines"))
+        if role == "caption":
+            if not keep_next:
+                for old in pr.findall(w("keepNext")):
+                    pr.remove(old)
+            if pr.find(w("keepLines")) is None:
+                pr.append(node("keepLines"))
         if style:
             for old in pr.findall(w("pStyle")):
                 pr.remove(old)

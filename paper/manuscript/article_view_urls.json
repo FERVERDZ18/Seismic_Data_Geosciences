@@ -1,5 +1,5 @@
 [
-  "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&view=benchmark&lang=en",
+  "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&view=benchmark&benchmark_protocol=matched&lang=en",
   "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&view=diagnostics&cut=4.5&pair_cut=3.5&lang=en",
   "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&lang=en&case=2017&view=cases&panel=full&point_size=large&full_lat=22.09916&full_lon=-102.362158&full_zoom=4.7&local_lat=15.023709&local_lon=-93.901636&local_zoom=7.5",
   "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&lang=en&case=2022&view=cases&panel=full&point_size=large&full_lat=20.632784&full_lon=-101.99707&full_zoom=5&local_lat=18.462394&local_lon=-102.958784&local_zoom=7.4",

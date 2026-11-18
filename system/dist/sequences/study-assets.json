@@ -12,5 +12,9 @@
     "bytes": 40873,
     "sha256": "59fb5070601ec5a5d81b9f57019115a02cbb1a7721a8f16ad133a1f6298bd6a6"
   },
-  "scope": "Observed inputs and calibration are unchanged. Performance data are retained measurements; family roles are calculated by browser Workers."
+  "scope": "Observed inputs and calibration are unchanged. Performance data are retained measurements; family roles are calculated by browser Workers.",
+  "performance_matched": {
+    "bytes": 38789,
+    "sha256": "49379b20125abe2b98eb61bddc34adb561bf308ae823ff6e5f00e05001a47d8b"
+  }
 }

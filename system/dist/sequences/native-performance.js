@@ -31,7 +31,7 @@
       observation:'1 observation',median:'Median of 3',selected:'Inspected size',small:'At the smallest prefix the exhaustive scan was faster than KD. That adverse result remains visible.',
       rawNote:'Timings and counters are retained observations; medians, ranges, percentages and ratios are calculated from them in this view.',phaseSelected:'Phases for N = ',repeat:'Repetition ID',total:'Total',preparation:'Preparation',construction:'Construction',kernel:'Search',postprocess:'Numeric export',noCounter:'Not recorded for the exhaustive reference.'}
   };
-  let root=null,client=null,state={},onStateChange=null,data=null,summary=[],inspection=null,token=0;
+  let root=null,client=null,state={},onStateChange=null,data=null,summary=[],inspection=null,token=0,loadedProtocol=null;
   const lang=()=>state.lang==='en'?'en':'es',w=()=>words[lang()];
   const node=(tag,className='',text='')=>{const e=document.createElement(tag);if(className)e.className=className;if(text)e.textContent=text;return e;};
   const svgNode=(tag,attrs={},text='')=>{const e=document.createElementNS(NS,tag);for(const [k,v] of Object.entries(attrs))e.setAttribute(k,v);if(tag==='text'){e.setAttribute('font-family','system-ui,sans-serif');e.setAttribute('font-size','12');e.setAttribute('fill','#405c70');}if(text)e.textContent=text;return e;};
@@ -40,9 +40,10 @@
   const smallN=n=>n>=1000?format(n/1000,n%1000?1:0)+'k':String(n);
   function normalize(next){
     const size=String(next.benchmark_n||'all');
-    return {...next,lang:next.lang==='en'?'en':'es',benchmark_n:data?.sizes.includes(Number(size))?size:'all',benchmark_metric:['time','pairs','nodes','phases'].includes(next.benchmark_metric)?next.benchmark_metric:'time',scale:next.scale==='linear'?'linear':'log'};
+    const sizes=data?.sizes||[2000,5000,10000,20000,50000,100000,170880];
+    return {...next,lang:next.lang==='en'?'en':'es',benchmark_n:sizes.includes(Number(size))?size:'all',benchmark_metric:['time','pairs','nodes','phases'].includes(next.benchmark_metric)?next.benchmark_metric:'time',scale:next.scale==='linear'?'linear':'log',benchmark_protocol:next.benchmark_protocol==='matched'?'matched':'historical'};
   }
-  function change(patch){if(onStateChange)onStateChange(patch);else{state=normalize({...state,...patch});render();}}
+  function change(patch){if(onStateChange)onStateChange(patch);else return api.setState(patch);}
   function select(row,metric,phase){inspection={row,metric,phase};change({benchmark_n:String(row.n),benchmark_metric:metric});showInspection();}
   function hover(row,metric,phase){inspection={row,metric,phase};showInspection();}
   function bind(element,row,metric,description,phase){
@@ -136,7 +137,13 @@
   function render(){
     if(!root||!data)return;state=normalize(state);const focused=document.activeElement?.getAttribute('data-np-control');
     root.classList.add('np-study');root.setAttribute('lang',lang());
+    if(loadedProtocol==='matched'){
+      MatchedPerformance.render(root,data,{lang:lang(),onHistorical:()=>change({benchmark_protocol:'historical'}),download});
+      return;
+    }
     const header=node('div','np-heading');header.append(node('p','np-kicker',w().kicker),node('h2','',w().title),node('p','np-intro',w().intro),node('p','np-retained',w().retained));
+    const matched=node('button','np-protocol-switch',lang()==='en'?'View matched one-thread benchmark':'Ver comparación emparejada de un hilo');
+    matched.type='button';matched.addEventListener('click',()=>change({benchmark_protocol:'matched'}));
     const controls=node('div','np-controls');controls.append(control('benchmark_n',w().size,[['all',w().all],...data.sizes.map(n=>[String(n),format(n,0)])],state.benchmark_n),control('benchmark_metric',w().metric,['time','pairs','nodes','phases'].map(k=>[k,w()[k]]),state.benchmark_metric),control('scale',w().scale,[['log',w().log],['linear',w().linear]],state.scale));
     const n=state.benchmark_n==='all'?data.sizes.at(-1):Number(state.benchmark_n),kpis=node('div','np-kpis');
     for(const row of summary.filter(r=>r.n===n)){const card=node('div','np-kpi');card.append(node('span','',w()[row.backend]),node('strong','',format(row.median_total_seconds,3)+' s'),node('small','',row.repetitions===1?w().observation:w().median));kpis.append(card);}
@@ -150,24 +157,37 @@
     const runs=node('details','np-runs');runs.append(node('summary','',w().runs),table(data.measurements.filter(r=>state.benchmark_n==='all'||String(r.n)===state.benchmark_n),true));
     const actions=node('div','np-actions'),json=node('button','',w().download),svg=node('button','',w().downloadSvg);json.type=svg.type='button';json.addEventListener('click',exportJSON);svg.addEventListener('click',exportSVG);actions.append(json,svg);
     const protocol=node('details','np-protocol');protocol.append(node('summary','',w().protocol),node('p','',w().scope),node('p','',w().verification),node('p','',w().small));
-    root.replaceChildren(header,controls,selected,kpis,grid,inspector,summarySection,runs,actions,protocol);showInspection();
+    root.replaceChildren(header,matched,controls,selected,kpis,grid,inspector,summarySection,runs,actions,protocol);showInspection();
     if(focused)root.querySelector(`[data-np-control="${focused}"]`)?.focus({preventScroll:true});
+  }
+  async function loadProtocol(protocol){
+    const own=++token;
+    root.replaceChildren(node('p','np-loading',w().loading));
+    try {
+      const loaded=await (protocol==='matched'?client.matchedPerformance():client.performance());
+      if(own!==token)return;
+      summary=protocol==='matched'?[]:PerformanceMath.summarize(loaded);
+      data=loaded;loadedProtocol=protocol;inspection=null;render();
+    } catch(error) {
+      if(own===token)root.replaceChildren(node('p','np-error',w().failed+error.message));
+      throw error;
+    }
   }
   const api={
     async mount(element,options={}){
       if(!element||typeof element.replaceChildren!=='function'||!options.client?.performance)throw new TypeError('A container and performance data client are required');
-      root=element;client=options.client;onStateChange=options.onStateChange||null;state={...options.state};const own=++token;root.classList.add('np-study');root.replaceChildren(node('p','np-loading',w().loading));
-      try{const loaded=await client.performance();if(own!==token)return api;const computed=PerformanceMath.summarize(loaded);data=loaded;summary=computed;state=normalize(state);render();}
-      catch(error){if(own===token)root.replaceChildren(node('p','np-error',w().failed+error.message));throw error;}
+      root=element;client=options.client;onStateChange=options.onStateChange||null;state={...options.state};root.classList.add('np-study');
+      await loadProtocol(state.benchmark_protocol==='matched'?'matched':'historical');
       return api;
     },
     setState(next){
       const previousN=state.benchmark_n;state=normalize({...state,...next});
+      if(state.benchmark_protocol!==loadedProtocol)return loadProtocol(state.benchmark_protocol);
       if(inspection&&previousN!==state.benchmark_n&&state.benchmark_n!=='all'&&Number(inspection.row.n)!==Number(state.benchmark_n))inspection=null;
       if(data)render();
     },
     setLanguage(language){state={...state,lang:language==='en'?'en':'es'};if(data)render();},
-    destroy(){token++;if(root)root.replaceChildren();root=null;data=null;summary=[];inspection=null;}
+    destroy(){token++;if(root)root.replaceChildren();root=null;data=null;summary=[];inspection=null;loadedProtocol=null;}
   };
   global.NativePerformance=Object.freeze(api);
 })(window);

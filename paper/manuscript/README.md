@@ -5,11 +5,11 @@ equations and the journal-specific Word generator. It reconstructs the document;
 scientific experiments are reproduced separately under `research/sequences`.
 No script here commits, pushes, publishes or submits an article.
 
-The double-spaced journal document and the compact reading document have the same
-text, equations, tables, figures, image links and fonts. The reading copy changes
-only direct body paragraph auto-line spacing from 480 to 276 twips (1.15 lines).
-Use the double-spaced document for the journal workflow. The reading format is
-provided for convenient review and does not redefine the journal template.
+The R3 delivery consists of the double-spaced [Word](out/Seismic_CG_manuscript_R3.docx)
+and its [PDF export](out/Seismic_CG_manuscript_R3.pdf). The
+[iThenticate report](out/ITHENTICATE_R3_05.pdf) corresponds to that Word file.
+The optional reading-copy helper changes only direct body paragraph auto-line
+spacing from 480 to 276 twips (1.15 lines).
 
 ## Inputs
 

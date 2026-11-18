@@ -5,6 +5,12 @@ Leer AGENTS.md completo. Los resultados de antecedentes no son verificaciones nu
 
 ## Estado actual
 
+- Gabriel autorizó el commit y push de R3, con la pareja exacta y el informe final de iThenticate dentro de `paper/manuscript/out/`. Los enlaces canónicos figuran en el README. La fuente reproducible y la vista de la Figura 2 acompañan esta revisión. El despliegue Pages sigue siendo manual.
+
+- 18 de noviembre de 2026, cierre de la tercera revisión. Entrega local de dos archivos: `outputs/claude_round3_2026-11-18/final/Seismic_CG_manuscript_R3.docx` y `Seismic_CG_manuscript_R3.pdf` en la misma carpeta. Son el Word evaluado y su exportación nativa verificada. 32 páginas, 13 figuras, 25 imágenes enlazadas (seis paneles SVG) y siete tablas. Se mantienen el título, todas las imágenes de v0, los autores y la declaración académica veraz de asistencia de IA.
+- Se incorporaron el barrido de pesos y cortes, el análisis de puentes entre componentes, el control de 960 celdas sintéticas con diferencias remuestreadas y la Figura 2 del benchmark nativo de un hilo (81 corridas). El enlace de esta figura corresponde a la nueva vista comprobada localmente y requiere un despliegue autorizado para estar disponible en el sistema público. El paquete citado conserva la reproducción publicada. Los diagnósticos nuevos y sus recibos quedan locales.
+- iThenticate en Edge verificó el Word exacto de la entrega con `*%` en Escritura con IA (menos del 20%, sin cifra exacta) y 1% de similitud después de cinco mediciones. Informes privados en `outputs/claude_round3_2026-11-18/`. La aprobación científica de ambos autores sigue pendiente. HEAD y origin/main locales registran `47e0386dda05d84a48940f0db04fa1e0bd286466`, revisión pública 2026.11.18.1, Pages 44259016303 verificado en su cierre. Los permisos de aquella revisión se consumieron.
+
 <!-- tooltip-layout-2026-11-18-estado -->
 - 18 de noviembre de 2026: corrección LOCAL preparada 2026.11.18.1. Gabriel señaló una etiqueta de epicentro que se partía letra por letra en los mapas de casos. La combinación de pane Leaflet sin ancho y overflow-wrap:anywhere permitía contraerla a un carácter. Se añadió ancho según contenido, salto entre palabras y límite relativo al mapa mediante un contenedor de tamaño horizontal. Los estilos afectan sólo a los mapas de casos.
 - QA aislada con Leaflet/CSS reales y Chrome headless, sin tocar el navegador del usuario: se reprodujo la etiqueta de 24×536 px y se corrigió a 236×32 px en el mapa de 718 px. Dieciocho casos antes/después, tres anchos (718/360/240) y tres posiciones, con .nc-study/box-sizing de producción; las nueve variantes corregidas son legibles y quedan dentro del mapa. No es una nueva auditoría visual del sitio público. Evidencias privadas outputs/tooltip_layout_2026-11-18/.
@@ -1287,6 +1293,10 @@ fuera de muestra. No agregar ML ni modelos geotécnicos sin necesidad científic
 
 ## Siguiente paso
 
+- Revisar R3 en `paper/manuscript/out/`. El informe final versionado es `ITHENTICATE_R3_05.pdf`. Las mediciones anteriores y todos los demás informes quedan en el área local de trabajo. La aprobación de autores y el despliegue de la nueva vista de la Figura 2 requieren sus pasos propios.
+
+- Para revisión de autores, usar la pareja de `outputs/claude_round3_2026-11-18/final/`. Confirmar la revisión científica de ambos autores antes de declarar su aprobación. El enlace público de Figura 2 requiere desplegar la vista local. Pedir autorización específica antes de cualquier commit, push, Pages, depósito con DOI o envío editorial. Antes del push, verificar los enlaces de esta revisión o pedir una excepción específica. Mantener la identidad Git humana de Gabriel y la declaración académica veraz. Los PDF de iThenticate y recibos son privados y pueden faltar en otra PC.
+
 <!-- tooltip-layout-2026-11-18-siguiente -->
 - Completar una sola vez el commit, push y Pages autorizados expresamente por Gabriel para 2026.11.18.1; consultar Git y recibos antes de repetir cualquier acción. Verificar después los archivos publicados y una etiqueta real de la vista de casos; entregar el enlace y recomendar recargar la pestaña. Antes del push verificar enlaces del artículo/artefacto para esa acción, sin heredar excepciones. Buscar ejecución del nuevo SHA antes de despachar Pages. No repetir los commits/pushes/despliegues ya consumidos; no regenerar el paper por esta corrección de tooltip. Ambos autores deben revisar científicamente el paper antes de un envío editorial.
 
@@ -1472,6 +1482,10 @@ Entregar canónicosfinales .4 y mensaje corto a Gabriel para Fable; atender aqu�
   Identidad humana de Gabriel, sin atribuciones de IA en Git; declaración académica conservada.
 
 ## Bitácora
+
+- 18 de noviembre de 2026. Se añadieron la pareja R3 y el reporte oficial con sus bytes originales, los enlaces de entrega, y la fuente del manuscrito y del benchmark. Los documentos históricos conservaron sus versiones Git previas.
+
+- 18 de noviembre de 2026, tercera revisión: se cotejó el dictamen T1–T13, se ejecutaron los análisis de pesos/cortes y gemelos empíricos y se regeneró la Figura 2 desde el observatorio local. QA visual de cada página, enlaces de 25 imágenes, seis SVG y enlaces de disponibilidad. iThenticate: 60%, 36%, 26%, 22%, `*%` (menos del 20%). El último Word y su PDF se cotejaron por SHA-256. Se preservaron los cambios del usuario en artefactos anteriores y no hubo nuevo commit, push, publicación ni envío editorial.
 
 <!-- tooltip-layout-2026-11-18-bitácora -->
 - Autorización nueva de Gabriel recibida el 18 de noviembre de 2026 para UN commit, UN push y UN Pages de 2026.11.18.1 con identidad humana, sin atribuciones de IA, coautores ni trailers. Gate fresco previo al push y verificación posterior en curso. No heredar permisos/excepciones ni repetir acciones cuyo resultado ya figure en Git/recibos.

@@ -16,7 +16,7 @@ function client(options={}){
   }
   const window={},scope=vm.createContext({window,URL,...(options.scriptURL?{document:{currentScript:{src:options.scriptURL}}}:{}),crypto:crypto.webcrypto,TextDecoder,Worker:LocalWorker,fetch:async url=>{
     fetched.push(url);const relative=/^https?:/.test(url)?path.posix.relative('/repo/sequences',new URL(url).pathname):url;const target=path.resolve(directory,relative);assert(target.startsWith(path.resolve(directory,'..')));
-    let data=fs.readFileSync(target);if(options.tamperPerformance&&url==='performance-data.json')data=Buffer.concat([data,Buffer.from(' ')]);
+    let data=fs.readFileSync(target);if(options.tamperPerformance&&url===options.tamperPerformance)data=Buffer.concat([data,Buffer.from(' ')]);
     return {ok:true,status:200,json:async()=>JSON.parse(data),arrayBuffer:async()=>data.buffer.slice(data.byteOffset,data.byteOffset+data.byteLength)};
   }});
   vm.runInContext(fs.readFileSync(path.join(directory,'study-data.js'),'utf8'),scope);
@@ -34,10 +34,14 @@ function client(options={}){
   assert.equal(fetched.filter(u=>u==='data/inputs_4_5.json').length,1);
   assert.equal(fetched.filter(u=>u==='data/calibration.json').length,1);
   assert((await api.basemap()).features.length>0);assert.equal((await api.performance()).measurements.length,49);
+  const matched=await api.matchedPerformance();assert.equal(matched.measurements.length,81);assert.equal(matched.threads,1);assert.equal(matched.repetitions,3);
+  assert.strictEqual(await api.matchedPerformance(),matched);
+  assert.equal(fetched.filter(url=>url==='performance-matched-data.json').length,1);
   await assert.rejects(()=>api.classify('alaska',{membership:'common'}),/Alaska/);
   await assert.rejects(()=>api.classify('ssn',{cut:'3.5',weight:'reported_b'}),/4.5/);
   await assert.rejects(()=>api.checked('../private.json'),/Unlisted/);
-  await assert.rejects(()=>client({tamperPerformance:true}).api.performance(),/integrity/);
+  await assert.rejects(()=>client({tamperPerformance:'performance-data.json'}).api.performance(),/integrity/);
+  await assert.rejects(()=>client({tamperPerformance:'performance-matched-data.json'}).api.matchedPerformance(),/integrity/);
   const embedded=client({scriptURL:'https://example.test/repo/sequences/study-data.js?v=pinned'});
   const embeddedRows=await embedded.api.classify('ssn',{cut:'4.5'});assert.equal(embeddedRows.rows.length,1780);assert.equal(family(embeddedRows),292);
   assert(embedded.fetched.includes('https://example.test/repo/sequences/data/inputs_4_5.json'));

@@ -15,7 +15,7 @@
     if(digest!==spec.sha256||bytes.byteLength!==spec.bytes)throw new Error('Study input integrity mismatch: '+url);
     return JSON.parse(new TextDecoder().decode(bytes));
   }
-  const assets=()=>once('study-assets',async()=>{const r=await fetch(resource('study-assets.json'));if(!r.ok)throw new Error('Study asset manifest: HTTP '+r.status);return r.json();});
+  const assets=()=>once('study-assets',async()=>{const r=await fetch(resource('study-assets.json'),{cache:'no-cache'});if(!r.ok)throw new Error('Study asset manifest: HTTP '+r.status);return r.json();});
   const manifest=()=>once('scientific-manifest',async()=>verified('data/manifest.json',(await assets()).scientific_manifest));
   const checked=path=>once('input:'+path,async()=>{const m=await manifest();if(!m.files[path])throw new Error('Unlisted scientific input: '+path);return verified('data/'+path,m.files[path]);});
   function key(cut){if(!['3.5','4.1','4.5'].includes(String(cut)))throw new Error('Unsupported reported-magnitude cut');return String(cut).replace('.','_');}
@@ -25,6 +25,7 @@
   const cases=async()=>(await checked('diagnostics.json')).cases;
   const basemap=()=>once('basemap',async()=>verified('../data/basemap.geojson',(await assets()).basemap));
   const performanceData=()=>once('performance-data',async()=>verified('performance-data.json',(await assets()).performance));
+  const matchedPerformance=()=>once('performance-matched-data',async()=>verified('performance-matched-data.json',(await assets()).performance_matched));
   function worker(rows,parameters,threshold){
     return new Promise((resolve,reject)=>{
       const w=new Worker(resource('worker.js')),token=++request;
@@ -51,5 +52,5 @@
     })().catch(error=>{calculations.delete(id);throw error;}));
     return calculations.get(id);
   }
-  root.SeismicStudyData=Object.freeze({manifest,checked,inputs,pairs,cases,calibration,basemap,performance:performanceData,classify});
+  root.SeismicStudyData=Object.freeze({manifest,checked,inputs,pairs,cases,calibration,basemap,performance:performanceData,matchedPerformance,classify});
 })(window);

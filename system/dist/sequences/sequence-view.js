@@ -6,6 +6,8 @@
   'use strict';
   const allowed={lang:['es','en'],region:['mexico','alaska'],cut:['4.5','4.1','3.5'],method:['nn','gk'],weight:['fixed','reported_b'],membership:['native','common'],case:['all','2017','2022'],extent:['local','family'],view:['explorer','cases','diagnostics','benchmark'],comparison:['both','fixed','reported_b'],source:['all','ssn','usgs','alaska'],diagnostic_panel:['all','fmd','tr','difference'],pair_cut:['3.5','4.1','4.5'],benchmark_metric:['time','pairs','nodes','phases'],scale:['log','linear'],panel:['all','full','local','timeline','inspector'],expanded_map:['none','full','local'],point_size:['normal','large']};
   const defaults={lang:'es',region:'mexico',cut:'4.5',method:'nn',weight:'fixed',membership:'native',case:'all',extent:'local',view:'explorer',comparison:'both',source:'all',diagnostic_panel:'all',pair_cut:'3.5',benchmark_metric:'time',scale:'log',panel:'all',expanded_map:'none',point_size:'normal'};
+  allowed.benchmark_protocol=['historical','matched'];
+  defaults.benchmark_protocol='historical';
   const numeric={radius:['150',50,300],before:['7',0,30],after:['30',1,90]};
   const viewportKeys=Object.freeze(['full','local'].flatMap(kind=>['lat','lon','zoom'].map(key=>kind+'_'+key)));
   function mapViewport(input,kind){
@@ -24,6 +26,7 @@
       const raw=input[key],n=Number(raw);state[key]=raw!==''&&raw!=null&&Number.isFinite(n)&&n>=min&&n<=max?String(n):fallback;
     }
     state.benchmark_n=[2000,5000,10000,20000,50000,100000,170880].includes(Number(input.benchmark_n))?String(Number(input.benchmark_n)):'all';
+    if(state.view!=='benchmark')state.benchmark_protocol='historical';
     if(state.view==='cases'){state.region='mexico';state.cut='4.5';state.method='nn';if(state.case==='all')state.case='2017';if(state.source==='alaska')state.source='all';}
     if(state.region==='alaska'){state.membership='native';state.case='all';}
     if(state.region!=='mexico'||state.cut!=='4.5'||state.method!=='nn')state.weight='fixed';
