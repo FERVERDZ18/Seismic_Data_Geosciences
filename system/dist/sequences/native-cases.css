@@ -15,3 +15,8 @@
 @media(max-width:520px){.nc-map-key[data-point-size=large]{font-size:13px}.nc-map-key-row{column-gap:14px}}
 
 .nc-timeline text{font-family:Arial,sans-serif;font-size:14px}
+
+/* Leaflet panes have no intrinsic width. Size the tooltip from its content,
+   then leave room on either side of the pointer in narrow map cards. */
+.nc-map{container-type:inline-size}
+.nc-map .leaflet-tooltip{width:max-content;max-width:min(320px,calc(50cqw - 24px));overflow-wrap:break-word;word-break:normal}

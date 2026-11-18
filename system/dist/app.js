@@ -190,7 +190,7 @@ function ensureQuickPanel(){
 }
 function ensureHelpPanel(){
   if(!helpPanel && window.SeismicQuickStart)helpPanel=window.SeismicQuickStart.mountHelp($('helpWorkspace'),{
-    getLanguage:()=>I.language,version:'2026.11.17.1',onNavigate:name=>setTab(name)
+    getLanguage:()=>I.language,version:'2026.11.18.1',onNavigate:name=>setTab(name)
   });
   return helpPanel;
 }

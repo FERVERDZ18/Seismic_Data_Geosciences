@@ -2,6 +2,12 @@
 
 ## Estado actual
 
+<!-- tooltip-layout-2026-11-18-estado -->
+- 18 de noviembre de 2026: corrección LOCAL preparada 2026.11.18.1. Gabriel señaló una etiqueta de epicentro que se partía letra por letra en los mapas de casos. La combinación de pane Leaflet sin ancho y overflow-wrap:anywhere permitía contraerla a un carácter. Se añadió ancho según contenido, salto entre palabras y límite relativo al mapa mediante un contenedor de tamaño horizontal. Los estilos afectan sólo a los mapas de casos.
+- QA aislada con Leaflet/CSS reales y Chrome headless, sin tocar el navegador del usuario: se reprodujo la etiqueta de 24×536 px y se corrigió a 236×32 px en el mapa de 718 px. Dieciocho casos antes/después, tres anchos (718/360/240) y tres posiciones, con .nc-study/box-sizing de producción; las nueve variantes corregidas son legibles y quedan dentro del mapa. No es una nueva auditoría visual del sitio público. Evidencias privadas outputs/tooltip_layout_2026-11-18/.
+- Pasaron las suites existentes de apariencia nativa y rutas, comprobación de claves de caché y artefacto: 126 archivos, 63 referencias locales, cero fallos locales. Observaciones, métodos, fuentes, SVG exportados y los cuatro Word/PDF finales siguen intactos; los tooltips no forman parte de las figuras exportadas. No se repitieron cálculos científicos.
+- Base Git local 50e9ffd1065f78f63dc1087112d3d9e1575f4268; último Pages verificado f5dae946eff95dd92510ce7607c57c989f92197a, ejecución 44235101592 SUCCESS. Las autorizaciones anteriores ya se consumieron. Gabriel autorizó expresamente UN commit, UN push y UN despliegue Pages de 2026.11.18.1. Sus resultados efectivos se registran en outputs/tooltip_layout_2026-11-18/release/ y Git; consultar antes de actuar o repetir. La autorización no incluye amend, acciones adicionales ni envío editorial. Identidad exclusiva Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin IA como autor/committer, coautores, trailers ni firmas automáticas. La declaración académica veraz se conserva.
+
 <!-- claude-r2-2026-11-17-state start -->
 - Revisión 2026.11.17.1: sistema y reproducción publicados en el commit humano f5dae946eff95dd92510ce7607c57c989f92197a. Pages 44235101592 terminó SUCCESS para ese mismo SHA. Se verificaron por HTTPS los 126 archivos, idénticos a Git/local, los 26 destinos de figuras y 18 exclusiones privadas (404). La revisión visual real previa fue local; el posterior control de Windows se detuvo por confianza insuficiente en la URL. La igualdad de bytes no se presenta como nueva navegación visual pública.
 - El paquete público research/sequences contiene 280 archivos y 2,837 rutas lógicas: fuentes/configuración/licencias legibles y 22 ZIP de datos. Los 280 blobs remotos coinciden; seis descargas anónimas y la ruta de reproducción respondieron correctamente. El replay limpio verificó seis fases, 1,978 comparaciones y 24,466 campos. Los resultados adversos, censuras y límites se conservan; GEM histórico no se ejecutó otra vez. Licencias por componente, sin atribuir MIT a todo el conjunto.
@@ -997,6 +1003,9 @@ No se trasladan chats, credenciales, hooks ni .git/config con un clon.
 
 ## Siguiente paso
 
+<!-- tooltip-layout-2026-11-18-siguiente -->
+- Completar una sola vez el commit, push y Pages autorizados expresamente por Gabriel para 2026.11.18.1; consultar Git y recibos antes de repetir cualquier acción. Verificar después los archivos publicados y una etiqueta real de la vista de casos; entregar el enlace y recomendar recargar la pestaña. Antes del push verificar enlaces del artículo/artefacto para esa acción, sin heredar excepciones. Buscar ejecución del nuevo SHA antes de despachar Pages. No repetir los commits/pushes/despliegues ya consumidos; no regenerar el paper por esta corrección de tooltip. Ambos autores deben revisar científicamente el paper antes de un envío editorial.
+
 <!-- claude-r2-2026-11-17-next start -->
 - Entregar Word/PDF y el mensaje breve para Fable. Verificar el resultado efectivo del segundo commit/push en Git/recibos; no repetir acciones consumidas. Ambos autores deben revisar y aprobar el contenido antes de un envío editorial. Cualquier nuevo commit, amend, push, Pages, release, correo o envío exige autorización expresa nueva. Fable también debe preguntar antes de cada commit/push y usar la identidad humana de Gabriel, sin IA en Git; conservar la declaración académica veraz.
 <!-- claude-r2-2026-11-17-next end -->
@@ -1173,6 +1182,10 @@ Entregar canónicosfinales .4 y mensaje corto a Gabriel para Fable; atender aqu�
   Identidad humana de Gabriel, sin atribuciones de IA en Git; declaración académica conservada.
 
 ## Bitácora
+
+<!-- tooltip-layout-2026-11-18-bitácora -->
+- Autorización nueva de Gabriel recibida el 18 de noviembre de 2026 para UN commit, UN push y UN Pages de 2026.11.18.1 con identidad humana, sin atribuciones de IA, coautores ni trailers. Gate fresco previo al push y verificación posterior en curso. No heredar permisos/excepciones ni repetir acciones cuyo resultado ya figure en Git/recibos.
+- 18 de noviembre de 2026: etiqueta vertical reportada por Gabriel, reproducida en Leaflet real y corregida localmente con ancho según contenido y límite por mapa. QA antes/después 18 casos; dos suites Node, cache y gate local PASS. Versión local 2026.11.18.1; cuatro archivos del sistema y tres de continuidad. Ninguna acción Git/publicación nueva. Manuscritos, imágenes y datos intactos; permisos nuevos pendientes.
 
 <!-- claude-r2-2026-11-17-log start -->
 - 17 de noviembre de 2026, cierre: sistema/reproducción f5dae946eff95dd92510ce7607c57c989f92197a publicados y Pages 44235101592 SUCCESS. HTTPS verificó 126 archivos idénticos, 26 destinos y 18 exclusiones. Paper regenerado con disponibilidad real, figuras auténticas y enlaces exactos; cuatro rondas internas, sin aprobación editorial/humana inventada. Segundo commit/push documental autorizado preparado: comprobar su resultado efectivo en Git/recibos, nunca repetir a ciegas. v0 y otros proyectos intactos.
