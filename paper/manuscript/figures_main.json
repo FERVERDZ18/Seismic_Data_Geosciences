@@ -1,0 +1,239 @@
+{
+  "schema_version": 1,
+  "ordered_figures": [
+    {
+      "label": "1",
+      "path": "paper/manuscript/figures/figure_system_design.png",
+      "sha256": "4db5251c3f0246c421285eac055cd843799ec36b3985f6dcd781a525d4933cd4",
+      "origin": "v0 figure, byte-identical copy"
+    },
+    {
+      "label": "2",
+      "path": "paper/manuscript/figures/figure_exact_search_scaling.png",
+      "sha256": "d9f02368bfa26195966ca8e8faf11325322926c982d46afa22760f5b3df7bea9",
+      "origin": "New exact-search scaling and finite-input validation",
+      "width_emu": 5943600
+    },
+    {
+      "label": "3",
+      "path": "paper/manuscript/figures/fig_diagnostics_six_panel.png",
+      "sha256": "c8d94ee30e99a45038df8f627d43b9c1c402a2a8b3c72070f227d4374c852a84",
+      "origin": "Reported-magnitude and NN phase diagnostics",
+      "width_emu": 5943600
+    },
+    {
+      "label": "4",
+      "path": "paper/manuscript/figures/figure4_native_export_composite_2026.11.16.4.png",
+      "sha256": "23e3bac9cfe3d92a82b8d08084d93d6bee906c5862d7afd806b1ea2afb31afd6",
+      "origin": "Six exact native system SVG exports with exact938px PNG compatibility fallbacks; PDF renders vectors, not200ppi bitmaps",
+      "width_emu": 5943600,
+      "panel_columns": 2,
+      "panels": [
+        {
+          "path": "paper/manuscript/figures/figure4_A_2017_full_native_2026.11.16.4.png",
+          "sha256": "049519e0d623ee809d970f729cdcd5f1070ebad436fe22764ead5290dab3f6eb",
+          "letter": "A",
+          "label": "A · 2017 · Full: SSN 292→955; ComCat 204→208",
+          "source_kind": "genuine_native_system_export",
+          "width_emu": 2857500,
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&lang=en&case=2017&view=cases&panel=full&point_size=large&full_lat=22.09916&full_lon=-102.362158&full_zoom=4.7&local_lat=15.023709&local_lon=-93.901636&local_zoom=7.5",
+          "link_label": "Explore 2017 · full map",
+          "svg_path": "paper/manuscript/figures/A_2017_full_final.svg",
+          "svg_sha256": "291a336e20c2dc71227d588b45ac902217409069801b1655cddabac05205dd99"
+        },
+        {
+          "path": "paper/manuscript/figures/figure4_D_2022_full_native_2026.11.16.4.png",
+          "sha256": "1585b25201d18ea7c106eff8dd6bdfa4e08d9c77e84a35ffea66735a8bbb3bf5",
+          "letter": "D",
+          "label": "D · 2022 · Full: SSN 21→84; ComCat 10→10",
+          "source_kind": "genuine_native_system_export",
+          "width_emu": 2857500,
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&lang=en&case=2022&view=cases&panel=full&point_size=large&full_lat=20.632784&full_lon=-101.99707&full_zoom=5&local_lat=18.462394&local_lon=-102.958784&local_zoom=7.4",
+          "link_label": "Explore 2022 · full map",
+          "svg_path": "paper/manuscript/figures/D_2022_full_final.svg",
+          "svg_sha256": "d8f933e3fb0d54d37a0f5b6cb2ec125a4fa6e0cd098ad7d439c876acf0e2d627"
+        },
+        {
+          "path": "paper/manuscript/figures/figure4_B_2017_local_native_2026.11.16.4.png",
+          "sha256": "9b8b0d6427285dd5695f7cfe503e5441607535a6e27d09e6a66c5ea8dc906189",
+          "letter": "B",
+          "label": "B · 2017 · Local families: SSN/ComCat 148/136",
+          "source_kind": "genuine_native_system_export",
+          "width_emu": 2857500,
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&lang=en&case=2017&view=cases&panel=local&point_size=large&full_lat=22.09916&full_lon=-102.362158&full_zoom=4.7&local_lat=15.023709&local_lon=-93.901636&local_zoom=7.5",
+          "link_label": "Explore 2017 · local map",
+          "svg_path": "paper/manuscript/figures/B_2017_local_final.svg",
+          "svg_sha256": "19e69a2e50d1343754901da7476b00162b08f350ce737da7c6dca8ab60bb5a9f"
+        },
+        {
+          "path": "paper/manuscript/figures/figure4_E_2022_local_native_2026.11.16.4.png",
+          "sha256": "b5e8292f4baa0762e076e88e034b028fb73eda26e3f81832bd50f15e84e58a5f",
+          "letter": "E",
+          "label": "E · 2022 · Local families: SSN/ComCat 13/9",
+          "source_kind": "genuine_native_system_export",
+          "width_emu": 2857500,
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&lang=en&case=2022&view=cases&panel=local&point_size=large&full_lat=20.632784&full_lon=-101.99707&full_zoom=5&local_lat=18.462394&local_lon=-102.958784&local_zoom=7.4",
+          "link_label": "Explore 2022 · local map",
+          "svg_path": "paper/manuscript/figures/E_2022_local_final.svg",
+          "svg_sha256": "6cbe01f8637f5706204f85c2c316d8f4b1c50571cc74076a739cd7f1f54cd7d5"
+        },
+        {
+          "path": "paper/manuscript/figures/figure4_C_2017_timeline_native_2026.11.16.4.png",
+          "sha256": "fb1fecacdb004d574890962208007e437634c5ea7945be3640a0855e6d20f62f",
+          "letter": "C",
+          "label": "C · 2017 · 86 candidate pairs",
+          "source_kind": "genuine_native_system_export",
+          "width_emu": 2857500,
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&lang=en&case=2017&view=cases&panel=timeline&point_size=large&full_lat=22.089363&full_lon=-102.364059&full_zoom=4.3&local_lat=15.024839&local_lon=-93.898702&local_zoom=7.2",
+          "link_label": "Explore 2017 · timeline",
+          "svg_path": "paper/manuscript/figures/C_2017_timeline_opaque.svg",
+          "svg_sha256": "64d5a1b3b1b12092f63ae627ef4309a6a7389419b6463e1bd7b02616c8a8bc24"
+        },
+        {
+          "path": "paper/manuscript/figures/figure4_F_2022_timeline_native_2026.11.16.4.png",
+          "sha256": "64d78f5b65df76d1bace92ece95320c0d0799f9853b134693a576906a00466ed",
+          "letter": "F",
+          "label": "F · 2022 · 8 candidate pairs",
+          "source_kind": "genuine_native_system_export",
+          "width_emu": 2857500,
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&lang=en&case=2022&view=cases&panel=timeline&point_size=large&full_lat=20.626859&full_lon=-102.035263&full_zoom=4.5&local_lat=18.458765&local_lon=-102.955956&local_zoom=7.2",
+          "link_label": "Explore 2022 · timeline",
+          "svg_path": "paper/manuscript/figures/F_2022_timeline_opaque.svg",
+          "svg_sha256": "6408691c09e50e751c40e082a29a9a28bcddd6828a65a66711d53b7f4f1939c4"
+        }
+      ]
+    },
+    {
+      "label": "5",
+      "path": "paper/manuscript/figures/figure5_unified_final_composite.png",
+      "sha256": "bb04bdc704a4d0b4aeddbf588a42369903ef5226de77fed76e3b8098e9dcea6a",
+      "origin": "Authentic retained unified-app revision 2026.11.16.3 crops; current links restore record and presentation",
+      "width_emu": 5943600,
+      "panel_columns": 1,
+      "panels": [
+        {
+          "path": "paper/manuscript/figures/figure5_A_controls_summaries.png",
+          "sha256": "57f5858f57e467982ce85a19cd75fdd9a0f693c4fcf7f24f378f17baebbea361",
+          "letter": "A",
+          "label": "A · Case controls, family summaries and legend",
+          "source_kind": "genuine_unified_app_capture",
+          "width_emu": 5943600,
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?workspace=sequences&view=cases&case=2017&comparison=both&membership=native&lang=en",
+          "link_label": "Explore 2017 · controls and summaries"
+        },
+        {
+          "path": "paper/manuscript/figures/figure5_B_unified_witness_table.png",
+          "sha256": "826562e38faa4c89b7cb6fb6f2b84753816ca874f72a007a95d941cc7acb826c",
+          "letter": "B",
+          "label": "B · W1 source identity and weight comparison",
+          "source_kind": "genuine_unified_app_capture",
+          "width_emu": 5943600,
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?lang=en&case=2017&view=cases&panel=inspector&point_size=large&full_lat=22.09916&full_lon=-102.362158&full_zoom=4.7&local_lat=15.023709&local_lon=-93.901636&local_zoom=7.5&inspect_source=ssn&inspect_record=ssn-mx-historical%7Essn-local-81c01bd323843b791355110b-1&workspace=sequences",
+          "link_label": "Explore 2017 · W1 inspector"
+        }
+      ]
+    },
+    {
+      "label": "6",
+      "path": "paper/manuscript/figures/figure_home.png",
+      "sha256": "c757a1d935319a16b799c7abcfec769d43aeb56df6f5be7aec1ce536fe51220b",
+      "origin": "v0 figure, byte-identical copy",
+      "width_emu": 5303520
+    },
+    {
+      "label": "7",
+      "path": "paper/manuscript/figures/figure_sources.png",
+      "sha256": "16416e21a630f4c575924a845dab0fa25f503d3fef1969c4854d55e3d60039b5",
+      "origin": "v0 figure, byte-identical copy",
+      "width_emu": 5303520
+    },
+    {
+      "label": "8",
+      "path": "paper/manuscript/figures/figure_catalog_maps.png",
+      "sha256": "bad22d05fbe05c2cf70becef31a5f54d3801307c18d2d0fbb7a6e5bd8cb86143",
+      "origin": "v0 figure, byte-identical copy",
+      "panels": [
+        {
+          "path": "paper/manuscript/figures/panel_4a.png",
+          "sha256": "d4eff9cd071c1c7a4d6cf1e27bb47cd945f4607bd642365d5d13ad0500ef5754",
+          "label": "A · Mexico · SSN",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=4a&lang=en"
+        },
+        {
+          "path": "paper/manuscript/figures/panel_4b.png",
+          "sha256": "7a8e9328040b9c6d82ebae16373b36ad06e55dd996d315180e7b8f449697f7fc",
+          "label": "B · United States · USGS",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=4b&lang=en"
+        },
+        {
+          "path": "paper/manuscript/figures/panel_4c.png",
+          "sha256": "a789cdc212427ee2ac7f485dd91949026fdb4ddb43d35ed4394c2512e0a1ebe8",
+          "label": "C · Canada · NRCan",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=4c&lang=en"
+        },
+        {
+          "path": "paper/manuscript/figures/panel_4d.png",
+          "sha256": "0d2e51441f2b9d68efef0b1d4e2236f3a22da65a4d00c4ace1e07a20d4e8c7db",
+          "label": "D · Four catalogues",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=4d&lang=en"
+        }
+      ]
+    },
+    {
+      "label": "9",
+      "path": "paper/manuscript/figures/figure_regional_maps.png",
+      "sha256": "a4364d881ca2fbe9388e06c730a85d14c25e830b34697948f33992df101cba3d",
+      "origin": "v0 figure, byte-identical copy",
+      "panels": [
+        {
+          "path": "paper/manuscript/figures/panel_regional-a.png",
+          "sha256": "c9f32fc54a83202cd6f903394e1fc7fd1b65648a7e368459e85f117e183d8e64",
+          "label": "A · Guerrero · SSN",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=regional-a&lang=en"
+        },
+        {
+          "path": "paper/manuscript/figures/panel_regional-b.png",
+          "sha256": "3bbac80df3c078b3f84e683e42f0e45bd7d2607e21e24c9cfa1dd189f4e55207",
+          "label": "B · California · USGS",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=regional-b&lang=en"
+        },
+        {
+          "path": "paper/manuscript/figures/panel_regional-c.png",
+          "sha256": "1b8ac23f08d81c84df53c6a013485505f0dbd522c40b1f57fce2afb9452fa44f",
+          "label": "C · Yukon · NRCan",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=regional-c&lang=en"
+        },
+        {
+          "path": "paper/manuscript/figures/panel_regional-d.png",
+          "sha256": "927ed718b6118a83da47e77dd48931b8313225c8bcfbaa9e7b5dfa5bdd0097c7",
+          "label": "D · Alaska · four catalogues",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=regional-d&lang=en"
+        }
+      ]
+    },
+    {
+      "label": "10",
+      "path": "paper/manuscript/figures/figure_geographic_context.png",
+      "sha256": "c4378cfc5ef31ac2f2e274cfec8beb5ad15456d77d85d0f102cccd01da8964f0",
+      "origin": "v0 figure, byte-identical copy"
+    },
+    {
+      "label": "11",
+      "path": "paper/manuscript/figures/figure_country_comparison.png",
+      "sha256": "184ec3ce438dcf031bc8a3ae80e1521fac8338971033eb4fe5a02fb5eca89343",
+      "origin": "v0 figure, byte-identical copy"
+    },
+    {
+      "label": "12",
+      "path": "paper/manuscript/figures/figure_top10.png",
+      "sha256": "c9ff456656bcc69cdea871d80d7fe792f1196fc61cce0d428a2e3ca8d3df3b51",
+      "origin": "v0 figure, byte-identical copy"
+    },
+    {
+      "label": "13",
+      "path": "paper/manuscript/figures/figure_proximity.png",
+      "sha256": "7909d2da0eb1b94a36da879d425ae05bc84f71aeebcb0637184d039e77a783de",
+      "origin": "v0 figure, byte-identical copy"
+    }
+  ]
+}

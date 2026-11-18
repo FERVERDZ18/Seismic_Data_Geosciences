@@ -1,5 +1,17 @@
 # Reproducing the local audit
 
+## Current manuscript workflow
+
+The [current article source and portable generator](../paper/manuscript/README.md)
+rebuild the journal-specific Word document independently of private review files.
+The official document retains double spacing; the compact reading copy changes
+only body line spacing, with identical text, fonts, figures, equations and links.
+The source seal and official template provenance are verified before building.
+Native Word PDF export preserves the six SVG case panels. Every final page and
+picture destination still needs visual/structural review after an intentional edit.
+These instructions supersede the older private manuscript paths below; preserved
+v0 documents and historical system routes remain unchanged.
+
 ## Sequence-science package 2026.11.17.1
 
 The current sequence-science reproduction entry point is

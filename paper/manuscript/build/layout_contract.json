@@ -1,0 +1,39 @@
+{
+  "schema": "journal-document-layout/1",
+  "template_sha256": "8f46981fb4e73b6ffeb911f1078529d0e38844213d32fbfab8e762cddfdfb95f",
+  "template_preserve_only_parts": 16,
+  "template_paragraph_slots": {
+    "title": 43,
+    "author": 44,
+    "abstract": 65,
+    "heading": 68,
+    "body": 69,
+    "caption": 98
+  },
+  "body_font": "Times New Roman",
+  "body_points": 10,
+  "body_auto_line_twips": 480,
+  "native_math": {
+    "display_equations": 2,
+    "inline_equations": 14,
+    "base_points": 10,
+    "font": "Cambria Math"
+  },
+  "figures": {
+    "groups": 13,
+    "pictures_embedded": 25,
+    "native_SVGs": 6,
+    "PNG_files_including_composites": 29,
+    "original_groups": 9,
+    "original_panels": 8
+  },
+  "builder_arguments": {
+    "reference_after_twips": 20,
+    "figure_after_twips": 20,
+    "prefix": "Figure "
+  },
+  "reading_copy": {
+    "body_auto_line_twips": 276,
+    "journal_submission_layout": false
+  }
+}

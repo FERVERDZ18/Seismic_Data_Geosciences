@@ -1,0 +1,85 @@
+{
+  "schema": "retained-figure-provenance/1",
+  "scope": "Current article assets; composite files document the original grouped figures, while individual panels are embedded.",
+  "required_original_groups": [
+    {
+      "label": "1",
+      "sha256": "4db5251c3f0246c421285eac055cd843799ec36b3985f6dcd781a525d4933cd4",
+      "panels": []
+    },
+    {
+      "label": "6",
+      "sha256": "c757a1d935319a16b799c7abcfec769d43aeb56df6f5be7aec1ce536fe51220b",
+      "panels": []
+    },
+    {
+      "label": "7",
+      "sha256": "16416e21a630f4c575924a845dab0fa25f503d3fef1969c4854d55e3d60039b5",
+      "panels": []
+    },
+    {
+      "label": "8",
+      "sha256": "bad22d05fbe05c2cf70becef31a5f54d3801307c18d2d0fbb7a6e5bd8cb86143",
+      "panels": [
+        {
+          "sha256": "d4eff9cd071c1c7a4d6cf1e27bb47cd945f4607bd642365d5d13ad0500ef5754",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=4a&lang=en"
+        },
+        {
+          "sha256": "7a8e9328040b9c6d82ebae16373b36ad06e55dd996d315180e7b8f449697f7fc",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=4b&lang=en"
+        },
+        {
+          "sha256": "a789cdc212427ee2ac7f485dd91949026fdb4ddb43d35ed4394c2512e0a1ebe8",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=4c&lang=en"
+        },
+        {
+          "sha256": "0d2e51441f2b9d68efef0b1d4e2236f3a22da65a4d00c4ace1e07a20d4e8c7db",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=4d&lang=en"
+        }
+      ]
+    },
+    {
+      "label": "9",
+      "sha256": "a4364d881ca2fbe9388e06c730a85d14c25e830b34697948f33992df101cba3d",
+      "panels": [
+        {
+          "sha256": "c9f32fc54a83202cd6f903394e1fc7fd1b65648a7e368459e85f117e183d8e64",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=regional-a&lang=en"
+        },
+        {
+          "sha256": "3bbac80df3c078b3f84e683e42f0e45bd7d2607e21e24c9cfa1dd189f4e55207",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=regional-b&lang=en"
+        },
+        {
+          "sha256": "1b8ac23f08d81c84df53c6a013485505f0dbd522c40b1f57fce2afb9452fa44f",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=regional-c&lang=en"
+        },
+        {
+          "sha256": "927ed718b6118a83da47e77dd48931b8313225c8bcfbaa9e7b5dfa5bdd0097c7",
+          "url": "https://gabrielhuav.github.io/Seismic_Data_Geosciences/?figure=regional-d&lang=en"
+        }
+      ]
+    },
+    {
+      "label": "10",
+      "sha256": "c4378cfc5ef31ac2f2e274cfec8beb5ad15456d77d85d0f102cccd01da8964f0",
+      "panels": []
+    },
+    {
+      "label": "11",
+      "sha256": "184ec3ce438dcf031bc8a3ae80e1521fac8338971033eb4fe5a02fb5eca89343",
+      "panels": []
+    },
+    {
+      "label": "12",
+      "sha256": "c9ff456656bcc69cdea871d80d7fe792f1196fc61cce0d428a2e3ca8d3df3b51",
+      "panels": []
+    },
+    {
+      "label": "13",
+      "sha256": "7909d2da0eb1b94a36da879d425ae05bc84f71aeebcb0637184d039e77a783de",
+      "panels": []
+    }
+  ]
+}

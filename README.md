@@ -30,6 +30,19 @@ The revised manuscript derives its case maps from the working application and
 retains all nine original figure groups. It remains an author-review document;
 publication and final human approval are separate steps.
 
+Current revision **2026.11.17.1** is available in the journal's double-spaced
+format: [Word](paper/manuscript/out/Seismic_CG_sequences_manuscript_2026.11.17.1.docx)
+and [PDF](paper/manuscript/out/Seismic_CG_sequences_manuscript_2026.11.17.1.pdf)
+(32 pages). The compact reading copy is available as
+[Word](paper/manuscript/out/Seismic_CG_sequences_manuscript_2026.11.17.1_reading.docx)
+and [PDF](paper/manuscript/out/Seismic_CG_sequences_manuscript_2026.11.17.1_reading.pdf)
+(26 pages). Both retain the same text, fonts, equations, seven tables, thirteen
+figure groups and all original v0 images; only body line spacing differs.
+All twenty-five images link to their declared system views, including the six
+native SVG panels. The [maintained source and portable Word workflow](paper/manuscript/README.md)
+provide exact figure provenance, input seals and the pinned official template
+restoration. Human author review and editorial submission remain separate.
+
 The preserved v0 manuscript is available as
 [editable Word](outputs/paper/Seismic_CG_manuscript.docx) and
 [PDF](outputs/paper/Seismic_CG_manuscript.pdf). This archived pair has 20 pages;
