@@ -101,7 +101,13 @@ async function waitForPresentation(){
 function finishStartup(){
   const failed=!!state.loadError||document.body.dataset.articleStatus==='error';
   if(failed){$('startupTitle').textContent=I.language==='en'?'The system could not finish loading':'No se pudo terminar la carga';$('startupPhase').textContent=state.loadError||$('loadStatus').textContent;$('startupRetry').hidden=false;$('startupProgress').removeAttribute('value');return;}
-  $('startupProgress').value=100;$('startupScreen').hidden=true;startupTargets.forEach(node=>node.inert=false);document.body.dataset.startup='ready';measureAppHeader();
+  $('startupProgress').value=100;$('startupScreen').hidden=true;
+  for (const node of startupTargets) {
+    const expandedRestore = inertRestores.find(([element]) => element === node);
+    if (expandedRestore) expandedRestore[1] = false;
+    else node.inert = false;
+  }
+  document.body.dataset.startup='ready';measureAppHeader();
 }
 $('startupRetry').addEventListener('click',()=>location.reload());
 function updateTransportProgress(event){
@@ -308,7 +314,7 @@ function ensureFigureGallery(){
   if(!galleryPanel)galleryPanel=window.SeismicArticleGallery.mount($('figureGallery'),{getLanguage:()=>I.language,onNavigate:href=>navigateApplication(href)});
   galleryPanel.render?.();return galleryPanel;
 }
-function closeAppNavigation(){document.body.classList.remove('nav-open');$('appMenuToggle').setAttribute('aria-expanded','false');$('appNavBackdrop').hidden=true;$('appNavigation').inert=!$('startupScreen').hidden||window.innerWidth<=1000;}
+function closeAppNavigation(){document.body.classList.remove('nav-open');$('appMenuToggle').setAttribute('aria-expanded','false');$('appNavBackdrop').hidden=true;$('appNavigation').inert=state.expanded||!$('startupScreen').hidden||window.innerWidth<=1000;}
 $('appMenuToggle').addEventListener('click',()=>{const open=!document.body.classList.contains('nav-open');document.body.classList.toggle('nav-open',open);$('appMenuToggle').setAttribute('aria-expanded',String(open));$('appNavBackdrop').hidden=!open;$('appNavigation').inert=!open&&window.innerWidth<=1000;if(open)$('appNavigation').querySelector('[aria-current]')?.focus();});
 $('appNavBackdrop').addEventListener('click',closeAppNavigation);
 document.addEventListener('keydown',event=>{
@@ -328,6 +334,8 @@ async function navigateApplication(href,push=true){
   $('appNotice').hidden=true;
   const navigation=state.navigationRequest=(state.navigationRequest||0)+1;
   const target=new URL(href,location.href);if(target.origin!==location.origin)return;
+  if ($('mapCard').dataset.articleMapFrame && state.expanded) setExpanded(false);
+  clearArticleMapFrame();
   const resolved=window.SeismicArticleViews?.resolve(target.href);
   if(resolved){state.articleFigure=resolved.profile.id;target.search=new URL(resolved.url).search;target.searchParams.set('figure',resolved.profile.id);window.SeismicPreferences?.set({theme:resolved.profile.theme,mode:resolved.profile.appearance});}
   else {state.articleFigure='';delete document.body.dataset.articleFigure;delete document.body.dataset.articleStatus;}
@@ -365,6 +373,7 @@ function viewURL(view=currentView()){
 function setTab(name, persist = true) {
   if(!APP_TABS.includes(name))name='home';
   const previousTab=state.tab;
+  if (previousTab !== name) clearArticleMapFrame();
   if(persist&&previousTab!==name){$('appNotice').hidden=true;state.navigationRequest=(state.navigationRequest||0)+1;state.locationRequest++;state.routing=null;state.restoring=false;state.articleFigure='';delete document.body.dataset.articleFigure;delete document.body.dataset.articleStatus;}
   closeAppNavigation();
   if(state.expanded && !['catalog','home','quick','sources','methods'].includes(name))setExpanded(false);
@@ -544,6 +553,7 @@ let expansionFocus, inertRestores=[];
 function expandedLabel() {$('expandMap').textContent=t(state.expanded ? 'collapseMap' : 'expandMap');}
 function setExpanded(expanded) {
   if (state.expanded===expanded) return;
+  clearArticleMapFrame();
   const card=$('mapCard');state.expanded=expanded;card.classList.toggle('is-expanded',expanded);
   document.body.classList.toggle('map-expanded',expanded);$('expandMap').setAttribute('aria-expanded',String(expanded));expandedLabel();
   if (expanded) {
@@ -557,6 +567,7 @@ function setExpanded(expanded) {
   } else {
     card.removeAttribute('role');card.removeAttribute('aria-modal');
     for(const [element,inert] of inertRestores)element.inert=inert;inertRestores=[];
+    measureAppHeader();
     if(expansionFocus?.isConnected!==false)expansionFocus?.focus?.({preventScroll:true});
   }
   requestAnimationFrame(()=>state.map?.resize());
@@ -1049,7 +1060,7 @@ $('expandMap').addEventListener('click',()=>setExpanded(!state.expanded));
 $('largeMapKey').addEventListener('click',()=>{const large=$('mapCard').classList.toggle('map-key-large');$('largeMapKey').setAttribute('aria-pressed',String(large));state.map?.resize();});
 document.addEventListener('keydown',event=>{
   if(!state.expanded || $('detail').open)return;
-  if(event.key==='Escape'){event.preventDefault();setExpanded(false);return;}
+  if(event.key==='Escape'){event.preventDefault();leaveArticlePreset();setExpanded(false);return;}
   if(event.key!=='Tab')return;
   const focusable=[...$('mapCard').querySelectorAll('button:not([disabled]),a[href],input:not([disabled]),select:not([disabled]),[tabindex]:not([tabindex="-1"])')].filter(element=>element.getClientRects().length);
   const first=focusable[0],last=focusable[focusable.length-1];
@@ -1274,9 +1285,43 @@ function leaveArticlePreset(){
 }
 for(const eventName of ['input','change'])document.addEventListener(eventName,leaveArticlePreset,true);
 document.addEventListener('click',event=>{
-  if(event.target.closest('#sourceAtlasView,#sourceTimeView,[data-source-catalog],[data-workbench-catalog],[data-quick-action],[data-quick-back],[data-quick-full],#fitMap,#resetMap,#expandMap,.history-fit'))leaveArticlePreset();
+  if(event.target.closest('#sourceAtlasView,#sourceTimeView,[data-source-catalog],[data-workbench-catalog],[data-architecture-catalog],[data-quick-action],[data-quick-back],[data-quick-full],#fitMap,#resetMap,#expandMap,.history-fit'))leaveArticlePreset();
 },true);
 document.addEventListener('pointerdown',event=>{if(event.target.closest('#map'))leaveArticlePreset();},true);
+let articleMapFrameObserver;
+function clearArticleMapFrame() {
+  const card = $('mapCard');
+  if (!card.dataset.articleMapFrame) return;
+  articleMapFrameObserver?.disconnect();
+  delete card.dataset.articleMapFrame;
+  for (const property of ['width', 'height', 'scale']) card.style.removeProperty('--article-map-' + property);
+  requestAnimationFrame(() => state.map?.resize());
+}
+function setArticleMapFrame(profile) {
+  if (!profile.mapFrame) return;
+  const card = $('mapCard');
+  const {width, height} = profile.mapFrame;
+  const embedded = profile.tab === 'methods';
+  const container = embedded ? card.parentElement : card;
+  card.style.setProperty('--article-map-width', width + 'px');
+  card.style.setProperty('--article-map-height', height + 'px');
+  card.dataset.articleMapFrame = profile.id;
+
+  // Scale the presentation without changing the viewport seen by Leaflet and the heat grid.
+  const resize = () => {
+    const available = container.clientWidth;
+    if (!available || card.dataset.articleMapFrame !== profile.id) return;
+    const scale = String(Math.min(1, available / (width + (embedded ? 2 : 0))));
+    if (scale === card.style.getPropertyValue('--article-map-scale')) return;
+    card.style.setProperty('--article-map-scale', scale);
+    state.map?.resize();
+  };
+  resize();
+  if (window.ResizeObserver) {
+    articleMapFrameObserver = new ResizeObserver(resize);
+    articleMapFrameObserver.observe(container);
+  }
+}
 async function restoreArticleView(profile,isCurrent=()=>true){
   if(!isCurrent())return;
   if(!state.ready)throw Error('ARTICLE_DATA_NOT_READY');
@@ -1295,6 +1340,7 @@ async function restoreArticleView(profile,isCurrent=()=>true){
   if(profile.tectonics!==undefined){$('tectonicToggle').checked=profile.tectonics;await showTectonics();if(!isCurrent())return;}
   if(profile.expanded)setExpanded(true);
   $('mapCard').classList.toggle('map-key-large',!!profile.largeKey);$('largeMapKey').setAttribute('aria-pressed',String(!!profile.largeKey));
+  setArticleMapFrame(profile);
   await new Promise(resolve=>requestAnimationFrame(()=>requestAnimationFrame(resolve)));
   if(!isCurrent())return;
   if(!profile.quick && ['catalog','home','sources','methods'].includes(profile.tab)){

@@ -4,12 +4,13 @@
   "1": {
     "id": "1",
     "title": "Implemented system design",
-    "query": "v=4&lang=en&catalog=all-catalogs&snapshot=sha256%3A2b38efe4c043bcc4a73907944e3b40b94e9796d2fe8a55e2dd627ba99e4c96fd&geo=9063e0c34412fec41debad30f69a653486c18e0f94d5983e6a061847befe27cb&from=2010&to=2025&min=4.5&max=10&depth=1000&c=43%2C-110%2C3&tab=methods",
+    "query": "v=4&lang=en&catalog=all-catalogs&snapshot=sha256%3A2b38efe4c043bcc4a73907944e3b40b94e9796d2fe8a55e2dd627ba99e4c96fd&geo=9063e0c34412fec41debad30f69a653486c18e0f94d5983e6a061847befe27cb&from=2010&to=2025&min=4.5&max=10&depth=1000&c=42.94034%2C-125.06836%2C3&tab=methods",
     "tab": "methods",
     "language": "en",
     "theme": "blue",
     "appearance": "light",
     "expectedRows": 7107,
+    "mapFrame": {"width": 1353, "height": 452},
     "fitRecords": false,
     "tectonics": true,
     "focus": ".architecture-panel"
@@ -17,12 +18,13 @@
   "2": {
     "id": "2",
     "title": "Home · four-source heat view",
-    "query": "v=4&lang=en&catalog=all-catalogs&snapshot=sha256%3A2b38efe4c043bcc4a73907944e3b40b94e9796d2fe8a55e2dd627ba99e4c96fd&geo=9063e0c34412fec41debad30f69a653486c18e0f94d5983e6a061847befe27cb&from=1900&to=2026&min=3.5&max=10&depth=1000&tab=home&c=43%2C-110%2C3&display=heat",
+    "query": "v=4&lang=en&catalog=all-catalogs&snapshot=sha256%3A2b38efe4c043bcc4a73907944e3b40b94e9796d2fe8a55e2dd627ba99e4c96fd&geo=9063e0c34412fec41debad30f69a653486c18e0f94d5983e6a061847befe27cb&from=1900&to=2026&min=3.5&max=10&depth=1000&tab=home&c=50.1769%2C-124.98047%2C3&display=heat",
     "tab": "home",
     "language": "en",
     "theme": "blue",
     "appearance": "light",
     "expectedRows": 287936,
+    "mapFrame": {"width": 1367, "height": 720},
     "tectonics": true
   },
   "3": {
@@ -234,13 +236,14 @@
   "regional-d": {
     "id": "regional-d",
     "title": "Alaska · all four catalogues · requested 2000–2026",
-    "query": "v=5&lang=en&catalog=all-catalogs&snapshot=sha256%3A2b38efe4c043bcc4a73907944e3b40b94e9796d2fe8a55e2dd627ba99e4c96fd&geo=9063e0c34412fec41debad30f69a653486c18e0f94d5983e6a061847befe27cb&adh=2604708906c7a88861c1cc4fee9e21cfb4e7b1c7a451dee54ce6536c7ff3a1a9&from=2000&to=2026&min=3.5&max=10&depth=1000&country=USA&adm=USA-3563&c=62%2C-153%2C4&tab=catalog&pointColor=warm",
+    "query": "v=5&lang=en&catalog=all-catalogs&snapshot=sha256%3A2b38efe4c043bcc4a73907944e3b40b94e9796d2fe8a55e2dd627ba99e4c96fd&geo=9063e0c34412fec41debad30f69a653486c18e0f94d5983e6a061847befe27cb&adh=2604708906c7a88861c1cc4fee9e21cfb4e7b1c7a451dee54ce6536c7ff3a1a9&from=2000&to=2026&min=3.5&max=10&depth=1000&country=USA&adm=USA-3563&c=62.0009%2C-153.01758%2C4&tab=catalog&pointColor=warm",
     "tab": "catalog",
     "language": "en",
     "theme": "blue",
     "appearance": "light",
     "largeKey": true,
     "expectedRows": 1112,
+    "mapFrame": {"width": 1256, "height": 574},
     "expanded": true,
     "tectonics": true,
     "focus": ""

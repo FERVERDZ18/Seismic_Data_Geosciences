@@ -911,3 +911,80 @@ body[data-article-figure] .quick-answer, body[data-article-figure] #comparisonWo
   .map-card.is-expanded .section-head h2{font-size:20px}
   .map-card.is-expanded .map-actions{flex-direction:row;flex-wrap:wrap}
 }
+
+/* Keep the geographic coverage of the original article captures at any window width. */
+.map-viewport { display: contents; }
+.home-map-mount:has([data-article-map-frame="2"]) { min-width: 0; }
+#mapCard[data-article-map-frame] .map-viewport {
+  --article-viewport-scale: var(--article-map-scale, 1);
+  display: block;
+  position: relative;
+  width: calc(var(--article-map-width) * var(--article-viewport-scale));
+  height: calc((var(--article-map-height) + 2px) * var(--article-viewport-scale));
+  flex: none;
+  margin-inline: auto;
+}
+#mapCard[data-article-map-frame] .map-wrap {
+  position: absolute;
+  inset: 0 auto auto 0;
+  box-sizing: border-box;
+  width: var(--article-map-width);
+  min-height: 0;
+  transform-origin: top left;
+  transform: scale(var(--article-viewport-scale));
+}
+#mapCard[data-article-map-frame] #map {
+  width: 100%;
+  height: var(--article-map-height) !important;
+  min-height: 0;
+}
+#mapCard[data-article-map-frame="regional-d"].is-expanded {
+  max-width: calc(var(--article-map-width) + 4px);
+  margin-inline: auto;
+  overflow: auto;
+}
+#mapCard[data-article-map-frame="regional-d"].is-expanded .section-head {
+  flex: none;
+}
+#mapCard[data-article-map-frame="regional-d"].is-expanded #expandMap {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+}
+#architectureMapMount:has([data-article-map-frame="1"]) {
+  overflow: visible;
+}
+#architectureMapMount #mapCard[data-article-map-frame="1"] {
+  height: auto;
+}
+@media (min-width: 1101px) {
+  #architectureMapMount #mapCard[data-article-map-frame="1"] {
+    position: absolute;
+    inset: 0 auto auto 0;
+    width: calc(var(--article-map-width) + 2px);
+    transform-origin: top left;
+    transform: scale(var(--article-map-scale, 1));
+  }
+  #architectureMapMount #mapCard[data-article-map-frame="1"] .map-viewport {
+    --article-viewport-scale: 1;
+  }
+  #architectureMapMount #mapCard[data-article-map-frame="1"] .section-head {
+    flex-wrap: nowrap;
+  }
+}
+@media (max-width: 700px) {
+  #mapCard[data-article-map-frame="regional-d"].is-expanded #expandMap {
+    left: 10px;
+    width: auto;
+  }
+}
+@media (max-width: 1100px) {
+  #architectureMapMount:has([data-article-map-frame="1"]) {
+    height: auto;
+  }
+}
+@media (max-width: 1050px) {
+  .observatory-workbench:has([data-article-map-frame="2"]) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
