@@ -62480,8 +62480,8 @@
     },
     {
       "path": "README.md",
-      "bytes": 12291,
-      "sha256": "9b15a857d12a7605d3217e103bd980bf56c3bbcfc15108c3a4c9307c0433cf0d"
+      "bytes": 12337,
+      "sha256": "9cf6f1bac8f9ed814b391e5c31d391f0bac05d3a9b3dfff9f4c2cf3a941bb153"
     },
     {
       "path": "science_pipeline.json",
@@ -62495,8 +62495,8 @@
     },
     {
       "path": "SOURCES_AND_RIGHTS.json",
-      "bytes": 3391,
-      "sha256": "44e13d9ba358a8ff26f2ee0c9dc7e8c72dc20523b60185930a51977defc63e3c"
+      "bytes": 3540,
+      "sha256": "c09b7c8f9c89fffefed597708dc126417817c358a46e1f4216c65385083e054f"
     },
     {
       "path": "TABLE_SOURCE_MAP.json",
@@ -62525,8 +62525,8 @@
     },
     {
       "path": "CITATION.cff",
-      "bytes": 629,
-      "sha256": "3e06aceba2725320da4e39f67c193e0160d56555b09b84a0844eecd6dd295b54"
+      "bytes": 595,
+      "sha256": "8b0b42e3da5896f135e44318bc343f137c201da604c7d15f69c7c34390b64979"
     },
     {
       "path": "SOURCE_INDEX.md",
@@ -62547,6 +62547,161 @@
       "path": "QA_SUMMARY.json",
       "bytes": 3116,
       "sha256": "d3671d8b28ba53ff348926b52513d09b60eabfe5aa759024f31a919dac72a40c"
+    },
+    {
+      "path": "r3/benchmark_projection.py",
+      "bytes": 3478,
+      "sha256": "9f7596fbe5c2e9e44fd6b6bdbd934df72a0a4d16071c857687c25b084941dd0f"
+    },
+    {
+      "path": "r3/common_member_sensitivity.py",
+      "bytes": 14229,
+      "sha256": "75874610079e6447dd6173ee6e7914624a8e3ee850b19216e95af0206aadab3b"
+    },
+    {
+      "path": "r3/inputs/calibration.json",
+      "bytes": 15180,
+      "sha256": "bac8ac3d0e142595980c58b9f1d623ca557a95492383602ee291a520e9c4d278"
+    },
+    {
+      "path": "r3/inputs/candidates_3_5.json",
+      "bytes": 522766,
+      "sha256": "f0ffc5403cdca9c92cad2ab272a01594c5e9d3a6b1d178a62fc06e50c361277c"
+    },
+    {
+      "path": "r3/inputs/d1p5/cases/M4p5_ssn_native_d1p5/arrays.npz",
+      "bytes": 162545,
+      "sha256": "83c0266db728f0debc8aa0d07059dd7e0d52971e3cb4d2f6f03e86cdc2d9ccfd"
+    },
+    {
+      "path": "r3/inputs/d1p5/cases/M4p5_ssn_native_d1p5/ids.json",
+      "bytes": 108585,
+      "sha256": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9"
+    },
+    {
+      "path": "r3/inputs/d1p5/cases/M4p5_ssn_native_d1p5/metadata.json",
+      "bytes": 4512,
+      "sha256": "22e990ec66664bb543f925468c0567873651d4efc8bf4a7d277ab902f2a10ea6"
+    },
+    {
+      "path": "r3/inputs/d1p5/cases/M4p5_ssn_native_d1p5/rows.json",
+      "bytes": 738850,
+      "sha256": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b"
+    },
+    {
+      "path": "r3/inputs/d1p5/cases/M4p5_usgs_native_d1p5/arrays.npz",
+      "bytes": 117768,
+      "sha256": "cf023e88a4a0fa5c8b2a99d837ea652f762970d192214e73710d02220fcbe601"
+    },
+    {
+      "path": "r3/inputs/d1p5/cases/M4p5_usgs_native_d1p5/ids.json",
+      "bytes": 45221,
+      "sha256": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5"
+    },
+    {
+      "path": "r3/inputs/d1p5/cases/M4p5_usgs_native_d1p5/metadata.json",
+      "bytes": 4510,
+      "sha256": "b271dc3b6d868934a69e2606e4b8367db92d4b919598c4e2b40bbc1b3e8a2501"
+    },
+    {
+      "path": "r3/inputs/d1p5/cases/M4p5_usgs_native_d1p5/rows.json",
+      "bytes": 512666,
+      "sha256": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75"
+    },
+    {
+      "path": "r3/inputs/d1p5/MANIFEST.json",
+      "bytes": 9752,
+      "sha256": "172f66336c97cd8ffdba57f205b5cf054c555cf06b2135dbe2c16259041ffa62"
+    },
+    {
+      "path": "r3/README.md",
+      "bytes": 2438,
+      "sha256": "9a3c8aeeb54db7108fcc23e2ad216ed83c6fb87f690e1eaad23917eaefab9b02"
+    },
+    {
+      "path": "r3/reference/performance-matched-data.json",
+      "bytes": 38789,
+      "sha256": "49379b20125abe2b98eb61bddc34adb561bf308ae823ff6e5f00e05001a47d8b"
+    },
+    {
+      "path": "r3/reference/roles/CUT_VARIANTS.md",
+      "bytes": 853,
+      "sha256": "c5e8b8f7c88b40ec920d9b980e24b96113406e20f886afc36661c96669d91498"
+    },
+    {
+      "path": "r3/reference/roles/RESULTS.json",
+      "bytes": 109553,
+      "sha256": "6a66a967954ccff9d3350ea93459480629b5d1b8ed085ebf7624893a74d07b66"
+    },
+    {
+      "path": "r3/reference/roles/TABLE_3.md",
+      "bytes": 1052,
+      "sha256": "7c94285e4a930737c36ba35679b7524ee4f0ae90cecba1605094941bd9dc4b1b"
+    },
+    {
+      "path": "r3/reference/twins/HISTORY_CELL_METRICS.csv",
+      "bytes": 80281,
+      "sha256": "6807c4ca7927446b31f3668df64db7f5e68bfb0b2a0d18b99667d240430d3074"
+    },
+    {
+      "path": "r3/reference/twins/RESULTS.json",
+      "bytes": 68217,
+      "sha256": "eecc285219e18d45093b664333f5741fc99c83025a2072108c94adfa5c0666e3"
+    },
+    {
+      "path": "r3/reference/twins/SAMPLED_PAIR_INDICES.json",
+      "bytes": 1663422,
+      "sha256": "c395a46ae02d12606c217976ff8eee54d04480aa354a5492bd20f0348ae167ba"
+    },
+    {
+      "path": "r3/reference/weights/RESULTS.json",
+      "bytes": 38489,
+      "sha256": "aaba1b2aaf5410101b7f519308d4a91ae7e1ee11b5163e32169acd17069cb195"
+    },
+    {
+      "path": "r3/reference/weights/SSN_W13_LARGEST_COMPONENT_EDGES.csv",
+      "bytes": 201322,
+      "sha256": "f0b75b8bf42e32c26c4bf11fdcf6bf48735b655cb3f3d7ba39c6d11d7f6116d2"
+    },
+    {
+      "path": "r3/reference/weights/WEIGHT_CUT_SWEEP.csv",
+      "bytes": 4177,
+      "sha256": "55703ce27376b760b2594089aab35a9525faebe58ab10576e2c723735f33dfdf"
+    },
+    {
+      "path": "r3/reference/weights/WEIGHT_STRATA_ROLES.csv",
+      "bytes": 3129,
+      "sha256": "49debc987d788e0e506cf934b5d3d460a0f109c1c01c7c83cb5717385cfb38ac"
+    },
+    {
+      "path": "r3/reproduce.py",
+      "bytes": 8079,
+      "sha256": "4530f4f988897abac26a301696b98930cc09b7984fd7cf902a354f3b194143ff"
+    },
+    {
+      "path": "r3/role_sensitivity.py",
+      "bytes": 13659,
+      "sha256": "a3fb59b966b68ff728818cc7d3dff6f24ab4675290cba45d2a314ff2e3b73082"
+    },
+    {
+      "path": "r3/TWIN_DESIGN.md",
+      "bytes": 3681,
+      "sha256": "647e771603908d71f8f809b3022061ac832e950f744339238fa263421e6abea7"
+    },
+    {
+      "path": "r3/weight_contrasts.py",
+      "bytes": 15270,
+      "sha256": "c34e72201654c94f2e5bee8a3889359df5b3875ee5919598c11d461f067ed951"
+    },
+    {
+      "path": "r3/WEIGHT_DESIGN.md",
+      "bytes": 2903,
+      "sha256": "058475fffb5c0fbb65bf1bf7443b30d3609d84e2ddfdb73708d09e0047f4bd97"
+    },
+    {
+      "path": "r3/weight_strata.py",
+      "bytes": 2574,
+      "sha256": "d318ab2b27061d17f87642a1727e72ae87f4bf961cc3cb66161e140730d62244"
     }
   ],
   "comparisons": [

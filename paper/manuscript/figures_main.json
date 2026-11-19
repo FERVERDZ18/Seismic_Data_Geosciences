@@ -138,14 +138,14 @@
       "path": "paper/manuscript/figures/figure_home.png",
       "sha256": "c757a1d935319a16b799c7abcfec769d43aeb56df6f5be7aec1ce536fe51220b",
       "origin": "v0 figure, byte-identical copy",
-      "width_emu": 5303520
+      "width_emu": 4851400
     },
     {
       "label": "7",
       "path": "paper/manuscript/figures/figure_sources.png",
       "sha256": "16416e21a630f4c575924a845dab0fa25f503d3fef1969c4854d55e3d60039b5",
       "origin": "v0 figure, byte-identical copy",
-      "width_emu": 5943600
+      "width_emu": 4851400
     },
     {
       "label": "8",

@@ -30,13 +30,14 @@ The revised manuscript derives its case maps from the working application and
 retains all nine original figure groups. It remains an author-review document;
 publication and final human approval are separate steps.
 
-The current author-review revision is **R3**, in
-[Word](paper/manuscript/out/Seismic_CG_manuscript_R3.docx) and its
-[PDF export](paper/manuscript/out/Seismic_CG_manuscript_R3.pdf) (32 pages).
-The [iThenticate report](paper/manuscript/out/ITHENTICATE_R3_05.pdf) corresponds
-to that Word file. The manuscript includes seven tables and thirteen figures.
-Each of the 25 images links to its system view. The new Figure 2 benchmark
-view requires an update to the deployed observatory. The
+The current manuscript is **R4**, in
+[Word](paper/manuscript/out/Seismic_CG_manuscript_R4.docx) and its
+[PDF export](paper/manuscript/out/Seismic_CG_manuscript_R4.pdf).
+The manuscript includes seven tables and thirteen figures.
+The [versioned data and code archive](https://doi.org/10.5281/zenodo.24361244)
+includes the additional analysis scripts, protocols and selected data products.
+Each of the 25 images links to its system view. The Figure 2 benchmark runs
+in the deployed observatory from commit `87dc5d3193cb4b5a229638e10ef5350d1dc8e411`. The
 [maintained source and Word workflow](paper/manuscript/README.md) document
 the figure provenance, sealed inputs and official template.
 

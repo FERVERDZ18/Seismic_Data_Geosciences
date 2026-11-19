@@ -1,0 +1,4374 @@
+{
+  "status": "PASS",
+  "definitions": {
+    "kappa": "Cohen's kappa for three operational roles on paired endpoints",
+    "ari": "Adjusted Rand index for partition membership restricted to paired endpoints",
+    "largest": "Largest family in each complete native input after the given cutoff",
+    "full": "2016–2025, both reported M ≥ 4.5, 889 matched candidate pairs",
+    "temporal": "2021–2025 subset, 382 matched candidate pairs"
+  },
+  "inputs_sha256": {
+    "role_sensitivity.py": "a3fb59b966b68ff728818cc7d3dff6f24ab4675290cba45d2a314ff2e3b73082",
+    "families_module": "31c2b6be158a152f68de852369a173e49fa2d7388b7263ed7b3f8f8e30c6867f",
+    "catalog/MANIFEST.json": "137937d8b3eb09ea6127f40db0a17986e8bd00165a5c5768d1868b4ba61da9a2",
+    "catalog/PAIRED_ENDPOINTS.csv": "320e6819be88fe1241827cb0beed9f0bb2b8bbeba29a07dfb97cb38d5888a10d",
+    "catalog/ssn_w0p80000000000000004/metadata.json": "5a90325b31f89140f518436ef41025f48248c84b0b3d822d1646855bb94a7e9c",
+    "catalog/ssn_w0p80000000000000004/ids.json": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+    "catalog/ssn_w0p80000000000000004/rows.json": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+    "catalog/ssn_w0p80000000000000004/arrays.npz": "3c0fc9e66a1eb5d281435eb00a9f945a06ada1896d547c1ceba1641171240479",
+    "catalog/ssn_w0p90000000000000002/metadata.json": "9733361722df77b064a40b60d894b292ab1a65fd3fd0364822333fe53587a53c",
+    "catalog/ssn_w0p90000000000000002/ids.json": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+    "catalog/ssn_w0p90000000000000002/rows.json": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+    "catalog/ssn_w0p90000000000000002/arrays.npz": "2509b369bcb88c5870701d0b4bb3c51d52fa174ebb39f9b1aa3655da7a187fed",
+    "catalog/ssn_w1/metadata.json": "9b0aae6b74511808005de103f6b3dd4441bac480741276da82c29efe12f54f7e",
+    "catalog/ssn_w1/ids.json": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+    "catalog/ssn_w1/rows.json": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+    "catalog/ssn_w1/arrays.npz": "6240786d00a82ee8c0ed0c316b5bde5b644e294a6c4915c89dbcefb56061dc6d",
+    "catalog/ssn_w1p0905428994843476/metadata.json": "d04fc4aea1e30b2e4e10753963b703cd13530988190c618b42c6e3f5b6f1b5bf",
+    "catalog/ssn_w1p0905428994843476/ids.json": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+    "catalog/ssn_w1p0905428994843476/rows.json": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+    "catalog/ssn_w1p0905428994843476/arrays.npz": "a7ffba83414ee3eaee05b4b63dc6650bdd8a25db924fd62b3a89429ea377886b",
+    "catalog/ssn_w1p1000000000000001/metadata.json": "74d17497ef5b3b621040e716f2f5a9adb86aa28b40e61f0282f8435e900e66e3",
+    "catalog/ssn_w1p1000000000000001/ids.json": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+    "catalog/ssn_w1p1000000000000001/rows.json": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+    "catalog/ssn_w1p1000000000000001/arrays.npz": "71f63b74340e41b85c0f85706d40e6fcd86b9c87c13b347200a500b6e9cc29f1",
+    "catalog/ssn_w1p2/metadata.json": "f58d54b329e530034ca1e53f55a1a9228ca4a5bec8c93138af71eebdc7215810",
+    "catalog/ssn_w1p2/ids.json": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+    "catalog/ssn_w1p2/rows.json": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+    "catalog/ssn_w1p2/arrays.npz": "2a884739ef06df60e7a631e9fb6eade6a9806da9ae319213fd3e3518b8b4410a",
+    "catalog/ssn_w1p3/metadata.json": "2a8403e9878b285aad2b6f9052748848eef9afbf6e156d4d09925411df18a079",
+    "catalog/ssn_w1p3/ids.json": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+    "catalog/ssn_w1p3/rows.json": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+    "catalog/ssn_w1p3/arrays.npz": "5d8bc5054f0bb56cd677ead3cd6e2568948145f5b7b50e045a2777c1b3b12e0b",
+    "catalog/ssn_w1p3265675928192793/metadata.json": "e5926d114310bb63197b4b3aaf84213cacf8145d8896a4f27da1de33e5a32285",
+    "catalog/ssn_w1p3265675928192793/ids.json": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+    "catalog/ssn_w1p3265675928192793/rows.json": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+    "catalog/ssn_w1p3265675928192793/arrays.npz": "642a9db48a7cb8cc4d35d02a597cd588fd45039bf567d9bebdf4b48501cdb7b4",
+    "catalog/ssn_w1p3999999999999999/metadata.json": "5e2af709e7be8b0b22aba847eb0b6064d7c2b6573602936334a101e583266c1f",
+    "catalog/ssn_w1p3999999999999999/ids.json": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+    "catalog/ssn_w1p3999999999999999/rows.json": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+    "catalog/ssn_w1p3999999999999999/arrays.npz": "68e6585a097090792c4c3ae1abe728966dbddbeaea1ddca3d05cffe7078bba2a",
+    "catalog/usgs_w0p80000000000000004/metadata.json": "f133e08c3a6a4f870939c97acbb651246b6ab19aaf4f9ccdc1f9180afd0c0777",
+    "catalog/usgs_w0p80000000000000004/ids.json": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+    "catalog/usgs_w0p80000000000000004/rows.json": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+    "catalog/usgs_w0p80000000000000004/arrays.npz": "c5ece3416043900c1f513e9796a330b3fe91f63d00b87d022910d4c72efc02f3",
+    "catalog/usgs_w0p90000000000000002/metadata.json": "d93986f1d973c85cd6343c992dc99a51d3ec9789c4595c76baeb55e1500b4b2b",
+    "catalog/usgs_w0p90000000000000002/ids.json": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+    "catalog/usgs_w0p90000000000000002/rows.json": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+    "catalog/usgs_w0p90000000000000002/arrays.npz": "19c7b016d821a2226528f5f6f80cf7aed96fcb61bdea2b82a3eec0374354a6af",
+    "catalog/usgs_w1/metadata.json": "18a7aa64b5bca13ce9a1e624fc08720ed7fe8041701ea0c244c6d318d4446694",
+    "catalog/usgs_w1/ids.json": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+    "catalog/usgs_w1/rows.json": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+    "catalog/usgs_w1/arrays.npz": "31857b6dce53cedabe077ba0e79c71a00bfabbcbf7591f5d802cd8ad8edd67fa",
+    "catalog/usgs_w1p0905428994843476/metadata.json": "e5cc92f6a7814989b8aa9c5be2069a0de13d27fda159a75c7bc7aa79bd6daad6",
+    "catalog/usgs_w1p0905428994843476/ids.json": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+    "catalog/usgs_w1p0905428994843476/rows.json": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+    "catalog/usgs_w1p0905428994843476/arrays.npz": "e1c85c22febf0098d416f61cba176e510c080363da69213024630f2c08756af2",
+    "catalog/usgs_w1p1000000000000001/metadata.json": "ee9fb9f63956fa4f5c6ed0f31c38696a55dfc96b7b4c1ea7ecb81756b771c436",
+    "catalog/usgs_w1p1000000000000001/ids.json": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+    "catalog/usgs_w1p1000000000000001/rows.json": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+    "catalog/usgs_w1p1000000000000001/arrays.npz": "1f7dfa335a704901426e69f7c1db5dc20d6fabebda27575173e6623e21e855e6",
+    "catalog/usgs_w1p2/metadata.json": "19c2cb98b0ed3af95baa6e9ebc134c40211996d212e99f1d1ac8a7a9996539c0",
+    "catalog/usgs_w1p2/ids.json": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+    "catalog/usgs_w1p2/rows.json": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+    "catalog/usgs_w1p2/arrays.npz": "a0feca539ff34368a5680ad7bc4205acb0312acfaa50761b405d76b0f367f511",
+    "catalog/usgs_w1p3/metadata.json": "9116cf128eaa3dbf0cd4724fd5b9ff9a6602eb5d795652c04a972d9ddd0ed22b",
+    "catalog/usgs_w1p3/ids.json": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+    "catalog/usgs_w1p3/rows.json": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+    "catalog/usgs_w1p3/arrays.npz": "ed392a0e70924c4be75a0e38ca504b394f63f616015b6717a9ed4ece441fec66",
+    "catalog/usgs_w1p3265675928192793/metadata.json": "97e1ce7e85c8c8124e9e540b168d5806b37ca9ce7cb5fc1e8869fb0448204b3e",
+    "catalog/usgs_w1p3265675928192793/ids.json": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+    "catalog/usgs_w1p3265675928192793/rows.json": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+    "catalog/usgs_w1p3265675928192793/arrays.npz": "9a704cd46e0fb0f701edb66ca9c715aae46aff75d062f342cba2f59f0776753c",
+    "catalog/usgs_w1p3999999999999999/metadata.json": "a206ed600b866892284d2333897eb2c95420a7c318168198cba5a3c20a993161",
+    "catalog/usgs_w1p3999999999999999/ids.json": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+    "catalog/usgs_w1p3999999999999999/rows.json": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+    "catalog/usgs_w1p3999999999999999/arrays.npz": "66bacce5be45436ab89dcc8d19a285ce9f5ba211c47a77d52e3733c7341d3a96",
+    "catalog/WEIGHT_THRESHOLD_METRICS.csv": "80d448058032f95b9a2c09878d0616195b9cee50f9a5ac3236c7bc72c383a22b",
+    "r3/WEIGHT_CUT_SWEEP.csv": "55703ce27376b760b2594089aab35a9525faebe58ab10576e2c723735f33dfdf",
+    "v3/MANIFEST.json": "172f66336c97cd8ffdba57f205b5cf054c555cf06b2135dbe2c16259041ffa62",
+    "v3/M4p5_ssn_native_d1p5/metadata.json": "22e990ec66664bb543f925468c0567873651d4efc8bf4a7d277ab902f2a10ea6",
+    "v3/M4p5_ssn_native_d1p5/ids.json": "01ffdb33f0c1a044e3071a122c8348002702b150832f5f8b0a7f199f143671f9",
+    "v3/M4p5_ssn_native_d1p5/rows.json": "022bea22170671bd4be1148f2ec729ed5297ecfcc51c9a133a6c974ace9a9c1b",
+    "v3/M4p5_ssn_native_d1p5/arrays.npz": "83c0266db728f0debc8aa0d07059dd7e0d52971e3cb4d2f6f03e86cdc2d9ccfd",
+    "v3/M4p5_usgs_native_d1p5/metadata.json": "b271dc3b6d868934a69e2606e4b8367db92d4b919598c4e2b40bbc1b3e8a2501",
+    "v3/M4p5_usgs_native_d1p5/ids.json": "facf9934f628524749f7c81d9ebff579e608e24700f65c9f86a838b0fdd453e5",
+    "v3/M4p5_usgs_native_d1p5/rows.json": "6bf5a1a1b7e123b5da6521e97a1dbb2dae232330cc8bc15be90b7ba4e1a5fe75",
+    "v3/M4p5_usgs_native_d1p5/arrays.npz": "cf023e88a4a0fa5c8b2a99d837ea652f762970d192214e73710d02220fcbe601"
+  },
+  "refit_grid": [
+    {
+      "ssn_weight": 0.8,
+      "comcat_weight": 0.8,
+      "full": {
+        "n": 889,
+        "matches": 760,
+        "agreement": 0.8548931383577053,
+        "chance_role_agreement": 0.4281627338764882,
+        "cohen_kappa": 0.7462444820604733,
+        "adjusted_rand_index": 0.8723436498858773,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            443,
+            14,
+            15
+          ],
+          [
+            45,
+            63,
+            13
+          ],
+          [
+            29,
+            13,
+            254
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 472,
+          "representative": 121,
+          "associated": 296
+        },
+        "comcat_role_counts": {
+          "isolated": 517,
+          "representative": 90,
+          "associated": 282
+        },
+        "family_pair_counts": {
+          "ssn": 9899,
+          "comcat": 8720,
+          "both": 8149
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 318,
+        "agreement": 0.8324607329842932,
+        "chance_role_agreement": 0.4889668594610893,
+        "cohen_kappa": 0.6721557689213109,
+        "adjusted_rand_index": 0.7050906721262845,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            224,
+            8,
+            5
+          ],
+          [
+            24,
+            27,
+            6
+          ],
+          [
+            14,
+            7,
+            67
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 237,
+          "representative": 57,
+          "associated": 88
+        },
+        "comcat_role_counts": {
+          "isolated": 262,
+          "representative": 42,
+          "associated": 78
+        },
+        "family_pair_counts": {
+          "ssn": 246,
+          "comcat": 162,
+          "both": 144
+        }
+      },
+      "largest_native_families": {
+        "ssn": 252,
+        "comcat": 186
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -3.9701836262155057,
+        "comcat": -4.051890778580161
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "ssn_weight": 0.9,
+      "comcat_weight": 0.9,
+      "full": {
+        "n": 889,
+        "matches": 761,
+        "agreement": 0.8560179977502812,
+        "chance_role_agreement": 0.4324432730498114,
+        "cohen_kappa": 0.7463125791435553,
+        "adjusted_rand_index": 0.9170213717563219,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            446,
+            15,
+            16
+          ],
+          [
+            44,
+            61,
+            12
+          ],
+          [
+            31,
+            10,
+            254
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 477,
+          "representative": 117,
+          "associated": 295
+        },
+        "comcat_role_counts": {
+          "isolated": 521,
+          "representative": 86,
+          "associated": 282
+        },
+        "family_pair_counts": {
+          "ssn": 11087,
+          "comcat": 10330,
+          "both": 9844
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 318,
+        "agreement": 0.8324607329842932,
+        "chance_role_agreement": 0.4991570954743565,
+        "cohen_kappa": 0.6654853937196415,
+        "adjusted_rand_index": 0.7717945508725395,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            227,
+            8,
+            8
+          ],
+          [
+            22,
+            28,
+            6
+          ],
+          [
+            15,
+            5,
+            63
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 243,
+          "representative": 56,
+          "associated": 83
+        },
+        "comcat_role_counts": {
+          "isolated": 264,
+          "representative": 41,
+          "associated": 77
+        },
+        "family_pair_counts": {
+          "ssn": 189,
+          "comcat": 158,
+          "both": 134
+        }
+      },
+      "largest_native_families": {
+        "ssn": 274,
+        "comcat": 200
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -4.61896339227365,
+        "comcat": -4.6983153705854805
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "ssn_weight": 1.0,
+      "comcat_weight": 1.0,
+      "full": {
+        "n": 889,
+        "matches": 772,
+        "agreement": 0.8683914510686164,
+        "chance_role_agreement": 0.44043116657661885,
+        "cohen_kappa": 0.7648036468968137,
+        "adjusted_rand_index": 0.9258257223299371,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            464,
+            13,
+            11
+          ],
+          [
+            43,
+            57,
+            13
+          ],
+          [
+            25,
+            12,
+            251
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 488,
+          "representative": 113,
+          "associated": 288
+        },
+        "comcat_role_counts": {
+          "isolated": 532,
+          "representative": 82,
+          "associated": 275
+        },
+        "family_pair_counts": {
+          "ssn": 11512,
+          "comcat": 10596,
+          "both": 10257
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 322,
+        "agreement": 0.8429319371727748,
+        "chance_role_agreement": 0.5102382061895233,
+        "cohen_kappa": 0.6792970280405216,
+        "adjusted_rand_index": 0.7909472969136554,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            235,
+            7,
+            7
+          ],
+          [
+            21,
+            28,
+            7
+          ],
+          [
+            11,
+            7,
+            59
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 249,
+          "representative": 56,
+          "associated": 77
+        },
+        "comcat_role_counts": {
+          "isolated": 267,
+          "representative": 42,
+          "associated": 73
+        },
+        "family_pair_counts": {
+          "ssn": 179,
+          "comcat": 147,
+          "both": 129
+        }
+      },
+      "largest_native_families": {
+        "ssn": 292,
+        "comcat": 204
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "ssn_weight": 1.1,
+      "comcat_weight": 1.1,
+      "full": {
+        "n": 889,
+        "matches": 783,
+        "agreement": 0.8807649043869517,
+        "chance_role_agreement": 0.45982328699351277,
+        "cohen_kappa": 0.7792665016057135,
+        "adjusted_rand_index": 0.9331490182548989,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            490,
+            12,
+            10
+          ],
+          [
+            36,
+            54,
+            9
+          ],
+          [
+            29,
+            10,
+            239
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 512,
+          "representative": 99,
+          "associated": 278
+        },
+        "comcat_role_counts": {
+          "isolated": 555,
+          "representative": 76,
+          "associated": 258
+        },
+        "family_pair_counts": {
+          "ssn": 11638,
+          "comcat": 10825,
+          "both": 10502
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 323,
+        "agreement": 0.8455497382198953,
+        "chance_role_agreement": 0.5466681286148954,
+        "cohen_kappa": 0.6592997944128673,
+        "adjusted_rand_index": 0.6825085883366157,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            247,
+            6,
+            5
+          ],
+          [
+            21,
+            26,
+            3
+          ],
+          [
+            17,
+            7,
+            50
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 258,
+          "representative": 50,
+          "associated": 74
+        },
+        "comcat_role_counts": {
+          "isolated": 285,
+          "representative": 39,
+          "associated": 58
+        },
+        "family_pair_counts": {
+          "ssn": 173,
+          "comcat": 111,
+          "both": 97
+        }
+      },
+      "largest_native_families": {
+        "ssn": 294,
+        "comcat": 208
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.086055819954593,
+        "comcat": -6.205680345285669
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "ssn_weight": 1.2,
+      "comcat_weight": 1.2,
+      "full": {
+        "n": 889,
+        "matches": 792,
+        "agreement": 0.890888638920135,
+        "chance_role_agreement": 0.47587499256631166,
+        "cohen_kappa": 0.7918218754451062,
+        "adjusted_rand_index": 0.9276552513435593,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            512,
+            9,
+            8
+          ],
+          [
+            36,
+            51,
+            7
+          ],
+          [
+            28,
+            9,
+            229
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 529,
+          "representative": 94,
+          "associated": 266
+        },
+        "comcat_role_counts": {
+          "isolated": 576,
+          "representative": 69,
+          "associated": 244
+        },
+        "family_pair_counts": {
+          "ssn": 11606,
+          "comcat": 10653,
+          "both": 10347
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 329,
+        "agreement": 0.8612565445026178,
+        "chance_role_agreement": 0.5802609577588334,
+        "cohen_kappa": 0.6694530612244898,
+        "adjusted_rand_index": 0.7155893939722634,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            261,
+            4,
+            5
+          ],
+          [
+            20,
+            24,
+            4
+          ],
+          [
+            14,
+            6,
+            44
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 270,
+          "representative": 48,
+          "associated": 64
+        },
+        "comcat_role_counts": {
+          "isolated": 295,
+          "representative": 34,
+          "associated": 53
+        },
+        "family_pair_counts": {
+          "ssn": 143,
+          "comcat": 100,
+          "both": 87
+        }
+      },
+      "largest_native_families": {
+        "ssn": 294,
+        "comcat": 207
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.911090634047214,
+        "comcat": -7.027491216748858
+      },
+      "ssn_fit_modes": 1
+    },
+    {
+      "ssn_weight": 1.3,
+      "comcat_weight": 1.3,
+      "full": {
+        "n": 889,
+        "matches": 430,
+        "agreement": 0.48368953880764903,
+        "chance_role_agreement": 0.3256879166819558,
+        "cohen_kappa": 0.23431527631571542,
+        "adjusted_rand_index": 0.14767905758348668,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            171,
+            1,
+            2
+          ],
+          [
+            39,
+            30,
+            2
+          ],
+          [
+            380,
+            35,
+            229
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 174,
+          "representative": 71,
+          "associated": 644
+        },
+        "comcat_role_counts": {
+          "isolated": 590,
+          "representative": 66,
+          "associated": 233
+        },
+        "family_pair_counts": {
+          "ssn": 99582,
+          "comcat": 10340,
+          "both": 10340
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 130,
+        "agreement": 0.3403141361256545,
+        "chance_role_agreement": 0.24377072996902496,
+        "cohen_kappa": 0.12766420182688126,
+        "adjusted_rand_index": 0.01191004554105708,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            71,
+            0,
+            1
+          ],
+          [
+            20,
+            15,
+            1
+          ],
+          [
+            211,
+            19,
+            44
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 72,
+          "representative": 36,
+          "associated": 274
+        },
+        "comcat_role_counts": {
+          "isolated": 302,
+          "representative": 34,
+          "associated": 46
+        },
+        "family_pair_counts": {
+          "ssn": 12580,
+          "comcat": 91,
+          "both": 91
+        }
+      },
+      "largest_native_families": {
+        "ssn": 936,
+        "comcat": 203
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.980027163183953,
+        "comcat": -7.871503572484069
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "ssn_weight": 1.4,
+      "comcat_weight": 1.4,
+      "full": {
+        "n": 889,
+        "matches": 391,
+        "agreement": 0.4398200224971879,
+        "chance_role_agreement": 0.31133805124753106,
+        "cohen_kappa": 0.18656754810165654,
+        "adjusted_rand_index": 0.10908814146770002,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            154,
+            1,
+            2
+          ],
+          [
+            38,
+            22,
+            1
+          ],
+          [
+            421,
+            35,
+            215
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 157,
+          "representative": 61,
+          "associated": 671
+        },
+        "comcat_role_counts": {
+          "isolated": 613,
+          "representative": 58,
+          "associated": 218
+        },
+        "family_pair_counts": {
+          "ssn": 125310,
+          "comcat": 10315,
+          "both": 10315
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 109,
+        "agreement": 0.28534031413612565,
+        "chance_role_agreement": 0.21435130615937062,
+        "cohen_kappa": 0.0903571895852414,
+        "adjusted_rand_index": 0.007710622472375258,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            59,
+            0,
+            1
+          ],
+          [
+            16,
+            12,
+            1
+          ],
+          [
+            236,
+            19,
+            38
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 60,
+          "representative": 29,
+          "associated": 293
+        },
+        "comcat_role_counts": {
+          "isolated": 311,
+          "representative": 31,
+          "associated": 40
+        },
+        "family_pair_counts": {
+          "ssn": 16424,
+          "comcat": 82,
+          "both": 82
+        }
+      },
+      "largest_native_families": {
+        "ssn": 1065,
+        "comcat": 203
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.606564167155178,
+        "comcat": -8.71376319429128
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "ssn_weight": 1.0905428994843476,
+      "comcat_weight": 1.0905428994843476,
+      "full": {
+        "n": 889,
+        "matches": 786,
+        "agreement": 0.8841394825646794,
+        "chance_role_agreement": 0.4567599747444393,
+        "cohen_kappa": 0.7867231572621781,
+        "adjusted_rand_index": 0.9336358426671785,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            488,
+            11,
+            9
+          ],
+          [
+            38,
+            55,
+            9
+          ],
+          [
+            26,
+            10,
+            243
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 508,
+          "representative": 102,
+          "associated": 279
+        },
+        "comcat_role_counts": {
+          "isolated": 552,
+          "representative": 76,
+          "associated": 261
+        },
+        "family_pair_counts": {
+          "ssn": 11639,
+          "comcat": 10834,
+          "both": 10512
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 325,
+        "agreement": 0.8507853403141361,
+        "chance_role_agreement": 0.5426317809270579,
+        "cohen_kappa": 0.6737537645525239,
+        "adjusted_rand_index": 0.7230101074778589,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            246,
+            6,
+            5
+          ],
+          [
+            22,
+            26,
+            3
+          ],
+          [
+            15,
+            6,
+            53
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 257,
+          "representative": 51,
+          "associated": 74
+        },
+        "comcat_role_counts": {
+          "isolated": 283,
+          "representative": 38,
+          "associated": 61
+        },
+        "family_pair_counts": {
+          "ssn": 173,
+          "comcat": 120,
+          "both": 106
+        }
+      },
+      "largest_native_families": {
+        "ssn": 294,
+        "comcat": 208
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.009835668971547,
+        "comcat": -6.131726617930571
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "ssn_weight": 1.3265675928192793,
+      "comcat_weight": 1.3265675928192793,
+      "full": {
+        "n": 889,
+        "matches": 421,
+        "agreement": 0.4735658042744657,
+        "chance_role_agreement": 0.32375072913411135,
+        "cohen_kappa": 0.22153824276738504,
+        "adjusted_rand_index": 0.13974007384698692,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            168,
+            1,
+            2
+          ],
+          [
+            38,
+            27,
+            2
+          ],
+          [
+            390,
+            35,
+            226
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 171,
+          "representative": 67,
+          "associated": 651
+        },
+        "comcat_role_counts": {
+          "isolated": 596,
+          "representative": 63,
+          "associated": 230
+        },
+        "family_pair_counts": {
+          "ssn": 104057,
+          "comcat": 10337,
+          "both": 10337
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 124,
+        "agreement": 0.32460732984293195,
+        "chance_role_agreement": 0.2357802691812176,
+        "cohen_kappa": 0.11623235710826951,
+        "adjusted_rand_index": 0.01035547691370746,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            67,
+            0,
+            1
+          ],
+          [
+            18,
+            14,
+            1
+          ],
+          [
+            219,
+            19,
+            43
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 68,
+          "representative": 33,
+          "associated": 281
+        },
+        "comcat_role_counts": {
+          "isolated": 304,
+          "representative": 33,
+          "associated": 45
+        },
+        "family_pair_counts": {
+          "ssn": 13986,
+          "comcat": 90,
+          "both": 90
+        }
+      },
+      "largest_native_families": {
+        "ssn": 955,
+        "comcat": 203
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.145142068588382,
+        "comcat": -8.094251046896613
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "ssn_weight": 1.0905428994843476,
+      "comcat_weight": 1.3265675928192793,
+      "full": {
+        "n": 889,
+        "matches": 768,
+        "agreement": 0.8638920134983127,
+        "chance_role_agreement": 0.4724206999434407,
+        "cohen_kappa": 0.7420141645301553,
+        "adjusted_rand_index": 0.9123857416239572,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            500,
+            4,
+            4
+          ],
+          [
+            50,
+            47,
+            5
+          ],
+          [
+            46,
+            12,
+            221
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 508,
+          "representative": 102,
+          "associated": 279
+        },
+        "comcat_role_counts": {
+          "isolated": 596,
+          "representative": 63,
+          "associated": 230
+        },
+        "family_pair_counts": {
+          "ssn": 11639,
+          "comcat": 10337,
+          "both": 10052
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 315,
+        "agreement": 0.824607329842932,
+        "chance_role_agreement": 0.5697554891587402,
+        "cohen_kappa": 0.5923418759855374,
+        "adjusted_rand_index": 0.6305776335561815,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            253,
+            2,
+            2
+          ],
+          [
+            26,
+            22,
+            3
+          ],
+          [
+            25,
+            9,
+            40
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 257,
+          "representative": 51,
+          "associated": 74
+        },
+        "comcat_role_counts": {
+          "isolated": 304,
+          "representative": 33,
+          "associated": 45
+        },
+        "family_pair_counts": {
+          "ssn": 173,
+          "comcat": 90,
+          "both": 83
+        }
+      },
+      "largest_native_families": {
+        "ssn": 294,
+        "comcat": 203
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.009835668971547,
+        "comcat": -8.094251046896613
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "ssn_weight": 1.3265675928192793,
+      "comcat_weight": 1.0905428994843476,
+      "full": {
+        "n": 889,
+        "matches": 458,
+        "agreement": 0.515185601799775,
+        "chance_role_agreement": 0.340867824592792,
+        "cohen_kappa": 0.2644655862828886,
+        "adjusted_rand_index": 0.14608859622164413,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            168,
+            1,
+            2
+          ],
+          [
+            30,
+            34,
+            3
+          ],
+          [
+            354,
+            41,
+            256
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 171,
+          "representative": 67,
+          "associated": 651
+        },
+        "comcat_role_counts": {
+          "isolated": 552,
+          "representative": 76,
+          "associated": 261
+        },
+        "family_pair_counts": {
+          "ssn": 104057,
+          "comcat": 10834,
+          "both": 10831
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 142,
+        "agreement": 0.3717277486910995,
+        "chance_role_agreement": 0.2579356377292289,
+        "cohen_kappa": 0.1533453386895692,
+        "adjusted_rand_index": 0.013646917049746453,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            67,
+            0,
+            1
+          ],
+          [
+            16,
+            16,
+            1
+          ],
+          [
+            200,
+            22,
+            59
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 68,
+          "representative": 33,
+          "associated": 281
+        },
+        "comcat_role_counts": {
+          "isolated": 283,
+          "representative": 38,
+          "associated": 61
+        },
+        "family_pair_counts": {
+          "ssn": 13986,
+          "comcat": 120,
+          "both": 119
+        }
+      },
+      "largest_native_families": {
+        "ssn": 955,
+        "comcat": 208
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.145142068588382,
+        "comcat": -6.131726617930571
+      },
+      "ssn_fit_modes": 2
+    }
+  ],
+  "weight_cut_grid": [
+    {
+      "weight": 0.8,
+      "cut_mode": "refit",
+      "full": {
+        "n": 889,
+        "matches": 760,
+        "agreement": 0.8548931383577053,
+        "chance_role_agreement": 0.4281627338764882,
+        "cohen_kappa": 0.7462444820604733,
+        "adjusted_rand_index": 0.8723436498858773,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            443,
+            14,
+            15
+          ],
+          [
+            45,
+            63,
+            13
+          ],
+          [
+            29,
+            13,
+            254
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 472,
+          "representative": 121,
+          "associated": 296
+        },
+        "comcat_role_counts": {
+          "isolated": 517,
+          "representative": 90,
+          "associated": 282
+        },
+        "family_pair_counts": {
+          "ssn": 9899,
+          "comcat": 8720,
+          "both": 8149
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 318,
+        "agreement": 0.8324607329842932,
+        "chance_role_agreement": 0.4889668594610893,
+        "cohen_kappa": 0.6721557689213109,
+        "adjusted_rand_index": 0.7050906721262845,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            224,
+            8,
+            5
+          ],
+          [
+            24,
+            27,
+            6
+          ],
+          [
+            14,
+            7,
+            67
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 237,
+          "representative": 57,
+          "associated": 88
+        },
+        "comcat_role_counts": {
+          "isolated": 262,
+          "representative": 42,
+          "associated": 78
+        },
+        "family_pair_counts": {
+          "ssn": 246,
+          "comcat": 162,
+          "both": 144
+        }
+      },
+      "largest_native_families": {
+        "ssn": 252,
+        "comcat": 186
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -3.9701836262155057,
+        "comcat": -4.051890778580161
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 0.8,
+      "cut_mode": "fixed_w1",
+      "full": {
+        "n": 889,
+        "matches": 774,
+        "agreement": 0.8706411698537683,
+        "chance_role_agreement": 0.5640657403763787,
+        "cohen_kappa": 0.7032606928899828,
+        "adjusted_rand_index": 0.7992733109487707,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            592,
+            15,
+            13
+          ],
+          [
+            47,
+            51,
+            5
+          ],
+          [
+            28,
+            7,
+            131
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 620,
+          "representative": 103,
+          "associated": 166
+        },
+        "comcat_role_counts": {
+          "isolated": 667,
+          "representative": 73,
+          "associated": 149
+        },
+        "family_pair_counts": {
+          "ssn": 2063,
+          "comcat": 1968,
+          "both": 1613
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 338,
+        "agreement": 0.8848167539267016,
+        "chance_role_agreement": 0.6410939941339328,
+        "cohen_kappa": 0.679071277184809,
+        "adjusted_rand_index": 0.7700448011384865,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            281,
+            8,
+            4
+          ],
+          [
+            17,
+            23,
+            1
+          ],
+          [
+            10,
+            4,
+            34
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 293,
+          "representative": 41,
+          "associated": 48
+        },
+        "comcat_role_counts": {
+          "isolated": 308,
+          "representative": 35,
+          "associated": 39
+        },
+        "family_pair_counts": {
+          "ssn": 88,
+          "comcat": 60,
+          "both": 57
+        }
+      },
+      "largest_native_families": {
+        "ssn": 104,
+        "comcat": 108
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 0.8,
+      "cut_mode": "centered_at_floor",
+      "full": {
+        "n": 889,
+        "matches": 779,
+        "agreement": 0.876265466816648,
+        "chance_role_agreement": 0.46546529827753536,
+        "cohen_kappa": 0.7685191760523039,
+        "adjusted_rand_index": 0.8827506527891337,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            506,
+            14,
+            10
+          ],
+          [
+            44,
+            61,
+            11
+          ],
+          [
+            18,
+            13,
+            212
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 530,
+          "representative": 116,
+          "associated": 243
+        },
+        "comcat_role_counts": {
+          "isolated": 568,
+          "representative": 88,
+          "associated": 233
+        },
+        "family_pair_counts": {
+          "ssn": 6925,
+          "comcat": 6117,
+          "both": 5769
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 325,
+        "agreement": 0.8507853403141361,
+        "chance_role_agreement": 0.5367314492475536,
+        "cohen_kappa": 0.6779089376053963,
+        "adjusted_rand_index": 0.7783189005308319,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            246,
+            9,
+            5
+          ],
+          [
+            22,
+            28,
+            5
+          ],
+          [
+            8,
+            8,
+            51
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 260,
+          "representative": 55,
+          "associated": 67
+        },
+        "comcat_role_counts": {
+          "isolated": 276,
+          "representative": 45,
+          "associated": 61
+        },
+        "family_pair_counts": {
+          "ssn": 131,
+          "comcat": 113,
+          "both": 95
+        }
+      },
+      "largest_native_families": {
+        "ssn": 214,
+        "comcat": 164
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -4.41563487877218,
+        "comcat": -4.5369380364635035
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 0.9,
+      "cut_mode": "refit",
+      "full": {
+        "n": 889,
+        "matches": 761,
+        "agreement": 0.8560179977502812,
+        "chance_role_agreement": 0.4324432730498114,
+        "cohen_kappa": 0.7463125791435553,
+        "adjusted_rand_index": 0.9170213717563219,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            446,
+            15,
+            16
+          ],
+          [
+            44,
+            61,
+            12
+          ],
+          [
+            31,
+            10,
+            254
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 477,
+          "representative": 117,
+          "associated": 295
+        },
+        "comcat_role_counts": {
+          "isolated": 521,
+          "representative": 86,
+          "associated": 282
+        },
+        "family_pair_counts": {
+          "ssn": 11087,
+          "comcat": 10330,
+          "both": 9844
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 318,
+        "agreement": 0.8324607329842932,
+        "chance_role_agreement": 0.4991570954743565,
+        "cohen_kappa": 0.6654853937196415,
+        "adjusted_rand_index": 0.7717945508725395,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            227,
+            8,
+            8
+          ],
+          [
+            22,
+            28,
+            6
+          ],
+          [
+            15,
+            5,
+            63
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 243,
+          "representative": 56,
+          "associated": 83
+        },
+        "comcat_role_counts": {
+          "isolated": 264,
+          "representative": 41,
+          "associated": 77
+        },
+        "family_pair_counts": {
+          "ssn": 189,
+          "comcat": 158,
+          "both": 134
+        }
+      },
+      "largest_native_families": {
+        "ssn": 274,
+        "comcat": 200
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -4.61896339227365,
+        "comcat": -4.6983153705854805
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 0.9,
+      "cut_mode": "fixed_w1",
+      "full": {
+        "n": 889,
+        "matches": 779,
+        "agreement": 0.876265466816648,
+        "chance_role_agreement": 0.49713597386378444,
+        "cohen_kappa": 0.7539403760215789,
+        "adjusted_rand_index": 0.8104102473362829,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            536,
+            11,
+            9
+          ],
+          [
+            43,
+            54,
+            7
+          ],
+          [
+            29,
+            11,
+            189
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 556,
+          "representative": 104,
+          "associated": 229
+        },
+        "comcat_role_counts": {
+          "isolated": 608,
+          "representative": 76,
+          "associated": 205
+        },
+        "family_pair_counts": {
+          "ssn": 6770,
+          "comcat": 4678,
+          "both": 4654
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 330,
+        "agreement": 0.8638743455497382,
+        "chance_role_agreement": 0.5802266933472219,
+        "cohen_kappa": 0.6757162680597503,
+        "adjusted_rand_index": 0.7579457653662285,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            261,
+            6,
+            5
+          ],
+          [
+            22,
+            25,
+            2
+          ],
+          [
+            10,
+            7,
+            44
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 272,
+          "representative": 49,
+          "associated": 61
+        },
+        "comcat_role_counts": {
+          "isolated": 293,
+          "representative": 38,
+          "associated": 51
+        },
+        "family_pair_counts": {
+          "ssn": 115,
+          "comcat": 96,
+          "both": 80
+        }
+      },
+      "largest_native_families": {
+        "ssn": 209,
+        "comcat": 146
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 0.9,
+      "cut_mode": "centered_at_floor",
+      "full": {
+        "n": 889,
+        "matches": 769,
+        "agreement": 0.8650168728908887,
+        "chance_role_agreement": 0.45024869641576015,
+        "cohen_kappa": 0.7544651077149697,
+        "adjusted_rand_index": 0.9042576491004173,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            480,
+            16,
+            10
+          ],
+          [
+            46,
+            58,
+            11
+          ],
+          [
+            24,
+            13,
+            231
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 506,
+          "representative": 115,
+          "associated": 268
+        },
+        "comcat_role_counts": {
+          "isolated": 550,
+          "representative": 87,
+          "associated": 252
+        },
+        "family_pair_counts": {
+          "ssn": 9610,
+          "comcat": 8003,
+          "both": 7982
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 321,
+        "agreement": 0.8403141361256544,
+        "chance_role_agreement": 0.5242934678325704,
+        "cohen_kappa": 0.6643185386864889,
+        "adjusted_rand_index": 0.8178277761404287,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            240,
+            9,
+            5
+          ],
+          [
+            22,
+            27,
+            6
+          ],
+          [
+            11,
+            8,
+            54
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 254,
+          "representative": 55,
+          "associated": 73
+        },
+        "comcat_role_counts": {
+          "isolated": 273,
+          "representative": 44,
+          "associated": 65
+        },
+        "family_pair_counts": {
+          "ssn": 158,
+          "comcat": 128,
+          "both": 117
+        }
+      },
+      "largest_native_families": {
+        "ssn": 251,
+        "comcat": 181
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -4.8656348787721795,
+        "comcat": -4.986938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.0,
+      "cut_mode": "refit",
+      "full": {
+        "n": 889,
+        "matches": 772,
+        "agreement": 0.8683914510686164,
+        "chance_role_agreement": 0.44043116657661885,
+        "cohen_kappa": 0.7648036468968137,
+        "adjusted_rand_index": 0.9258257223299371,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            464,
+            13,
+            11
+          ],
+          [
+            43,
+            57,
+            13
+          ],
+          [
+            25,
+            12,
+            251
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 488,
+          "representative": 113,
+          "associated": 288
+        },
+        "comcat_role_counts": {
+          "isolated": 532,
+          "representative": 82,
+          "associated": 275
+        },
+        "family_pair_counts": {
+          "ssn": 11512,
+          "comcat": 10596,
+          "both": 10257
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 322,
+        "agreement": 0.8429319371727748,
+        "chance_role_agreement": 0.5102382061895233,
+        "cohen_kappa": 0.6792970280405216,
+        "adjusted_rand_index": 0.7909472969136554,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            235,
+            7,
+            7
+          ],
+          [
+            21,
+            28,
+            7
+          ],
+          [
+            11,
+            7,
+            59
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 249,
+          "representative": 56,
+          "associated": 77
+        },
+        "comcat_role_counts": {
+          "isolated": 267,
+          "representative": 42,
+          "associated": 73
+        },
+        "family_pair_counts": {
+          "ssn": 179,
+          "comcat": 147,
+          "both": 129
+        }
+      },
+      "largest_native_families": {
+        "ssn": 292,
+        "comcat": 204
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.0,
+      "cut_mode": "fixed_w1",
+      "full": {
+        "n": 889,
+        "matches": 772,
+        "agreement": 0.8683914510686164,
+        "chance_role_agreement": 0.44043116657661885,
+        "cohen_kappa": 0.7648036468968137,
+        "adjusted_rand_index": 0.9258257223299371,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            464,
+            13,
+            11
+          ],
+          [
+            43,
+            57,
+            13
+          ],
+          [
+            25,
+            12,
+            251
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 488,
+          "representative": 113,
+          "associated": 288
+        },
+        "comcat_role_counts": {
+          "isolated": 532,
+          "representative": 82,
+          "associated": 275
+        },
+        "family_pair_counts": {
+          "ssn": 11512,
+          "comcat": 10596,
+          "both": 10257
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 322,
+        "agreement": 0.8429319371727748,
+        "chance_role_agreement": 0.5102382061895233,
+        "cohen_kappa": 0.6792970280405216,
+        "adjusted_rand_index": 0.7909472969136554,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            235,
+            7,
+            7
+          ],
+          [
+            21,
+            28,
+            7
+          ],
+          [
+            11,
+            7,
+            59
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 249,
+          "representative": 56,
+          "associated": 77
+        },
+        "comcat_role_counts": {
+          "isolated": 267,
+          "representative": 42,
+          "associated": 73
+        },
+        "family_pair_counts": {
+          "ssn": 179,
+          "comcat": 147,
+          "both": 129
+        }
+      },
+      "largest_native_families": {
+        "ssn": 292,
+        "comcat": 204
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.0,
+      "cut_mode": "centered_at_floor",
+      "full": {
+        "n": 889,
+        "matches": 772,
+        "agreement": 0.8683914510686164,
+        "chance_role_agreement": 0.44043116657661885,
+        "cohen_kappa": 0.7648036468968137,
+        "adjusted_rand_index": 0.9258257223299371,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            464,
+            13,
+            11
+          ],
+          [
+            43,
+            57,
+            13
+          ],
+          [
+            25,
+            12,
+            251
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 488,
+          "representative": 113,
+          "associated": 288
+        },
+        "comcat_role_counts": {
+          "isolated": 532,
+          "representative": 82,
+          "associated": 275
+        },
+        "family_pair_counts": {
+          "ssn": 11512,
+          "comcat": 10596,
+          "both": 10257
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 322,
+        "agreement": 0.8429319371727748,
+        "chance_role_agreement": 0.5102382061895233,
+        "cohen_kappa": 0.6792970280405216,
+        "adjusted_rand_index": 0.7909472969136554,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            235,
+            7,
+            7
+          ],
+          [
+            21,
+            28,
+            7
+          ],
+          [
+            11,
+            7,
+            59
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 249,
+          "representative": 56,
+          "associated": 77
+        },
+        "comcat_role_counts": {
+          "isolated": 267,
+          "representative": 42,
+          "associated": 73
+        },
+        "family_pair_counts": {
+          "ssn": 179,
+          "comcat": 147,
+          "both": 129
+        }
+      },
+      "largest_native_families": {
+        "ssn": 292,
+        "comcat": 204
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.1,
+      "cut_mode": "refit",
+      "full": {
+        "n": 889,
+        "matches": 783,
+        "agreement": 0.8807649043869517,
+        "chance_role_agreement": 0.45982328699351277,
+        "cohen_kappa": 0.7792665016057135,
+        "adjusted_rand_index": 0.9331490182548989,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            490,
+            12,
+            10
+          ],
+          [
+            36,
+            54,
+            9
+          ],
+          [
+            29,
+            10,
+            239
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 512,
+          "representative": 99,
+          "associated": 278
+        },
+        "comcat_role_counts": {
+          "isolated": 555,
+          "representative": 76,
+          "associated": 258
+        },
+        "family_pair_counts": {
+          "ssn": 11638,
+          "comcat": 10825,
+          "both": 10502
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 323,
+        "agreement": 0.8455497382198953,
+        "chance_role_agreement": 0.5466681286148954,
+        "cohen_kappa": 0.6592997944128673,
+        "adjusted_rand_index": 0.6825085883366157,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            247,
+            6,
+            5
+          ],
+          [
+            21,
+            26,
+            3
+          ],
+          [
+            17,
+            7,
+            50
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 258,
+          "representative": 50,
+          "associated": 74
+        },
+        "comcat_role_counts": {
+          "isolated": 285,
+          "representative": 39,
+          "associated": 58
+        },
+        "family_pair_counts": {
+          "ssn": 173,
+          "comcat": 111,
+          "both": 97
+        }
+      },
+      "largest_native_families": {
+        "ssn": 294,
+        "comcat": 208
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.086055819954593,
+        "comcat": -6.205680345285669
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.1,
+      "cut_mode": "fixed_w1",
+      "full": {
+        "n": 889,
+        "matches": 755,
+        "agreement": 0.8492688413948256,
+        "chance_role_agreement": 0.4108621686631128,
+        "cohen_kappa": 0.744149585058676,
+        "adjusted_rand_index": 0.8463255649612883,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            343,
+            9,
+            14
+          ],
+          [
+            41,
+            53,
+            10
+          ],
+          [
+            42,
+            18,
+            359
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 366,
+          "representative": 104,
+          "associated": 419
+        },
+        "comcat_role_counts": {
+          "isolated": 426,
+          "representative": 80,
+          "associated": 383
+        },
+        "family_pair_counts": {
+          "ssn": 31877,
+          "comcat": 24868,
+          "both": 24321
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 309,
+        "agreement": 0.8089005235602095,
+        "chance_role_agreement": 0.42279542775691453,
+        "cohen_kappa": 0.6689224485919172,
+        "adjusted_rand_index": 0.5685904873053206,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            184,
+            4,
+            5
+          ],
+          [
+            23,
+            27,
+            5
+          ],
+          [
+            26,
+            10,
+            98
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 193,
+          "representative": 55,
+          "associated": 134
+        },
+        "comcat_role_counts": {
+          "isolated": 233,
+          "representative": 41,
+          "associated": 108
+        },
+        "family_pair_counts": {
+          "ssn": 1017,
+          "comcat": 437,
+          "both": 416
+        }
+      },
+      "largest_native_families": {
+        "ssn": 503,
+        "comcat": 300
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.1,
+      "cut_mode": "centered_at_floor",
+      "full": {
+        "n": 889,
+        "matches": 776,
+        "agreement": 0.8728908886389202,
+        "chance_role_agreement": 0.4266785268264414,
+        "cohen_kappa": 0.7782934752862453,
+        "adjusted_rand_index": 0.8828877876439886,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            433,
+            13,
+            9
+          ],
+          [
+            38,
+            55,
+            11
+          ],
+          [
+            28,
+            14,
+            288
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 455,
+          "representative": 104,
+          "associated": 330
+        },
+        "comcat_role_counts": {
+          "isolated": 499,
+          "representative": 82,
+          "associated": 308
+        },
+        "family_pair_counts": {
+          "ssn": 18174,
+          "comcat": 14903,
+          "both": 14682
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 321,
+        "agreement": 0.8403141361256544,
+        "chance_role_agreement": 0.4889394479318001,
+        "cohen_kappa": 0.6875402274190088,
+        "adjusted_rand_index": 0.6716333040435283,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            226,
+            7,
+            5
+          ],
+          [
+            20,
+            27,
+            6
+          ],
+          [
+            14,
+            9,
+            68
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 238,
+          "representative": 53,
+          "associated": 91
+        },
+        "comcat_role_counts": {
+          "isolated": 260,
+          "representative": 43,
+          "associated": 79
+        },
+        "family_pair_counts": {
+          "ssn": 354,
+          "comcat": 193,
+          "both": 184
+        }
+      },
+      "largest_native_families": {
+        "ssn": 365,
+        "comcat": 239
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.76563487877218,
+        "comcat": -5.886938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.2,
+      "cut_mode": "refit",
+      "full": {
+        "n": 889,
+        "matches": 792,
+        "agreement": 0.890888638920135,
+        "chance_role_agreement": 0.47587499256631166,
+        "cohen_kappa": 0.7918218754451062,
+        "adjusted_rand_index": 0.9276552513435593,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            512,
+            9,
+            8
+          ],
+          [
+            36,
+            51,
+            7
+          ],
+          [
+            28,
+            9,
+            229
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 529,
+          "representative": 94,
+          "associated": 266
+        },
+        "comcat_role_counts": {
+          "isolated": 576,
+          "representative": 69,
+          "associated": 244
+        },
+        "family_pair_counts": {
+          "ssn": 11606,
+          "comcat": 10653,
+          "both": 10347
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 329,
+        "agreement": 0.8612565445026178,
+        "chance_role_agreement": 0.5802609577588334,
+        "cohen_kappa": 0.6694530612244898,
+        "adjusted_rand_index": 0.7155893939722634,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            261,
+            4,
+            5
+          ],
+          [
+            20,
+            24,
+            4
+          ],
+          [
+            14,
+            6,
+            44
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 270,
+          "representative": 48,
+          "associated": 64
+        },
+        "comcat_role_counts": {
+          "isolated": 295,
+          "representative": 34,
+          "associated": 53
+        },
+        "family_pair_counts": {
+          "ssn": 143,
+          "comcat": 100,
+          "both": 87
+        }
+      },
+      "largest_native_families": {
+        "ssn": 294,
+        "comcat": 207
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.911090634047214,
+        "comcat": -7.027491216748858
+      },
+      "ssn_fit_modes": 1
+    },
+    {
+      "weight": 1.2,
+      "cut_mode": "fixed_w1",
+      "full": {
+        "n": 889,
+        "matches": 781,
+        "agreement": 0.8785151856017998,
+        "chance_role_agreement": 0.5366705427288405,
+        "cohen_kappa": 0.7378003653950663,
+        "adjusted_rand_index": 0.8487786803171411,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            165,
+            6,
+            9
+          ],
+          [
+            29,
+            38,
+            7
+          ],
+          [
+            43,
+            14,
+            578
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 180,
+          "representative": 74,
+          "associated": 635
+        },
+        "comcat_role_counts": {
+          "isolated": 237,
+          "representative": 58,
+          "associated": 594
+        },
+        "family_pair_counts": {
+          "ssn": 92234,
+          "comcat": 99185,
+          "both": 84741
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 318,
+        "agreement": 0.8324607329842932,
+        "chance_role_agreement": 0.5031660316329049,
+        "cohen_kappa": 0.6627862068965518,
+        "adjusted_rand_index": 0.8519373211328204,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            70,
+            3,
+            6
+          ],
+          [
+            15,
+            19,
+            3
+          ],
+          [
+            29,
+            8,
+            229
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 79,
+          "representative": 37,
+          "associated": 266
+        },
+        "comcat_role_counts": {
+          "isolated": 114,
+          "representative": 30,
+          "associated": 238
+        },
+        "family_pair_counts": {
+          "ssn": 10605,
+          "comcat": 9616,
+          "both": 8821
+        }
+      },
+      "largest_native_families": {
+        "ssn": 887,
+        "comcat": 585
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 1
+    },
+    {
+      "weight": 1.2,
+      "cut_mode": "centered_at_floor",
+      "full": {
+        "n": 889,
+        "matches": 775,
+        "agreement": 0.8717660292463442,
+        "chance_role_agreement": 0.41709254847081123,
+        "cohen_kappa": 0.7800097246702729,
+        "adjusted_rand_index": 0.8344401940733194,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            390,
+            11,
+            12
+          ],
+          [
+            35,
+            54,
+            9
+          ],
+          [
+            32,
+            15,
+            331
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 413,
+          "representative": 98,
+          "associated": 378
+        },
+        "comcat_role_counts": {
+          "isolated": 457,
+          "representative": 80,
+          "associated": 352
+        },
+        "family_pair_counts": {
+          "ssn": 28705,
+          "comcat": 22170,
+          "both": 21493
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 317,
+        "agreement": 0.8298429319371727,
+        "chance_role_agreement": 0.4556961157862997,
+        "cohen_kappa": 0.6873859015196344,
+        "adjusted_rand_index": 0.670606570999368,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            207,
+            6,
+            6
+          ],
+          [
+            20,
+            27,
+            6
+          ],
+          [
+            19,
+            8,
+            83
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 219,
+          "representative": 53,
+          "associated": 110
+        },
+        "comcat_role_counts": {
+          "isolated": 246,
+          "representative": 41,
+          "associated": 95
+        },
+        "family_pair_counts": {
+          "ssn": 684,
+          "comcat": 392,
+          "both": 362
+        }
+      },
+      "largest_native_families": {
+        "ssn": 472,
+        "comcat": 286
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.215634878772179,
+        "comcat": -6.336938036463502
+      },
+      "ssn_fit_modes": 1
+    },
+    {
+      "weight": 1.3,
+      "cut_mode": "refit",
+      "full": {
+        "n": 889,
+        "matches": 430,
+        "agreement": 0.48368953880764903,
+        "chance_role_agreement": 0.3256879166819558,
+        "cohen_kappa": 0.23431527631571542,
+        "adjusted_rand_index": 0.14767905758348668,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            171,
+            1,
+            2
+          ],
+          [
+            39,
+            30,
+            2
+          ],
+          [
+            380,
+            35,
+            229
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 174,
+          "representative": 71,
+          "associated": 644
+        },
+        "comcat_role_counts": {
+          "isolated": 590,
+          "representative": 66,
+          "associated": 233
+        },
+        "family_pair_counts": {
+          "ssn": 99582,
+          "comcat": 10340,
+          "both": 10340
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 130,
+        "agreement": 0.3403141361256545,
+        "chance_role_agreement": 0.24377072996902496,
+        "cohen_kappa": 0.12766420182688126,
+        "adjusted_rand_index": 0.01191004554105708,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            71,
+            0,
+            1
+          ],
+          [
+            20,
+            15,
+            1
+          ],
+          [
+            211,
+            19,
+            44
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 72,
+          "representative": 36,
+          "associated": 274
+        },
+        "comcat_role_counts": {
+          "isolated": 302,
+          "representative": 34,
+          "associated": 46
+        },
+        "family_pair_counts": {
+          "ssn": 12580,
+          "comcat": 91,
+          "both": 91
+        }
+      },
+      "largest_native_families": {
+        "ssn": 936,
+        "comcat": 203
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.980027163183953,
+        "comcat": -7.871503572484069
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.3,
+      "cut_mode": "fixed_w1",
+      "full": {
+        "n": 889,
+        "matches": 819,
+        "agreement": 0.9212598425196851,
+        "chance_role_agreement": 0.755797960575513,
+        "cohen_kappa": 0.677561425507,
+        "adjusted_rand_index": 0.7857315826574327,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            54,
+            3,
+            6
+          ],
+          [
+            13,
+            24,
+            8
+          ],
+          [
+            24,
+            16,
+            741
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 63,
+          "representative": 45,
+          "associated": 781
+        },
+        "comcat_role_counts": {
+          "isolated": 91,
+          "representative": 43,
+          "associated": 755
+        },
+        "family_pair_counts": {
+          "ssn": 164341,
+          "comcat": 176642,
+          "both": 149719
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 351,
+        "agreement": 0.918848167539267,
+        "chance_role_agreement": 0.8066459252761712,
+        "cohen_kappa": 0.580294169767854,
+        "adjusted_rand_index": 0.7874881063155472,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            17,
+            1,
+            1
+          ],
+          [
+            4,
+            5,
+            3
+          ],
+          [
+            13,
+            9,
+            329
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 19,
+          "representative": 12,
+          "associated": 351
+        },
+        "comcat_role_counts": {
+          "isolated": 34,
+          "representative": 15,
+          "associated": 333
+        },
+        "family_pair_counts": {
+          "ssn": 25737,
+          "comcat": 27038,
+          "both": 22812
+        }
+      },
+      "largest_native_families": {
+        "ssn": 1193,
+        "comcat": 820
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.3,
+      "cut_mode": "centered_at_floor",
+      "full": {
+        "n": 889,
+        "matches": 786,
+        "agreement": 0.8841394825646794,
+        "chance_role_agreement": 0.42604713780856135,
+        "cohen_kappa": 0.7981358312371722,
+        "adjusted_rand_index": 0.8984467535210985,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            326,
+            9,
+            8
+          ],
+          [
+            24,
+            51,
+            9
+          ],
+          [
+            40,
+            13,
+            409
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 343,
+          "representative": 84,
+          "associated": 462
+        },
+        "comcat_role_counts": {
+          "isolated": 390,
+          "representative": 73,
+          "associated": 426
+        },
+        "family_pair_counts": {
+          "ssn": 48069,
+          "comcat": 40764,
+          "both": 40410
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 317,
+        "agreement": 0.8298429319371727,
+        "chance_role_agreement": 0.41453770455853733,
+        "cohen_kappa": 0.7093628925590814,
+        "adjusted_rand_index": 0.6757103812967513,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            172,
+            3,
+            3
+          ],
+          [
+            14,
+            25,
+            6
+          ],
+          [
+            29,
+            10,
+            120
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 178,
+          "representative": 45,
+          "associated": 159
+        },
+        "comcat_role_counts": {
+          "isolated": 215,
+          "representative": 38,
+          "associated": 129
+        },
+        "family_pair_counts": {
+          "ssn": 2683,
+          "comcat": 1408,
+          "both": 1399
+        }
+      },
+      "largest_native_families": {
+        "ssn": 619,
+        "comcat": 373
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.665634878772179,
+        "comcat": -6.7869380364635035
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.4,
+      "cut_mode": "refit",
+      "full": {
+        "n": 889,
+        "matches": 391,
+        "agreement": 0.4398200224971879,
+        "chance_role_agreement": 0.31133805124753106,
+        "cohen_kappa": 0.18656754810165654,
+        "adjusted_rand_index": 0.10908814146770002,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            154,
+            1,
+            2
+          ],
+          [
+            38,
+            22,
+            1
+          ],
+          [
+            421,
+            35,
+            215
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 157,
+          "representative": 61,
+          "associated": 671
+        },
+        "comcat_role_counts": {
+          "isolated": 613,
+          "representative": 58,
+          "associated": 218
+        },
+        "family_pair_counts": {
+          "ssn": 125310,
+          "comcat": 10315,
+          "both": 10315
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 109,
+        "agreement": 0.28534031413612565,
+        "chance_role_agreement": 0.21435130615937062,
+        "cohen_kappa": 0.0903571895852414,
+        "adjusted_rand_index": 0.007710622472375258,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            59,
+            0,
+            1
+          ],
+          [
+            16,
+            12,
+            1
+          ],
+          [
+            236,
+            19,
+            38
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 60,
+          "representative": 29,
+          "associated": 293
+        },
+        "comcat_role_counts": {
+          "isolated": 311,
+          "representative": 31,
+          "associated": 40
+        },
+        "family_pair_counts": {
+          "ssn": 16424,
+          "comcat": 82,
+          "both": 82
+        }
+      },
+      "largest_native_families": {
+        "ssn": 1065,
+        "comcat": 203
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.606564167155178,
+        "comcat": -8.71376319429128
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.4,
+      "cut_mode": "fixed_w1",
+      "full": {
+        "n": 889,
+        "matches": 865,
+        "agreement": 0.9730033745781778,
+        "chance_role_agreement": 0.92670066972787,
+        "cohen_kappa": 0.6316934230968411,
+        "adjusted_rand_index": 0.8013887210602278,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            10,
+            1,
+            2
+          ],
+          [
+            2,
+            10,
+            3
+          ],
+          [
+            10,
+            6,
+            845
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 13,
+          "representative": 15,
+          "associated": 861
+        },
+        "comcat_role_counts": {
+          "isolated": 22,
+          "representative": 17,
+          "associated": 850
+        },
+        "family_pair_counts": {
+          "ssn": 315765,
+          "comcat": 292991,
+          "both": 290477
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 378,
+        "agreement": 0.9895287958115183,
+        "chance_role_agreement": 0.9843548696581782,
+        "cohen_kappa": 0.33070521243977224,
+        "adjusted_rand_index": 0.11615681571024186,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            1,
+            0,
+            0
+          ],
+          [
+            0,
+            0,
+            0
+          ],
+          [
+            3,
+            1,
+            377
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 1,
+          "representative": 0,
+          "associated": 381
+        },
+        "comcat_role_counts": {
+          "isolated": 4,
+          "representative": 1,
+          "associated": 377
+        },
+        "family_pair_counts": {
+          "ssn": 71254,
+          "comcat": 63361,
+          "both": 62652
+        }
+      },
+      "largest_native_families": {
+        "ssn": 1623,
+        "comcat": 1067
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.4,
+      "cut_mode": "centered_at_floor",
+      "full": {
+        "n": 889,
+        "matches": 800,
+        "agreement": 0.8998875140607424,
+        "chance_role_agreement": 0.4703557162216365,
+        "cohen_kappa": 0.8109816550363245,
+        "adjusted_rand_index": 0.8398501386391868,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            260,
+            6,
+            4
+          ],
+          [
+            19,
+            41,
+            9
+          ],
+          [
+            40,
+            11,
+            499
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 270,
+          "representative": 69,
+          "associated": 550
+        },
+        "comcat_role_counts": {
+          "isolated": 319,
+          "representative": 58,
+          "associated": 512
+        },
+        "family_pair_counts": {
+          "ssn": 91531,
+          "comcat": 71561,
+          "both": 71144
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 326,
+        "agreement": 0.8534031413612565,
+        "chance_role_agreement": 0.4259888709191086,
+        "cohen_kappa": 0.7446097275614241,
+        "adjusted_rand_index": 0.7230058497583043,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            133,
+            2,
+            2
+          ],
+          [
+            11,
+            21,
+            6
+          ],
+          [
+            30,
+            5,
+            172
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 137,
+          "representative": 38,
+          "associated": 207
+        },
+        "comcat_role_counts": {
+          "isolated": 174,
+          "representative": 28,
+          "associated": 180
+        },
+        "family_pair_counts": {
+          "ssn": 7875,
+          "comcat": 4698,
+          "both": 4686
+        }
+      },
+      "largest_native_families": {
+        "ssn": 874,
+        "comcat": 503
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -7.1156348787721795,
+        "comcat": -7.236938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.0905428994843476,
+      "cut_mode": "refit",
+      "full": {
+        "n": 889,
+        "matches": 786,
+        "agreement": 0.8841394825646794,
+        "chance_role_agreement": 0.4567599747444393,
+        "cohen_kappa": 0.7867231572621781,
+        "adjusted_rand_index": 0.9336358426671785,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            488,
+            11,
+            9
+          ],
+          [
+            38,
+            55,
+            9
+          ],
+          [
+            26,
+            10,
+            243
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 508,
+          "representative": 102,
+          "associated": 279
+        },
+        "comcat_role_counts": {
+          "isolated": 552,
+          "representative": 76,
+          "associated": 261
+        },
+        "family_pair_counts": {
+          "ssn": 11639,
+          "comcat": 10834,
+          "both": 10512
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 325,
+        "agreement": 0.8507853403141361,
+        "chance_role_agreement": 0.5426317809270579,
+        "cohen_kappa": 0.6737537645525239,
+        "adjusted_rand_index": 0.7230101074778589,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            246,
+            6,
+            5
+          ],
+          [
+            22,
+            26,
+            3
+          ],
+          [
+            15,
+            6,
+            53
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 257,
+          "representative": 51,
+          "associated": 74
+        },
+        "comcat_role_counts": {
+          "isolated": 283,
+          "representative": 38,
+          "associated": 61
+        },
+        "family_pair_counts": {
+          "ssn": 173,
+          "comcat": 120,
+          "both": 106
+        }
+      },
+      "largest_native_families": {
+        "ssn": 294,
+        "comcat": 208
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.009835668971547,
+        "comcat": -6.131726617930571
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.0905428994843476,
+      "cut_mode": "fixed_w1",
+      "full": {
+        "n": 889,
+        "matches": 759,
+        "agreement": 0.8537682789651294,
+        "chance_role_agreement": 0.41258045781397684,
+        "cohen_kappa": 0.7510608508346795,
+        "adjusted_rand_index": 0.8423112663507213,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            360,
+            12,
+            15
+          ],
+          [
+            38,
+            53,
+            10
+          ],
+          [
+            39,
+            16,
+            346
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 387,
+          "representative": 101,
+          "associated": 401
+        },
+        "comcat_role_counts": {
+          "isolated": 437,
+          "representative": 81,
+          "associated": 371
+        },
+        "family_pair_counts": {
+          "ssn": 29600,
+          "comcat": 23280,
+          "both": 22546
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 307,
+        "agreement": 0.8036649214659686,
+        "chance_role_agreement": 0.4344932978810888,
+        "cohen_kappa": 0.652815646926237,
+        "adjusted_rand_index": 0.6019565051233676,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            189,
+            7,
+            7
+          ],
+          [
+            22,
+            27,
+            5
+          ],
+          [
+            27,
+            7,
+            91
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 203,
+          "representative": 54,
+          "associated": 125
+        },
+        "comcat_role_counts": {
+          "isolated": 238,
+          "representative": 41,
+          "associated": 103
+        },
+        "family_pair_counts": {
+          "ssn": 826,
+          "comcat": 417,
+          "both": 376
+        }
+      },
+      "largest_native_families": {
+        "ssn": 479,
+        "comcat": 292
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.0905428994843476,
+      "cut_mode": "centered_at_floor",
+      "full": {
+        "n": 889,
+        "matches": 776,
+        "agreement": 0.8728908886389202,
+        "chance_role_agreement": 0.4287536330174701,
+        "cohen_kappa": 0.7774881054692692,
+        "adjusted_rand_index": 0.8819764494841572,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            437,
+            12,
+            12
+          ],
+          [
+            38,
+            55,
+            11
+          ],
+          [
+            26,
+            14,
+            284
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 461,
+          "representative": 104,
+          "associated": 324
+        },
+        "comcat_role_counts": {
+          "isolated": 501,
+          "representative": 81,
+          "associated": 307
+        },
+        "family_pair_counts": {
+          "ssn": 17243,
+          "comcat": 14733,
+          "both": 14177
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 322,
+        "agreement": 0.8429319371727748,
+        "chance_role_agreement": 0.49270168032674544,
+        "cohen_kappa": 0.6903832385480974,
+        "adjusted_rand_index": 0.6837773791410111,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            228,
+            6,
+            6
+          ],
+          [
+            20,
+            27,
+            6
+          ],
+          [
+            13,
+            9,
+            67
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 240,
+          "representative": 53,
+          "associated": 89
+        },
+        "comcat_role_counts": {
+          "isolated": 261,
+          "representative": 42,
+          "associated": 79
+        },
+        "family_pair_counts": {
+          "ssn": 321,
+          "comcat": 193,
+          "both": 176
+        }
+      },
+      "largest_native_families": {
+        "ssn": 358,
+        "comcat": 238
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.723077926451744,
+        "comcat": -5.844381084143067
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.3265675928192793,
+      "cut_mode": "refit",
+      "full": {
+        "n": 889,
+        "matches": 421,
+        "agreement": 0.4735658042744657,
+        "chance_role_agreement": 0.32375072913411135,
+        "cohen_kappa": 0.22153824276738504,
+        "adjusted_rand_index": 0.13974007384698692,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            168,
+            1,
+            2
+          ],
+          [
+            38,
+            27,
+            2
+          ],
+          [
+            390,
+            35,
+            226
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 171,
+          "representative": 67,
+          "associated": 651
+        },
+        "comcat_role_counts": {
+          "isolated": 596,
+          "representative": 63,
+          "associated": 230
+        },
+        "family_pair_counts": {
+          "ssn": 104057,
+          "comcat": 10337,
+          "both": 10337
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 124,
+        "agreement": 0.32460732984293195,
+        "chance_role_agreement": 0.2357802691812176,
+        "cohen_kappa": 0.11623235710826951,
+        "adjusted_rand_index": 0.01035547691370746,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            67,
+            0,
+            1
+          ],
+          [
+            18,
+            14,
+            1
+          ],
+          [
+            219,
+            19,
+            43
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 68,
+          "representative": 33,
+          "associated": 281
+        },
+        "comcat_role_counts": {
+          "isolated": 304,
+          "representative": 33,
+          "associated": 45
+        },
+        "family_pair_counts": {
+          "ssn": 13986,
+          "comcat": 90,
+          "both": 90
+        }
+      },
+      "largest_native_families": {
+        "ssn": 955,
+        "comcat": 203
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.145142068588382,
+        "comcat": -8.094251046896613
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.3265675928192793,
+      "cut_mode": "fixed_w1",
+      "full": {
+        "n": 889,
+        "matches": 835,
+        "agreement": 0.9392575928008999,
+        "chance_role_agreement": 0.8128304828038228,
+        "cohen_kappa": 0.6754684838160137,
+        "adjusted_rand_index": 0.7986209952259925,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            34,
+            3,
+            6
+          ],
+          [
+            9,
+            23,
+            6
+          ],
+          [
+            20,
+            10,
+            778
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 43,
+          "representative": 38,
+          "associated": 808
+        },
+        "comcat_role_counts": {
+          "isolated": 63,
+          "representative": 36,
+          "associated": 790
+        },
+        "family_pair_counts": {
+          "ssn": 176646,
+          "comcat": 193868,
+          "both": 165422
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 365,
+        "agreement": 0.9554973821989529,
+        "chance_role_agreement": 0.87065869904882,
+        "cohen_kappa": 0.6559287909293208,
+        "adjusted_rand_index": 0.7783210612189699,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            11,
+            0,
+            1
+          ],
+          [
+            1,
+            6,
+            2
+          ],
+          [
+            8,
+            5,
+            348
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 12,
+          "representative": 9,
+          "associated": 361
+        },
+        "comcat_role_counts": {
+          "isolated": 20,
+          "representative": 11,
+          "associated": 351
+        },
+        "family_pair_counts": {
+          "ssn": 28061,
+          "comcat": 30216,
+          "both": 25262
+        }
+      },
+      "largest_native_families": {
+        "ssn": 1238,
+        "comcat": 865
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.3265675928192793,
+      "cut_mode": "centered_at_floor",
+      "full": {
+        "n": 889,
+        "matches": 785,
+        "agreement": 0.8830146231721034,
+        "chance_role_agreement": 0.434822053317576,
+        "cohen_kappa": 0.7930114267292331,
+        "adjusted_rand_index": 0.8483127418983788,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            306,
+            8,
+            7
+          ],
+          [
+            24,
+            46,
+            10
+          ],
+          [
+            39,
+            16,
+            433
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 321,
+          "representative": 80,
+          "associated": 488
+        },
+        "comcat_role_counts": {
+          "isolated": 369,
+          "representative": 70,
+          "associated": 450
+        },
+        "family_pair_counts": {
+          "ssn": 53610,
+          "comcat": 53719,
+          "both": 46631
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 320,
+        "agreement": 0.837696335078534,
+        "chance_role_agreement": 0.4111729393382857,
+        "cohen_kappa": 0.7243610632652111,
+        "adjusted_rand_index": 0.7763216535636444,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            162,
+            3,
+            3
+          ],
+          [
+            15,
+            23,
+            6
+          ],
+          [
+            25,
+            10,
+            135
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 168,
+          "representative": 44,
+          "associated": 170
+        },
+        "comcat_role_counts": {
+          "isolated": 202,
+          "representative": 36,
+          "associated": 144
+        },
+        "family_pair_counts": {
+          "ssn": 3292,
+          "comcat": 2456,
+          "both": 2256
+        }
+      },
+      "largest_native_families": {
+        "ssn": 659,
+        "comcat": 428
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.785189046458936,
+        "comcat": -6.906492204150259
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.2,
+      "cut_mode": "w1.2",
+      "full": {
+        "n": 889,
+        "matches": 792,
+        "agreement": 0.890888638920135,
+        "chance_role_agreement": 0.47587499256631166,
+        "cohen_kappa": 0.7918218754451062,
+        "adjusted_rand_index": 0.9276552513435593,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            512,
+            9,
+            8
+          ],
+          [
+            36,
+            51,
+            7
+          ],
+          [
+            28,
+            9,
+            229
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 529,
+          "representative": 94,
+          "associated": 266
+        },
+        "comcat_role_counts": {
+          "isolated": 576,
+          "representative": 69,
+          "associated": 244
+        },
+        "family_pair_counts": {
+          "ssn": 11606,
+          "comcat": 10653,
+          "both": 10347
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 329,
+        "agreement": 0.8612565445026178,
+        "chance_role_agreement": 0.5802609577588334,
+        "cohen_kappa": 0.6694530612244898,
+        "adjusted_rand_index": 0.7155893939722634,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            261,
+            4,
+            5
+          ],
+          [
+            20,
+            24,
+            4
+          ],
+          [
+            14,
+            6,
+            44
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 270,
+          "representative": 48,
+          "associated": 64
+        },
+        "comcat_role_counts": {
+          "isolated": 295,
+          "representative": 34,
+          "associated": 53
+        },
+        "family_pair_counts": {
+          "ssn": 143,
+          "comcat": 100,
+          "both": 87
+        }
+      },
+      "largest_native_families": {
+        "ssn": 294,
+        "comcat": 207
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.911090634047214,
+        "comcat": -7.027491216748858
+      },
+      "ssn_fit_modes": 1
+    },
+    {
+      "weight": 1.2,
+      "cut_mode": "w1.3",
+      "full": {
+        "n": 889,
+        "matches": 555,
+        "agreement": 0.6242969628796401,
+        "chance_role_agreement": 0.40190251809075045,
+        "cohen_kappa": 0.3718364506049432,
+        "adjusted_rand_index": 0.20699407945888276,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            354,
+            2,
+            2
+          ],
+          [
+            55,
+            34,
+            1
+          ],
+          [
+            255,
+            19,
+            167
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 358,
+          "representative": 90,
+          "associated": 441
+        },
+        "comcat_role_counts": {
+          "isolated": 664,
+          "representative": 55,
+          "associated": 170
+        },
+        "family_pair_counts": {
+          "ssn": 40104,
+          "comcat": 5087,
+          "both": 5087
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 237,
+        "agreement": 0.6204188481675392,
+        "chance_role_agreement": 0.45844412159754394,
+        "cohen_kappa": 0.29909143826082557,
+        "adjusted_rand_index": 0.08336621349944003,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            188,
+            1,
+            1
+          ],
+          [
+            30,
+            17,
+            1
+          ],
+          [
+            101,
+            11,
+            32
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 190,
+          "representative": 48,
+          "associated": 144
+        },
+        "comcat_role_counts": {
+          "isolated": 319,
+          "representative": 29,
+          "associated": 34
+        },
+        "family_pair_counts": {
+          "ssn": 1576,
+          "comcat": 70,
+          "both": 70
+        }
+      },
+      "largest_native_families": {
+        "ssn": 559,
+        "comcat": 150
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.980027163183953,
+        "comcat": -7.871503572484069
+      },
+      "ssn_fit_modes": 1
+    },
+    {
+      "weight": 1.3,
+      "cut_mode": "w1.2",
+      "full": {
+        "n": 889,
+        "matches": 780,
+        "agreement": 0.8773903262092239,
+        "chance_role_agreement": 0.42089733159058157,
+        "cohen_kappa": 0.7882764482375125,
+        "adjusted_rand_index": 0.8602209152423969,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            383,
+            11,
+            10
+          ],
+          [
+            33,
+            50,
+            7
+          ],
+          [
+            35,
+            13,
+            347
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 404,
+          "representative": 90,
+          "associated": 395
+        },
+        "comcat_role_counts": {
+          "isolated": 451,
+          "representative": 74,
+          "associated": 364
+        },
+        "family_pair_counts": {
+          "ssn": 34677,
+          "comcat": 27668,
+          "both": 27155
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 319,
+        "agreement": 0.8350785340314136,
+        "chance_role_agreement": 0.45744360077848745,
+        "cohen_kappa": 0.6960288991057445,
+        "adjusted_rand_index": 0.6472235152871808,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            206,
+            6,
+            6
+          ],
+          [
+            20,
+            25,
+            3
+          ],
+          [
+            20,
+            8,
+            88
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 218,
+          "representative": 48,
+          "associated": 116
+        },
+        "comcat_role_counts": {
+          "isolated": 246,
+          "representative": 39,
+          "associated": 97
+        },
+        "family_pair_counts": {
+          "ssn": 1022,
+          "comcat": 503,
+          "both": 496
+        }
+      },
+      "largest_native_families": {
+        "ssn": 518,
+        "comcat": 315
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -6.911090634047214,
+        "comcat": -7.027491216748858
+      },
+      "ssn_fit_modes": 2
+    },
+    {
+      "weight": 1.3,
+      "cut_mode": "w1.3",
+      "full": {
+        "n": 889,
+        "matches": 430,
+        "agreement": 0.48368953880764903,
+        "chance_role_agreement": 0.3256879166819558,
+        "cohen_kappa": 0.23431527631571542,
+        "adjusted_rand_index": 0.14767905758348668,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            171,
+            1,
+            2
+          ],
+          [
+            39,
+            30,
+            2
+          ],
+          [
+            380,
+            35,
+            229
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 174,
+          "representative": 71,
+          "associated": 644
+        },
+        "comcat_role_counts": {
+          "isolated": 590,
+          "representative": 66,
+          "associated": 233
+        },
+        "family_pair_counts": {
+          "ssn": 99582,
+          "comcat": 10340,
+          "both": 10340
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 130,
+        "agreement": 0.3403141361256545,
+        "chance_role_agreement": 0.24377072996902496,
+        "cohen_kappa": 0.12766420182688126,
+        "adjusted_rand_index": 0.01191004554105708,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            71,
+            0,
+            1
+          ],
+          [
+            20,
+            15,
+            1
+          ],
+          [
+            211,
+            19,
+            44
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 72,
+          "representative": 36,
+          "associated": 274
+        },
+        "comcat_role_counts": {
+          "isolated": 302,
+          "representative": 34,
+          "associated": 46
+        },
+        "family_pair_counts": {
+          "ssn": 12580,
+          "comcat": 91,
+          "both": 91
+        }
+      },
+      "largest_native_families": {
+        "ssn": 936,
+        "comcat": 203
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.980027163183953,
+        "comcat": -7.871503572484069
+      },
+      "ssn_fit_modes": 2
+    }
+  ],
+  "distance_variants": {
+    "refit": {
+      "full": {
+        "n": 889,
+        "matches": 786,
+        "agreement": 0.8841394825646794,
+        "chance_role_agreement": 0.44614023921925394,
+        "cohen_kappa": 0.7908125384086429,
+        "adjusted_rand_index": 0.93259256183373,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            476,
+            12,
+            8
+          ],
+          [
+            42,
+            59,
+            9
+          ],
+          [
+            22,
+            10,
+            251
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 496,
+          "representative": 110,
+          "associated": 283
+        },
+        "comcat_role_counts": {
+          "isolated": 540,
+          "representative": 81,
+          "associated": 268
+        },
+        "family_pair_counts": {
+          "ssn": 11210,
+          "comcat": 10418,
+          "both": 10105
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 328,
+        "agreement": 0.8586387434554974,
+        "chance_role_agreement": 0.5220388695485321,
+        "cohen_kappa": 0.7042411034324549,
+        "adjusted_rand_index": 0.7607920356140441,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            240,
+            6,
+            6
+          ],
+          [
+            22,
+            29,
+            3
+          ],
+          [
+            11,
+            6,
+            59
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 252,
+          "representative": 54,
+          "associated": 76
+        },
+        "comcat_role_counts": {
+          "isolated": 273,
+          "representative": 41,
+          "associated": 68
+        },
+        "family_pair_counts": {
+          "ssn": 178,
+          "comcat": 132,
+          "both": 118
+        }
+      },
+      "largest_native_families": {
+        "ssn": 287,
+        "comcat": 201
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.513801700005659,
+        "comcat": -5.627089655907122
+      },
+      "ssn_fit_modes": 2
+    },
+    "fixed_d1p6": {
+      "full": {
+        "n": 889,
+        "matches": 777,
+        "agreement": 0.8740157480314961,
+        "chance_role_agreement": 0.42875616363477626,
+        "cohen_kappa": 0.7794562602720914,
+        "adjusted_rand_index": 0.8856922296487937,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            441,
+            13,
+            9
+          ],
+          [
+            43,
+            57,
+            10
+          ],
+          [
+            25,
+            12,
+            279
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 463,
+          "representative": 110,
+          "associated": 316
+        },
+        "comcat_role_counts": {
+          "isolated": 509,
+          "representative": 82,
+          "associated": 298
+        },
+        "family_pair_counts": {
+          "ssn": 15265,
+          "comcat": 12621,
+          "both": 12405
+        }
+      },
+      "temporal": {
+        "n": 382,
+        "matches": 324,
+        "agreement": 0.8481675392670157,
+        "chance_role_agreement": 0.496964173131219,
+        "cohen_kappa": 0.6981676997479735,
+        "adjusted_rand_index": 0.7926859275807651,
+        "matrix_ssn_rows_comcat_columns": [
+          [
+            230,
+            7,
+            6
+          ],
+          [
+            23,
+            27,
+            6
+          ],
+          [
+            9,
+            7,
+            67
+          ]
+        ],
+        "ssn_role_counts": {
+          "isolated": 243,
+          "representative": 56,
+          "associated": 83
+        },
+        "comcat_role_counts": {
+          "isolated": 262,
+          "representative": 41,
+          "associated": 79
+        },
+        "family_pair_counts": {
+          "ssn": 234,
+          "comcat": 182,
+          "both": 165
+        }
+      },
+      "largest_native_families": {
+        "ssn": 333,
+        "comcat": 222
+      },
+      "native_total": {
+        "ssn": 1780,
+        "comcat": 1256
+      },
+      "caps_log10": {
+        "ssn": -5.31563487877218,
+        "comcat": -5.436938036463503
+      },
+      "ssn_fit_modes": 2
+    }
+  },
+  "checks": {
+    "refit_rows_agree_with_independent_retained_metrics": 11,
+    "weight_cut_rows_agree_with_retained_sweep": 31,
+    "distance_count_pairs_agree": 2
+  }
+}

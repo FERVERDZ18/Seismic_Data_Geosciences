@@ -1,0 +1,1383 @@
+{
+  "status": "PASS_RETAINED_RECLASSIFICATION_AND_RECALCULATED_STRATA",
+  "sweep": [
+    {
+      "weight": 0.8,
+      "cut_mode": "refit",
+      "full_matches": 760,
+      "full_n": 889,
+      "full_pct": 85.48931384,
+      "evaluation_matches": 318,
+      "evaluation_n": 382,
+      "evaluation_pct": 83.2460733,
+      "ssn_threshold": -3.9701836262155057,
+      "ssn_largest": 252,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 593,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -4.051890778580161,
+      "usgs_largest": 186,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 418,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 0.8,
+      "cut_mode": "fixed_w1",
+      "full_matches": 774,
+      "full_n": 889,
+      "full_pct": 87.06411699,
+      "evaluation_matches": 338,
+      "evaluation_n": 382,
+      "evaluation_pct": 88.48167539,
+      "ssn_threshold": -5.31563487877218,
+      "ssn_largest": 104,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 319,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.436938036463503,
+      "usgs_largest": 108,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 251,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 0.8,
+      "cut_mode": "centered_at_floor",
+      "full_matches": 779,
+      "full_n": 889,
+      "full_pct": 87.62654668,
+      "evaluation_matches": 325,
+      "evaluation_n": 382,
+      "evaluation_pct": 85.07853403,
+      "ssn_threshold": -4.41563487877218,
+      "ssn_largest": 214,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 491,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -4.5369380364635035,
+      "usgs_largest": 164,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 357,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 0.9,
+      "cut_mode": "refit",
+      "full_matches": 761,
+      "full_n": 889,
+      "full_pct": 85.60179978,
+      "evaluation_matches": 318,
+      "evaluation_n": 382,
+      "evaluation_pct": 83.2460733,
+      "ssn_threshold": -4.61896339227365,
+      "ssn_largest": 274,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 589,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -4.6983153705854805,
+      "usgs_largest": 200,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 416,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 0.9,
+      "cut_mode": "fixed_w1",
+      "full_matches": 779,
+      "full_n": 889,
+      "full_pct": 87.62654668,
+      "evaluation_matches": 330,
+      "evaluation_n": 382,
+      "evaluation_pct": 86.38743455,
+      "ssn_threshold": -5.31563487877218,
+      "ssn_largest": 209,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 449,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.436938036463503,
+      "usgs_largest": 146,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 319,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 0.9,
+      "cut_mode": "centered_at_floor",
+      "full_matches": 769,
+      "full_n": 889,
+      "full_pct": 86.50168729,
+      "evaluation_matches": 321,
+      "evaluation_n": 382,
+      "evaluation_pct": 84.03141361,
+      "ssn_threshold": -4.8656348787721795,
+      "ssn_largest": 251,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 529,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -4.986938036463503,
+      "usgs_largest": 181,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 379,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.0,
+      "cut_mode": "refit",
+      "full_matches": 772,
+      "full_n": 889,
+      "full_pct": 86.83914511,
+      "evaluation_matches": 322,
+      "evaluation_n": 382,
+      "evaluation_pct": 84.29319372,
+      "ssn_threshold": -5.31563487877218,
+      "ssn_largest": 292,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 581,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.436938036463503,
+      "usgs_largest": 204,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 405,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.0,
+      "cut_mode": "fixed_w1",
+      "full_matches": 772,
+      "full_n": 889,
+      "full_pct": 86.83914511,
+      "evaluation_matches": 322,
+      "evaluation_n": 382,
+      "evaluation_pct": 84.29319372,
+      "ssn_threshold": -5.31563487877218,
+      "ssn_largest": 292,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 581,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.436938036463503,
+      "usgs_largest": 204,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 405,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.0,
+      "cut_mode": "centered_at_floor",
+      "full_matches": 772,
+      "full_n": 889,
+      "full_pct": 86.83914511,
+      "evaluation_matches": 322,
+      "evaluation_n": 382,
+      "evaluation_pct": 84.29319372,
+      "ssn_threshold": -5.31563487877218,
+      "ssn_largest": 292,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 581,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.436938036463503,
+      "usgs_largest": 204,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 405,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.0905428994843476,
+      "cut_mode": "refit",
+      "full_matches": 786,
+      "full_n": 889,
+      "full_pct": 88.41394826,
+      "evaluation_matches": 325,
+      "evaluation_n": 382,
+      "evaluation_pct": 85.07853403,
+      "ssn_threshold": -6.009835668971547,
+      "ssn_largest": 294,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 560,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -6.131726617930571,
+      "usgs_largest": 208,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 386,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.0905428994843476,
+      "cut_mode": "fixed_w1",
+      "full_matches": 759,
+      "full_n": 889,
+      "full_pct": 85.3768279,
+      "evaluation_matches": 307,
+      "evaluation_n": 382,
+      "evaluation_pct": 80.36649215,
+      "ssn_threshold": -5.31563487877218,
+      "ssn_largest": 479,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 820,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.436938036463503,
+      "usgs_largest": 292,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 527,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.0905428994843476,
+      "cut_mode": "centered_at_floor",
+      "full_matches": 776,
+      "full_n": 889,
+      "full_pct": 87.28908886,
+      "evaluation_matches": 322,
+      "evaluation_n": 382,
+      "evaluation_pct": 84.29319372,
+      "ssn_threshold": -5.723077926451744,
+      "ssn_largest": 358,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 654,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.844381084143067,
+      "usgs_largest": 238,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 443,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.1,
+      "cut_mode": "refit",
+      "full_matches": 783,
+      "full_n": 889,
+      "full_pct": 88.07649044,
+      "evaluation_matches": 323,
+      "evaluation_n": 382,
+      "evaluation_pct": 84.55497382,
+      "ssn_threshold": -6.086055819954593,
+      "ssn_largest": 294,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 557,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -6.205680345285669,
+      "usgs_largest": 208,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 382,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.1,
+      "cut_mode": "fixed_w1",
+      "full_matches": 755,
+      "full_n": 889,
+      "full_pct": 84.92688414,
+      "evaluation_matches": 309,
+      "evaluation_n": 382,
+      "evaluation_pct": 80.89005236,
+      "ssn_threshold": -5.31563487877218,
+      "ssn_largest": 503,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 860,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.436938036463503,
+      "usgs_largest": 300,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 544,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.1,
+      "cut_mode": "centered_at_floor",
+      "full_matches": 776,
+      "full_n": 889,
+      "full_pct": 87.28908886,
+      "evaluation_matches": 321,
+      "evaluation_n": 382,
+      "evaluation_pct": 84.03141361,
+      "ssn_threshold": -5.76563487877218,
+      "ssn_largest": 365,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 662,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.886938036463503,
+      "usgs_largest": 239,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 445,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.2,
+      "cut_mode": "refit",
+      "full_matches": 792,
+      "full_n": 889,
+      "full_pct": 89.08886389,
+      "evaluation_matches": 329,
+      "evaluation_n": 382,
+      "evaluation_pct": 86.12565445,
+      "ssn_threshold": -6.911090634047214,
+      "ssn_largest": 294,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 524,
+      "ssn_mode_count_refit": 1,
+      "usgs_threshold": -7.027491216748858,
+      "usgs_largest": 207,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 361,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.2,
+      "cut_mode": "fixed_w1",
+      "full_matches": 781,
+      "full_n": 889,
+      "full_pct": 87.85151856,
+      "evaluation_matches": 318,
+      "evaluation_n": 382,
+      "evaluation_pct": 83.2460733,
+      "ssn_threshold": -5.31563487877218,
+      "ssn_largest": 887,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 1308,
+      "ssn_mode_count_refit": 1,
+      "usgs_threshold": -5.436938036463503,
+      "usgs_largest": 585,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 828,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.2,
+      "cut_mode": "centered_at_floor",
+      "full_matches": 775,
+      "full_n": 889,
+      "full_pct": 87.17660292,
+      "evaluation_matches": 317,
+      "evaluation_n": 382,
+      "evaluation_pct": 82.98429319,
+      "ssn_threshold": -6.215634878772179,
+      "ssn_largest": 472,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 771,
+      "ssn_mode_count_refit": 1,
+      "usgs_threshold": -6.336938036463502,
+      "usgs_largest": 286,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 500,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.3,
+      "cut_mode": "refit",
+      "full_matches": 430,
+      "full_n": 889,
+      "full_pct": 48.36895388,
+      "evaluation_matches": 130,
+      "evaluation_n": 382,
+      "evaluation_pct": 34.03141361,
+      "ssn_threshold": -5.980027163183953,
+      "ssn_largest": 936,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 1339,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -7.871503572484069,
+      "usgs_largest": 203,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 344,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.3,
+      "cut_mode": "fixed_w1",
+      "full_matches": 819,
+      "full_n": 889,
+      "full_pct": 92.12598425,
+      "evaluation_matches": 351,
+      "evaluation_n": 382,
+      "evaluation_pct": 91.88481675,
+      "ssn_threshold": -5.31563487877218,
+      "ssn_largest": 1193,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 1595,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.436938036463503,
+      "usgs_largest": 820,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 1058,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.3,
+      "cut_mode": "centered_at_floor",
+      "full_matches": 786,
+      "full_n": 889,
+      "full_pct": 88.41394826,
+      "evaluation_matches": 317,
+      "evaluation_n": 382,
+      "evaluation_pct": 82.98429319,
+      "ssn_threshold": -6.665634878772179,
+      "ssn_largest": 619,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 938,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -6.7869380364635035,
+      "usgs_largest": 373,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 588,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.3265675928192793,
+      "cut_mode": "refit",
+      "full_matches": 421,
+      "full_n": 889,
+      "full_pct": 47.35658043,
+      "evaluation_matches": 124,
+      "evaluation_n": 382,
+      "evaluation_pct": 32.46073298,
+      "ssn_threshold": -6.145142068588382,
+      "ssn_largest": 955,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 1350,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -8.094251046896613,
+      "usgs_largest": 203,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 340,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.3265675928192793,
+      "cut_mode": "fixed_w1",
+      "full_matches": 835,
+      "full_n": 889,
+      "full_pct": 93.92575928,
+      "evaluation_matches": 365,
+      "evaluation_n": 382,
+      "evaluation_pct": 95.54973822,
+      "ssn_threshold": -5.31563487877218,
+      "ssn_largest": 1238,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 1648,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.436938036463503,
+      "usgs_largest": 865,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 1107,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.3265675928192793,
+      "cut_mode": "centered_at_floor",
+      "full_matches": 785,
+      "full_n": 889,
+      "full_pct": 88.30146232,
+      "evaluation_matches": 320,
+      "evaluation_n": 382,
+      "evaluation_pct": 83.76963351,
+      "ssn_threshold": -6.785189046458936,
+      "ssn_largest": 659,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 989,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -6.906492204150259,
+      "usgs_largest": 428,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 619,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.4,
+      "cut_mode": "refit",
+      "full_matches": 391,
+      "full_n": 889,
+      "full_pct": 43.98200225,
+      "evaluation_matches": 109,
+      "evaluation_n": 382,
+      "evaluation_pct": 28.53403141,
+      "ssn_threshold": -6.606564167155178,
+      "ssn_largest": 1065,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 1393,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -8.71376319429128,
+      "usgs_largest": 203,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 326,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.4,
+      "cut_mode": "fixed_w1",
+      "full_matches": 865,
+      "full_n": 889,
+      "full_pct": 97.30033746,
+      "evaluation_matches": 378,
+      "evaluation_n": 382,
+      "evaluation_pct": 98.95287958,
+      "ssn_threshold": -5.31563487877218,
+      "ssn_largest": 1623,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 1737,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -5.436938036463503,
+      "usgs_largest": 1067,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 1192,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.4,
+      "cut_mode": "centered_at_floor",
+      "full_matches": 800,
+      "full_n": 889,
+      "full_pct": 89.98875141,
+      "evaluation_matches": 326,
+      "evaluation_n": 382,
+      "evaluation_pct": 85.34031414,
+      "ssn_threshold": -7.1156348787721795,
+      "ssn_largest": 874,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 1127,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -7.236938036463503,
+      "usgs_largest": 503,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 704,
+      "usgs_mode_count_refit": 2
+    }
+  ],
+  "local_weight_by_cut": [
+    {
+      "weight": 1.2,
+      "cut_mode": "w1.2",
+      "full_matches": 792,
+      "full_n": 889,
+      "full_pct": 89.08886389,
+      "evaluation_matches": 329,
+      "evaluation_n": 382,
+      "evaluation_pct": 86.12565445,
+      "ssn_threshold": -6.911090634047214,
+      "ssn_largest": 294,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 524,
+      "ssn_mode_count_refit": 1,
+      "usgs_threshold": -7.027491216748858,
+      "usgs_largest": 207,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 361,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.2,
+      "cut_mode": "w1.3",
+      "full_matches": 555,
+      "full_n": 889,
+      "full_pct": 62.42969629,
+      "evaluation_matches": 237,
+      "evaluation_n": 382,
+      "evaluation_pct": 62.04188482,
+      "ssn_threshold": -5.980027163183953,
+      "ssn_largest": 559,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 892,
+      "ssn_mode_count_refit": 1,
+      "usgs_threshold": -7.871503572484069,
+      "usgs_largest": 150,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 268,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.3,
+      "cut_mode": "w1.2",
+      "full_matches": 780,
+      "full_n": 889,
+      "full_pct": 87.73903262,
+      "evaluation_matches": 319,
+      "evaluation_n": 382,
+      "evaluation_pct": 83.5078534,
+      "ssn_threshold": -6.911090634047214,
+      "ssn_largest": 518,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 798,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -7.027491216748858,
+      "usgs_largest": 315,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 507,
+      "usgs_mode_count_refit": 2
+    },
+    {
+      "weight": 1.3,
+      "cut_mode": "w1.3",
+      "full_matches": 430,
+      "full_n": 889,
+      "full_pct": 48.36895388,
+      "evaluation_matches": 130,
+      "evaluation_n": 382,
+      "evaluation_pct": 34.03141361,
+      "ssn_threshold": -5.980027163183953,
+      "ssn_largest": 936,
+      "ssn_native_total": 1780,
+      "ssn_retained_edges": 1339,
+      "ssn_mode_count_refit": 2,
+      "usgs_threshold": -7.871503572484069,
+      "usgs_largest": 203,
+      "usgs_native_total": 1256,
+      "usgs_retained_edges": 344,
+      "usgs_mode_count_refit": 2
+    }
+  ],
+  "largest_ssn_component_w13_refit": {
+    "records": 936,
+    "source_total": 1780,
+    "root": {
+      "id": "ssn-mx-historical~ssn-local-4a37bf3503cfa2b1408e5f83-1",
+      "M": 4.6,
+      "utc": "2017-09-05T19:17:38Z"
+    },
+    "representative": {
+      "id": "ssn-mx-historical~ssn-local-3ec35ed592c96fcdf1d59319-1",
+      "M": 8.2,
+      "utc": "2017-09-08T04:49:17Z"
+    },
+    "time_span_days": 3030.577592592593,
+    "number_of_intersecting_w12_components": 565,
+    "largest_intersections": [
+      294,
+      22,
+      6,
+      5,
+      5,
+      4,
+      4,
+      4
+    ],
+    "all_retained_edges": {
+      "n": 935,
+      "parent_M": {
+        "min": 4.5,
+        "q25": 8.2,
+        "median": 8.2,
+        "q75": 8.2,
+        "q95": 8.2,
+        "max": 8.2
+      },
+      "distance_km": {
+        "min": 0.1302778241175657,
+        "q25": 48.11339439231909,
+        "median": 111.40708443559188,
+        "q75": 180.64711703649147,
+        "q95": 444.831275870031,
+        "max": 2637.032677307763
+      },
+      "lag_days": {
+        "min": 0.0008101851851856634,
+        "q25": 9.067876157407403,
+        "median": 278.5610416666667,
+        "q75": 1198.156730324074,
+        "q95": 2585.6138564814805,
+        "max": 3026.896574074074
+      },
+      "parent_changes": 46,
+      "parent_M7_or_higher": 805
+    },
+    "bridging_edges": {
+      "n": 565,
+      "parent_M": {
+        "min": 4.5,
+        "q25": 8.2,
+        "median": 8.2,
+        "q75": 8.2,
+        "q95": 8.2,
+        "max": 8.2
+      },
+      "distance_km": {
+        "min": 0.1302778241175657,
+        "q25": 92.17450590443099,
+        "median": 144.3493896016906,
+        "q75": 224.57981550317834,
+        "q95": 626.0926726011496,
+        "max": 2637.032677307763
+      },
+      "lag_days": {
+        "min": 0.00924768518513619,
+        "q25": 338.411712962963,
+        "median": 884.6975925925926,
+        "q75": 1724.3014699074076,
+        "q95": 2731.1789768518515,
+        "max": 3026.896574074074
+      },
+      "parent_changes": 40,
+      "parent_M7_or_higher": 532
+    },
+    "largest_direct_parents": [
+      {
+        "parent_id": "ssn-mx-historical~ssn-local-3ec35ed592c96fcdf1d59319-1",
+        "utc": "2017-09-08T04:49:17Z",
+        "M": 8.2,
+        "direct_children": 736,
+        "direct_children_at_w12": 248,
+        "bridge_summary": {
+          "n": 483,
+          "parent_M": {
+            "min": 8.2,
+            "q25": 8.2,
+            "median": 8.2,
+            "q75": 8.2,
+            "q95": 8.2,
+            "max": 8.2
+          },
+          "distance_km": {
+            "min": 19.23848496855753,
+            "q25": 106.05383539455323,
+            "median": 154.845976402607,
+            "q75": 230.38854672016603,
+            "q95": 659.3991643783036,
+            "max": 2637.032677307763
+          },
+          "lag_days": {
+            "min": 11.55928240740741,
+            "q25": 469.9071354166667,
+            "median": 1011.0889930555556,
+            "q75": 1856.9936458333332,
+            "q95": 2790.3457210648144,
+            "max": 3026.896574074074
+          },
+          "parent_changes": 39,
+          "parent_M7_or_higher": 483
+        },
+        "all_edges": {
+          "n": 736,
+          "parent_M": {
+            "min": 8.2,
+            "q25": 8.2,
+            "median": 8.2,
+            "q75": 8.2,
+            "q95": 8.2,
+            "max": 8.2
+          },
+          "distance_km": {
+            "min": 3.171868184757855,
+            "q25": 82.00402192661502,
+            "median": 127.03030520136457,
+            "q75": 200.0757484941375,
+            "q95": 486.93141623482535,
+            "max": 2637.032677307763
+          },
+          "lag_days": {
+            "min": 0.019722222222208374,
+            "q25": 35.80663483796298,
+            "median": 489.0399594907408,
+            "q75": 1417.2272974537036,
+            "q95": 2682.1759982638887,
+            "max": 3026.896574074074
+          },
+          "parent_changes": 44,
+          "parent_M7_or_higher": 736
+        }
+      },
+      {
+        "parent_id": "ssn-mx-historical~ssn-local-a113439fb913d73c84aea6dd-1",
+        "utc": "2020-06-23T15:29:03Z",
+        "M": 7.4,
+        "direct_children": 68,
+        "direct_children_at_w12": 20,
+        "bridge_summary": {
+          "n": 48,
+          "parent_M": {
+            "min": 7.4,
+            "q25": 7.4,
+            "median": 7.4,
+            "q75": 7.4,
+            "q95": 7.4,
+            "max": 7.4
+          },
+          "distance_km": {
+            "min": 19.435760586065204,
+            "q25": 50.01528233489045,
+            "median": 75.55830248179014,
+            "q75": 160.61021472413987,
+            "q95": 582.3804464367624,
+            "max": 1010.5465765734253
+          },
+          "lag_days": {
+            "min": 6.525578703703651,
+            "q25": 92.43444155092592,
+            "median": 372.60593750000015,
+            "q75": 714.6728530092594,
+            "q95": 1578.0758802083328,
+            "max": 1989.5111111111112
+          },
+          "parent_changes": 1,
+          "parent_M7_or_higher": 48
+        },
+        "all_edges": {
+          "n": 68,
+          "parent_M": {
+            "min": 7.4,
+            "q25": 7.4,
+            "median": 7.4,
+            "q75": 7.4,
+            "q95": 7.4,
+            "max": 7.4
+          },
+          "distance_km": {
+            "min": 7.163617864661051,
+            "q25": 41.60579180733826,
+            "median": 59.5087150460825,
+            "q75": 117.82582106307505,
+            "q95": 582.3804464367624,
+            "max": 1010.5465765734253
+          },
+          "lag_days": {
+            "min": 0.04304398148140609,
+            "q25": 18.865627893518624,
+            "median": 114.15298611111116,
+            "q75": 618.6824623842592,
+            "q95": 1408.6064421296294,
+            "max": 1989.5111111111112
+          },
+          "parent_changes": 1,
+          "parent_M7_or_higher": 68
+        }
+      },
+      {
+        "parent_id": "ssn-mx-historical~ssn-local-97aa9657b0e807ff7b288603-1",
+        "utc": "2017-09-23T12:53:01Z",
+        "M": 6.1,
+        "direct_children": 14,
+        "direct_children_at_w12": 15,
+        "bridge_summary": {
+          "n": 0,
+          "parent_M": null,
+          "distance_km": null,
+          "lag_days": null,
+          "parent_changes": 0,
+          "parent_M7_or_higher": 0
+        },
+        "all_edges": {
+          "n": 14,
+          "parent_M": {
+            "min": 6.1,
+            "q25": 6.1,
+            "median": 6.1,
+            "q75": 6.1,
+            "q95": 6.1,
+            "max": 6.1
+          },
+          "distance_km": {
+            "min": 2.8191025448203084,
+            "q25": 3.986361519227513,
+            "median": 6.106296522383987,
+            "q75": 15.713517176106794,
+            "q95": 36.847298698091386,
+            "max": 60.736859064216134
+          },
+          "lag_days": {
+            "min": 0.021666666666718848,
+            "q25": 0.08470775462963763,
+            "median": 0.4353703703704037,
+            "q75": 4.8326157407407475,
+            "q95": 74.64088599537038,
+            "max": 97.68543981481486
+          },
+          "parent_changes": 1,
+          "parent_M7_or_higher": 0
+        }
+      },
+      {
+        "parent_id": "ssn-mx-historical~ssn-local-ecbf82d2ac4fb8655b544315-1",
+        "utc": "2023-07-14T09:29:01Z",
+        "M": 6.5,
+        "direct_children": 8,
+        "direct_children_at_w12": 4,
+        "bridge_summary": {
+          "n": 4,
+          "parent_M": {
+            "min": 6.5,
+            "q25": 6.5,
+            "median": 6.5,
+            "q75": 6.5,
+            "q95": 6.5,
+            "max": 6.5
+          },
+          "distance_km": {
+            "min": 147.48968052403103,
+            "q25": 175.24592749717405,
+            "median": 253.52246978684335,
+            "q75": 336.1070682320316,
+            "q95": 368.65140058379166,
+            "max": 376.78748367173165
+          },
+          "lag_days": {
+            "min": 3.665844907407373,
+            "q25": 5.9721903935184875,
+            "median": 8.055966435185153,
+            "q75": 10.451380208333287,
+            "q95": 13.044387152777697,
+            "max": 13.692638888888801
+          },
+          "parent_changes": 0,
+          "parent_M7_or_higher": 0
+        },
+        "all_edges": {
+          "n": 8,
+          "parent_M": {
+            "min": 6.5,
+            "q25": 6.5,
+            "median": 6.5,
+            "q75": 6.5,
+            "q95": 6.5,
+            "max": 6.5
+          },
+          "distance_km": {
+            "min": 3.8997381952301713,
+            "q25": 5.221651891771525,
+            "median": 76.44405691516472,
+            "q75": 219.01023980419922,
+            "q95": 357.8032897998716,
+            "max": 376.78748367173165
+          },
+          "lag_days": {
+            "min": 0.29458333333328013,
+            "q25": 2.873055555555495,
+            "median": 8.055966435185153,
+            "q75": 12.190711805555525,
+            "q95": 19.403167245370327,
+            "max": 22.478067129629615
+          },
+          "parent_changes": 0,
+          "parent_M7_or_higher": 0
+        }
+      },
+      {
+        "parent_id": "ssn-mx-historical~ssn-local-deb0bf748abeabc14a9f533d-1",
+        "utc": "2024-05-12T11:39:12Z",
+        "M": 6.3,
+        "direct_children": 7,
+        "direct_children_at_w12": 1,
+        "bridge_summary": {
+          "n": 6,
+          "parent_M": {
+            "min": 6.3,
+            "q25": 6.3,
+            "median": 6.3,
+            "q75": 6.3,
+            "q95": 6.3,
+            "max": 6.3
+          },
+          "distance_km": {
+            "min": 5.162291561447584,
+            "q25": 16.46229206479305,
+            "median": 29.662783579679676,
+            "q75": 44.5376128738122,
+            "q95": 46.34716369470737,
+            "max": 46.370358488511854
+          },
+          "lag_days": {
+            "min": 5.0951041666665216,
+            "q25": 15.207309027777717,
+            "median": 95.60723958333352,
+            "q75": 162.03832465277776,
+            "q95": 261.6658709490743,
+            "max": 293.51114583333367
+          },
+          "parent_changes": 0,
+          "parent_M7_or_higher": 0
+        },
+        "all_edges": {
+          "n": 7,
+          "parent_M": {
+            "min": 6.3,
+            "q25": 6.3,
+            "median": 6.3,
+            "q75": 6.3,
+            "q95": 6.3,
+            "max": 6.3
+          },
+          "distance_km": {
+            "min": 5.162291561447584,
+            "q25": 13.720917361144554,
+            "median": 20.007853603992267,
+            "q75": 42.797646434330495,
+            "q95": 46.34252473594647,
+            "max": 46.370358488511854
+          },
+          "lag_days": {
+            "min": 0.47281250000041464,
+            "q25": 5.7772048611109685,
+            "median": 41.45131944444462,
+            "q75": 157.94660300925932,
+            "q95": 255.29681597222233,
+            "max": 293.51114583333367
+          },
+          "parent_changes": 0,
+          "parent_M7_or_higher": 0
+        }
+      },
+      {
+        "parent_id": "ssn-mx-historical~ssn-local-ac8df7e9226de7e380e878bb-1",
+        "utc": "2019-02-01T16:14:12Z",
+        "M": 6.5,
+        "direct_children": 6,
+        "direct_children_at_w12": 3,
+        "bridge_summary": {
+          "n": 3,
+          "parent_M": {
+            "min": 6.5,
+            "q25": 6.5,
+            "median": 6.5,
+            "q75": 6.5,
+            "q95": 6.5,
+            "max": 6.5
+          },
+          "distance_km": {
+            "min": 5.489563197323508,
+            "q25": 13.618954012526354,
+            "median": 21.7483448277292,
+            "q75": 71.26691680659036,
+            "q95": 110.88177438967928,
+            "max": 120.78548878545152
+          },
+          "lag_days": {
+            "min": 4.000960648148171,
+            "q25": 17.303859953703704,
+            "median": 30.60675925925924,
+            "q75": 1170.455277777778,
+            "q95": 2082.3340925925927,
+            "max": 2310.3037962962967
+          },
+          "parent_changes": 0,
+          "parent_M7_or_higher": 0
+        },
+        "all_edges": {
+          "n": 6,
+          "parent_M": {
+            "min": 6.5,
+            "q25": 6.5,
+            "median": 6.5,
+            "q75": 6.5,
+            "q95": 6.5,
+            "max": 6.5
+          },
+          "distance_km": {
+            "min": 5.489563197323508,
+            "q25": 12.062171528285674,
+            "median": 18.72296946179456,
+            "q75": 55.25452275178159,
+            "q95": 107.19492877070508,
+            "max": 120.78548878545152
+          },
+          "lag_days": {
+            "min": 0.0314351851851713,
+            "q25": 1.1818373842593546,
+            "median": 2.805648148148178,
+            "q75": 23.95530960648147,
+            "q95": 1740.3795370370374,
+            "max": 2310.3037962962967
+          },
+          "parent_changes": 0,
+          "parent_M7_or_higher": 0
+        }
+      },
+      {
+        "parent_id": "ssn-mx-historical~ssn-local-2ddfb67eda2b8d53a03c3dce-1",
+        "utc": "2020-10-12T04:13:50Z",
+        "M": 5.5,
+        "direct_children": 5,
+        "direct_children_at_w12": 4,
+        "bridge_summary": {
+          "n": 1,
+          "parent_M": {
+            "min": 5.5,
+            "q25": 5.5,
+            "median": 5.5,
+            "q75": 5.5,
+            "q95": 5.5,
+            "max": 5.5
+          },
+          "distance_km": {
+            "min": 220.2774214221775,
+            "q25": 220.2774214221775,
+            "median": 220.2774214221775,
+            "q75": 220.2774214221775,
+            "q95": 220.2774214221775,
+            "max": 220.2774214221775
+          },
+          "lag_days": {
+            "min": 0.07853009259274901,
+            "q25": 0.07853009259274901,
+            "median": 0.07853009259274901,
+            "q75": 0.07853009259274901,
+            "q95": 0.07853009259274901,
+            "max": 0.07853009259274901
+          },
+          "parent_changes": 0,
+          "parent_M7_or_higher": 0
+        },
+        "all_edges": {
+          "n": 5,
+          "parent_M": {
+            "min": 5.5,
+            "q25": 5.5,
+            "median": 5.5,
+            "q75": 5.5,
+            "q95": 5.5,
+            "max": 5.5
+          },
+          "distance_km": {
+            "min": 3.7062778551234756,
+            "q25": 6.154865082796496,
+            "median": 17.81174246629236,
+            "q75": 22.461350365628782,
+            "q95": 180.71420721086773,
+            "max": 220.2774214221775
+          },
+          "lag_days": {
+            "min": 0.07853009259274901,
+            "q25": 0.11754629629637958,
+            "median": 0.7033449074074785,
+            "q75": 0.8454398148149918,
+            "q95": 3.023606481481659,
+            "max": 3.5681481481483264
+          },
+          "parent_changes": 0,
+          "parent_M7_or_higher": 0
+        }
+      },
+      {
+        "parent_id": "ssn-mx-historical~ssn-local-6017290ed75666e57d57b77a-1",
+        "utc": "2019-06-14T16:26:31Z",
+        "M": 5.0,
+        "direct_children": 3,
+        "direct_children_at_w12": 3,
+        "bridge_summary": {
+          "n": 0,
+          "parent_M": null,
+          "distance_km": null,
+          "lag_days": null,
+          "parent_changes": 0,
+          "parent_M7_or_higher": 0
+        },
+        "all_edges": {
+          "n": 3,
+          "parent_M": {
+            "min": 5.0,
+            "q25": 5.0,
+            "median": 5.0,
+            "q75": 5.0,
+            "q95": 5.0,
+            "max": 5.0
+          },
+          "distance_km": {
+            "min": 6.629967939679627,
+            "q25": 8.829801924058579,
+            "median": 11.029635908437529,
+            "q75": 14.618155653200077,
+            "q95": 17.488971449010112,
+            "max": 18.206675397962623
+          },
+          "lag_days": {
+            "min": 0.005763888888829727,
+            "q25": 0.014126157407303941,
+            "median": 0.022488425925778155,
+            "q75": 0.04822337962947909,
+            "q95": 0.06881134259243983,
+            "max": 0.07395833333318003
+          },
+          "parent_changes": 0,
+          "parent_M7_or_higher": 0
+        }
+      }
+    ]
+  },
+  "reported_magnitude_strata": [
+    {
+      "stratum": "SSN M<=5.2",
+      "pair_n": 2846,
+      "signed_SSN_minus_ComCat": {
+        "min": -1.1,
+        "q25": 0.0,
+        "median": 0.1,
+        "q75": 0.3,
+        "q95": 0.5,
+        "max": 0.9
+      },
+      "absolute_difference": {
+        "min": 0.0,
+        "q25": 0.1,
+        "median": 0.2,
+        "q75": 0.3,
+        "q95": 0.5,
+        "max": 1.1
+      },
+      "absolute_difference_ge_0_3": 1106,
+      "observed_ComCat_type_counts": {
+        "mb": 2538,
+        "mww": 147,
+        "ml": 66,
+        "mwr": 52,
+        "mw": 33,
+        "mlr": 4,
+        "mwb": 1,
+        "md": 5
+      },
+      "roles_on_both_M_ge_4_5": {
+        "n": 746,
+        "equal": 649,
+        "percent": 86.99731903
+      },
+      "roles_on_both_M_ge_4_5_evaluation": {
+        "n": 323,
+        "equal": 272,
+        "percent": 84.21052632
+      }
+    },
+    {
+      "stratum": "SSN M>5.2",
+      "pair_n": 143,
+      "signed_SSN_minus_ComCat": {
+        "min": -0.2,
+        "q25": 0.0,
+        "median": 0.0,
+        "q75": 0.1,
+        "q95": 0.2,
+        "max": 0.7
+      },
+      "absolute_difference": {
+        "min": 0.0,
+        "q25": 0.0,
+        "median": 0.1,
+        "q75": 0.1,
+        "q95": 0.2,
+        "max": 0.7
+      },
+      "absolute_difference_ge_0_3": 6,
+      "observed_ComCat_type_counts": {
+        "mb": 8,
+        "mww": 129,
+        "mwb": 4,
+        "mw": 1,
+        "mwc": 1
+      },
+      "roles_on_both_M_ge_4_5": {
+        "n": 143,
+        "equal": 123,
+        "percent": 86.01398601
+      },
+      "roles_on_both_M_ge_4_5_evaluation": {
+        "n": 59,
+        "equal": 50,
+        "percent": 84.74576271
+      }
+    },
+    {
+      "stratum": "opposite sides",
+      "pair_n": 46,
+      "signed_SSN_minus_ComCat": {
+        "min": -1.1,
+        "q25": -0.5,
+        "median": -0.2,
+        "q75": 0.1,
+        "q95": 0.575,
+        "max": 0.7
+      },
+      "absolute_difference": {
+        "min": 0.1,
+        "q25": 0.1,
+        "median": 0.3,
+        "q75": 0.5,
+        "q95": 0.8,
+        "max": 1.1
+      },
+      "absolute_difference_ge_0_3": 27,
+      "observed_ComCat_type_counts": {
+        "mww": 37,
+        "mb": 9
+      },
+      "roles_on_both_M_ge_4_5": {
+        "n": 46,
+        "equal": 38,
+        "percent": 82.60869565
+      },
+      "roles_on_both_M_ge_4_5_evaluation": {
+        "n": 18,
+        "equal": 15,
+        "percent": 83.33333333
+      }
+    }
+  ],
+  "d_sensitivity": {
+    "d_1_5_refit": {
+      "n": 889,
+      "equal": 786,
+      "percent": 88.41394826
+    },
+    "d_1_5_refit_evaluation": {
+      "n": 382,
+      "equal": 328,
+      "percent": 85.86387435
+    },
+    "d_1_5_original_d_1_6_cut": {
+      "n": 889,
+      "equal": 777,
+      "percent": 87.4015748
+    },
+    "d_1_5_original_d_1_6_cut_evaluation": {
+      "n": 382,
+      "equal": 324,
+      "percent": 84.81675393
+    },
+    "d_1_6_w_1_refit": {
+      "n": 889,
+      "equal": 772,
+      "percent": 86.83914511
+    },
+    "d_1_6_w_1_refit_evaluation": {
+      "n": 382,
+      "equal": 322,
+      "percent": 84.29319372
+    },
+    "d_1_6_low_low_apparent_b": {
+      "n": 889,
+      "equal": 786,
+      "percent": 88.41394826
+    },
+    "d_1_6_low_low_apparent_b_evaluation": {
+      "n": 382,
+      "equal": 325,
+      "percent": 85.07853403
+    },
+    "change_in_parent_choices": {
+      "ssn": {
+        "changed": 86,
+        "both_defined": 1779,
+        "d1p5_threshold": -5.513801700005659,
+        "d1p5_fit_modes": 2
+      },
+      "usgs": {
+        "changed": 38,
+        "both_defined": 1255,
+        "d1p5_threshold": -5.627089655907122,
+        "d1p5_fit_modes": 2
+      }
+    }
+  },
+  "annual_2017_anchor_context": {
+    "all_2017": {
+      "n": 190,
+      "equal": 180,
+      "percent": 94.73684211
+    },
+    "anchor_union_2017": {
+      "n": 125,
+      "equal": 122,
+      "percent": 97.6
+    },
+    "outside_anchor_union_2017": {
+      "n": 65,
+      "equal": 58,
+      "percent": 89.23076923
+    }
+  },
+  "cosine_law_floor_m": 0.09488016366958618,
+  "source_geometry_changed": false,
+  "large_cohort_colocation_ablation": false
+}

@@ -1,0 +1,55 @@
+weight,cut_mode,stratum,period,n,agree,percent
+1.0,refit,Opposite sides of 5.2,all,46,38,82.60869565
+1.0,refit,Opposite sides of 5.2,evaluation,18,15,83.33333333
+1.0,refit,SSN M>5.2,all,143,123,86.01398601
+1.0,refit,SSN M>5.2,evaluation,59,50,84.74576271
+1.0,refit,SSN M≤5.2,all,746,649,86.99731903
+1.0,refit,SSN M≤5.2,evaluation,323,272,84.21052632
+1.0,fixed_w1,Opposite sides of 5.2,all,46,38,82.60869565
+1.0,fixed_w1,Opposite sides of 5.2,evaluation,18,15,83.33333333
+1.0,fixed_w1,SSN M>5.2,all,143,123,86.01398601
+1.0,fixed_w1,SSN M>5.2,evaluation,59,50,84.74576271
+1.0,fixed_w1,SSN M≤5.2,all,746,649,86.99731903
+1.0,fixed_w1,SSN M≤5.2,evaluation,323,272,84.21052632
+1.0,centered_at_floor,Opposite sides of 5.2,all,46,38,82.60869565
+1.0,centered_at_floor,Opposite sides of 5.2,evaluation,18,15,83.33333333
+1.0,centered_at_floor,SSN M>5.2,all,143,123,86.01398601
+1.0,centered_at_floor,SSN M>5.2,evaluation,59,50,84.74576271
+1.0,centered_at_floor,SSN M≤5.2,all,746,649,86.99731903
+1.0,centered_at_floor,SSN M≤5.2,evaluation,323,272,84.21052632
+1.2,refit,Opposite sides of 5.2,all,46,39,84.7826087
+1.2,refit,Opposite sides of 5.2,evaluation,18,14,77.77777778
+1.2,refit,SSN M>5.2,all,143,127,88.81118881
+1.2,refit,SSN M>5.2,evaluation,59,51,86.44067797
+1.2,refit,SSN M≤5.2,all,746,665,89.14209115
+1.2,refit,SSN M≤5.2,evaluation,323,278,86.06811146
+1.2,fixed_w1,Opposite sides of 5.2,all,46,39,84.7826087
+1.2,fixed_w1,Opposite sides of 5.2,evaluation,18,14,77.77777778
+1.2,fixed_w1,SSN M>5.2,all,143,117,81.81818182
+1.2,fixed_w1,SSN M>5.2,evaluation,59,46,77.96610169
+1.2,fixed_w1,SSN M≤5.2,all,746,664,89.0080429
+1.2,fixed_w1,SSN M≤5.2,evaluation,323,272,84.21052632
+1.2,centered_at_floor,Opposite sides of 5.2,all,46,40,86.95652174
+1.2,centered_at_floor,Opposite sides of 5.2,evaluation,18,15,83.33333333
+1.2,centered_at_floor,SSN M>5.2,all,143,123,86.01398601
+1.2,centered_at_floor,SSN M>5.2,evaluation,59,47,79.66101695
+1.2,centered_at_floor,SSN M≤5.2,all,746,652,87.39946381
+1.2,centered_at_floor,SSN M≤5.2,evaluation,323,270,83.59133127
+1.3,refit,Opposite sides of 5.2,all,46,27,58.69565217
+1.3,refit,Opposite sides of 5.2,evaluation,18,10,55.55555556
+1.3,refit,SSN M>5.2,all,143,78,54.54545455
+1.3,refit,SSN M>5.2,evaluation,59,29,49.15254237
+1.3,refit,SSN M≤5.2,all,746,352,47.1849866
+1.3,refit,SSN M≤5.2,evaluation,323,101,31.26934985
+1.3,fixed_w1,Opposite sides of 5.2,all,46,40,86.95652174
+1.3,fixed_w1,Opposite sides of 5.2,evaluation,18,15,83.33333333
+1.3,fixed_w1,SSN M>5.2,all,143,123,86.01398601
+1.3,fixed_w1,SSN M>5.2,evaluation,59,49,83.05084746
+1.3,fixed_w1,SSN M≤5.2,all,746,696,93.29758713
+1.3,fixed_w1,SSN M≤5.2,evaluation,323,302,93.49845201
+1.3,centered_at_floor,Opposite sides of 5.2,all,46,41,89.13043478
+1.3,centered_at_floor,Opposite sides of 5.2,evaluation,18,15,83.33333333
+1.3,centered_at_floor,SSN M>5.2,all,143,125,87.41258741
+1.3,centered_at_floor,SSN M>5.2,evaluation,59,48,81.3559322
+1.3,centered_at_floor,SSN M≤5.2,all,746,661,88.60589812
+1.3,centered_at_floor,SSN M≤5.2,evaluation,323,269,83.28173375

@@ -1,0 +1,382 @@
+{
+  "schema": "post-review-deterministic-sequence-comparison/1",
+  "protocol_sha256": "809615e65188aa0d6e5b93bd416814381ebe22c69972bf79129f1b8face8bf51",
+  "source_inputs": {
+    "ssn": "28a835c3cc09a80249d76afd2372d37a6ffa0d4f7ac99133f609c25324be3542",
+    "usgs": "063bcce8eb1ae48c2c2c52fa3df06bb38e9d596b09f8fffd3e0286f0271627b0"
+  },
+  "pairs_sha256": "93187c19cc25a3f9d5c6a4042410ef57d9336feca1b36fc2e445952257645939",
+  "script_sha256": "d79fd18992a30488243a1f7d1db6d328fef19391c7c7ae732ee308cdd6b369be",
+  "index_script_sha256": "3b207301b5021782cd42910e7a037f3d50ac808f00652b50c4960bc1d00c4f60",
+  "EM_port_sha256": "461e09a24a862522641c59c623a6db140679c1af8cbf7dac5258c72e9d7c50a8",
+  "cases": [
+    {
+      "case": "M4p5_ssn_native_author",
+      "directory": "cases/M4p5_ssn_native_author",
+      "events": 1780,
+      "cut": 4.5,
+      "source": "ssn",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p5_ssn_common_author",
+      "directory": "cases/M4p5_ssn_common_author",
+      "events": 889,
+      "cut": 4.5,
+      "source": "ssn",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p5_usgs_native_author",
+      "directory": "cases/M4p5_usgs_native_author",
+      "events": 1256,
+      "cut": 4.5,
+      "source": "usgs",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p5_usgs_common_author",
+      "directory": "cases/M4p5_usgs_common_author",
+      "events": 889,
+      "cut": 4.5,
+      "source": "usgs",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p5_ssn_native_d1p5",
+      "directory": "cases/M4p5_ssn_native_d1p5",
+      "events": 1780,
+      "cut": 4.5,
+      "source": "ssn",
+      "cohort": "native",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p5_ssn_common_d1p5",
+      "directory": "cases/M4p5_ssn_common_d1p5",
+      "events": 889,
+      "cut": 4.5,
+      "source": "ssn",
+      "cohort": "common",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p5_usgs_native_d1p5",
+      "directory": "cases/M4p5_usgs_native_d1p5",
+      "events": 1256,
+      "cut": 4.5,
+      "source": "usgs",
+      "cohort": "native",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p5_usgs_common_d1p5",
+      "directory": "cases/M4p5_usgs_common_d1p5",
+      "events": 889,
+      "cut": 4.5,
+      "source": "usgs",
+      "cohort": "common",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p5_ssn_native_w_reported_b",
+      "directory": "cases/M4p5_ssn_native_w_reported_b",
+      "events": 1780,
+      "cut": 4.5,
+      "source": "ssn",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 1.3265675928192793
+    },
+    {
+      "case": "M4p5_ssn_common_w_reported_b",
+      "directory": "cases/M4p5_ssn_common_w_reported_b",
+      "events": 889,
+      "cut": 4.5,
+      "source": "ssn",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 1.3265675928192793
+    },
+    {
+      "case": "M4p5_usgs_native_w_reported_b",
+      "directory": "cases/M4p5_usgs_native_w_reported_b",
+      "events": 1256,
+      "cut": 4.5,
+      "source": "usgs",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 1.0905428994843476
+    },
+    {
+      "case": "M4p5_usgs_common_w_reported_b",
+      "directory": "cases/M4p5_usgs_common_w_reported_b",
+      "events": 889,
+      "cut": 4.5,
+      "source": "usgs",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 1.0905428994843476
+    },
+    {
+      "case": "M4p4_ssn_native_author",
+      "directory": "cases/M4p4_ssn_native_author",
+      "events": 2702,
+      "cut": 4.4,
+      "source": "ssn",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p4_ssn_common_author",
+      "directory": "cases/M4p4_ssn_common_author",
+      "events": 1181,
+      "cut": 4.4,
+      "source": "ssn",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p4_usgs_native_author",
+      "directory": "cases/M4p4_usgs_native_author",
+      "events": 1650,
+      "cut": 4.4,
+      "source": "usgs",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p4_usgs_common_author",
+      "directory": "cases/M4p4_usgs_common_author",
+      "events": 1181,
+      "cut": 4.4,
+      "source": "usgs",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p4_ssn_native_d1p5",
+      "directory": "cases/M4p4_ssn_native_d1p5",
+      "events": 2702,
+      "cut": 4.4,
+      "source": "ssn",
+      "cohort": "native",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p4_ssn_common_d1p5",
+      "directory": "cases/M4p4_ssn_common_d1p5",
+      "events": 1181,
+      "cut": 4.4,
+      "source": "ssn",
+      "cohort": "common",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p4_usgs_native_d1p5",
+      "directory": "cases/M4p4_usgs_native_d1p5",
+      "events": 1650,
+      "cut": 4.4,
+      "source": "usgs",
+      "cohort": "native",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p4_usgs_common_d1p5",
+      "directory": "cases/M4p4_usgs_common_d1p5",
+      "events": 1181,
+      "cut": 4.4,
+      "source": "usgs",
+      "cohort": "common",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p4_ssn_native_w_reported_b",
+      "directory": "cases/M4p4_ssn_native_w_reported_b",
+      "events": 2702,
+      "cut": 4.4,
+      "source": "ssn",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 1.4071178340785024
+    },
+    {
+      "case": "M4p4_ssn_common_w_reported_b",
+      "directory": "cases/M4p4_ssn_common_w_reported_b",
+      "events": 1181,
+      "cut": 4.4,
+      "source": "ssn",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 1.4071178340785024
+    },
+    {
+      "case": "M4p4_usgs_native_w_reported_b",
+      "directory": "cases/M4p4_usgs_native_w_reported_b",
+      "events": 1650,
+      "cut": 4.4,
+      "source": "usgs",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 1.1118034068205096
+    },
+    {
+      "case": "M4p4_usgs_common_w_reported_b",
+      "directory": "cases/M4p4_usgs_common_w_reported_b",
+      "events": 1181,
+      "cut": 4.4,
+      "source": "usgs",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 1.1118034068205096
+    },
+    {
+      "case": "M4p1_ssn_native_author",
+      "directory": "cases/M4p1_ssn_native_author",
+      "events": 14537,
+      "cut": 4.1,
+      "source": "ssn",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p1_ssn_common_author",
+      "directory": "cases/M4p1_ssn_common_author",
+      "events": 2459,
+      "cut": 4.1,
+      "source": "ssn",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p1_usgs_native_author",
+      "directory": "cases/M4p1_usgs_native_author",
+      "events": 3139,
+      "cut": 4.1,
+      "source": "usgs",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p1_usgs_common_author",
+      "directory": "cases/M4p1_usgs_common_author",
+      "events": 2459,
+      "cut": 4.1,
+      "source": "usgs",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 1.0
+    },
+    {
+      "case": "M4p1_ssn_native_d1p5",
+      "directory": "cases/M4p1_ssn_native_d1p5",
+      "events": 14537,
+      "cut": 4.1,
+      "source": "ssn",
+      "cohort": "native",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p1_ssn_common_d1p5",
+      "directory": "cases/M4p1_ssn_common_d1p5",
+      "events": 2459,
+      "cut": 4.1,
+      "source": "ssn",
+      "cohort": "common",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p1_usgs_native_d1p5",
+      "directory": "cases/M4p1_usgs_native_d1p5",
+      "events": 3139,
+      "cut": 4.1,
+      "source": "usgs",
+      "cohort": "native",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p1_usgs_common_d1p5",
+      "directory": "cases/M4p1_usgs_common_d1p5",
+      "events": 2459,
+      "cut": 4.1,
+      "source": "usgs",
+      "cohort": "common",
+      "d": 1.5,
+      "w": 1.0
+    },
+    {
+      "case": "M4p1_ssn_native_w_reported_b",
+      "directory": "cases/M4p1_ssn_native_w_reported_b",
+      "events": 14537,
+      "cut": 4.1,
+      "source": "ssn",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 2.124388170765564
+    },
+    {
+      "case": "M4p1_ssn_common_w_reported_b",
+      "directory": "cases/M4p1_ssn_common_w_reported_b",
+      "events": 2459,
+      "cut": 4.1,
+      "source": "ssn",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 2.124388170765564
+    },
+    {
+      "case": "M4p1_usgs_native_w_reported_b",
+      "directory": "cases/M4p1_usgs_native_w_reported_b",
+      "events": 3139,
+      "cut": 4.1,
+      "source": "usgs",
+      "cohort": "native",
+      "d": 1.6,
+      "w": 0.9975549418773647
+    },
+    {
+      "case": "M4p1_usgs_common_w_reported_b",
+      "directory": "cases/M4p1_usgs_common_w_reported_b",
+      "events": 2459,
+      "cut": 4.1,
+      "source": "usgs",
+      "cohort": "common",
+      "d": 1.6,
+      "w": 0.9975549418773647
+    }
+  ],
+  "full_descriptive_period": "2016-2025",
+  "fit_only": "2016-2020",
+  "held_out": "2021-2025",
+  "physical_event_identity_validated": false,
+  "physical_family_truth_validated": false,
+  "elapsed_seconds": 14.14919519997784,
+  "case_count": 54,
+  "factorial_cells": 16
+}

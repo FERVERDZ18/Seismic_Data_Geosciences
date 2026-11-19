@@ -1,8 +1,8 @@
 cff-version: 1.2.0
-message: "Cite the accompanying scientific article and the exact verified package version. This verified local review candidate is private and unpublished."
+message: "Cite the accompanying scientific article and the exact version of this reproduction package."
 type: software
 title: "A browser-based seismic data observatory for detecting and comparing earthquake sequences across North American catalogues"
-version: "2026.11.17-r2-local-review"
+version: "2026.11.19-r3"
 authors:
   - family-names: "Villa Vargas"
     given-names: "José Manuel"
@@ -10,3 +10,4 @@ authors:
     given-names: "Gabriel"
     email: "gabrielhurtadoaviles@gmail.com"
 repository-code: "https://github.com/gabrielhuav/Seismic_Data_Geosciences"
+doi: "10.5281/zenodo.24361244"

@@ -5,9 +5,10 @@ equations and the journal-specific Word generator. It reconstructs the document;
 scientific experiments are reproduced separately under `research/sequences`.
 No script here commits, pushes, publishes or submits an article.
 
-The R3 delivery consists of the double-spaced [Word](out/Seismic_CG_manuscript_R3.docx)
-and its [PDF export](out/Seismic_CG_manuscript_R3.pdf). The
-[iThenticate report](out/ITHENTICATE_R3_05.pdf) corresponds to that Word file.
+The R4 delivery consists of the double-spaced [Word](out/Seismic_CG_manuscript_R4.docx)
+and its [PDF export](out/Seismic_CG_manuscript_R4.pdf). The
+[versioned archive](https://doi.org/10.5281/zenodo.24361244) referenced by both
+files contains the additional analysis code and selected data products.
 The optional reading-copy helper changes only direct body paragraph auto-line
 spacing from 480 to 276 twips (1.15 lines).
 

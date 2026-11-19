@@ -17,8 +17,8 @@
     },
     {
       "path": "paper/manuscript/README.md",
-      "bytes": 5338,
-      "sha256": "c2dc0ba2a6772390595aa9a0769db87707dbda300e7d686e907967352d03c256"
+      "bytes": 5411,
+      "sha256": "59c13b0f0814dd61cfd85e1bc2d7424bef8447d22ed92605b5aaad8234e954e4"
     },
     {
       "path": "paper/manuscript/THIRD_PARTY_NOTICES.md",
@@ -37,8 +37,8 @@
     },
     {
       "path": "paper/manuscript/build/build_manuscript.py",
-      "bytes": 30375,
-      "sha256": "283c93210d4ad0c42bff7c5b3da5988a813591f7077ea6caca013bc79fdc2d9f"
+      "bytes": 30313,
+      "sha256": "6d63f08849a753c6e583faaf193fc286f520fc89ad2af6dedad1183bcb10284f"
     },
     {
       "path": "paper/manuscript/build/compare_docx_parts.py",
@@ -278,12 +278,12 @@
     {
       "path": "paper/manuscript/figures_main.json",
       "bytes": 12977,
-      "sha256": "3845eaa0d41aa68a6775eac8a251076765d8453a82388f891c423a991929d3e0"
+      "sha256": "56d0a436d1b65416a48cc8ece62b2d93b6d217e5964b9c36aaab47180342b328"
     },
     {
       "path": "paper/manuscript/manuscript.md",
-      "bytes": 56375,
-      "sha256": "8469e0110c868b5bad3567332ec735874d55cc9faa16a1c28d257d3277e01e16"
+      "bytes": 59034,
+      "sha256": "23a6c777fa7429d71cfe4743fca645693afdcbf8a87d8efea8a08d3da32c89b7"
     },
     {
       "path": "paper/manuscript/requirements.txt",

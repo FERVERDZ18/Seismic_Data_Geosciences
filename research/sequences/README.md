@@ -1,10 +1,12 @@
 # Seismic scientific reproduction package
 
-**Audited scientific reproduction package for the article.** The six scientific stages were recalculated in a new isolated environment and copied workspace, with strict scientific comparisons. An additional1221 frozen synthetic-array/metric comparisons passed. Historical GEM evidence/counts and the ten shifts passed separately; persisted V3 arrays were revalidated with18 computed cells and6 preserved censures. Sixteen security/provenance fixtures passed. Initial packaging/dependency/metadata failures are preserved in the private QA history, with no numerical formulas or tolerances relaxed. See the final `QA_SUMMARY.json` for exact scope; this does not imply author approval or public availability.
+**Audited scientific reproduction package for the article.** The six scientific stages were recalculated in a new isolated environment and copied workspace, with strict scientific comparisons. An additional1221 frozen synthetic-array/metric comparisons passed. Historical GEM evidence/counts and the ten shifts passed separately; persisted V3 arrays were revalidated with18 computed cells and6 preserved censures. Sixteen security/provenance fixtures passed. See [QA_SUMMARY.json](QA_SUMMARY.json) for the verified replay scope and platform.
 
 The package supports the approved article title in `CITATION.cff`. José Manuel Villa Vargas remains first, without an institutional affiliation; Gabriel Hurtado Avilés is second and corresponding author. Current/v0 figure assets and private paper/Word/PDF sources are outside this numerical package. Existing sites and historical repositories are unaffected.
 
 Browse [all readable scientific sources/configuration](SOURCE_INDEX.md), [component licenses](LICENSES_MAP.json), [table producers](TABLE_SOURCE_MAP.json) and [the comparison contract](EXPECTED_COMPARISON_CONTRACT.json). Numerical sources, small configurations, original licenses and documentation are plain files; data ZIPs are not needed to inspect code.
+
+The [additional sequence analyses](r3/README.md) reproduce the article's weight and cutoff sensitivity, magnitude and distance strata, paired 2017 counts, empirical synthetic perturbations, chance-adjusted agreement and matched benchmark projection.
 
 ## Package contents
 
@@ -61,4 +63,4 @@ A runtime-created run-manifest hash is not blindly ignored. A specific alias is 
 
 The selected USGS58-CSV source can be restored separately from a fixed Git revision and exact hashes using the included restoration script and manifests; the scientific replay itself does not need a new network request. SSN and southern GeoJSON bodies must be supplied as the exact frozen bytes with their notices/provenance. The new southern capture stays separate from the earlier snapshot and preserves its original acquisition/validation failures.
 
-No DOI has been assigned to this package. Public access is established by the actual accessible repository commit and matching bytes, separately from the recorded prepublication QA. A completed replay does not establish S2 human author approval. Persistent-archive decisions, further Git/Pages/release actions and editorial submission require their own specific human authorization.
+The [versioned Zenodo deposit](https://doi.org/10.5281/zenodo.24361244) includes the additional analysis source, protocols and selected results. Its archive identifies the frozen baseline and each file in the full GitHub analysis by SHA-256. Reproduction with the complete package uses the commands above and in [r3/README.md](r3/README.md).
