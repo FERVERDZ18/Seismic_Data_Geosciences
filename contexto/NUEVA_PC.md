@@ -2,6 +2,26 @@
 
 ## Estado actual
 
+- 19 nov 2026. Paquete editorial completo local en `outputs/revision_final_2026-11-18/paquete_envio/`: manuscrito Word/PDF exactos con DOI, portada postal, carta, highlights, declaración oficial descargada de Elsevier, 13 figuras y guía. Adjuntos 2–4 en PDF vectorial con fuentes incrustadas. Figura 5 como captura nativa de alta resolución con los mismos valores. El Word de la entrega 657509319 permanece intacto por SHA-256. No se inició el envío editorial ni se hicieron cambios remotos.
+
+- 19 nov 2026. R4 final con DOI en `outputs/revision_final_2026-11-18/final/`, solo Word y PDF nativo. iThenticate UAM entrega `657509319` confirmó `*%` de escritura con IA (inferior al 20%, cifra oculta) y 1% de similitud. Word SHA-256 `f07f6f976dfe887e5c8f2286f68dd82af11318ac80298905b64f9730005d6e5c` y PDF `716a4c46123dee55e7badca66ee4111afb2029bea844c3c57b30769db82ac82d`. El Word descargado de iThenticate coincide. Informe privado en `outputs/revision_final_2026-11-18/qa/ITHENTICATE_R4_DOI_MENOR_20.pdf`.
+
+- Código científico y Word/PDF publicados en `origin/main`, commit `1a15b6626d1c5f5eb3fef4bdf2175f58c6b5b68b`. Autor y committer Gabriel Hurtado <gabrielhurtadoaviles@gmail.com>, sin trailers ni firma automática. Descarga pública exacta del programa de reproducción, Word y PDF verificada por SHA-256. Se reprodujeron los 11 resultados suplementarios en un directorio limpio.
+
+- Zenodo público https://doi.org/10.5281/zenodo.24361244, versión 2026.11.19-r3. ZIP con código, protocolos, tablas agregadas, métricas sintéticas y benchmark. SHA-256 `160160002e83a7b2d0ee5d10e9ac3492f5e29cf46c600abe404cdbf15c3538eb` coincide con la descarga pública. Los catálogos originales están enlazados al snapshot f5dae946. Se preservan condiciones por fuente.
+
+- Word/PDF con 30 páginas, 13 figuras, 25 imágenes clicables, siete tablas, 73 destinos textuales. Se verificó el DOI en la página 27. Las primeras 26 páginas coinciden con la revisión anterior. Sin despliegue Pages ni envío editorial.
+
+- Gabriel confirmó que ambos autores revisaron y aceptaron la declaración de responsabilidad. Se incorporó en el Word `outputs/revision_final_2026-11-18/build_04/Seismic_CG_manuscript_R4_declaration.docx`. Se verificó su PDF nativo de 30 páginas. La guía de Computers & Geosciences indica revisión simple anónima. El manuscrito identifica a los autores.
+
+- La pareja previa de R4 estuvo en `outputs/revision_final_2026-11-18/final/` (Word y PDF nativo, 30 páginas). Pasa estructura, 13 citas de figuras, siete de tablas y los enlaces de las 25 imágenes. Incluye 27 DOI, correos de autores y declaración del papel real de Claude como revisor. El paquete científico `research/sequences/r3/` reprodujo 11 productos del dictamen. Se confirmó la declaración de autores. La pareja anterior al DOI se conserva en build_11_checked.
+
+- La carpeta local `paper/manuscript/out/` contiene solo `Seismic_CG_manuscript_R3.docx` y `Seismic_CG_manuscript_R3.pdf`, con los hashes de la entrega de iThenticate. Se conservó el informe en `paper/manuscript/reports/ITHENTICATE_R3_05.pdf` y la pareja anterior en `outputs/archive/pre_R3_2026-11-18/`.
+
+- El ajuste de encuadre de las Figuras 1, 6 y 9D está en `origin/main` y publicado en Pages desde `87dc5d3193cb4b5a229638e10ef5350d1dc8e411` de Gabriel Hurtado. Se validaron 26 vistas desde el Word y PDF R3 y los tres mapas en tres tamaños. https://gabrielhuav.github.io/Seismic_Data_Geosciences/
+
+- R3 está en `origin/main` en el commit `1bfc0e69f7ffa26df5e843d69995e0e07901d7f3`, verificado por consulta directa al remoto. Gabriel Hurtado figura como autor y committer. El Word, el PDF y el informe oficial de iThenticate quedaron registrados inicialmente en `paper/manuscript/out/`. GitHub Pages sirve este SHA desde la ejecución exitosa `44377512895`: https://gabrielhuav.github.io/Seismic_Data_Geosciences/. Se consumieron las autorizaciones de commit, push y este despliegue.
+
 - Gabriel autorizó el commit y push de R3, con la pareja exacta y el informe final de iThenticate dentro de `paper/manuscript/out/`. Los enlaces canónicos figuran en el README. La fuente reproducible y la vista de la Figura 2 acompañan esta revisión. El despliegue Pages sigue siendo manual.
 
 - 18 de noviembre de 2026, cierre de la tercera revisión. Entrega local de dos archivos: `outputs/claude_round3_2026-11-18/final/Seismic_CG_manuscript_R3.docx` y `Seismic_CG_manuscript_R3.pdf` en la misma carpeta. Son el Word evaluado y su exportación nativa verificada. 32 páginas, 13 figuras, 25 imágenes enlazadas (seis paneles SVG) y siete tablas. Se mantienen el título, todas las imágenes de v0, los autores y la declaración académica veraz de asistencia de IA.
@@ -1009,6 +1029,10 @@ No se trasladan chats, credenciales, hooks ni .git/config con un clon.
 
 ## Siguiente paso
 
+- Registrar en `origin/main` el commit de continuidad autorizado por Gabriel. La verificación previa al push quedó registrada en `outputs/revision_final_2026-11-18/qa/PRE_ENVIO_LINKS_RESULTADO.md`. Queda solicitar la excepción por las tres páginas de ScienceDirect y la cobertura parcial USGS de este push.
+
+- Para el envío, seguir `outputs/revision_final_2026-11-18/paquete_envio/PREPARACION_ENVIO.md`. Cargar el Word R4 y los adjuntos, comprobar la vista previa y elegir **Subscription**. El DOI incluido en el Word da acceso al código y los datos. Si el portal pide adjuntar código, usar el ZIP verificado en `outputs/revision_final_2026-11-18/deposito/ZENODO_VERIFIED_DOWNLOAD.zip`. Gabriel debe autorizar el envío editorial antes de la aprobación final.
+
 - Revisar R3 en `paper/manuscript/out/`. El informe final versionado es `ITHENTICATE_R3_05.pdf`. Las mediciones anteriores y todos los demás informes quedan en el área local de trabajo. La aprobación de autores y el despliegue de la nueva vista de la Figura 2 requieren sus pasos propios.
 
 - Para revisión de autores, usar la pareja de `outputs/claude_round3_2026-11-18/final/`. Confirmar la revisión científica de ambos autores antes de declarar su aprobación. El enlace público de Figura 2 requiere desplegar la vista local. Pedir autorización específica antes de cualquier commit, push, Pages, depósito con DOI o envío editorial. Antes del push, verificar los enlaces de esta revisión o pedir una excepción específica. Mantener la identidad Git humana de Gabriel y la declaración académica veraz. Los PDF de iThenticate y recibos son privados y pueden faltar en otra PC.
@@ -1192,6 +1216,32 @@ Entregar canónicosfinales .4 y mensaje corto a Gabriel para Fable; atender aqu�
   Identidad humana de Gabriel, sin atribuciones de IA en Git; declaración académica conservada.
 
 ## Bitácora
+
+- **19 nov 2026.** Se cotejó con GitHub que `origin/main` apunta a `1a15b66` y que los hashes de los archivos canónicos R4 coinciden con los de la entrega. Gabriel autorizó el commit y el push de los tres archivos de continuidad con su identidad. Se confirmó que el ZIP de reproducción local coincide con el depositado. La revisión de enlaces vigentes obtuvo 608 de 624 por HTTP y corroboró otros 13. Tres páginas de ScienceDirect bloquearon la consulta automatizada. Respondieron las 339 rutas USGS de la muestra de 36,872 rutas. El envío editorial queda pendiente.
+
+- **19 nov 2026.** Con la confirmación expresa de Gabriel para ambos autores, se descargó el DOCX oficial de Elsevier con la casilla sin intereses marcada. Se prepararon tres figuras vectoriales y una recaptura raster de la Figura 5, se revisaron portada y carta, y se verificaron los hashes del Word/PDF y los adjuntos. El envío editorial quedó sin iniciar.
+
+- **19 nov 2026.** Gabriel autorizó Zenodo, commit y push específicos. Se registró https://doi.org/10.5281/zenodo.24361244, su descarga coincidió por hash, se incorporó al artículo y se confirmó iThenticate por debajo del 20% en el Word exacto. Push de `1a15b66` verificado con las excepciones autorizadas de ScienceDirect, las corroboraciones primarias y la muestra de 339/36,872 rutas USGS. Se conservó el material privado local.
+
+- **19 nov 2026.** Se habilitó el acceso a archivos en Edge. Se comprobaron seis revisiones editoriales en iThenticate después del 28% inicial: 30%, 38%, 29%, 22%, 20% y `*%` (inferior al 20%). Similitud de 1% en la entrega final. Se aclararon comparación de catálogos, roles, límites y rendimiento. Se corrigieron los saltos de las Figuras 2 y 4, se verificaron el informe y la identidad del archivo descargado, y se preparó el paquete local. Sin cambios remotos.
+
+- 18 de noviembre de 2026. Se activaron 12 enlaces que quedaban como texto (dos ORCID y diez referencias). Word y PDF de 30 páginas mantienen el contenido y los enlaces de las figuras. Se actualizó la pareja R4 con la declaración confirmada. Recibo en `outputs/revision_final_2026-11-18/qa/R4_LINKS_DELIVERY.json`.
+
+- 18 de noviembre de 2026. Se registró la confirmación de ambos autores y se regeneró R4. El reintento en iThenticate UAM llegó al selector, pero Edge bloqueó la selección automatizada por permiso de URL de archivo. Se dejó la bandeja abierta para cargar el Word con SHA-256 53db599b2cd65bc00fd64fe4c9255b598e797f8a4e4e0169d9aaeadc59f6dcfe. Estado en `outputs/revision_final_2026-11-18/qa/ITHENTICATE_R4_RETRY.json`.
+
+- 18 de noviembre de 2026. Se atendió el dictamen U1–U9 en lo local. R4 quedó en 5,456 palabras computables y 190 de resumen. Se cotejaron 20 leyendas, todos los enlaces y 30 páginas. Figura 2 cita el benchmark y se fijó la versión web `87dc5d3`. La repetición de U4 produjo 11 filas principales, 31 celdas de umbral y dos variantes de d. Edge llegó al cuadro de carga del iThenticate UAM. El selector de la extensión rechazó el archivo y el control de Windows se detuvo al no confirmar la URL. No se obtuvo informe R4. Recibo privado en `outputs/revision_final_2026-11-18/qa/FINAL_R4_RECEIPT.json`. No hubo Git ni envío editorial.
+
+- 18 de noviembre de 2026. Se ordenó la entrega local y se conservaron el Word analizado en iThenticate y su PDF exacto. Se movieron el informe y los dos archivos de la revisión anterior fuera de `paper/manuscript/out/` con cotejo de SHA-256. Se actualizaron los dos enlaces del informe y el sello de insumos. El ajuste de carpetas se hizo en la copia local.
+
+- 18 de noviembre de 2026. Gabriel autorizó el push de `87dc5d3` con cuatro excepciones y muestra USGS de 339 de 36,872 rutas, y el despliegue tras confirmar el push. Se comprobó `origin/main` y se completó una ejecución Pages `44383131565`. Los cuatro archivos web publicados coinciden byte a byte con Git. El navegador comprobó los 26 enlaces de figuras, nueve encuadres y dos acciones interactivas. Los tres mapas conservan 7,063, 287,720 y 1,112 epicentros visibles. Recibo en `outputs/figure_framing_2026-11-18/release/DEPLOYMENT_VERIFIED.json`.
+
+- 18 de noviembre de 2026. Gabriel autorizó el commit local de los cuatro archivos web que ajustan los encuadres. Se verificaron autor y committer de Gabriel Hurtado, sin firma ni trailers y los SHA-256 de los cuatro archivos en `87dc5d3`. Se comprobó que el remoto sigue en `1bfc0e6`. Recibo en `outputs/figure_framing_2026-11-18/COMMIT_RESULT.json`. Para este push se comprobaron 627 de 631 URL vigentes, con cero fallos locales. Quedaron pendientes los DOI 10.1145/361002.361007 y 10.1785/BSSA0640051363, y la portada y guía de Computers & Geosciences. Detalle en `outputs/figure_framing_2026-11-18/link_gate/PRE_PUSH_LINKS_87dc5d3.md`.
+
+- 18 de noviembre de 2026. Se restauraron en local los marcos y cámaras de captura de las Figuras 1, 6 y 9D. Sus 7,063, 287,720 y 1,112 epicentros visibles coinciden con el manuscrito en los nueve casos revisados. Se comprobó el retorno desde 9D, el cambio de catálogo en la Figura 1 y los 26 destinos de las figuras del Word y del PDF R3 en el navegador local. Pasaron 130 pruebas Python y 31 suites JavaScript. Word y PDF coinciden con sus hashes de R3. El recibo local está en `outputs/figure_framing_2026-11-18/LOCAL_VERIFIED.json`.
+
+- 18 de noviembre de 2026. Se publicó R3 en Pages tras comprobar que el SHA exacto no tenía una ejecución previa. Los diez recursos web modificados coinciden byte a byte con Git. Las 25 imágenes de las 13 figuras son clicables en ambos documentos. Se cargaron 26 vistas en el navegador y se comprobó la selección de paneles, filtros y registros. Los seis enlaces de la Figura 4 restauran sus paneles y zoom. La Figura 1 abre el esquema de Métodos con el mapa vivo recortado a 150 px de alto en 1600 × 1050. En las Figuras 6 y 9D el centro varió al abrir a 1600 px de ancho, con zoom y selecciones correctos. Recibo privado en `outputs/claude_round3_2026-11-18/pages_r3/DEPLOYMENT_VERIFIED.json`.
+
+- 18 de noviembre de 2026. Se creó el commit R3 con los tres archivos canónicos cotejados por SHA-256. Pasaron 130 pruebas Python y seis suites JavaScript relacionadas. Se verificaron 616 de 631 destinos vigentes por HTTP y otros diez con fuentes primarias. Se comprobaron 339 de 36,872 rutas USGS. Gabriel aceptó las cinco excepciones para este push y `origin/main` confirmó el SHA exacto. El detalle privado está en `outputs/claude_round3_2026-11-18/release/PUSH_RESULT.json`.
 
 - 18 de noviembre de 2026. Se añadieron la pareja R3 y el reporte oficial con sus bytes originales, los enlaces de entrega, y la fuente del manuscrito y del benchmark. Los documentos históricos conservaron sus versiones Git previas.
 
