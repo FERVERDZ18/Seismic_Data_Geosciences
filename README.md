@@ -1,7 +1,6 @@
 # Entrega Segundo Parcial — Bases de Datos (ESCOM - IPN, Grupo 3CV2)
 
-**Integrantes:** Fernando García Verduzco (`FERVERDZ18`) y compañero de equipo.
-
+**Integrantes:** Fernando García Verduzco (`Fernando Garcia Verduzco`) y (`Jose Carlos Muñoz Jaimes`)
 ## Proyecto Asignado (Sismos — *The Seismic Observatory*)
 - **Repositorio Fork:** https://github.com/FERVERDZ18/Seismic_Data_Geosciences
 - **Versión estática publicada (GitHub Pages):** https://ferverdz18.github.io/Seismic_Data_Geosciences/
