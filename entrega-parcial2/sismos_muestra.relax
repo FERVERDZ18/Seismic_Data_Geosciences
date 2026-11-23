@@ -1,0 +1,27 @@
+group: Sismos_Observatorio_R3
+
+catalogs = {
+  catalogue_id:string, label:string, provider:string, snapshot:string
+  'nrcan-ca-historical', 'Canada and surroundings · 1985–2019', 'nrcan', 'sha256:f10b91ddbc683406e2f1a642aa8a15fba3d1b46eef3a775f2798cfdc75a31241'
+  'ssn-mx-historical', 'Mexico · direct SSN · 1900–2026', 'ssn', 'sha256:0601c65544bc95ef865d3440e5e6d84249acdebd8edfb379669597096543f993'
+  'usgs-mx-historical', 'Mexico region · paper snapshot', 'usgs', '8fe055ffe635875f7290906d45f70562a7896621'
+  'usgs-na-2020-2025', 'North America · 2020–2025', 'usgs', '8fe055ffe635875f7290906d45f70562a7896621'
+}
+
+records = {
+  record_key:string, catalogue_id:string, time:string, year:number, mag:number, mag_type:string
+  'ssn-mx-historical~ssn-local-3ec35ed592c96fcdf1d59319-1', 'ssn-mx-historical', '2017-09-08T04:49:17Z', 2017, 8.2, null
+  'usgs-mx-historical~us2000ahv0', 'usgs-mx-historical', '2017-09-08T04:49:19.180Z', 2017, 8.2, 'mww'
+  'usgs-na-2020-2025~ak0219neiszm', 'usgs-na-2020-2025', '2021-07-29T06:15:49.188Z', 2021, 8.2, 'mww'
+  'ssn-mx-historical~ssn-local-1df5c2fe2815950a5391ae33-1', 'ssn-mx-historical', '1985-09-19T13:17:49Z', 1985, 8.1, null
+  'usgs-mx-historical~usp0002jwe', 'usgs-mx-historical', '1985-09-19T13:17:47.350Z', 1985, 8.0, 'mw'
+  'usgs-na-2020-2025~us7000asvb', 'usgs-na-2020-2025', '2020-07-22T06:12:44.810Z', 2020, 7.8, 'mww'
+  'nrcan-ca-historical~nrcan-local-278bccc3713e93af6021dd9c-1', 'nrcan-ca-historical', '2012-10-28T03:04:06Z', 2012, 7.7, 'Mw'
+  'ssn-mx-historical~ssn-local-92077fb37af89cbe196caaed-1', 'ssn-mx-historical', '2022-09-19T18:05:09Z', 2022, 7.7, null
+  'ssn-mx-historical~ssn-local-3c50f3a6ad66a0149a30c3a9-1', 'ssn-mx-historical', '2003-01-22T02:06:34Z', 2003, 7.6, null
+  'usgs-na-2020-2025~us7000i9bw', 'usgs-na-2020-2025', '2022-09-19T18:05:08.217Z', 2022, 7.6, 'mww'
+  'usgs-mx-historical~us7000i9bw', 'usgs-mx-historical', '2022-09-19T18:05:08.217Z', 2022, 7.6, 'mww'
+  'usgs-mx-historical~usp0009f7v', 'usgs-mx-historical', '1999-09-30T16:31:15.690Z', 1999, 7.5, 'mwc'
+  'ssn-mx-historical~ssn-local-0810ba4db13d973f71d10344-1', 'ssn-mx-historical', '2012-03-20T18:02:48Z', 2012, 7.5, null
+  'nrcan-ca-historical~nrcan-local-1bb7a91d44cab2a7c7dc355f-1', 'nrcan-ca-historical', '2013-01-05T08:58:17Z', 2013, 7.5, 'Mw'
+}
