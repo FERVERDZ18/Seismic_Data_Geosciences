@@ -1,4 +1,19 @@
-# Seismic Data Geosciences
+# Entrega Segundo Parcial — Bases de Datos (ESCOM - IPN, Grupo 3CV2)
+
+**Integrantes:** Fernando García Verduzco (`FERVERDZ18`) y compañero de equipo.
+
+## Proyecto Asignado (Sismos — *The Seismic Observatory*)
+- **Repositorio Fork:** https://github.com/FERVERDZ18/Seismic_Data_Geosciences
+- **Versión estática publicada (GitHub Pages):** https://ferverdz18.github.io/Seismic_Data_Geosciences/
+- **Consultas en Álgebra Relacional, árboles de operadores, SQL y resultados:** [entrega-parcial2/consultas_sismos.md](./entrega-parcial2/consultas_sismos.md)
+- **Grupo de datos para RelaX:** [entrega-parcial2/sismos_muestra.relax](./entrega-parcial2/sismos_muestra.relax)
+
+### Instrucciones de montaje local e incidencia resuelta
+1. Clonar el fork y levantar un servidor HTTP local (para evitar bloqueos CORS al cargar `.json.gz` y `sql.js`):
+   ```powershell
+   git clone [https://github.com/FERVERDZ18/Seismic_Data_Geosciences.git](https://github.com/FERVERDZ18/Seismic_Data_Geosciences.git)
+   cd Seismic_Data_Geosciences
+   python -m http.server 8000# Seismic Data Geosciences
 
 Independent research workspace for a seismic-data article intended for
 [Computers & Geosciences](https://www.sciencedirect.com/journal/computers-and-geosciences).
